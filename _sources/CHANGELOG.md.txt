@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/02/25 15:05 +00:00)
+### upcoming (2020/02/29 15:44 +00:00)
+- [#1055](https://github.com/tardis-sn/tardis/pull/1055) renamed capmanager class functions (#1055) (@not4win)
 - [#1048](https://github.com/tardis-sn/tardis/pull/1048) Re-activate TARDIS tests (#1048) (@epassaro)
 
 ### v3.0.dev3409 (2020/02/25 04:02 +00:00)
