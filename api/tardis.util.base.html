@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.util.base module &mdash; TARDIS v3.0.dev3411</title>
+  <title>tardis.util.base module &mdash; TARDIS v3.0.dev3413</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3411
+                3.0.dev3413
               </div>
             
           
@@ -274,13 +274,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>atomic_number: int</strong></dt><dd><p>Inputted atomic number</p>
+<dt><strong>atomic_number</strong><span class="classifier">int</span></dt><dd><p>Inputted atomic number</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>: str</dt><dd><p>Returned corresponding element symbol</p>
+<dt>str</dt><dd><p>Returned corresponding element symbol</p>
 </dd>
 </dl>
 </dd>
@@ -294,27 +294,27 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>spec_fname: file or str</strong></dt><dd><p>File or file name to be read</p>
+<dt><strong>spec_fname</strong><span class="classifier">file or str</span></dt><dd><p>File or file name to be read</p>
 </dd>
-<dt><strong>distance: float</strong></dt><dd><p>Distance to star</p>
+<dt><strong>distance</strong><span class="classifier">float</span></dt><dd><p>Distance to star</p>
 </dd>
-<dt><strong>wavelength_column: int, optional(default = 0)</strong></dt><dd><p>Column index in which the wavelength is stored</p>
+<dt><strong>wavelength_column</strong><span class="classifier">int, optional(default = 0)</span></dt><dd><p>Column index in which the wavelength is stored</p>
 </dd>
-<dt><strong>wavelength_unit: float, optional(default = u.angstrom)</strong></dt><dd><p>Dictates units used for calculating wavelength.</p>
+<dt><strong>wavelength_unit</strong><span class="classifier">float, optional(default = u.angstrom)</span></dt><dd><p>Dictates units used for calculating wavelength.</p>
 </dd>
-<dt><strong>flux_column: int, optional(default = 1)</strong></dt><dd><p>Column index in which the flux is stored</p>
+<dt><strong>flux_column</strong><span class="classifier">int, optional(default = 1)</span></dt><dd><p>Column index in which the flux is stored</p>
 </dd>
-<dt><strong>flux_unit: str, optional(default = u.Unit(‘erg / (Angstrom cm2 s)’)</strong></dt><dd><p>Dictates units used for flux</p>
+<dt><strong>flux_unit</strong><span class="classifier">str, optional(default = u.Unit(‘erg / (Angstrom cm2 s)’)</span></dt><dd><p>Dictates units used for flux</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>luminosity.value: float</dt><dd><p>Returned luminosity value of star.</p>
+<dt><strong>luminosity.value</strong><span class="classifier">float</span></dt><dd><p>Returned luminosity value of star.</p>
 </dd>
-<dt>wavelength.min()</dt><dd><p>Minimum value of wavelength of light</p>
+<dt><strong>wavelength.min()</strong><span class="classifier">float</span></dt><dd><p>Minimum value of wavelength of light</p>
 </dd>
-<dt>wavelength.max()</dt><dd><p>Maximum value of wavelength of light</p>
+<dt><strong>wavelength.max()</strong><span class="classifier">float</span></dt><dd><p>Maximum value of wavelength of light</p>
 </dd>
 </dl>
 </dd>
@@ -328,15 +328,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>fname: file, str</strong></dt><dd><p>File or file name that contains abundance info</p>
+<dt><strong>fname</strong><span class="classifier">file, str</span></dt><dd><p>File or file name that contains abundance info</p>
 </dd>
-<dt><strong>delimiter: str, optional(default = ‘s+’)</strong></dt><dd><p>Determines the separator for splitting file</p>
+<dt><strong>delimiter</strong><span class="classifier">str, optional(default = ‘s+’)</span></dt><dd><p>Determines the separator for splitting file</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>: DataFrame</dt><dd><p>Corresponding data frame</p>
+<dt>DataFrame</dt><dd><p>Corresponding data frame</p>
 </dd>
 </dl>
 </dd>
@@ -350,13 +350,19 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>radial1d_mdl: Radial1DModel</strong></dt><dd><p>Inputted object that will be read into YAML file</p>
+<dt><strong>radial1d_mdl</strong><span class="classifier">Radial1DModel</span></dt><dd><p>Inputted object that will be read into YAML file</p>
 </dd>
-<dt><strong>fname: str</strong></dt><dd><p>File name for the synpp yaml</p>
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>File name for the synpp yaml</p>
 </dd>
-<dt><strong>shell_no: int, optional(default = 0)</strong></dt><dd><p>Number of shells</p>
+<dt><strong>shell_no</strong><span class="classifier">int, optional(default = 0)</span></dt><dd><p>Number of shells</p>
 </dd>
-<dt><strong>lines_db: file, optional(default = None)</strong></dt><dd></dd>
+<dt><strong>lines_db</strong><span class="classifier">file, optional(default = None)</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the current dataset does not contain necessary reference files</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -369,13 +375,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>element_string: str</strong></dt><dd><p>Inputted element symbol</p>
+<dt><strong>element_string</strong><span class="classifier">str</span></dt><dd><p>Inputted element symbol</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>: int</dt><dd><p>Returned atomic number</p>
+<dt>int</dt><dd><p>Returned atomic number</p>
 </dd>
 </dl>
 </dd>
@@ -389,13 +395,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>i: int</strong></dt><dd><p>Integer to be converted into roman numerals</p>
+<dt><strong>i</strong><span class="classifier">int</span></dt><dd><p>Integer to be converted into roman numerals</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>: str</dt><dd><p>Returns roman numeral representation of i in str format.</p>
+<dt>str</dt><dd><p>Returns roman numeral representation of i in str format.</p>
 </dd>
 </dl>
 </dd>
@@ -417,11 +423,11 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>nu: float</strong></dt><dd><blockquote>
+<dt><strong>nu</strong><span class="classifier">float</span></dt><dd><blockquote>
 <div><p>Frequency of light</p>
 </div></blockquote>
 <dl class="simple">
-<dt>T: float</dt><dd><p>Temperature in kelvin</p>
+<dt>T<span class="classifier">float</span></dt><dd><p>Temperature in kelvin</p>
 </dd>
 </dl>
 </dd>
@@ -429,7 +435,7 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>Intensity: float</dt><dd><p>Returns the intensity of the black body</p>
+<dt><strong>Intensity</strong><span class="classifier">float</span></dt><dd><p>Returns the intensity of the black body</p>
 </dd>
 </dl>
 </dd>
@@ -443,19 +449,19 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>quantity_string: str</strong></dt><dd><p>String to be converted into astropy.Quantity</p>
+<dt><strong>quantity_string</strong><span class="classifier">str</span></dt><dd><p>String to be converted into astropy.Quantity</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>q: ~u.Quantity</dt><dd><p>Corresponding astropy.Quantity object for passed string</p>
+<dt><strong>q</strong><span class="classifier">~u.Quantity</span></dt><dd><p>Corresponding astropy.Quantity object for passed string</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>MalformedQuantitiyError</dt><dd><p>If string is not properly formatted for Astropy Quantity</p>
+<dt>MalformedQuantityError</dt><dd><p>If string is not properly formatted for Astropy Quantity</p>
 </dd>
 </dl>
 </dd>
@@ -470,17 +476,17 @@ calculated for an astropy quantity start and stop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>start: ~astropy.Quantity</strong></dt><dd><p>Starting value of the sequence</p>
+<dt><strong>start</strong><span class="classifier">~astropy.Quantity</span></dt><dd><p>Starting value of the sequence</p>
 </dd>
-<dt><strong>stop: ~astropy.Quantity</strong></dt><dd><p>End value of the sequence</p>
+<dt><strong>stop</strong><span class="classifier">~astropy.Quantity</span></dt><dd><p>End value of the sequence</p>
 </dd>
-<dt><strong>num: ~int</strong></dt><dd><p>Number of samples to generate</p>
+<dt><strong>num</strong><span class="classifier">int</span></dt><dd><p>Number of samples to generate</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>: ~astropy.Quantity</dt><dd><p>Returns num evenly spaced characters of type astropy.Quantity</p>
+<dt>~astropy.Quantity</dt><dd><p>Returns num evenly spaced characters of type astropy.Quantity</p>
 </dd>
 </dl>
 </dd>
@@ -503,13 +509,13 @@ calculated for an astropy quantity start and stop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>element_string: str</strong></dt><dd><p>Inputted element symbol</p>
+<dt><strong>element_string</strong><span class="classifier">str</span></dt><dd><p>Inputted element symbol</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>: str</dt><dd><p>Returned reformatted element symbol</p>
+<dt>str</dt><dd><p>Returned reformatted element symbol</p>
 </dd>
 </dl>
 </dd>
@@ -523,13 +529,13 @@ calculated for an astropy quantity start and stop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>roman_string: str</strong></dt><dd><p>Roman numeral to be converted into an integer</p>
+<dt><strong>roman_string</strong><span class="classifier">str</span></dt><dd><p>Roman numeral to be converted into an integer</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>: int</dt><dd><p>Returns integer representation of roman_string</p>
+<dt>int</dt><dd><p>Returns integer representation of roman_string</p>
 </dd>
 </dl>
 </dd>
@@ -543,13 +549,13 @@ calculated for an astropy quantity start and stop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>species_string: str</strong></dt><dd><p>String containing species symbol (e.g. Si II, Fe III)</p>
+<dt><strong>species_string</strong><span class="classifier">str</span></dt><dd><p>String containing species symbol (e.g. Si II, Fe III)</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>atomic_number, ion_number: tuple</dt><dd><p>Returns tuple of length 2 indicating atomic number and ion number</p>
+<dt><strong>atomic_number, ion_number</strong><span class="classifier">tuple</span></dt><dd><p>Returns tuple of length 2 indicating atomic number and ion number</p>
 </dd>
 </dl>
 </dd>
@@ -569,16 +575,16 @@ calculated for an astropy quantity start and stop.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>species_tuple: tuple</strong></dt><dd><p>Tuple of 2 values indicated atomic number and number of
+<dt><strong>species_tuple</strong><span class="classifier">tuple</span></dt><dd><p>Tuple of 2 values indicated atomic number and number of
 electrons missing</p>
 </dd>
-<dt><strong>roman_numerals: bool, optional(default = TRUE)</strong></dt><dd><p>Indicates whether the returned ion number is in roman numerals</p>
+<dt><strong>roman_numerals</strong><span class="classifier">bool, optional(default = TRUE)</span></dt><dd><p>Indicates whether the returned ion number is in roman numerals</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>element_symbol, roman_ion_number: str</dt><dd><p>Returns corresponding string representation of given tuple</p>
+<dt><strong>element_symbol, roman_ion_number</strong><span class="classifier">str</span></dt><dd><p>Returns corresponding string representation of given tuple</p>
 </dd>
 </dl>
 </dd>

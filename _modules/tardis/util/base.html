@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.util.base &mdash; TARDIS v3.0.dev3411</title>
+  <title>tardis.util.base &mdash; TARDIS v3.0.dev3413</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.dev3411
+                3.0.dev3413
               </div>
             
           
@@ -268,12 +268,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    i: int</span>
+<span class="sd">    i : int</span>
 <span class="sd">        Integer to be converted into roman numerals</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : str</span>
+<span class="sd">    str</span>
 <span class="sd">        Returns roman numeral representation of i in str format.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
@@ -289,12 +289,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    roman_string: str</span>
+<span class="sd">    roman_string : str</span>
 <span class="sd">        Roman numeral to be converted into an integer</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : int</span>
+<span class="sd">    int</span>
 <span class="sd">        Returns integer representation of roman_string</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -322,26 +322,26 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    spec_fname: file or str</span>
+<span class="sd">    spec_fname : file or str</span>
 <span class="sd">        File or file name to be read</span>
-<span class="sd">    distance: float</span>
+<span class="sd">    distance : float</span>
 <span class="sd">        Distance to star</span>
-<span class="sd">    wavelength_column: int, optional(default = 0)</span>
+<span class="sd">    wavelength_column : int, optional(default = 0)</span>
 <span class="sd">        Column index in which the wavelength is stored</span>
-<span class="sd">    wavelength_unit: float, optional(default = u.angstrom)</span>
+<span class="sd">    wavelength_unit : float, optional(default = u.angstrom)</span>
 <span class="sd">        Dictates units used for calculating wavelength.</span>
-<span class="sd">    flux_column: int, optional(default = 1)</span>
+<span class="sd">    flux_column : int, optional(default = 1)</span>
 <span class="sd">        Column index in which the flux is stored</span>
-<span class="sd">    flux_unit: str, optional(default = u.Unit(&#39;erg / (Angstrom cm2 s)&#39;)</span>
+<span class="sd">    flux_unit : str, optional(default = u.Unit(&#39;erg / (Angstrom cm2 s)&#39;)</span>
 <span class="sd">        Dictates units used for flux</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    luminosity.value: float</span>
+<span class="sd">    luminosity.value : float</span>
 <span class="sd">        Returned luminosity value of star.</span>
-<span class="sd">    wavelength.min()</span>
+<span class="sd">    wavelength.min() : float</span>
 <span class="sd">        Minimum value of wavelength of light</span>
-<span class="sd">    wavelength.max()</span>
+<span class="sd">    wavelength.max() : float</span>
 <span class="sd">        Maximum value of wavelength of light</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#BAD STYLE change to parse quantity</span>
@@ -361,21 +361,25 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    radial1d_mdl: Radial1DModel</span>
+<span class="sd">    radial1d_mdl : Radial1DModel</span>
 <span class="sd">        Inputted object that will be read into YAML file</span>
-<span class="sd">    fname: str</span>
+<span class="sd">    fname : str</span>
 <span class="sd">        File name for the synpp yaml</span>
-<span class="sd">    shell_no: int, optional(default = 0)</span>
+<span class="sd">    shell_no : int, optional(default = 0)</span>
 <span class="sd">        Number of shells</span>
-<span class="sd">    lines_db: file, optional(default = None)</span>
-<span class="sd">        </span>
+<span class="sd">    lines_db : file, optional(default = None)</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the current dataset does not contain necessary reference files</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Currently only works with Si and a special setup&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">radial1d_mdl</span><span class="o">.</span><span class="n">atom_data</span><span class="o">.</span><span class="n">synpp_refs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
             <span class="s1">&#39;The current atom dataset does not contain the &#39;</span>
-            <span class="s1">&#39;necesarry reference files (please contact the authors)&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;necessary reference files (please contact the authors)&#39;</span><span class="p">)</span>
 
     <span class="n">radial1d_mdl</span><span class="o">.</span><span class="n">atom_data</span><span class="o">.</span><span class="n">synpp_refs</span><span class="p">[</span><span class="s1">&#39;ref_log_tau&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">99.0</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">radial1d_mdl</span><span class="o">.</span><span class="n">atom_data</span><span class="o">.</span><span class="n">synpp_refs</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
@@ -444,14 +448,14 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    nu: float</span>
+<span class="sd">    nu : float</span>
 <span class="sd">        Frequency of light</span>
-<span class="sd">    T: float</span>
+<span class="sd">    T : float</span>
 <span class="sd">        Temperature in kelvin</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    Intensity: float</span>
+<span class="sd">    Intensity : float</span>
 <span class="sd">        Returns the intensity of the black body</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">beta_rad</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">k_B_cgs</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span>
@@ -467,16 +471,16 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    species_tuple: tuple</span>
+<span class="sd">    species_tuple : tuple</span>
 <span class="sd">        Tuple of 2 values indicated atomic number and number of</span>
 <span class="sd">        electrons missing</span>
 
-<span class="sd">    roman_numerals: bool, optional(default = TRUE)</span>
+<span class="sd">    roman_numerals : bool, optional(default = TRUE)</span>
 <span class="sd">        Indicates whether the returned ion number is in roman numerals</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    element_symbol, roman_ion_number: str</span>
+<span class="sd">    element_symbol, roman_ion_number : str</span>
 <span class="sd">        Returns corresponding string representation of given tuple</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">atomic_number</span><span class="p">,</span> <span class="n">ion_number</span> <span class="o">=</span> <span class="n">species_tuple</span>
@@ -494,12 +498,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    species_string: str</span>
+<span class="sd">    species_string : str</span>
 <span class="sd">        String containing species symbol (e.g. Si II, Fe III)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    atomic_number, ion_number: tuple</span>
+<span class="sd">    atomic_number, ion_number : tuple</span>
 <span class="sd">        Returns tuple of length 2 indicating atomic number and ion number</span>
 
 <span class="sd">    Raises</span>
@@ -544,17 +548,17 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    quantity_string: str</span>
+<span class="sd">    quantity_string : str</span>
 <span class="sd">        String to be converted into astropy.Quantity</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    q: ~u.Quantity</span>
+<span class="sd">    q : ~u.Quantity</span>
 <span class="sd">        Corresponding astropy.Quantity object for passed string</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
-<span class="sd">    MalformedQuantitiyError</span>
+<span class="sd">    MalformedQuantityError</span>
 <span class="sd">        If string is not properly formatted for Astropy Quantity</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -585,12 +589,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    element_string: str</span>
+<span class="sd">    element_string : str</span>
 <span class="sd">        Inputted element symbol</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : int</span>
+<span class="sd">    int</span>
 <span class="sd">        Returned atomic number</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">reformatted_element_string</span> <span class="o">=</span> <span class="n">reformat_element_symbol</span><span class="p">(</span><span class="n">element_string</span><span class="p">)</span>
@@ -605,12 +609,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    atomic_number: int</span>
+<span class="sd">    atomic_number : int</span>
 <span class="sd">        Inputted atomic number</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : str</span>
+<span class="sd">    str</span>
 <span class="sd">       Returned corresponding element symbol</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ATOMIC_NUMBER2SYMBOL</span><span class="p">[</span><span class="n">atomic_number</span><span class="p">]</span></div>
@@ -623,12 +627,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    element_string: str</span>
+<span class="sd">    element_string : str</span>
 <span class="sd">        Inputted element symbol</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : str</span>
+<span class="sd">    str</span>
 <span class="sd">        Returned reformatted element symbol</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -642,16 +646,16 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    start: ~astropy.Quantity</span>
+<span class="sd">    start : ~astropy.Quantity</span>
 <span class="sd">        Starting value of the sequence</span>
-<span class="sd">    stop: ~astropy.Quantity</span>
+<span class="sd">    stop : ~astropy.Quantity</span>
 <span class="sd">        End value of the sequence</span>
-<span class="sd">    num: ~int</span>
+<span class="sd">    num : int</span>
 <span class="sd">        Number of samples to generate</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : ~astropy.Quantity</span>
+<span class="sd">    ~astropy.Quantity</span>
 <span class="sd">        Returns num evenly spaced characters of type astropy.Quantity</span>
 
 <span class="sd">    Raises</span>
@@ -673,14 +677,14 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    fname: file, str</span>
+<span class="sd">    fname : file, str</span>
 <span class="sd">        File or file name that contains abundance info</span>
-<span class="sd">    delimiter: str, optional(default = &#39;\\s+&#39;)</span>
+<span class="sd">    delimiter : str, optional(default = &#39;\\s+&#39;)</span>
 <span class="sd">        Determines the separator for splitting file</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : DataFrame</span>
+<span class="sd">    DataFrame</span>
 <span class="sd">        Corresponding data frame</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
