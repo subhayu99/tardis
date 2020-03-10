@@ -6,7 +6,6 @@ Subpackages
 
 .. toctree::
 
-   tardis.gui
    tardis.io
    tardis.model
    tardis.montecarlo

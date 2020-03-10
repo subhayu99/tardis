@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/03/09 15:45 +00:00)
+### upcoming (2020/03/10 15:03 +00:00)
+- [#1068](https://github.com/tardis-sn/tardis/pull/1068) Migrate gui to PyQt5 (issue #988) (#1068) (@jordi5)
 - [#1085](https://github.com/tardis-sn/tardis/pull/1085) Solves issue #680 for tardis.util.base (i.e. numpydocs format for doc strings.) (@Phantsure)
 - [#1055](https://github.com/tardis-sn/tardis/pull/1055) renamed capmanager class functions (#1055) (@not4win)
 - [#1048](https://github.com/tardis-sn/tardis/pull/1048) Re-activate TARDIS tests (#1048) (@epassaro)

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Graphical User Interface &mdash; TARDIS v3.0.dev3413</title>
+  <title>Graphical User Interface &mdash; TARDIS v3.0.dev3414</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3413
+                3.0.dev3414
               </div>
             
           
@@ -238,23 +238,22 @@
 </style>
 <div class="section" id="graphical-user-interface">
 <span id="gui"></span><h1>Graphical User Interface<a class="headerlink" href="#graphical-user-interface" title="Permalink to this headline">¶</a></h1>
-<p>TARDIS uses the <a class="reference external" href="http://www.riverbankcomputing.com/software/pyqt/download">PyQt4 framework</a> for its cross-platform
+<p>TARDIS uses the <a class="reference external" href="http://www.riverbankcomputing.com/software/pyqt/download5">PyQt5 framework</a> for its cross-platform
 interface.</p>
-<p>Creating an instance of the <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewer</span></code>-class requires that PyQt4/PySide has already been initialized in
-IPython. The above command to start IPython accomplishes this.</p>
-<p>gui.py contains all the classes used to create the GUI for Tardis.</p>
-<p>This module must be imported inside IPython console started above. The console provides the event loop and the place
+<p>This module can be imported inside IPython console or Jupyter Notebook. The console provides the event loop and the place
 to create/calculate the tardis model. So the module is basically a tool to visualize results.</p>
 <p><strong>To setup and run the GUI (under development) follow these steps:</strong></p>
-<p>The gui can use one of two python bindings for qt, namely PyQt4
-and PySide. You can choose which binding is used by setting the
-environment variable QT_API in your bash. Currently, the TARDIS team uses PyQT4</p>
+<p>The GUI can use one of two python bindings for qt, namely PyQt5
+and PySide2. You can choose which binding is used by setting the
+environment variable QT_API in your bash. Currently, the TARDIS team uses PyQT5</p>
 <p><strong>1</strong>. Installing required packages</p>
+<p>PyQt is installed by default in the tardis enviroment (see installation).
+To use PySide2:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda activate tardis
-conda install <span class="nv">pyqt</span><span class="o">=</span><span class="m">4</span>.8.7
+conda install pyside2 -c conda-forge --no-update-deps
 </pre></div>
 </div>
-<p><strong>2</strong>. Choosing between PySide and PyQt4</p>
+<p><strong>2</strong>. Choosing between PySide2 and PyQt5</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#To choose PySide</span>
 <span class="nb">export</span> <span class="nv">QT_API</span><span class="o">=</span>pyside
 
@@ -263,13 +262,16 @@ conda install <span class="nv">pyqt</span><span class="o">=</span><span class="m
 </pre></div>
 </div>
 <p><strong>3</strong>. An example of creating a model and GUI</p>
-<p>To show the gui from the ipython shell use the following commands.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+<p>First get the example file <a class="reference external" href="https://raw.githubusercontent.com/tardis-sn/tardis/master/docs/models/examples/tardis_example.yml">tardis_example.yml</a>.</p>
+<p>To download a copy of the atomic database (if you haven’t already) add:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tardis.io.atom_data.util</span> <span class="kn">import</span> <span class="n">download_atom_data</span>
+<span class="n">download_atom_data</span><span class="p">(</span><span class="s1">&#39;kurucz_cd23_chianti_H_He&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>To show the GUI from a Jupyter Notebook use the following commands</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tardis</span> <span class="kn">import</span> <span class="n">run_tardis</span>
 <span class="kn">from</span> <span class="nn">tardis.gui</span> <span class="kn">import</span> <span class="n">interface</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">run_tardis</span><span class="p">(</span><span class="s1">&#39;yamlconfigfile.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;atomdatafile.h5&#39;</span><span class="p">)</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">run_tardis</span><span class="p">(</span><span class="s1">&#39;tardis_example.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;kurucz_cd23_chianti_H_He.h5&#39;</span><span class="p">)</span>
 
 <span class="n">interface</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
 </pre></div>
@@ -290,12 +292,12 @@ accordingly set QT_API in shell:</p>
 </pre></div>
 </div>
 <p>Start the IPython console with eventloop integration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="o">--</span><span class="n">pylab</span><span class="o">=</span><span class="n">qt4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span>
 </pre></div>
 </div>
 <p>Display your model:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tardis</span> <span class="kn">import</span> <span class="n">run_tardis</span>
-<span class="n">mdl</span> <span class="o">=</span> <span class="n">run_tardis</span><span class="p">(</span><span class="s1">&#39;yamlconfigfile.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;atomdatafile.h5&#39;</span><span class="p">)</span>
+<span class="n">mdl</span> <span class="o">=</span> <span class="n">run_tardis</span><span class="p">(</span><span class="s1">&#39;tardis_example.yml&#39;</span><span class="p">,</span><span class="s1">&#39;kurucz_cd23_chianti_H_He.h5&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">tardis.gui</span> <span class="kn">import</span> <span class="n">interface</span>
 <span class="n">interface</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">mdl</span><span class="p">)</span>
 </pre></div>
@@ -309,7 +311,7 @@ tardis/tardis/gui. Then use the command:</p>
 </div>
 <div class="section" id="gui-layout-and-features">
 <h2>GUI Layout and Features<a class="headerlink" href="#gui-layout-and-features" title="Permalink to this headline">¶</a></h2>
-<p>When you launch the gui the first screen that you see will be something like the snapshot below.
+<p>When you launch the GUI the first screen that you see will be something like the snapshot below.
 You can inspect the plot of shells on this window and use the toggle button to change between the
 plot of dilution factor and the radiation temperature in shells.</p>
 <a class="reference internal image-reference" href="../_images/OpeningScreen.png"><img alt="../_images/OpeningScreen.png" src="../_images/OpeningScreen.png" style="width: 900px;" /></a>
@@ -318,14 +320,14 @@ plot of dilution factor and the radiation temperature in shells.</p>
 <p>To see the abundances in a shell double-click on the shell number in the table. You can follow a
 similar strategy in the tables that appear to bring up the ion and level populations for each shell.
 The snapshot below shows all the tables that you can bring up by successively clicking the horizontal
-table headers.</p>
+table headers. This feature is not supported at the moment.</p>
 <a class="reference internal image-reference" href="../_images/ShellInfo.png"><img alt="../_images/ShellInfo.png" src="../_images/ShellInfo.png" style="width: 900px;" /></a>
 </div>
 <div class="section" id="line-info">
 <h3>Line Info<a class="headerlink" href="#line-info" title="Permalink to this headline">¶</a></h3>
 <p>If you switch to the spectrum tab you can see the spectrum plot and a button to show line info.
 Once again you can double-click the table headers to get further information. The snapshot below
-shows all the tables that you can bring up in this window.</p>
+shows all the tables that you can bring up in this window. This feature is not supported at the moment.</p>
 <a class="reference internal image-reference" href="../_images/LineInfo.png"><img alt="../_images/LineInfo.png" src="../_images/LineInfo.png" style="width: 900px;" /></a>
 </div>
 </div>
