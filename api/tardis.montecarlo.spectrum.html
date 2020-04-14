@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.montecarlo.spectrum module &mdash; TARDIS v3.0.dev3414</title>
+  <title>tardis.montecarlo.spectrum module &mdash; TARDIS v3.0.dev3415</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3414
+                3.0.dev3415
               </div>
             
           
@@ -242,9 +242,9 @@
 </style>
 <div class="section" id="module-tardis.montecarlo.spectrum">
 <span id="tardis-montecarlo-spectrum-module"></span><h1>tardis.montecarlo.spectrum module<a class="headerlink" href="#module-tardis.montecarlo.spectrum" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.montecarlo.spectrum.</code><code class="sig-name descname">TARDISSpectrum</code><span class="sig-paren">(</span><em class="sig-param">_frequency</em>, <em class="sig-param">luminosity</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">tardis.montecarlo.spectrum.</code><code class="sig-name descname">TARDISSpectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_frequency</span></em>, <em class="sig-param"><span class="n">luminosity</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.io.util.html#tardis.io.util.HDFWriterMixin" title="tardis.io.util.HDFWriterMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.io.util.HDFWriterMixin</span></code></a></p>
 <dl class="simple">
 <dt>_frequency: astropy.units.Quantity with unit ‘Hz’ or a length</dt><dd><p>These are bin edges of frequency or wavelenght bins for the spectrum.</p>
@@ -254,39 +254,39 @@
 </dl>
 <p>After manually adding a distance attribute, the properties ‘flux_nu’ and
 ‘flux_lambda’ become available</p>
-<dl class="method">
+<dl class="py method">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum.f_nu_to_f_lambda">
-<code class="sig-name descname">f_nu_to_f_lambda</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">f_nu</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.f_nu_to_f_lambda"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.f_nu_to_f_lambda" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">f_nu_to_f_lambda</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">f_nu</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.f_nu_to_f_lambda"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.f_nu_to_f_lambda" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum.flux_lambda">
 <em class="property">property </em><code class="sig-name descname">flux_lambda</code><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.flux_lambda" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum.flux_nu">
 <em class="property">property </em><code class="sig-name descname">flux_nu</code><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.flux_nu" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum.hdf_properties">
 <code class="sig-name descname">hdf_properties</code><em class="property"> = ['_frequency', 'luminosity']</em><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.hdf_properties" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum.luminosity_to_flux">
-<em class="property">static </em><code class="sig-name descname">luminosity_to_flux</code><span class="sig-paren">(</span><em class="sig-param">luminosity</em>, <em class="sig-param">distance</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.luminosity_to_flux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.luminosity_to_flux" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">luminosity_to_flux</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">luminosity</span></em>, <em class="sig-param"><span class="n">distance</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.luminosity_to_flux"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.luminosity_to_flux" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum.plot">
-<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">mode='wavelength'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ax</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'wavelength'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.plot" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="tardis.montecarlo.spectrum.TARDISSpectrum.to_ascii">
-<code class="sig-name descname">to_ascii</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname</em>, <em class="sig-param">mode='luminosity_density'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.to_ascii"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.to_ascii" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_ascii</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'luminosity_density'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/spectrum.html#TARDISSpectrum.to_ascii"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.spectrum.TARDISSpectrum.to_ascii" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

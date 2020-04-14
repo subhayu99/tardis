@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.model_reader module &mdash; TARDIS v3.0.dev3414</title>
+  <title>tardis.io.model_reader module &mdash; TARDIS v3.0.dev3415</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3414
+                3.0.dev3415
               </div>
             
           
@@ -242,15 +242,15 @@
 </style>
 <div class="section" id="module-tardis.io.model_reader">
 <span id="tardis-io-model-reader-module"></span><h1>tardis.io.model_reader module<a class="headerlink" href="#module-tardis.io.model_reader" title="Permalink to this headline">¶</a></h1>
-<dl class="exception">
+<dl class="py exception">
 <dt id="tardis.io.model_reader.ConfigurationError">
 <em class="property">exception </em><code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">ConfigurationError</code><a class="reference internal" href="../_modules/tardis/io/model_reader.html#ConfigurationError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.ConfigurationError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.parse_csv_abundances">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">parse_csv_abundances</code><span class="sig-paren">(</span><em class="sig-param">csvy_data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#parse_csv_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.parse_csv_abundances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">parse_csv_abundances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">csvy_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#parse_csv_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.parse_csv_abundances" title="Permalink to this definition">¶</a></dt>
 <dd><p>A parser for the csv data part of a csvy model file. This function filters out columns that are not abundances.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -268,9 +268,9 @@
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_abundances_file">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_abundances_file</code><span class="sig-paren">(</span><em class="sig-param">abundance_filename</em>, <em class="sig-param">abundance_filetype</em>, <em class="sig-param">inner_boundary_index=None</em>, <em class="sig-param">outer_boundary_index=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_abundances_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_abundances_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_abundances_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">abundance_filename</span></em>, <em class="sig-param"><span class="n">abundance_filetype</span></em>, <em class="sig-param"><span class="n">inner_boundary_index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">outer_boundary_index</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_abundances_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_abundances_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>read different density file formats</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -288,9 +288,9 @@
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_artis_density">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_artis_density</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_artis_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_artis_density" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_artis_density</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_artis_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_artis_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reading a density file of the following structure (example; lines starting with a hash will be ignored):
 The first density describes the mean density in the center of the model and is not used.
 5
@@ -315,9 +315,9 @@ The first density describes the mean density in the center of the model and is n
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_cmfgen_composition">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_cmfgen_composition</code><span class="sig-paren">(</span><em class="sig-param">fname</em>, <em class="sig-param">delimiter='\s+'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_cmfgen_composition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_cmfgen_composition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_cmfgen_composition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">delimiter</span><span class="o">=</span><span class="default_value">'\\s+'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_cmfgen_composition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_cmfgen_composition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read composition from a CMFGEN model file</p>
 <p>The CMFGEN file format contains information about the ejecta state in the
 first four columns and the following ones contain elemental and isotopic
@@ -329,9 +329,9 @@ abundances.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_cmfgen_density">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_cmfgen_density</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_cmfgen_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_cmfgen_density" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_cmfgen_density</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_cmfgen_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_cmfgen_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reading a density file of the following structure (example; lines starting with a hash will be ignored):
 The first density describes the mean density in the center of the model and is not used.
 The file consists of a header row and next row contains unit of the respective attributes
@@ -362,9 +362,9 @@ Note that the first column has to contain a running index</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_csv_composition">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_csv_composition</code><span class="sig-paren">(</span><em class="sig-param">fname</em>, <em class="sig-param">delimiter='\s+'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_csv_composition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_csv_composition" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_csv_composition</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">delimiter</span><span class="o">=</span><span class="default_value">'\\s+'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_csv_composition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_csv_composition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read composition from a simple CSV file</p>
 <p>The CSV file can contain specific isotopes or elemental abundances in the
 different columns. The first row must contain the header in which the
@@ -378,9 +378,9 @@ abundances) or by the symbol plus mass number (for isotopic abundances).</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_csv_isotope_abundances">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_csv_isotope_abundances</code><span class="sig-paren">(</span><em class="sig-param">fname, delimiter='\s+', skip_columns=0, skip_rows=[1]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_csv_isotope_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_csv_isotope_abundances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_csv_isotope_abundances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">delimiter</span><span class="o">=</span><span class="default_value">'\\s+'</span></em>, <em class="sig-param"><span class="n">skip_columns</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">skip_rows</span><span class="o">=</span><span class="default_value">[1]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_csv_isotope_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_csv_isotope_abundances" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generic parser for a TARDIS composition stored as a CSV file</p>
 <p>The parser can read in both elemental and isotopic abundances. The first
 column is always expected to contain a running index, labelling the grid
@@ -415,9 +415,9 @@ is essentially ignored (for the default value of skip_rows).</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_density_file">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_density_file</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">filetype</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_density_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_density_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_density_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">filetype</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_density_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_density_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>read different density file formats</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -441,9 +441,9 @@ is essentially ignored (for the default value of skip_rows).</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_simple_ascii_abundances">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_simple_ascii_abundances</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_simple_ascii_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_simple_ascii_abundances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_simple_ascii_abundances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_simple_ascii_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_simple_ascii_abundances" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reading an abundance file of the following structure (example; lines starting with hash will be ignored):
 The first line of abundances describe the abundances in the center of the model and are not used.
 #index element1, element2, …, element30
@@ -466,9 +466,9 @@ The first line of abundances describe the abundances in the center of the model 
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_simple_ascii_density">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_simple_ascii_density</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_simple_ascii_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_simple_ascii_density" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_simple_ascii_density</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_simple_ascii_density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_simple_ascii_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reading a density file of the following structure (example; lines starting with a hash will be ignored):
 The first density describes the mean density in the center of the model and is not used.
 5 s
@@ -493,9 +493,9 @@ The first density describes the mean density in the center of the model and is n
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="tardis.io.model_reader.read_uniform_abundances">
-<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_uniform_abundances</code><span class="sig-paren">(</span><em class="sig-param">abundances_section</em>, <em class="sig-param">no_of_shells</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_uniform_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_uniform_abundances" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">tardis.io.model_reader.</code><code class="sig-name descname">read_uniform_abundances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">abundances_section</span></em>, <em class="sig-param"><span class="n">no_of_shells</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/model_reader.html#read_uniform_abundances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.model_reader.read_uniform_abundances" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
