@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Continuous Integration &mdash; TARDIS v3.0.dev3415</title>
+  <title>Continuous Integration &mdash; TARDIS v3.0.dev3419</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3415
+                3.0.dev3419
               </div>
             
           
@@ -421,7 +421,7 @@ selecting the three dots on the top right while editing that pipeline, as seen h
 </div></blockquote>
 <p>Variables are referenced as $(variable_name), as seen in the InstallSSHKey&#64;0 task in the hostName and sshPublicKey inputs.</p>
 <p>Azure provides a list of agent hosts that can run the pipeline on a virtual machine. In our pipelines, we
-use the vm_Images: Ubuntu 16.04 and macOs-10.13.</p>
+use the vm_Images: Ubuntu 16.04 and macOs-10.14.</p>
 <p>In a job, you can list a single vm as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pool</span><span class="p">:</span>
   <span class="n">vmImage</span><span class="p">:</span> <span class="s2">&quot;Ubuntu 16.04&quot;</span>
@@ -440,7 +440,7 @@ addition to specifying variables as key value pairs such as conda and miniconda.
       vmImage: &quot;Ubuntu 16.04&quot;
       conda: &#39;/usr/share/miniconda&#39;
     mac:
-      vm_Image: &#39;macOS-10.13&#39;
+      vm_Image: &#39;macOS-10.14&#39;
       miniconda.url: &#39;http://repo.continuum.io/miniconda/Miniconda2-latest-mac-x86_64.sh&#39;
   maxParallel: 2
 pool:
