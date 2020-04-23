@@ -1,6 +1,6 @@
 ## Change Log
 
-### upcoming (2020/04/22 14:46 +00:00)
+### v3.0.dev3425 (2020/04/23 17:22 +00:00)
 - [#1134](https://github.com/tardis-sn/tardis/pull/1134) Update mailmap (@epassaro)
 - [#1135](https://github.com/tardis-sn/tardis/pull/1135) Running tests on MacOS-10.14 (@epassaro)
 - [#1068](https://github.com/tardis-sn/tardis/pull/1068) Migrate gui to PyQt5 (issue #988) (#1068) (@jordi5)
