@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.atom_data.base &mdash; TARDIS v3.0.dev3422</title>
+  <title>tardis.io.atom_data.base &mdash; TARDIS v3.0.dev3423</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0.dev3422
+                3.0.dev3423
               </div>
             
           
@@ -406,6 +406,9 @@
 
         <span class="c1"># Convert energy to CGS</span>
         <span class="n">levels</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;energy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;eV&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cgs</span>
+
+        <span class="c1"># Sort the dataframe before indexing to improve performance</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Create a new columns with wavelengths in the CGS units</span>
         <span class="n">lines</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;wavelength_cm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span>
