@@ -1,6 +1,6 @@
 ## Change Log
 
-### upcoming (2020/05/07 15:35 +00:00)
+### v3.0.dev3424 (2020/05/07 15:29 +00:00)
 - [#1133](https://github.com/tardis-sn/tardis/pull/1133) Solve pending issues of the release pipeline (#1133) (@epassaro)
 - [#1141](https://github.com/tardis-sn/tardis/pull/1141) fix warnings in quickstart (#1141) (@sashank27)
 - [#1137](https://github.com/tardis-sn/tardis/pull/1137) Increasing glob-like omission of coverage files (#1137) (@arjunsavel)
