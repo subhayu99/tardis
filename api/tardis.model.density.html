@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.model.density module &mdash; TARDIS v3.0.dev3426</title>
+  <title>tardis.model.density module &mdash; TARDIS v3.0.dev3436</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3426
+                3.0.dev3436
               </div>
             
           
@@ -323,6 +323,23 @@ Configuration object and a csvy model Configuration object.</p>
 <code class="sig-prename descclassname">tardis.model.density.</code><code class="sig-name descname">calculate_density_after_time</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">densities</span></em>, <em class="sig-param"><span class="n">time_0</span></em>, <em class="sig-param"><span class="n">time_explosion</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/model/density.html#calculate_density_after_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.model.density.calculate_density_after_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>scale the density from an initial time of the model to the
 time of the explosion by ^-3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>densities: ~astropy.units.Quantity</strong></dt><dd><p>densities</p>
+</dd>
+<dt><strong>time_0: ~astropy.units.Quantity</strong></dt><dd><p>time of the model</p>
+</dd>
+<dt><strong>time_explosion: ~astropy.units.Quantity</strong></dt><dd><p>time to be scaled to</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>scaled_density</dt><dd></dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

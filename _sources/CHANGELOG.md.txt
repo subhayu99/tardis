@@ -1,5 +1,11 @@
 ## Change Log
 
+### upcoming (2020/05/14 15:38 +00:00)
+- [#1147](https://github.com/tardis-sn/tardis/pull/1147) allow downloading of example file in quickstart (#1147) (@sashank27)
+- [#1105](https://github.com/tardis-sn/tardis/pull/1105) Add skip condition if QT_API is no set (issue #1101) (@jordi5)
+- [#1143](https://github.com/tardis-sn/tardis/pull/1143) Set manual trigger on file (compare refdata) (@epassaro)
+- [#1144](https://github.com/tardis-sn/tardis/pull/1144) add option to execute quickstart in build (#1144) (@sashank27)
+
 ### v3.0.dev3424 (2020/05/07 15:29 +00:00)
 - [#1133](https://github.com/tardis-sn/tardis/pull/1133) Solve pending issues of the release pipeline (#1133) (@epassaro)
 - [#1141](https://github.com/tardis-sn/tardis/pull/1141) fix warnings in quickstart (#1141) (@sashank27)
