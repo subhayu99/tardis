@@ -1,6 +1,8 @@
 ## Change Log
 
-### upcoming (2020/05/14 15:38 +00:00)
+### upcoming (2020/05/20 13:20 +00:00)
+- [#1151](https://github.com/tardis-sn/tardis/pull/1151) Git ignored VSCode specific files (#1151) (@jaladh-singhal)
+- [#1149](https://github.com/tardis-sn/tardis/pull/1149) Made plot size larger in quickstart notebook (#1149) (@jaladh-singhal)
 - [#1147](https://github.com/tardis-sn/tardis/pull/1147) allow downloading of example file in quickstart (#1147) (@sashank27)
 - [#1105](https://github.com/tardis-sn/tardis/pull/1105) Add skip condition if QT_API is no set (issue #1101) (@jordi5)
 - [#1143](https://github.com/tardis-sn/tardis/pull/1143) Set manual trigger on file (compare refdata) (@epassaro)
