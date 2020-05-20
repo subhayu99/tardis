@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/05/20 13:20 +00:00)
+### v3.0.dev3439 (2020/05/20 13:25 +00:00)
+- [#1142](https://github.com/tardis-sn/tardis/pull/1142) Split release pipeline (#1142) (@epassaro)
 - [#1151](https://github.com/tardis-sn/tardis/pull/1151) Git ignored VSCode specific files (#1151) (@jaladh-singhal)
 - [#1149](https://github.com/tardis-sn/tardis/pull/1149) Made plot size larger in quickstart notebook (#1149) (@jaladh-singhal)
 - [#1147](https://github.com/tardis-sn/tardis/pull/1147) allow downloading of example file in quickstart (#1147) (@sashank27)
