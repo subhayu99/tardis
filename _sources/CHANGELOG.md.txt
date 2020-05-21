@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/05/20 19:24 +00:00)
+### upcoming (2020/05/21 15:18 +00:00)
+- [#1155](https://github.com/tardis-sn/tardis/pull/1155) add codecov to azure pipelines (#1155) (@wkerzendorf)
 - [#1157](https://github.com/tardis-sn/tardis/pull/1157) Update .mailmap (#1157) (@epassaro)
 
 ### v3.0.dev3439 (2020/05/20 13:25 +00:00)
