@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/05/21 23:41 +00:00)
+### upcoming (2020/05/27 13:43 +00:00)
+- [#1162](https://github.com/tardis-sn/tardis/pull/1162) Remove duplicated export (#1162) (@epassaro)
+
+### v3.0.dev3442 (2020/05/21 23:34 +00:00)
 - [#1159](https://github.com/tardis-sn/tardis/pull/1159) Fixed crash when integrating in parallel.  Crash was previously caused by a double free error.  Removing the last call to free caused the spectrum to be computed incorrectly, indicating that the structure of the parallelism was at fault.  I removed the firstprivate declaration from the first call to omp parallel as there was no need to make copies of the pointers for each thread (was this even a reasonable thing to do since each thread would have to reallocate the arrays anyway?).  There also did not appear to be any need to maintain copies of L or exp_tau for each thread.  I then moved the last call to free outside of the parallel section.  So now there is no memory allocation or deallocation of L or exp_tau in a parallel block, and exp_tau is freed only once as it should be (#1159) (@Rodot-)
 - [#1155](https://github.com/tardis-sn/tardis/pull/1155) add codecov to azure pipelines (#1155) (@wkerzendorf)
 - [#1157](https://github.com/tardis-sn/tardis/pull/1157) Update .mailmap (#1157) (@epassaro)

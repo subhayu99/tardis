@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Change Log &mdash; TARDIS v3.0.dev3442</title>
+  <title>Change Log &mdash; TARDIS v3.0.dev3443</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3442
+                3.0.dev3443
               </div>
             
           
@@ -120,7 +120,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="development/index.html">Developer Workflow</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#upcoming-2020-05-21-23-41-00-00">upcoming (2020/05/21 23:41 +00:00)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upcoming-2020-05-27-13-43-00-00">upcoming (2020/05/27 13:43 +00:00)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-0-dev3442-2020-05-21-23-34-00-00">v3.0.dev3442 (2020/05/21 23:34 +00:00)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v3-0-dev3439-2020-05-20-13-25-00-00">v3.0.dev3439 (2020/05/20 13:25 +00:00)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v3-0-dev3424-2020-05-07-15-29-00-00">v3.0.dev3424 (2020/05/07 15:29 +00:00)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v3-0-dev3409-2020-02-25-04-02-00-00">v3.0.dev3409 (2020/02/25 04:02 +00:00)</a></li>
@@ -238,8 +239,14 @@
 </style>
 <div class="section" id="change-log">
 <h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="upcoming-2020-05-21-23-41-00-00">
-<h2>upcoming (2020/05/21 23:41 +00:00)<a class="headerlink" href="#upcoming-2020-05-21-23-41-00-00" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="upcoming-2020-05-27-13-43-00-00">
+<h2>upcoming (2020/05/27 13:43 +00:00)<a class="headerlink" href="#upcoming-2020-05-27-13-43-00-00" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tardis-sn/tardis/pull/1162">#1162</a> Remove duplicated export (#1162) (&#64;epassaro)</p></li>
+</ul>
+</div>
+<div class="section" id="v3-0-dev3442-2020-05-21-23-34-00-00">
+<h2>v3.0.dev3442 (2020/05/21 23:34 +00:00)<a class="headerlink" href="#v3-0-dev3442-2020-05-21-23-34-00-00" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/tardis-sn/tardis/pull/1159">#1159</a> Fixed crash when integrating in parallel.  Crash was previously caused by a double free error.  Removing the last call to free caused the spectrum to be computed incorrectly, indicating that the structure of the parallelism was at fault.  I removed the firstprivate declaration from the first call to omp parallel as there was no need to make copies of the pointers for each thread (was this even a reasonable thing to do since each thread would have to reallocate the arrays anyway?).  There also did not appear to be any need to maintain copies of L or exp_tau for each thread.  I then moved the last call to free outside of the parallel section.  So now there is no memory allocation or deallocation of L or exp_tau in a parallel block, and exp_tau is freed only once as it should be (#1159) (&#64;Rodot-)</p></li>
 <li><p><a class="reference external" href="https://github.com/tardis-sn/tardis/pull/1155">#1155</a> add codecov to azure pipelines (#1155) (&#64;wkerzendorf)</p></li>
