@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/05/27 13:43 +00:00)
+### upcoming (2020/05/27 17:28 +00:00)
+- [#1168](https://github.com/tardis-sn/tardis/pull/1168) add checkpoint to PR template checklist (#1168) (@harpolea)
 - [#1162](https://github.com/tardis-sn/tardis/pull/1162) Remove duplicated export (#1162) (@epassaro)
 
 ### v3.0.dev3442 (2020/05/21 23:34 +00:00)
