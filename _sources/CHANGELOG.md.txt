@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/06/01 20:41 +00:00)
+### upcoming (2020/06/01 22:28 +00:00)
+- [#1178](https://github.com/tardis-sn/tardis/pull/1178) Fix Jack O`Brien and Jordi Eguren author names (#1178) (@epassaro)
 - [#1171](https://github.com/tardis-sn/tardis/pull/1171) Changed a print from python 2 to python 3 (#1171) (@arjunsavel)
 - [#1165](https://github.com/tardis-sn/tardis/pull/1165) Fix callbacks in run_tardis (@Rodot-)
 
