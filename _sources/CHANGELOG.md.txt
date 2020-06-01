@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/05/28 17:14 +00:00)
+### upcoming (2020/06/01 19:10 +00:00)
+- [#1165](https://github.com/tardis-sn/tardis/pull/1165) Fix callbacks in run_tardis (@Rodot-)
+
+### v3.0.dev3448 (2020/05/28 17:08 +00:00)
 - [#1173](https://github.com/tardis-sn/tardis/pull/1173) Fix GUI and plasma tests (@epassaro)
 - [#1168](https://github.com/tardis-sn/tardis/pull/1168) add checkpoint to PR template checklist (#1168) (@harpolea)
 - [#1162](https://github.com/tardis-sn/tardis/pull/1162) Remove duplicated export (#1162) (@epassaro)
