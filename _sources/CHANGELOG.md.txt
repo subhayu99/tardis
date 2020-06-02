@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/06/02 13:32 +00:00)
+### upcoming (2020/06/02 19:17 +00:00)
+- [#1180](https://github.com/tardis-sn/tardis/pull/1180) Remove test pipeline (#1180) (@epassaro)
 - [#1153](https://github.com/tardis-sn/tardis/pull/1153) update doc page to a notebook (#1153) (@sashank27)
 - [#1150](https://github.com/tardis-sn/tardis/pull/1150) Fix the Plasma tests (#1150) (@wkerzendorf)
 - [#1178](https://github.com/tardis-sn/tardis/pull/1178) Fix Jack O`Brien and Jordi Eguren author names (#1178) (@epassaro)
