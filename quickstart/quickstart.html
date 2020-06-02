@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quickstart for TARDIS &mdash; TARDIS v3.0.dev3456</title>
+  <title>Quickstart for TARDIS &mdash; TARDIS v3.0.dev3457</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3456
+                3.0.dev3457
               </div>
             
           
@@ -492,62 +492,12 @@ quickstart is <code class="docutils literal notranslate"><span class="pre">tardi
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[<span class="ansi-bold">tardis.io.config_internal</span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  Configuration File /home/vsts/.astropy/config/tardis_internal_config.yml does not exist - creating new one from default (<span class="ansi-bold">config_internal.py</span>:16)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-CRITICAL:root:
-********************************************************************************
-
-TARDIS will download different kinds of data (e.g. atomic) to its data directory /home/vsts/Downloads/tardis-data
-
-TARDIS DATA DIRECTORY not specified in /home/vsts/.astropy/config/tardis_internal_config.yml:
-
-ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
- YOU CAN CHANGE THIS AT ANY TIME IN /home/vsts/.astropy/config/tardis_internal_config.yml
-
-********************************************************************************
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[<span class="ansi-bold">tardis.io.atom_data.atom_web_download</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Downloading atomic data from https://media.githubusercontent.com/media/tardis-sn/tardis-refdata/master/atom_data/kurucz_cd23_chianti_H_He.h5 to /home/vsts/Downloads/tardis-data/kurucz_cd23_chianti_H_He.h5 (<span class="ansi-bold">atom_web_download.py</span>:47)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.io.atom_data.atom_web_download:Downloading atomic data from https://media.githubusercontent.com/media/tardis-sn/tardis-refdata/master/atom_data/kurucz_cd23_chianti_H_He.h5 to /home/vsts/Downloads/tardis-data/kurucz_cd23_chianti_H_He.h5
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c38b964699dc4b6fa299f6fb20794953"}</script></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-
+[<span class="ansi-bold">tardis.io.atom_data.atom_web_download</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Downloading atomic data from https://media.githubusercontent.com/media/tardis-sn/tardis-refdata/master/atom_data/kurucz_cd23_chianti_H_He.h5 to /home/vsts/Downloads/tardis-data/kurucz_cd23_chianti_H_He.h5 (<span class="ansi-bold">atom_web_download.py</span>:47)
 </pre></div></div>
 </div>
 </div>
@@ -569,7 +519,7 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
 <div class="highlight"><pre>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   980  100   980    0     0   5142      0 --:--:-- --:--:-- --:--:--  5130
+100   980  100   980    0     0   8917      0 --:--:-- --:--:-- --:--:--  8990
 </pre></div></div>
 </div>
 </div>
@@ -585,127 +535,20 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [<span class="ansi-bold">tardis.plasma.standard_plasmas</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Reading Atomic Data from kurucz_cd23_chianti_H_He.h5 (<span class="ansi-bold">standard_plasmas.py</span>:74)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.plasma.standard_plasmas:Reading Atomic Data from kurucz_cd23_chianti_H_He.h5
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.io.atom_data.util</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Atom Data kurucz_cd23_chianti_H_He.h5 not found in local path. Exists in TARDIS Data repo /home/vsts/Downloads/tardis-data/kurucz_cd23_chianti_H_He.h5 (<span class="ansi-bold">util.py</span>:29)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.io.atom_data.util:Atom Data kurucz_cd23_chianti_H_He.h5 not found in local path. Exists in TARDIS Data repo /home/vsts/Downloads/tardis-data/kurucz_cd23_chianti_H_He.h5
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.6/site-packages/IPython/core/interactiveshell.py:3331: PerformanceWarning: indexing past lexsort depth may impact performance.
   exec(code_obj, self.user_global_ns, self.user_ns)
  (<span class="ansi-bold">warnings.py</span>:99)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>:py.warnings:/usr/share/miniconda/envs/tardis/lib/python3.6/site-packages/IPython/core/interactiveshell.py:3331: PerformanceWarning: indexing past lexsort depth may impact performance.
-  exec(code_obj, self.user_global_ns, self.user_ns)
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.io.atom_data.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Read Atom Data with UUID=6f7b09e887a311e7a06b246e96350010 and MD5=864f1753714343c41f99cb065710cace. (<span class="ansi-bold">base.py</span>:184)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.io.atom_data.base:Read Atom Data with UUID=6f7b09e887a311e7a06b246e96350010 and MD5=864f1753714343c41f99cb065710cace.
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.io.atom_data.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Non provided atomic data: synpp_refs, photoionization_data (<span class="ansi-bold">base.py</span>:187)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.io.atom_data.base:Non provided atomic data: synpp_refs, photoionization_data
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 1/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 1/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 7.96915e+42 erg / s Luminosity absorbed = 2.63370e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 7.96915e+42 erg / s Luminosity absorbed = 2.63370e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                      t_rad    next_t_rad         w    next_w
         Shell
@@ -715,77 +558,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     9708.082813   9910.442275  0.104556  0.085962
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                     t_rad    next_t_rad         w    next_w
-        Shell
-        0      9926.501965  10171.209103  0.400392  0.500372
-        5      9852.611678  10306.111379  0.211205  0.191331
-        10     9779.813302  10174.379204  0.142695  0.116864
-        15     9708.082813   9910.442275  0.104556  0.085962
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 9933.952 K -- next t_inner 11453.040 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 9933.952 K -- next t_inner 11453.040 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 2/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 2/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.40398e+43 erg / s Luminosity absorbed = 4.68639e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.40398e+43 erg / s Luminosity absorbed = 4.68639e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -795,77 +570,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15      9910.442275  11040.788763  0.085962  0.099700
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10171.209103  11518.516702  0.500372  0.538298
-        5      10306.111379  11554.412119  0.191331  0.217946
-        10     10174.379204  11373.574056  0.116864  0.132935
-        15      9910.442275  11040.788763  0.085962  0.099700
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11453.040 K -- next t_inner 9948.201 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11453.040 K -- next t_inner 9948.201 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 3/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 3/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 8.16814e+42 erg / s Luminosity absorbed = 2.50161e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 8.16814e+42 erg / s Luminosity absorbed = 2.50161e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -875,77 +582,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     11040.788763  10185.648701  0.099700  0.079165
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11518.516702  10501.129902  0.538298  0.438591
-        5      11554.412119  10869.940791  0.217946  0.160809
-        10     11373.574056  10558.269547  0.132935  0.103807
-        15     11040.788763  10185.648701  0.099700  0.079165
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 9948.201 K -- next t_inner 11328.896 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 9948.201 K -- next t_inner 11328.896 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 4/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 4/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.34487e+43 erg / s Luminosity absorbed = 4.47931e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.34487e+43 erg / s Luminosity absorbed = 4.47931e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -955,77 +594,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10185.648701  11085.857161  0.079165  0.093694
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10501.129902  11527.008679  0.438591  0.512509
-        5      10869.940791  11706.138980  0.160809  0.196458
-        10     10558.269547  11444.208532  0.103807  0.124092
-        15     10185.648701  11085.857161  0.079165  0.093694
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11328.896 K -- next t_inner 10054.300 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11328.896 K -- next t_inner 10054.300 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 5/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 5/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 8.44348e+42 erg / s Luminosity absorbed = 2.68000e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 8.44348e+42 erg / s Luminosity absorbed = 2.68000e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1035,77 +606,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     11085.857161  10450.666394  0.093694  0.074550
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11527.008679  10659.382763  0.512509  0.433573
-        5      11706.138980  11038.244897  0.196458  0.158494
-        10     11444.208532  10790.696726  0.124092  0.099660
-        15     11085.857161  10450.666394  0.093694  0.074550
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10054.300 K -- next t_inner 11261.489 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10054.300 K -- next t_inner 11261.489 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 6/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 6/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.32492e+43 erg / s Luminosity absorbed = 4.26229e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.32492e+43 erg / s Luminosity absorbed = 4.26229e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1115,77 +618,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10450.666394  10999.619473  0.074550  0.094676
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10659.382763  11507.437689  0.433573  0.499441
-        5      11038.244897  11634.568776  0.158494  0.197953
-        10     10790.696726  11418.594559  0.099660  0.124085
-        15     10450.666394  10999.619473  0.074550  0.094676
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11261.489 K -- next t_inner 10069.444 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11261.489 K -- next t_inner 10069.444 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 7/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 7/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 8.49858e+42 erg / s Luminosity absorbed = 2.69247e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 8.49858e+42 erg / s Luminosity absorbed = 2.69247e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1195,77 +630,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10999.619473  10506.321595  0.094676  0.073794
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11507.437689  10679.650246  0.499441  0.431088
-        5      11634.568776  11048.266431  0.197953  0.157179
-        10     11418.594559  10825.714870  0.124085  0.098608
-        15     10999.619473  10506.321595  0.094676  0.073794
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10069.444 K -- next t_inner 11241.826 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10069.444 K -- next t_inner 11241.826 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 8/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 8/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.30632e+43 erg / s Luminosity absorbed = 4.31719e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.30632e+43 erg / s Luminosity absorbed = 4.31719e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1275,77 +642,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10506.321595  11099.449886  0.073794  0.090915
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10679.650246  11459.828312  0.431088  0.506176
-        5      11048.266431  11688.139012  0.157179  0.193468
-        10     10825.714870  11441.768967  0.098608  0.122412
-        15     10506.321595  11099.449886  0.073794  0.090915
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11241.826 K -- next t_inner 10123.177 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11241.826 K -- next t_inner 10123.177 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 9/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 9/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 8.68357e+42 erg / s Luminosity absorbed = 2.75015e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 8.68357e+42 erg / s Luminosity absorbed = 2.75015e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1355,77 +654,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     11099.449886  10384.181273  0.090915  0.078432
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11459.828312  10666.223660  0.506176  0.445097
-        5      11688.139012  11000.288585  0.193468  0.163424
-        10     11441.768967  10822.884326  0.122412  0.101641
-        15     11099.449886  10384.181273  0.090915  0.078432
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10123.177 K -- next t_inner 11180.783 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10123.177 K -- next t_inner 11180.783 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 10/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 10/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.28170e+43 erg / s Luminosity absorbed = 4.19511e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.28170e+43 erg / s Luminosity absorbed = 4.19511e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1435,77 +666,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10384.181273  11047.955461  0.078432  0.090937
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10666.223660  11427.410445  0.445097  0.500788
-        5      11000.288585  11612.349822  0.163424  0.193129
-        10     10822.884326  11373.245169  0.101641  0.121622
-        15     10384.181273  11047.955461  0.078432  0.090937
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11180.783 K -- next t_inner 10164.432 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11180.783 K -- next t_inner 10164.432 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 11/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 11/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 8.79074e+42 erg / s Luminosity absorbed = 2.82804e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 8.79074e+42 erg / s Luminosity absorbed = 2.82804e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1515,77 +678,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     11047.955461  10538.170159  0.090937  0.074680
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11427.410445  10741.337822  0.500788  0.439938
-        5      11612.349822  11230.515356  0.193129  0.153637
-        10     11373.245169  10870.696315  0.121622  0.101050
-        15     11047.955461  10538.170159  0.090937  0.074680
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10164.432 K -- next t_inner 11157.711 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10164.432 K -- next t_inner 11157.711 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 12/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 12/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.27128e+43 erg / s Luminosity absorbed = 4.15415e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.27128e+43 erg / s Luminosity absorbed = 4.15415e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1595,77 +690,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10538.170159  11117.762050  0.074680  0.087418
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10741.337822  11507.877578  0.439938  0.483114
-        5      11230.515356  11808.852053  0.153637  0.181826
-        10     10870.696315  11557.412757  0.101050  0.113563
-        15     10538.170159  11117.762050  0.074680  0.087418
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11157.711 K -- next t_inner 10184.966 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11157.711 K -- next t_inner 10184.966 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 13/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 13/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 8.90399e+42 erg / s Luminosity absorbed = 2.80864e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 8.90399e+42 erg / s Luminosity absorbed = 2.80864e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1675,77 +702,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     11117.762050  10574.916600  0.087418  0.075266
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11507.877578  10727.217531  0.483114  0.443706
-        5      11808.852053  11171.758889  0.181826  0.160824
-        10     11557.412757  10971.722637  0.113563  0.098588
-        15     11117.762050  10574.916600  0.087418  0.075266
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10184.966 K -- next t_inner 11108.923 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10184.966 K -- next t_inner 11108.923 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 14/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 14/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.25052e+43 erg / s Luminosity absorbed = 4.07335e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.25052e+43 erg / s Luminosity absorbed = 4.07335e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1755,77 +714,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10574.916600  11047.434163  0.075266  0.088067
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10727.217531  11413.626870  0.443706  0.489526
-        5      11171.758889  11697.006992  0.160824  0.184795
-        10     10971.722637  11424.445844  0.098588  0.116722
-        15     10574.916600  11047.434163  0.075266  0.088067
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11108.923 K -- next t_inner 10224.266 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11108.923 K -- next t_inner 10224.266 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 15/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 15/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 9.00727e+42 erg / s Luminosity absorbed = 2.88724e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 9.00727e+42 erg / s Luminosity absorbed = 2.88724e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1835,77 +726,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     11047.434163  10421.687097  0.088067  0.080401
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11413.626870  10712.622749  0.489526  0.455660
-        5      11697.006992  11125.894032  0.184795  0.164091
-        10     11424.445844  10816.390451  0.116722  0.104037
-        15     11047.434163  10421.687097  0.088067  0.080401
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10224.266 K -- next t_inner 11087.666 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10224.266 K -- next t_inner 11087.666 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 16/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 16/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.23781e+43 erg / s Luminosity absorbed = 4.07435e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.23781e+43 erg / s Luminosity absorbed = 4.07435e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1915,77 +738,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10421.687097  10965.228363  0.080401  0.089940
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10712.622749  11352.158138  0.455660  0.500754
-        5      11125.894032  11644.968350  0.164091  0.185289
-        10     10816.390451  11320.695930  0.104037  0.119195
-        15     10421.687097  10965.228363  0.080401  0.089940
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11087.666 K -- next t_inner 10256.946 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11087.666 K -- next t_inner 10256.946 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 17/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 17/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 9.18956e+42 erg / s Luminosity absorbed = 2.86249e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 9.18956e+42 erg / s Luminosity absorbed = 2.86249e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -1995,77 +750,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10965.228363  10545.065525  0.089940  0.078433
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11352.158138  10738.799194  0.500754  0.452965
-        5      11644.968350  11210.269586  0.185289  0.160945
-        10     11320.695930  10911.463205  0.119195  0.103910
-        15     10965.228363  10545.065525  0.089940  0.078433
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10256.946 K -- next t_inner 11012.230 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10256.946 K -- next t_inner 11012.230 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 18/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 18/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.20741e+43 erg / s Luminosity absorbed = 3.93375e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.20741e+43 erg / s Luminosity absorbed = 3.93375e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -2075,77 +762,9 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10545.065525  10958.974248  0.078433  0.087415
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      10738.799194  11316.665617  0.452965  0.492135
-        5      11210.269586  11599.094127  0.160945  0.183929
-        10     10911.463205  11403.508986  0.103910  0.114400
-        15     10545.065525  10958.974248  0.078433  0.087415
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 11012.230 K -- next t_inner 10314.623 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 11012.230 K -- next t_inner 10314.623 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 19/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 19/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 9.29848e+42 erg / s Luminosity absorbed = 3.02011e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 9.29848e+42 erg / s Luminosity absorbed = 3.02011e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
                       t_rad    next_t_rad         w    next_w
         Shell
@@ -2155,86 +774,10 @@ ASSUMING DEFAULT DATA DIRECTORY /home/vsts/Downloads/tardis-data
         15     10958.974248  10599.851144  0.087415  0.077690
 
  (<span class="ansi-bold">base.py</span>:350)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Plasma stratification:
-                      t_rad    next_t_rad         w    next_w
-        Shell
-        0      11316.665617  10862.505720  0.492135  0.444495
-        5      11599.094127  11194.462074  0.183929  0.162842
-        10     11403.508986  11065.620645  0.114400  0.099372
-        15     10958.974248  10599.851144  0.087415  0.077690
-
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10314.623 K -- next t_inner 11009.102 K (<span class="ansi-bold">base.py</span>:352)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:t_inner 10314.623 K -- next t_inner 11009.102 K
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 20/20 (<span class="ansi-bold">base.py</span>:268)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Starting iteration 20/20
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.21062e+43 erg / s Luminosity absorbed = 3.88405e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Luminosity emitted = 1.21062e+43 erg / s Luminosity absorbed = 3.88405e+42 erg / s Luminosity requested = 1.05928e+43 erg / s
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 36.50 s (<span class="ansi-bold">base.py</span>:308)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-<span class="ansi-white-intense-fg ansi-bold">INFO</span>:tardis.simulation.base:Simulation finished in 20 iterations and took 36.50 s
+[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 33.61 s (<span class="ansi-bold">base.py</span>:308)
 </pre></div></div>
 </div>
 </div>
@@ -2295,9 +838,7 @@ Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 </div>
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"9ff0228cfc174e52ab897e404bc585c8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9ae661512ecb4090ae24472ab7adb735": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": "initial"}}, "ffe43305a21e4f8090d784a763724c54": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "kurucz_cd23_chianti_H_He.h5: ", "description_tooltip": null, "layout": "IPY_MODEL_9ff0228cfc174e52ab897e404bc585c8", "max": 73704476.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_9ae661512ecb4090ae24472ab7adb735", "value": 73704476.0}}, "56cb50e36f1d44ae84f89b268b18757c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d6d0f2ef26d44d92b3b64811af372c28": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "acc1676413824cdea4abae85a1058b0a": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_56cb50e36f1d44ae84f89b268b18757c", "placeholder": "\u200b", "style": "IPY_MODEL_d6d0f2ef26d44d92b3b64811af372c28", "value": " 73.7M/? [00:01&lt;00:00, 44.7MB/s]"}}, "3aa4aa8d66b5493e912e10db7bde3ccd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c38b964699dc4b6fa299f6fb20794953": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_ffe43305a21e4f8090d784a763724c54", "IPY_MODEL_acc1676413824cdea4abae85a1058b0a"], "layout": "IPY_MODEL_3aa4aa8d66b5493e912e10db7bde3ccd"}}}, "version_major": 2, "version_minor": 0}
-</script></div>
+</div>
 </div>
 
 
