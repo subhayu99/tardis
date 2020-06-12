@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.plasma_input module &mdash; TARDIS v3.0.dev3458</title>
+  <title>tardis.plasma.properties.plasma_input module &mdash; TARDIS v3.0.dev3459</title>
   
 
   
@@ -28,7 +28,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3458
+                3.0.dev3459
               </div>
             
           
@@ -245,24 +245,82 @@
 <div class="section" id="module-tardis.plasma.properties.plasma_input">
 <span id="tardis-plasma-properties-plasma-input-module"></span><h1>tardis.plasma.properties.plasma_input module<a class="headerlink" href="#module-tardis.plasma.properties.plasma_input" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="tardis.plasma.properties.plasma_input.TRadiative">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">TRadiative</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#TRadiative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TRadiative" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ArrayInput" title="tardis.plasma.properties.base.ArrayInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ArrayInput</span></code></a></p>
+<dt id="tardis.plasma.properties.plasma_input.Abundance">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">Abundance</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#Abundance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Abundance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>t_rad</strong><span class="classifier">Numpy Array, dtype float</span></dt><dd></dd>
+<dt><strong>abundance</strong><span class="classifier">Numpy array, dtype float</span></dt><dd><p>Fractional abundance of elements</p>
+</dd>
 </dl>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.TRadiative.latex_name">
-<code class="sig-name descname">latex_name</code><em class="property"> = ('T_{\\textrm{rad}}',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TRadiative.latex_name" title="Permalink to this definition">¶</a></dt>
+<dt id="tardis.plasma.properties.plasma_input.Abundance.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('abundance',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Abundance.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tardis.plasma.properties.plasma_input.AtomicData">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">AtomicData</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#AtomicData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.AtomicData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>atomic_data</strong><span class="classifier">Object</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.plasma_input.AtomicData.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('atomic_data',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.AtomicData.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">ContinuumInteractionSpecies</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#ContinuumInteractionSpecies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>continuum_interaction_species: Pandas MultiIndex, dtype int</strong></dt><dd><p>Atomic and ion numbers of elements for which continuum interactions
+(radiative/collisional ionization and recombination) are treated</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('continuum_interaction_species',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tardis.plasma.properties.plasma_input.Density">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">Density</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#Density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ArrayInput" title="tardis.plasma.properties.base.ArrayInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ArrayInput</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>density</strong><span class="classifier">Numpy array, dtype float</span></dt><dd><p>Total density values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.plasma_input.Density.latex_name">
+<code class="sig-name descname">latex_name</code><em class="property"> = ('\\rho',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Density.latex_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.TRadiative.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('t_rad',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TRadiative.outputs" title="Permalink to this definition">¶</a></dt>
+<dt id="tardis.plasma.properties.plasma_input.Density.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('density',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Density.outputs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -293,86 +351,12 @@ to account for the dilution of the radiation field.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="tardis.plasma.properties.plasma_input.AtomicData">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">AtomicData</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#AtomicData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.AtomicData" title="Permalink to this definition">¶</a></dt>
+<dt id="tardis.plasma.properties.plasma_input.HeliumTreatment">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">HeliumTreatment</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#HeliumTreatment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.HeliumTreatment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>atomic_data</strong><span class="classifier">Object</span></dt><dd></dd>
-</dl>
-</dd>
-</dl>
 <dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.AtomicData.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('atomic_data',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.AtomicData.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="tardis.plasma.properties.plasma_input.Abundance">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">Abundance</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#Abundance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Abundance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>abundance</strong><span class="classifier">Numpy array, dtype float</span></dt><dd><p>Fractional abundance of elements</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.Abundance.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('abundance',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Abundance.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="tardis.plasma.properties.plasma_input.Density">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">Density</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#Density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Density" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ArrayInput" title="tardis.plasma.properties.base.ArrayInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ArrayInput</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>density</strong><span class="classifier">Numpy array, dtype float</span></dt><dd><p>Total density values</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.Density.latex_name">
-<code class="sig-name descname">latex_name</code><em class="property"> = ('\\rho',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Density.latex_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.Density.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('density',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Density.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="tardis.plasma.properties.plasma_input.TimeExplosion">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">TimeExplosion</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#TimeExplosion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TimeExplosion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>time_explosion</strong><span class="classifier">Float</span></dt><dd><p>Time since explosion in seconds</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.TimeExplosion.latex_name">
-<code class="sig-name descname">latex_name</code><em class="property"> = ('t_{\\textrm{exp}}',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TimeExplosion.latex_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.TimeExplosion.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('time_explosion',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TimeExplosion.outputs" title="Permalink to this definition">¶</a></dt>
+<dt id="tardis.plasma.properties.plasma_input.HeliumTreatment.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('helium_treatment',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.HeliumTreatment.outputs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -426,17 +410,6 @@ Default is 0.9.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="tardis.plasma.properties.plasma_input.HeliumTreatment">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">HeliumTreatment</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#HeliumTreatment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.HeliumTreatment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.HeliumTreatment.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('helium_treatment',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.HeliumTreatment.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt id="tardis.plasma.properties.plasma_input.RInner">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">RInner</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#RInner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.RInner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
@@ -459,32 +432,59 @@ Default is 0.9.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="tardis.plasma.properties.plasma_input.TRadiative">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">TRadiative</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#TRadiative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TRadiative" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ArrayInput" title="tardis.plasma.properties.base.ArrayInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ArrayInput</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>t_rad</strong><span class="classifier">Numpy Array, dtype float</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.plasma_input.TRadiative.latex_name">
+<code class="sig-name descname">latex_name</code><em class="property"> = ('T_{\\textrm{rad}}',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TRadiative.latex_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.plasma_input.TRadiative.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('t_rad',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TRadiative.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tardis.plasma.properties.plasma_input.TimeExplosion">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">TimeExplosion</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#TimeExplosion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TimeExplosion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>time_explosion</strong><span class="classifier">Float</span></dt><dd><p>Time since explosion in seconds</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.plasma_input.TimeExplosion.latex_name">
+<code class="sig-name descname">latex_name</code><em class="property"> = ('t_{\\textrm{exp}}',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TimeExplosion.latex_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.plasma_input.TimeExplosion.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('time_explosion',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.TimeExplosion.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="tardis.plasma.properties.plasma_input.Volume">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">Volume</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#Volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
 <dl class="py attribute">
 <dt id="tardis.plasma.properties.plasma_input.Volume.outputs">
 <code class="sig-name descname">outputs</code><em class="property"> = ('volume',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.Volume.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.plasma_input.</code><code class="sig-name descname">ContinuumInteractionSpecies</code><a class="reference internal" href="../_modules/tardis/plasma/properties/plasma_input.html#ContinuumInteractionSpecies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input" title="tardis.plasma.properties.base.Input"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.Input</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>continuum_interaction_species: Pandas MultiIndex, dtype int</strong></dt><dd><p>Atomic and ion numbers of elements for which continuum interactions
-(radiative/collisional ionization and recombination) are treated</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('continuum_interaction_species',)</em><a class="headerlink" href="#tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies.outputs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.atomic module &mdash; TARDIS v3.0.dev3458</title>
+  <title>tardis.plasma.properties.atomic module &mdash; TARDIS v3.0.dev3459</title>
   
 
   
@@ -28,7 +28,7 @@
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3458
+                3.0.dev3459
               </div>
             
           
@@ -245,6 +245,43 @@
 <div class="section" id="module-tardis.plasma.properties.atomic">
 <span id="tardis-plasma-properties-atomic-module"></span><h1>tardis.plasma.properties.atomic module<a class="headerlink" href="#module-tardis.plasma.properties.atomic" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
+<dt id="tardis.plasma.properties.atomic.AtomicMass">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">AtomicMass</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#AtomicMass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.AtomicMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty" title="tardis.plasma.properties.base.ProcessingPlasmaProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ProcessingPlasmaProperty</span></code></a></p>
+<p>Attributes:
+atomic_mass : Pandas Series</p>
+<blockquote>
+<div><p>Atomic masses of the elements used. Indexed by atomic number.</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="tardis.plasma.properties.atomic.AtomicMass.calculate">
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">atomic_data</span></em>, <em class="sig-param"><span class="n">selected_atoms</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#AtomicMass.calculate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.AtomicMass.calculate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.atomic.AtomicMass.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('atomic_mass',)</em><a class="headerlink" href="#tardis.plasma.properties.atomic.AtomicMass.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tardis.plasma.properties.atomic.IonizationData">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">IonizationData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#IonizationData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.IonizationData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.BaseAtomicDataProperty" title="tardis.plasma.properties.base.BaseAtomicDataProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.BaseAtomicDataProperty</span></code></a></p>
+<p>Attributes:
+ionization_data : Pandas Series holding ionization energies</p>
+<blockquote>
+<div><p>Indexed by atomic number, ion number.</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.atomic.IonizationData.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('ionization_data',)</em><a class="headerlink" href="#tardis.plasma.properties.atomic.IonizationData.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="tardis.plasma.properties.atomic.Levels">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">Levels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#Levels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.Levels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.BaseAtomicDataProperty" title="tardis.plasma.properties.base.BaseAtomicDataProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.BaseAtomicDataProperty</span></code></a></p>
@@ -345,62 +382,6 @@ lines_upper_level_index : One-dimensional Numpy Array, dtype int</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="tardis.plasma.properties.atomic.AtomicMass">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">AtomicMass</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#AtomicMass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.AtomicMass" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty" title="tardis.plasma.properties.base.ProcessingPlasmaProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ProcessingPlasmaProperty</span></code></a></p>
-<p>Attributes:
-atomic_mass : Pandas Series</p>
-<blockquote>
-<div><p>Atomic masses of the elements used. Indexed by atomic number.</p>
-</div></blockquote>
-<dl class="py method">
-<dt id="tardis.plasma.properties.atomic.AtomicMass.calculate">
-<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">atomic_data</span></em>, <em class="sig-param"><span class="n">selected_atoms</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#AtomicMass.calculate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.AtomicMass.calculate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.atomic.AtomicMass.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('atomic_mass',)</em><a class="headerlink" href="#tardis.plasma.properties.atomic.AtomicMass.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="tardis.plasma.properties.atomic.IonizationData">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">IonizationData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#IonizationData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.IonizationData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.BaseAtomicDataProperty" title="tardis.plasma.properties.base.BaseAtomicDataProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.BaseAtomicDataProperty</span></code></a></p>
-<p>Attributes:
-ionization_data : Pandas Series holding ionization energies</p>
-<blockquote>
-<div><p>Indexed by atomic number, ion number.</p>
-</div></blockquote>
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.atomic.IonizationData.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('ionization_data',)</em><a class="headerlink" href="#tardis.plasma.properties.atomic.IonizationData.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="tardis.plasma.properties.atomic.ZetaData">
-<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">ZetaData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#ZetaData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.ZetaData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.BaseAtomicDataProperty" title="tardis.plasma.properties.base.BaseAtomicDataProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.BaseAtomicDataProperty</span></code></a></p>
-<p>Attributes:
-zeta_data : Pandas DataFrame, dtype float</p>
-<blockquote>
-<div><p>Zeta data for the elements used. Indexed by atomic number, ion number.
-Columns are temperature values up to 40,000 K in iterations of 2,000 K.
-The zeta value represents the fraction of recombination events
-from the ionized state that go directly to the ground state.</p>
-</div></blockquote>
-<dl class="py attribute">
-<dt id="tardis.plasma.properties.atomic.ZetaData.outputs">
-<code class="sig-name descname">outputs</code><em class="property"> = ('zeta_data',)</em><a class="headerlink" href="#tardis.plasma.properties.atomic.ZetaData.outputs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt id="tardis.plasma.properties.atomic.NLTEData">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">NLTEData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#NLTEData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.NLTEData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty" title="tardis.plasma.properties.base.ProcessingPlasmaProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ProcessingPlasmaProperty</span></code></a></p>
@@ -462,6 +443,25 @@ photoionization data exists.</p>
 <dl class="py attribute">
 <dt id="tardis.plasma.properties.atomic.PhotoIonizationData.outputs">
 <code class="sig-name descname">outputs</code><em class="property"> = ('photo_ion_cross_sections', 'photo_ion_block_references', 'photo_ion_index')</em><a class="headerlink" href="#tardis.plasma.properties.atomic.PhotoIonizationData.outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tardis.plasma.properties.atomic.ZetaData">
+<em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">ZetaData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#ZetaData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.ZetaData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.BaseAtomicDataProperty" title="tardis.plasma.properties.base.BaseAtomicDataProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.BaseAtomicDataProperty</span></code></a></p>
+<p>Attributes:
+zeta_data : Pandas DataFrame, dtype float</p>
+<blockquote>
+<div><p>Zeta data for the elements used. Indexed by atomic number, ion number.
+Columns are temperature values up to 40,000 K in iterations of 2,000 K.
+The zeta value represents the fraction of recombination events
+from the ionized state that go directly to the ground state.</p>
+</div></blockquote>
+<dl class="py attribute">
+<dt id="tardis.plasma.properties.atomic.ZetaData.outputs">
+<code class="sig-name descname">outputs</code><em class="property"> = ('zeta_data',)</em><a class="headerlink" href="#tardis.plasma.properties.atomic.ZetaData.outputs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
