@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Macro Atom &mdash; TARDIS v3.0.dev3459</title>
+  <title>Macro Atom &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -105,7 +105,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -228,12 +227,12 @@ P<sub>down</sub> and P<sub>down emission</sub> being the probability for going t
 level and emitting a photon while doing this respectively (see Figure 1 in <span class="bibtex" id="id2">[2002A&amp;A…384..725L]</span> ).</p>
 <p>The macro atom is the most complex idea to implement as a data structure. The setup is done in <cite>~tardisatomic</cite>, but
 we will nonetheless discuss it here (as <cite>~tardisatomic</cite> is even less documented than this one).</p>
-<p>For each level we look at the line list to see what transitions (upwards or downwards are possible). We create a two arrays,
-the first is a long one-dimensional array containing the probabilities. Each level contains a set of probabilities, The first
+<p>For each level,                                                                                               we look at the line list to see what transitions (upwards or downwards are possible). We create a two arrays,
+the first is a long one-dimensional array containing the probabilities. Each level contains a set of probabilities. The first
 part of each set contains the upwards probabilities (internal upward), the second part the downwards probabilities
 (internal downward), and the last part is the downward and emission probability.</p>
 <p>each set is stacked after the other one to make one long one dimensional <cite>~numpy.ndarray</cite>.</p>
-<p>The second array is for book-keeping it has exactly the length as levels (with an example for the Si II level 15):</p>
+<p>The second array is for book-keeping; it has exactly the length as levels (with an example for the Si II level 15):</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 11%" />
@@ -271,7 +270,7 @@ p_\textrm{internal up}&amp;={\cal R}_{\textrm{i}\rightarrow\textrm{upper}}\,\eps
 </dd>
 </dl>
 <p>We ignore the probability to emit a k-packet as TARDIS only works with photon packets.
-Next we calculate the radidative
+Next we calculate the radiative
 rates using equation 10 in <span class="bibtex" id="id5">[2003A&amp;A…403..261L]</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}{\cal R}_{\textrm{upper}\rightarrow\textrm{lower}} &amp;=

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Graphical User Interface &mdash; TARDIS v3.0.dev3459</title>
+  <title>Graphical User Interface &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -123,7 +123,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -245,7 +244,7 @@ to create/calculate the tardis model. So the module is basically a tool to visua
 <p><strong>To setup and run the GUI (under development) follow these steps:</strong></p>
 <p>The GUI can use one of two python bindings for qt, namely PyQt5
 and PySide2. You can choose which binding is used by setting the
-environment variable QT_API in your bash. Currently, the TARDIS team uses PyQT5</p>
+environment variable QT_API in your bash. Currently, the TARDIS team uses PyQT5.</p>
 <p><strong>1</strong>. Installing required packages</p>
 <p>PyQt is installed by default in the tardis enviroment (see installation).
 To use PySide2:</p>
@@ -262,13 +261,13 @@ conda install pyside2 -c conda-forge --no-update-deps
 </pre></div>
 </div>
 <p><strong>3</strong>. An example of creating a model and GUI</p>
-<p>First get the example file <a class="reference external" href="https://raw.githubusercontent.com/tardis-sn/tardis/master/docs/models/examples/tardis_example.yml">tardis_example.yml</a>.</p>
-<p>To download a copy of the atomic database (if you haven’t already) add:</p>
+<p>First, get the example file <a class="reference external" href="https://raw.githubusercontent.com/tardis-sn/tardis/master/docs/models/examples/tardis_example.yml">tardis_example.yml</a>.</p>
+<p>To download a copy of the atomic database (if you haven’t already), add:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tardis.io.atom_data.util</span> <span class="kn">import</span> <span class="n">download_atom_data</span>
 <span class="n">download_atom_data</span><span class="p">(</span><span class="s1">&#39;kurucz_cd23_chianti_H_He&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To show the GUI from a Jupyter Notebook use the following commands</p>
+<p>To show the GUI from a Jupyter Notebook, use the following commands:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tardis</span> <span class="kn">import</span> <span class="n">run_tardis</span>
 <span class="kn">from</span> <span class="nn">tardis.gui</span> <span class="kn">import</span> <span class="n">interface</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">run_tardis</span><span class="p">(</span><span class="s1">&#39;tardis_example.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;kurucz_cd23_chianti_H_He.h5&#39;</span><span class="p">)</span>
@@ -277,8 +276,8 @@ conda install pyside2 -c conda-forge --no-update-deps
 </pre></div>
 </div>
 <p>If you just want to run from a configuration file and show the results, you can
-do that outside the jupyter notebook. Navigate to the folder where you
-installed tardis and go to tardis/tardis/gui, and use the following command.</p>
+do that outside the Jupyter notebook. Navigate to the folder where you
+installed TARDIS, go to tardis/tardis/gui, and use the following command.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python interface.py path-to-yaml-configuration-file path-to-atomic-data-file
 </pre></div>
 </div>
@@ -302,8 +301,8 @@ accordingly set QT_API in shell:</p>
 <span class="n">interface</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">mdl</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(WIP) You can also run a configuration from the shell. To do this first set
-QT_API in the shell. Then navigate to the tardis installation folder and go to
+<p>(WIP) You can also run a configuration from the shell. To do this, first set
+QT_API in the shell. Next, navigate to the TARDIS installation folder and go to
 tardis/tardis/gui. Then use the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">interface</span><span class="o">.</span><span class="n">py</span> <span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">configuration</span><span class="o">-</span><span class="n">file</span> <span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">atomic</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">file</span>
 </pre></div>
@@ -311,13 +310,13 @@ tardis/tardis/gui. Then use the command:</p>
 </div>
 <div class="section" id="gui-layout-and-features">
 <h2>GUI Layout and Features<a class="headerlink" href="#gui-layout-and-features" title="Permalink to this headline">¶</a></h2>
-<p>When you launch the GUI the first screen that you see will be something like the snapshot below.
+<p>When you launch the GUI, the first screen that you see will be something like the snapshot below.
 You can inspect the plot of shells on this window and use the toggle button to change between the
 plot of dilution factor and the radiation temperature in shells.</p>
 <a class="reference internal image-reference" href="../_images/OpeningScreen.png"><img alt="../_images/OpeningScreen.png" src="../_images/OpeningScreen.png" style="width: 900px;" /></a>
 <div class="section" id="shell-info">
 <h3>Shell Info<a class="headerlink" href="#shell-info" title="Permalink to this headline">¶</a></h3>
-<p>To see the abundances in a shell double-click on the shell number in the table. You can follow a
+<p>To see the abundances in a shell, double-click on the shell number in the table. You can follow a
 similar strategy in the tables that appear to bring up the ion and level populations for each shell.
 The snapshot below shows all the tables that you can bring up by successively clicking the horizontal
 table headers. This feature is not supported at the moment.</p>
@@ -325,8 +324,8 @@ table headers. This feature is not supported at the moment.</p>
 </div>
 <div class="section" id="line-info">
 <h3>Line Info<a class="headerlink" href="#line-info" title="Permalink to this headline">¶</a></h3>
-<p>If you switch to the spectrum tab you can see the spectrum plot and a button to show line info.
-Once again you can double-click the table headers to get further information. The snapshot below
+<p>If you switch to the spectrum tab, you can see the spectrum plot and a button to show line info.
+Once again, you can double-click the table headers to get further information. The snapshot below
 shows all the tables that you can bring up in this window. This feature is not supported at the moment.</p>
 <a class="reference internal image-reference" href="../_images/LineInfo.png"><img alt="../_images/LineInfo.png" src="../_images/LineInfo.png" style="width: 900px;" /></a>
 </div>

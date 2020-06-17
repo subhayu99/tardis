@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration File &mdash; TARDIS v3.0.dev3459</title>
+  <title>Configuration File &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -123,7 +123,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -247,15 +246,14 @@ configuration file (with a small subset of the options that can be specified) ca
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>One should note that currently floats in YAML need to be specified in a special format:
-any pure floats need to have a +/- after the e e.g. 2e+5</p>
+any pure floats need to have a +/- after the “e”, e.g. 2e+5</p>
 </div>
 <p>The TARDIS configuration consists of multiple sections that pertain to certain parts of the code. We will use the
-schemas to show what options are available. Our schema mark-up defines names in bold-fat as required.
-can be seen here:</p>
+schemas to show what options are available. Our schema mark-up defines names in bold-fat as required and can be seen here:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following shows all the options (and their default settings) that are available for TARDIS. No other options
-are allowed or available</p>
+are allowed or available.</p>
 </div>
 <div class="contents local topic" id="overview">
 <p class="topic-title">Overview</p>
@@ -439,7 +437,7 @@ are allowed or available</p>
 <div class="section" id="model">
 <h3><a class="toc-backref" href="#id3">Model</a><a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
 <p>The next sections, describing the model, are very hierarchical. The base level is <code class="docutils literal notranslate"><span class="pre">model</span></code> and contains two subsections:
-<code class="docutils literal notranslate"><span class="pre">structure</span></code> and <code class="docutils literal notranslate"><span class="pre">abundances</span></code>. Both sections can either contain a <code class="docutils literal notranslate"><span class="pre">file</span></code> subsection which specifies a file and
+<code class="docutils literal notranslate"><span class="pre">structure</span></code> and <code class="docutils literal notranslate"><span class="pre">abundances</span></code>. Both sections can either contain a <code class="docutils literal notranslate"><span class="pre">file</span></code> subsection that specifies a file and
 file type where the information is stored or a number of other sections.</p>
 <table class="docutils align-default" id="model.yml">
 <colgroup>
@@ -510,14 +508,14 @@ file type where the information is stored or a number of other sections.</p>
 </tr>
 </tbody>
 </table>
-<p>All types of <code class="docutils literal notranslate"><span class="pre">structure</span></code> definitions have two keywords in common <code class="docutils literal notranslate"><span class="pre">v_inner_boundary</span></code> and <code class="docutils literal notranslate"><span class="pre">v_outer_boundary</span></code>.
+<p>All types of <code class="docutils literal notranslate"><span class="pre">structure</span></code> definitions have two keywords in common: <code class="docutils literal notranslate"><span class="pre">v_inner_boundary</span></code> and <code class="docutils literal notranslate"><span class="pre">v_outer_boundary</span></code>.
 In the <code class="docutils literal notranslate"><span class="pre">structure</span></code> section, one can specify a <code class="docutils literal notranslate"><span class="pre">file</span></code> section containing a <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter
 (currently only <code class="docutils literal notranslate"><span class="pre">artis</span></code> is supported``) and a <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter giving a path top a file.</p>
 <p>If one doesn’t specify a <code class="docutils literal notranslate"><span class="pre">file</span></code> section, the code requires two sections (<code class="docutils literal notranslate"><span class="pre">velocities</span></code> and <code class="docutils literal notranslate"><span class="pre">densities</span></code>) and a
 parameter <code class="docutils literal notranslate"><span class="pre">no_of_shells</span></code>. <code class="docutils literal notranslate"><span class="pre">no_of_shells</span></code> is the requested number of shells for a model. The <code class="docutils literal notranslate"><span class="pre">velocity</span></code> section
 requires a <code class="docutils literal notranslate"><span class="pre">type</span></code>. Currently, only <code class="docutils literal notranslate"><span class="pre">linear</span></code> is supported.</p>
 <dl class="simple">
-<dt>In the <code class="docutils literal notranslate"><span class="pre">densities</span></code> section the <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter again decides on the parameters. The type <code class="docutils literal notranslate"><span class="pre">uniform</span></code> only needs a</dt><dd><p><code class="docutils literal notranslate"><span class="pre">value</span></code> parameter with a density compatible quantity. The type <code class="docutils literal notranslate"><span class="pre">branch85_w7</span></code> uses a seven order polynomial fit to
+<dt>In the <code class="docutils literal notranslate"><span class="pre">densities</span></code> section the <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter again decides on the parameters. The type <code class="docutils literal notranslate"><span class="pre">uniform</span></code> only needs a</dt><dd><p><code class="docutils literal notranslate"><span class="pre">value</span></code> parameter with a density compatible quantity. The type <code class="docutils literal notranslate"><span class="pre">branch85_w7</span></code> uses a seven-order polynomial fit to
 the W7 model and is parametrised by time since explosion. The parameters <code class="docutils literal notranslate"><span class="pre">time_0</span></code> and <code class="docutils literal notranslate"><span class="pre">density_coefficient</span></code> are set
 to sensible defaults and should not be changed.</p>
 </dd>
@@ -527,10 +525,10 @@ and a <code class="docutils literal notranslate"><span class="pre">name</span></
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In contrast to the <code class="docutils literal notranslate"><span class="pre">structure</span></code> section, the <code class="docutils literal notranslate"><span class="pre">abundance</span></code> section will not ignore abundances set in the rest of
-the section, but merely will overwrite the abundances given in the file section.</p>
+the section but merely will overwrite the abundances given in the file section.</p>
 </div>
 <p>The rest of the section can be used to configure uniform abundances for all shells, by giving the atom name and a
-relative abundance fraction. If it does not add up to 1., TARDIS will warn - but normalize the numbers.</p>
+relative abundance fraction. If it does not add up to 1., TARDIS will warn — but normalize the numbers.</p>
 </div>
 <div class="section" id="plasma">
 <h3><a class="toc-backref" href="#id4">Plasma</a><a class="headerlink" href="#plasma" title="Permalink to this headline">¶</a></h3>
@@ -762,21 +760,24 @@ relative abundance fraction. If it does not add up to 1., TARDIS will warn - but
 </tr>
 </tbody>
 </table>
-<p><code class="docutils literal notranslate"><span class="pre">inital_t_inner</span></code> is initial temperature (will be updated for most modes of TARDIS - see convergence section) of the black-body on the inner
+<p><code class="docutils literal notranslate"><span class="pre">inital_t_inner</span></code> is initial temperature (will be updated for most modes of TARDIS — see convergence section) of the black-body on the inner
 boundary. <code class="docutils literal notranslate"><span class="pre">initial_t_rad</span></code> is the initial radiation temperature (will be updated for most modes of TARDIS - see convergence section). For debugging purposes and to compare to
 <span class="xref std std-term">synapps</span> calculations one can disable the electron scattering. TARDIS will issue a warning that this is not physical.
-There are currently two <code class="docutils literal notranslate"><span class="pre">plasma_type</span></code> options available: <code class="docutils literal notranslate"><span class="pre">nebular</span></code> and <code class="docutils literal notranslate"><span class="pre">lte</span></code> which tell TARDIS how to run the
+There are currently two <code class="docutils literal notranslate"><span class="pre">plasma_type</span></code> options available: <code class="docutils literal notranslate"><span class="pre">nebular</span></code> and <code class="docutils literal notranslate"><span class="pre">lte</span></code>, which tell TARDIS how to run the
 ionization equilibrium and level population calculations (see <a class="reference internal" href="../physics/plasma/plasma.html#plasmas"><span class="std std-ref">Plasma</span></a> for more information).
 The radiative rates describe how to calculate the <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span> needed for the <span class="xref std std-ref">nlte</span> calculations and
-<span class="xref std std-ref">macroatom</span> calculations. There are three options for <code class="docutils literal notranslate"><span class="pre">radiative_rates_type</span></code>: 1) <code class="docutils literal notranslate"><span class="pre">lte</span></code> in which
-<span class="math notranslate nohighlight">\(J_\textrm{blue} = \textrm{Blackbody}(T_\textrm{rad})\)</span>, 2) <code class="docutils literal notranslate"><span class="pre">nebular</span></code> in which
-<span class="math notranslate nohighlight">\(J_\textrm{blue} = W \times \textrm{Blackbody}(T_\textrm{rad})\)</span>, 3) <code class="docutils literal notranslate"><span class="pre">detailed</span></code> in which the <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span>
+<span class="xref std std-ref">macroatom</span> calculations. There are three options for <code class="docutils literal notranslate"><span class="pre">radiative_rates_type</span></code>:</p>
+<p>1) <code class="docutils literal notranslate"><span class="pre">lte</span></code>, in which
+<span class="math notranslate nohighlight">\(J_\textrm{blue} = \textrm{Blackbody}(T_\textrm{rad})\)</span></p>
+<p>2) <code class="docutils literal notranslate"><span class="pre">nebular</span></code> in which
+<span class="math notranslate nohighlight">\(J_\textrm{blue} = W \times \textrm{Blackbody}(T_\textrm{rad})\)</span></p>
+<p>3) <code class="docutils literal notranslate"><span class="pre">detailed</span></code> in which the <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span>
 are calculated using an estimator (this is described in ??????).</p>
-<p>TARDIS currently supports three different kinds of line interaction: <code class="docutils literal notranslate"><span class="pre">scatter</span></code> - a resonance scattering implementation,
-<code class="docutils literal notranslate"><span class="pre">macroatom</span></code> - the most complex form of line interaction described in <span class="xref std std-ref">macroatom</span> and <code class="docutils literal notranslate"><span class="pre">downbranch</span></code> a simplified
+<p>TARDIS currently supports three different kinds of line interaction: <code class="docutils literal notranslate"><span class="pre">scatter</span></code> — a resonance scattering implementation,
+<code class="docutils literal notranslate"><span class="pre">macroatom</span></code> — the most complex form of line interaction described in <span class="xref std std-ref">macroatom</span> and <code class="docutils literal notranslate"><span class="pre">downbranch</span></code> a simplified
 version of <code class="docutils literal notranslate"><span class="pre">macroatom</span></code> in which only downward transitions are allowed.</p>
 <p>Finally, <code class="docutils literal notranslate"><span class="pre">w_epsilon</span></code> describes the dilution factor to use to calculate <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span> that are 0, which
-causes problem with the code (so <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span> are set to a very small number).</p>
+causes problemsl with the code (so <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span> are set to a very small number).</p>
 <div class="section" id="nlte">
 <h4><a class="toc-backref" href="#id5">NLTE</a><a class="headerlink" href="#nlte" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">nlte</span><span class="p">:</span>
@@ -784,8 +785,8 @@ causes problem with the code (so <span class="math notranslate nohighlight">\(J_
     <span class="nt">classical_nebular</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
 </pre></div>
 </div>
-<p>The NLTE configuration currently allows setting <code class="docutils literal notranslate"><span class="pre">coronal_approximation</span></code> which sets all <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span> to 0.
-This is useful for debugging with <span class="xref std std-term">chianti</span> for example. Furthermore one can enable ‘classical_nebular’ to set all
+<p>The NLTE configuration currently allows setting <code class="docutils literal notranslate"><span class="pre">coronal_approximation</span></code>, which sets all <span class="math notranslate nohighlight">\(J_\textrm{blue}\)</span> to 0.
+This is useful for debugging with <span class="xref std std-term">chianti</span> for example. Furthermore, one can enable ‘classical_nebular’ to set all
 <span class="math notranslate nohighlight">\(\beta_\textrm{Sobolev}\)</span> to 1. Both options are used for checking with other codes and should not be enabled in
 normal operations.</p>
 </div>
@@ -1011,13 +1012,13 @@ The <code class="docutils literal notranslate"><span class="pre">no_of_packets</
 used in each Monte Carlo loop. The parameters <code class="docutils literal notranslate"><span class="pre">last_no_of_packets</span></code> and <code class="docutils literal notranslate"><span class="pre">no_of_virtual_packets</span></code> influence the last run
 of the Monte Carlo loop (which calculates the final spectrum!) when the radiation field should have converged. <code class="docutils literal notranslate"><span class="pre">last_no_of_packets</span></code> is normally higher than
 <code class="docutils literal notranslate"><span class="pre">no_of_packets</span></code> to create a less noisy output spectrum. <code class="docutils literal notranslate"><span class="pre">no_of_virtual_packets</span></code> can also be set to greater than 0 (a useful number is 3) to
-use the Virtual Packet formalism. Increasing this number drasitcally increases computational costs(and memory requirements if they are logged)
+use the Virtual Packet formalism. Increasing this number drastically increases computational costs (and memory requirements if they are logged).
 The <code class="docutils literal notranslate"><span class="pre">iterations</span></code> parameter describes the maximum number of Monte Carlo loops executed in a simulation before it ends. Convergence criteria can be used to make the simulation stop
 sooner when the convergence threshold has been reached.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">convergence_criteria</span></code> section again has a <code class="docutils literal notranslate"><span class="pre">type</span></code> keyword. Currently, one type is allowed: <code class="docutils literal notranslate"><span class="pre">damped</span></code>.
 All convergence criteria can be specified separately for the three variables for which convergence can be checked
-(<code class="docutils literal notranslate"><span class="pre">t_inner</span></code>, <code class="docutils literal notranslate"><span class="pre">t_rad</span></code>, <code class="docutils literal notranslate"><span class="pre">ws</span></code>) by specifying subsections in the <code class="docutils literal notranslate"><span class="pre">convergence_criteria</span></code> of the same name. These
-override then the defaults.</p>
+(<code class="docutils literal notranslate"><span class="pre">t_inner</span></code>, <code class="docutils literal notranslate"><span class="pre">t_rad</span></code>, <code class="docutils literal notranslate"><span class="pre">ws</span></code>) by specifying subsections in the <code class="docutils literal notranslate"><span class="pre">convergence_criteria</span></code> of the same name. These then
+override the defaults.</p>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">damped</span></code> only has one parameter <code class="docutils literal notranslate"><span class="pre">damping-constant</span></code> and does not check for convergence. This can be used to fix the</dt><dd><p>temperature of the inner boundary (by increasing the <code class="docutils literal notranslate"><span class="pre">convergence_criteria</span></code> and</p>
@@ -1172,7 +1173,7 @@ override then the defaults.</p>
 </tr>
 </tbody>
 </table>
-<p>Start and end are given as Quantities with units. If they are given in
+<p><code class="docutils literal notranslate"><span class="pre">Start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> are given as Quantities with units. If they are given in
 frequency space they are switched around if necessary. The number of bins is
 just an integer. Finally, the method option selects the final spectral synthesis mode. Currently, there are three options:</p>
 <ul class="simple">

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Specifying boundary velocities in addition to a custom density file &mdash; TARDIS v3.0.dev3459</title>
+  <title>Specifying boundary velocities in addition to a custom density file &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -128,7 +128,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -504,7 +503,7 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p>The first line specifies the time in days after the explosion</p></li>
 <li><p>After a skipped line, each row corresponds to a shell with index specified by the first column.</p></li>
-<li><p>The second column lists the velocities of the outer boundary of the cell in km/s.</p></li>
+<li><p>The second column lists the velocities of the outer boundary of the cell in km / s.</p></li>
 <li><p>The third column lists the density of the cell.</p></li>
 </ul>
 <p><strong>IMPORTANT</strong></p>
@@ -516,7 +515,7 @@ div.rendered_html tbody tr:hover {
 <p>0.4 0.6</p>
 <ul class="simple">
 <li><p>The first line indicates which elements (or isotopes) correspond to which columns.</p></li>
-<li><p>After a skipped line, each row specifies the chemical abundance of one shell. Therefore the numbers in a given row should sum to 1.0</p></li>
+<li><p>After a skipped line, each row specifies the chemical abundance of one shell. Therefore the numbers in a given row should sum to 1.0.</p></li>
 </ul>
 <p><strong>IMPORTANT</strong></p>
 <p>Note that there are only 2 shells specified in this abundance file (despite the custom density file having 3 lines). This is because the custom density file specifies the boundaries of the shells, while the abundance file specifies the abundances within each shell.</p>
@@ -803,7 +802,7 @@ densities loaded by TARDIS: (NOTE that the density in the first line of the file
 </div>
 <div class="section" id="Example-1)-v_inner_boundary-lower-than-first-velocity-in-density-file">
 <h2>Example 1) v_inner_boundary lower than first velocity in density file<a class="headerlink" href="#Example-1)-v_inner_boundary-lower-than-first-velocity-in-density-file" title="Permalink to this headline">¶</a></h2>
-<p>In this example, the first velocity in the density file is 9500 km/s. The user can specify in the config file the velocity of the inner boundary to a lower velocity, say v_inner_boundary = 9000 km/s. This will cause TARDIS to raise an error.</p>
+<p>In this example, the first velocity in the density file is 9500 km/s. The user can specify in the config file the velocity of the inner boundary to be a lower velocity, say v_inner_boundary = 9000 km/s. This will cause TARDIS to raise an error.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>

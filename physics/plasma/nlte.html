@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>NLTE treatment &mdash; TARDIS v3.0.dev3459</title>
+  <title>NLTE treatment &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -105,7 +105,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -239,7 +238,7 @@ which species should be treated as NLTE with a simple list of tuples (e.g. [(20,
 <div class="math notranslate nohighlight">
 \[\frac{dn_j}{dt} = \underbrace{\sum_{i \ne j} r_{ij}}_\textrm{incoming rate} -
                     \underbrace{\sum_{i \ne j} r_{ji}}_\textrm{outgoing rate}\]</div>
-<p>In a statistical equilibrium all incoming rates and outgoing rates add up to 0 (<span class="math notranslate nohighlight">\(\frac{dn_j}{dt}=0\)</span>). We use this to
+<p>In a statistical equilibrium, all incoming rates and outgoing rates add up to 0 (<span class="math notranslate nohighlight">\(\frac{dn_j}{dt}=0\)</span>). We use this to
 calculate the level populations using the rate coefficients (<span class="math notranslate nohighlight">\(r_ij, r_ji\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left(
@@ -267,7 +266,7 @@ n_j\\
 0\\
 \end{matrix}
 \right)\end{split}\]</div>
-<p>with the additional constrained that all the level number populations need to add up to the current ion population $N$ we change this to</p>
+<p>with the additional constraint that all the level number populations need to add up to the current ion population <span class="math notranslate nohighlight">\(N\)</span>, we change this to</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left(
 \begin{matrix}
@@ -294,7 +293,7 @@ N\\
 0\\
 \end{matrix}
 \right)\end{split}\]</div>
-<p>For a three level atom we have:</p>
+<p>For a three-level atom we have:</p>
 <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}\begin{split}\frac{dn_1}{dt} &amp;= \underbrace{n_2 r_{21} + n_3 r_{31}}_\textrm{incoming rate}
                 - \underbrace{(n_1 r_{12} + n_1 r_{13})}_\textrm{outgoing rate} = 0\\\end{split}\\\begin{split}\frac{dn_2}{dt} &amp;= \underbrace{n_1 r_{12} + n_3 r_{32}}_\textrm{incoming rate}
@@ -322,8 +321,7 @@ N\\
     0\\
 \end{matrix}
 \right)\end{split}\]</div>
-<p>To solve for the level populations we need an additional constraint: <span class="math notranslate nohighlight">\(n_1 + n_2 + n_3 = N\)</span>. By setting <span class="math notranslate nohighlight">\(N = 1\)</span>:
-we can get the relative rates:</p>
+<p>To solve for the level populations, we need an additional constraint: <span class="math notranslate nohighlight">\(n_1 + n_2 + n_3 = N\)</span>. By setting <span class="math notranslate nohighlight">\(N = 1\)</span>, we can get the relative rates:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left(\begin{matrix}
     1 &amp; 1 &amp; 1\\
@@ -345,17 +343,20 @@ we can get the relative rates:</p>
     0\\
 \end{matrix}
 \right)\end{split}\]</div>
-<p>Now we go back and look at the rate coefficients used for a level population - as an example <span class="math notranslate nohighlight">\(\frac{dn_2}{dt}\)</span>:</p>
+<p>Now we go back and look at the rate coefficients used for a level population — as an example <span class="math notranslate nohighlight">\(\frac{dn_2}{dt}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\frac{dn_2}{dt} &amp;= n_1 r_{12} - n_2 (r_{21} + r_{23}) + n_3 r_{32}\\
             &amp;= n_1 B_{12} \bar{J}_{12} + n_1 C_{12} n_e - n_2 A_{21} - n_2 B_{21} \bar{J}_{21} - n_2 C_{21} n_e\\
                     - n_2 B_{23} \bar{J}_{23} - n_2 C_{23} n_e + n_3 A_{32} + n_3 B_{32} \bar{J}_{32} + n_3 C_{32} n_e,\\
                      + n_3 A_{32}  + n_3 C_{32} n_e,\end{split}\]</div>
-<p>Next we will group the stimulated emission and stimulated absorption terms as we can assume <span class="math notranslate nohighlight">\(\bar{J_{12}} = \bar{J_{21}}\)</span>:</p>
+<p>Next, we will group the stimulated emission and stimulated absorption terms, as we can assume <span class="math notranslate nohighlight">\(\bar{J_{12}} = \bar{J_{21}}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\frac{dn_2}{dt} &amp;= n_1 (B_{12} \bar{J}_{12} \underbrace{(1 - \frac{n_2}{n_1}\frac{B_{21}}{B_{12}})}_\textrm{stimulated emission term} + C_{12} n_e)
-                - n_2 (A_{21} + C_{23} n_e + n_2 B_{23} \bar{J}_{23} \underbrace{(1 - \frac{n_3}{n_2}\frac{B_{32}}{B_{23}})}_\textrm{stimulated emission term})
-                + n_3 (A_{32} + C_{32} n_e)\]</div>
+\[\begin{split}\frac{dn_2}{dt} &amp;= n_1 \bigg{(}B_{12} \bar{J}_{12}
+                    \underbrace{\bigg{(}1 - \frac{n_2}{n_1}\frac{B_{21}}{B_{12}}\bigg{)}}_\text{stimulated emission term}
+                    + C_{12} n_e\bigg{)}\\
+                    - n_2 \bigg{(}A_{21} + C_{23} n_e + n_2 B_{23} \bar{J}_{23}
+                    \underbrace{\bigg{(}1 - \frac{n_3}{n_2}\frac{B_{32}}{B_{23}}\bigg{)}}_\text{stimulated emission term}\bigg{)}
+                    + n_3 (A_{32} + C_{32} n_e)\end{split}\]</div>
 </div>
 
 

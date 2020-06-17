@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Atomic Data Format Description &mdash; TARDIS v3.0.dev3459</title>
+  <title>Atomic Data Format Description &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -123,7 +123,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -240,15 +239,15 @@
 </style>
 <div class="section" id="atomic-data-format-description">
 <span id="atomic-data-descritpion"></span><h1>Atomic Data Format Description<a class="headerlink" href="#atomic-data-format-description" title="Permalink to this headline">¶</a></h1>
-<p>The atomic data for tardis is stored in <a class="reference external" href="http://www.h5py.org/">hdf5 files</a>. TARDIS ships with a
-relatively simple atomic dataset which only contains silicon lines and levels. TARDIS also has a full atomic dataset which contains
+<p>The atomic data for tardis is stored in <a class="reference external" href="http://www.h5py.org/">HDF5 files</a>. TARDIS ships with a
+relatively simple atomic dataset that only contains silicon lines and levels. TARDIS also has a full atomic dataset which contains
 the complete Kurucz dataset (<a class="reference external" href="http://kurucz.harvard.edu/LINELISTS/GFALL/">http://kurucz.harvard.edu/LINELISTS/GFALL/</a>). This full dataset also contains recombination
 coefficients from the ground state (<span class="math notranslate nohighlight">\(\zeta-\textrm{factor}\)</span> used in <a class="reference internal" href="../physics/plasma/nebular_plasma.html#calc-zeta-label"><span class="std std-ref">Calculating Zeta</span></a>) and data for calculating the
 branching or macro atom line interaction (<span class="xref std std-ref">macroatom</span>).</p>
 <div class="section" id="hdf5-dataset">
 <h2>HDF5 Dataset<a class="headerlink" href="#hdf5-dataset" title="Permalink to this headline">¶</a></h2>
-<p>As mentioned previously, all atomic data is stored in <a class="reference external" href="http://www.h5py.org/">hdf5 files</a>  which contain tables
-that include mass, ionization, levels and lines data. The atom data that ships with TARDIS is located in data/atom</p>
+<p>As mentioned previously, all atomic data is stored in <a class="reference external" href="http://www.h5py.org/">HDF5 files</a>  that contain tables
+that include mass, ionization, levels and lines data. The atom data that ships with TARDIS is located in data/atom.</p>
 <p>The dataset <code class="docutils literal notranslate"><span class="pre">basic_atom_set</span></code> contains the Atomic Number, Symbol of the elements and average mass of the elements.</p>
 <div class="section" id="basic-atomic-data">
 <h3>Basic Atomic Data<a class="headerlink" href="#basic-atomic-data" title="Permalink to this headline">¶</a></h3>
@@ -442,8 +441,13 @@ in the attribute <code class="docutils literal notranslate"><span class="pre">t_
 </table>
 <p>There are two datasets for using the macro atom and branching line interactions. The <code class="docutils literal notranslate"><span class="pre">macro_atom_data</span></code> and <code class="docutils literal notranslate"><span class="pre">macro_atom_references</span></code>:</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">macro_atom_data</span></code> contains blocks of transition probabilities, several indices and flags. The Transition Type flag
-has three states -1 for downwards emitting, 0 for downwards internal and 1 for upwards internal (for more explanations please
-refer to <span class="xref std std-ref">macroatom</span>)</p>
+has three states:</p>
+<ul class="simple">
+<li><p>-1 for downwards emitting</p></li>
+<li><p>0 for downwards internal</p></li>
+<li><p>1 for upwards internal (for more explanations, please</p></li>
+</ul>
+<p>refer to <span class="xref std std-ref">macroatom</span>).</p>
 </div>
 <div class="section" id="macro-atom-data">
 <h3>Macro Atom Data<a class="headerlink" href="#macro-atom-data" title="Permalink to this headline">¶</a></h3>
@@ -493,7 +497,7 @@ refer to <span class="xref std std-ref">macroatom</span>)</p>
 <p>Here’s the structure of the probability block. The atomic number, ion number and source level number are the same
 within each block, the destination level number the transition type and transition probability are changing.
 The transition probabilities are only part of the final probability and will be changed during the calculation.
-For details on the macro atom please refer to <span class="xref std std-ref">macroatom</span>.</p>
+For details on the macro atom, please refer to <span class="xref std std-ref">macroatom</span>.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -669,8 +673,8 @@ of references needed by macro atom or branching line interactions.</p>
 <div class="section" id="indexing-fun">
 <h2>Indexing fun<a class="headerlink" href="#indexing-fun" title="Permalink to this headline">¶</a></h2>
 <p>The main problem with the atomic data is indexing. Most of these references require multiple numbers, e.g. atomic number,
-ion number and level number. The <a href="#id2"><span class="problematic" id="id3">:py:module:`pandas`</span></a>-framework provides the ideal functions to accomplish this. In TARDIS we extensively
-use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.MultiIndex.html#pandas.MultiIndex" title="(in pandas v1.1.0.dev0+1816.g08febd2b9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.MultiIndex</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.1.0.dev0+1816.g08febd2b9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.0.dev0+1816.g08febd2b9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></p>
+ion number and level number. The <a class="reference external" href="https://pandas.pydata.org/">pandas</a> framework provides the ideal functions to accomplish this. In TARDIS, we extensively
+use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.MultiIndex.html#pandas.MultiIndex" title="(in pandas v1.1.0.dev0+1888.g107ad154c)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.MultiIndex</span></code></a>, <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.1.0.dev0+1888.g107ad154c)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.Series</span></code></a> and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/dev/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.1.0.dev0+1888.g107ad154c)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>.</p>
 <p>TO BE BETTER DOCUMENTED …</p>
 </div>
 </div>

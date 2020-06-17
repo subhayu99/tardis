@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quickstart for TARDIS &mdash; TARDIS v3.0.dev3459</title>
+  <title>Quickstart for TARDIS &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -111,7 +111,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -459,8 +458,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Quickstart-for-TARDIS">
 <h1>Quickstart for TARDIS<a class="headerlink" href="#Quickstart-for-TARDIS" title="Permalink to this headline">¶</a></h1>
 <p>Every simulation run requires the atomic database (for more info refer to <a class="reference internal" href="../atomic/atomic_data.html"><span class="doc">atomic data</span></a> ) and a configuration file (more info at <a class="reference internal" href="../configuration/index.html"><span class="doc">configuration</span></a> ). You can obtain a copy of the atomic database from the (<a class="reference external" href="https://github.com/tardis-sn/tardis-refdata">https://github.com/tardis-sn/tardis-refdata</a>) repository (<code class="docutils literal notranslate"><span class="pre">atom_data</span></code> subfolder). We recommended to use the <code class="docutils literal notranslate"><span class="pre">kurucz_cd23_chianti_H_He.h5</span></code> dataset (which is auto-downloaded in the second cell already). The configuration file for this
-quickstart is <code class="docutils literal notranslate"><span class="pre">tardis_example.yml</span></code>, which can be downloaded <a class="reference external" href="https://raw.githubusercontent.com/tardis-sn/tardis/master/docs/models/examples/tardis_example.yml">here</a>), though this file is auto-downloaded in third cell.</p>
-<p>After the <a class="reference internal" href="../installation.html"><span class="doc">installation</span></a> start a jupyter server executing <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> on the commandline in a directory that contains this quickstart.</p>
+quickstart is <code class="docutils literal notranslate"><span class="pre">tardis_example.yml</span></code>, which can be downloaded <a class="reference external" href="https://raw.githubusercontent.com/tardis-sn/tardis/master/docs/models/examples/tardis_example.yml">here</a>), though this file is auto-downloaded in the third cell.</p>
+<p>After the <a class="reference internal" href="../installation.html"><span class="doc">installation</span></a>, start a Jupyter server executing <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> on the command line in a directory that contains this quickstart.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -519,7 +518,7 @@ quickstart is <code class="docutils literal notranslate"><span class="pre">tardi
 <div class="highlight"><pre>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   980  100   980    0     0   9357      0 --:--:-- --:--:-- --:--:--  9423
+100   980  100   980    0     0   9107      0 --:--:-- --:--:-- --:--:--  9158
 </pre></div></div>
 </div>
 </div>
@@ -777,7 +776,7 @@ quickstart is <code class="docutils literal notranslate"><span class="pre">tardi
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10314.623 K -- next t_inner 11009.102 K (<span class="ansi-bold">base.py</span>:352)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 20/20 (<span class="ansi-bold">base.py</span>:268)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.21062e+43 erg / s Luminosity absorbed = 3.88405e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:359)
-[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 33.46 s (<span class="ansi-bold">base.py</span>:308)
+[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 36.43 s (<span class="ansi-bold">base.py</span>:308)
 </pre></div></div>
 </div>
 </div>

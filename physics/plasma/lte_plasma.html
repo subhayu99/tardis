@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>LTE Plasma &mdash; TARDIS v3.0.dev3459</title>
+  <title>LTE Plasma &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -105,7 +105,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -223,10 +222,10 @@
 <div class="section" id="lte-plasma">
 <h1>LTE Plasma<a class="headerlink" href="#lte-plasma" title="Permalink to this headline">¶</a></h1>
 <p>The <cite>LTEPlasma</cite> plasma class is the child of <cite>BasePlasma</cite> but is the first class that actually calculates plasma conditions.
-After running exactley through the same steps as <cite>BasePlasma</cite>, <cite>LTEPlasma</cite> will start calculating the <a class="reference external" href="http://en.wikipedia.org/wiki/Partition_function_(statistical_mechanics)">partition functions</a>.</p>
+After running exactly through the same steps as <cite>BasePlasma</cite>, <cite>LTEPlasma</cite> will start calculating the <a class="reference external" href="http://en.wikipedia.org/wiki/Partition_function_(statistical_mechanics)">partition functions</a>.</p>
 <div class="math notranslate nohighlight">
 \[Z_{i, j} = \sum_{k=0}^{max (k)} g_k \times e^{-E_k / (k_\textrm{b} T)}\]</div>
-<p>, where Z is the partition function, g is the degeneracy factor, E the energy of the level and T the temperature of the radiation field.</p>
+<p>where Z is the partition function, g is the degeneracy factor, E the energy of the level and T the temperature of the radiation field.</p>
 <p>The next step is to calculate the ionization balance using the <a class="reference external" href="http://en.wikipedia.org/wiki/Saha_ionization_equation">Saha ionization equation</a>.
 and then calculating the Number density of the ions (and an electron number density) in a second step.
 First <span class="math notranslate nohighlight">\(g_e=\left(\frac{2 \pi m_e k_\textrm{B}T_\textrm{rad}}{h^2}\right)^{3/2}\)</span> is calculated (in <cite>LTEPlasma.update_t_rad</cite>),
@@ -243,10 +242,10 @@ N(X) &amp;= N_1 \underbrace{(1 + \frac{\Phi_{i, 2/1}}{N_e} + \frac{\Phi_{i, 2/2}
         \frac{\Phi_{i, 4/3}}{N_e}\frac{\Phi_{i, 3/2}}{N_e}\frac{\Phi_{i, 2/1}}{N_e} + \dots)}_{\alpha}\\
 N_1 &amp;= \frac{N(X)}{\alpha}\end{split}\]</div>
 <p>Initially, we set the electron density (<span class="math notranslate nohighlight">\(N_e\)</span>) to the sum of all atom number densities. After having calculated the
-ion species number densities we recalculated the electron density by weighting the ion species number densities with their
+ion species number densities, we recalculate the electron density by weighting the ion species number densities with their
 ion number (e.g. neutral ion number densities don’t contribute at all to the electron number density, once ionized contribute with a
 factor of 1, twice ionized contribute with a factor of two, ….).</p>
-<p>Finally we calculate the level populations (<cite>LTEPlasma.calculate_level_populations</cite>), by using the calculated ion species number densities:</p>
+<p>Finally, we calculate the level populations (<cite>LTEPlasma.calculate_level_populations</cite>) by using the calculated ion species number densities:</p>
 <div class="math notranslate nohighlight">
 \[N_{i, j, k} = \frac{g_k}{Z_{i, j}}\times N_{i, j} \times e^{-\beta_\textrm{rad} E_k}\]</div>
 <p>This concludes the calculation of the plasma. In the code, the next step is calculating the <span class="math notranslate nohighlight">\(\tau_\textrm{Sobolev}\)</span> using

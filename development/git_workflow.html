@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>General Workflow to add a new feature &mdash; TARDIS v3.0.dev3459</title>
+  <title>General Workflow to add a new feature &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -105,7 +105,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -137,12 +136,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#updating-the-mirror-of-trunk">Updating the mirror of trunk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#making-a-new-feature-branch">Making a new feature branch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-editing-workflow">The editing workflow</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#in-more-detail">In more detail</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#asking-for-your-changes-to-be-reviewed-and-or-merged">Asking for your changes to be reviewed and/or merged</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#making-sure-your-pull-request-stays-up-to-date">Making sure your Pull request stays up-to-date</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#making-sure-your-pull-request-stays-up-to-date">Making sure your Pull Request stays up-to-date</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#rebasing-on-trunk">Rebasing on trunk</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#recovering-from-mess-ups">Recovering from mess-ups</a></li>
 </ul>
@@ -257,31 +256,31 @@
 </style>
 <div class="section" id="general-workflow-to-add-a-new-feature">
 <span id="development-workflow"></span><h1>General Workflow to add a new feature<a class="headerlink" href="#general-workflow-to-add-a-new-feature" title="Permalink to this headline">¶</a></h1>
-<p>In TARDIS we aim to stick to a test driven development. This uses the testing
-framework extensively starting with a test that shows this feature lacking via
+<p>In TARDIS, we aim to stick to a test driven development. This uses the testing
+framework extensively, starting with a test that shows this feature lacking via
 the implementation of the feature until the merging of the code to the main
 repository.</p>
-<p>In most cases we try to break down big features into small, quantifiable goals
+<p>In most cases, we try to break down big features into small, quantifiable goals
 which are then acted upon.</p>
 <ul class="simple">
 <li><p>Document feature to be added in an issue and maybe ask the mailing
-list if this feature exists</p></li>
+list if this feature exists.</p></li>
 <li><p>Write a test that demonstrates what feature will be added.</p></li>
 <li><p>Run the test to verify that it fails in the way you think it should.</p></li>
 <li><p>If it fails in an unexpected way, your test may be wrong. This is a
-great time to ask the group for guidance</p></li>
+great time to ask the group for guidance.</p></li>
 <li><p>If it passes, you are done! You just added test coverage to an
 already existing feature, and that is great! (unlikely)</p></li>
 <li><p>Add the feature (also known as “a simple matter of programming”).</p></li>
 <li><p>Run the test to verify that it passes.</p></li>
 <li><p>Write documentation about your feature.</p></li>
-<li><p>close issue/partial PR and add to changelog.</p></li>
+<li><p>Close issue/partial PR and add to changelog.</p></li>
 </ul>
 </div>
 <div class="section" id="preparation-and-working-with-git">
 <h1>Preparation and Working with Git<a class="headerlink" href="#preparation-and-working-with-git" title="Permalink to this headline">¶</a></h1>
-<p>In this document, we refer to the Tardis <code class="docutils literal notranslate"><span class="pre">master</span></code> branch as the <em>trunk</em>. The first step is to setup up a python environment. We recommend to use
-Anaconda for this purpose and refer to our <a class="reference internal" href="../installation.html"><span class="doc">Installation guide</span></a> which covers this topic.</p>
+<p>In this document, we refer to the TARDIS <code class="docutils literal notranslate"><span class="pre">master</span></code> branch as the <em>trunk</em>. The first step is to setup up a python environment. We recommend using
+Anaconda for this purpose; refer to our <a class="reference internal" href="../installation.html"><span class="doc">Installation guide</span></a> which covers this topic.</p>
 <div class="section" id="creating-a-fork">
 <span id="forking"></span><h2>Creating a fork<a class="headerlink" href="#creating-a-fork" title="Permalink to this headline">¶</a></h2>
 <p>You need to do this only once for each package you want to contribute to. The
@@ -298,7 +297,7 @@ the <a class="reference external" href="http://help.github.com/articles/generati
 </div>
 <div class="section" id="create-your-own-fork-of-a-repository">
 <h2>Create your own fork of a repository<a class="headerlink" href="#create-your-own-fork-of-a-repository" title="Permalink to this headline">¶</a></h2>
-<p>The following example shows how to fork the core <code class="docutils literal notranslate"><span class="pre">astropy</span></code> repository, but
+<p>The following example shows how to fork the core <code class="docutils literal notranslate"><span class="pre">Astropy</span></code> repository, but
 the same applies to other packages:</p>
 <ol class="arabic">
 <li><p>Log into your <a class="reference external" href="http://github.com">GitHub</a> account.</p></li>
@@ -343,12 +342,12 @@ of <a class="reference external" href="http://tardis.readthedocs.org">TARDIS</a>
 <span class="n">remotes</span><span class="o">/</span><span class="n">origin</span><span class="o">/</span><span class="n">master</span>
 </pre></div>
 </div>
-<p>This tells you that you are currently on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch, and
+<p>This tells you that you are currently on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch and
 that you also have a <code class="docutils literal notranslate"><span class="pre">remote</span></code> connection to <code class="docutils literal notranslate"><span class="pre">origin/master</span></code>.
 What remote repository is <code class="docutils literal notranslate"><span class="pre">remote/origin</span></code>? Try <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code> to
 see the URLs for the remote connections.  They will point to your GitHub
 fork.</p>
-<p>Now connect to the TARDIS repository, so you can merge in changes from the
+<p>Now connect to the TARDIS repository so you can merge in changes from the
 trunk:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
 <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">upstream</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tardis</span><span class="o">-</span><span class="n">sn</span><span class="o">/</span><span class="n">tardis</span><span class="o">.</span><span class="n">git</span>
@@ -357,7 +356,7 @@ trunk:</p>
 <p><code class="docutils literal notranslate"><span class="pre">upstream</span></code> is just the arbitrary name we’re using to refer to the main
 <a class="reference external" href="http://tardis.readthedocs.org">TARDIS</a> repository.</p>
 <p>Note that we’ve used <code class="docutils literal notranslate"><span class="pre">git://</span></code> for the URL rather than <code class="docutils literal notranslate"><span class="pre">git&#64;</span></code>. The
-<code class="docutils literal notranslate"><span class="pre">git://</span></code> URL is read only. This means that we can’t accidentally (or
+<code class="docutils literal notranslate"><span class="pre">git://</span></code> URL is read-only. This means that we can’t accidentally (or
 deliberately) write to the upstream repo, and we are only going to use it
 to merge into our own code.</p>
 <p>Just for your own satisfaction, show yourself that you now have a new
@@ -377,7 +376,7 @@ something like:</p>
 <div class="section" id="installing-tardis-in-develop-mode">
 <h2>Installing TARDIS in develop mode<a class="headerlink" href="#installing-tardis-in-develop-mode" title="Permalink to this headline">¶</a></h2>
 <p>TARDIS is designed so that it can generally be used directly out of the source
-tree by using <a href="#id1"><span class="problematic" id="id2">``</span></a>import `` when running Python in the source of an
+tree by using <code class="docutils literal notranslate"><span class="pre">import</span></code> when running Python in the source of an
 TARDIS repository clone.</p>
 <ol class="arabic">
 <li><p>Install <a class="reference external" href="http://tardis.readthedocs.org">TARDIS</a> in develop mode:</p>
@@ -414,7 +413,7 @@ your feature branch while you are working.</p></li>
 <li><p>Once your code is nearing completion, run the test suite to ensure
 you have not accidentally caused regressions, and add new tests to ensure
 your contribution behaves correctly (see <a class="reference external" href="https://numpy.org/doc/stable/reference/testing.html#testing-guidelines" title="(in NumPy v1.18)"><span>Testing Guidelines</span></a>).</p></li>
-<li><p>Issue a pull request on github!</p></li>
+<li><p>Issue a pull request on GitHub!</p></li>
 <li><p>As the code is converging to a final state, ensure your
 documentation follows the guidelines (see <a class="reference external" href="https://docs.astropy.org/en/stable/development/docguide.html#documentation-guidelines" title="(in Astropy v4.0.1)"><span>Writing Documentation</span></a>).</p></li>
 <li><p>Once your code is ready to be accepted, please add an entry to the changelog
@@ -422,9 +421,9 @@ documentation follows the guidelines (see <a class="reference external" href="ht
 least suggest a brief (one or two sentence) description of your change so
 that another developer can add it to the changelog.</p></li>
 </ul>
-<p>This way of working helps to keep work well organized, with readable history.
+<p>This way of working helps to keep work well-organized, with readable history.
 This in turn makes it easier for project maintainers (that might be you) to
-see what you’ve done, and why you did it.</p>
+see what you’ve done and why you did it.</p>
 <p>See <a class="reference external" href="http://www.mail-archive.com/dri-devel&#64;lists.sourceforge.net/msg39091.html">linux git workflow</a> and <a class="reference external" href="http://mail.scipy.org/pipermail/ipython-dev/2010-October/006746.html">ipython git workflow</a> for some explanation.</p>
 </div>
 <div class="section" id="deleting-your-master-branch">
@@ -434,7 +433,7 @@ confusion about which branch you are on.</p>
 </div>
 <div class="section" id="updating-the-mirror-of-trunk">
 <span id="update-mirror-trunk"></span><h2>Updating the mirror of trunk<a class="headerlink" href="#updating-the-mirror-of-trunk" title="Permalink to this headline">¶</a></h2>
-<p>From time to time you should fetch the upstream (trunk) changes from GitHub:</p>
+<p>From time to time, you should fetch the upstream (trunk) changes from GitHub:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">upstream</span>
 </pre></div>
 </div>
@@ -451,7 +450,7 @@ branch. Branches that are for a collection of related edits are often called
 <p>Making a new branch for each set of related changes will make it easier for
 someone reviewing your branch to see what you are doing.</p>
 <p>Choose an informative name for the branch to remind yourself and the rest of
-us what the changes in the branch are for. For example <code class="docutils literal notranslate"><span class="pre">add-ability-to-fly</span></code>,
+us what the changes in the branch are for. For example, <code class="docutils literal notranslate"><span class="pre">add-ability-to-fly</span></code>,
 or <code class="docutils literal notranslate"><span class="pre">buxfix-for-issue-42</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update the mirror of trunk</span>
 <span class="n">git</span> <span class="n">fetch</span> <span class="n">upstream</span>
@@ -463,24 +462,24 @@ or <code class="docutils literal notranslate"><span class="pre">buxfix-for-issue
 </div>
 <p>Generally, you will want to keep your feature branches on your public <a class="reference external" href="http://github.com">GitHub</a>
 fork. To do this, you <a class="reference external" href="http://schacon.github.com/git/git-push.html">git push</a> this new branch up to your
-github repo. Generally (if you followed the instructions in these pages, and
+GitHub repo. Generally (if you followed the instructions in these pages, and
 by default), git will have a link to your GitHub repo, called <code class="docutils literal notranslate"><span class="pre">origin</span></code>. You
 push up to your own repo on GitHub with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">my</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">feature</span>
 </pre></div>
 </div>
-<p>In git &gt;= 1.7 you can ensure that the link is correctly set by using the
+<p>In git &gt;= 1.7, you can ensure that the link is correctly set by using the
 <code class="docutils literal notranslate"><span class="pre">--set-upstream</span></code> option:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span> <span class="n">origin</span> <span class="n">my</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">feature</span>
 </pre></div>
 </div>
-<p>From now on git will know that <code class="docutils literal notranslate"><span class="pre">my-new-feature</span></code> is related to the
+<p>From now on, git will know that <code class="docutils literal notranslate"><span class="pre">my-new-feature</span></code> is related to the
 <code class="docutils literal notranslate"><span class="pre">my-new-feature</span></code> branch in the GitHub repo.</p>
 </div>
 <div class="section" id="the-editing-workflow">
 <span id="edit-flow"></span><h2>The editing workflow<a class="headerlink" href="#the-editing-workflow" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>Overview<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Make changes, test, and:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">my_new_file</span>
 <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;NF - some message&#39;</span>
@@ -497,7 +496,7 @@ regressions, and add new tests (see the Astropy <a class="reference external" hr
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">test</span>
 </pre></div>
 </div>
-<p>If you have sphinx installed, you can also check that the documentation
+<p>If you have <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> installed, you can also check that the documentation
 builds and looks correct:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">build_sphinx</span>
 </pre></div>
@@ -568,18 +567,18 @@ code review.</p>
 </ol>
 </div>
 <div class="section" id="making-sure-your-pull-request-stays-up-to-date">
-<span id="using-virtualenv"></span><h2>Making sure your Pull request stays up-to-date<a class="headerlink" href="#making-sure-your-pull-request-stays-up-to-date" title="Permalink to this headline">¶</a></h2>
+<span id="using-virtualenv"></span><h2>Making sure your Pull Request stays up-to-date<a class="headerlink" href="#making-sure-your-pull-request-stays-up-to-date" title="Permalink to this headline">¶</a></h2>
 <p>More often then not it will take a few days until a Pull Request is
-merged as the community gives feedback and/or you add new fixes. During this
-time often other pull requests are merged and the master branch evolves further.
-To make sure that your changes are still working on the new master you want to
-<em>rebase</em> your branch ontop of the evolved master</p>
+merged as the community gives feedback and/or you add new fixes. Often during this
+time, other pull requests are merged and the master branch evolves further.
+To make sure that your changes are still working on the new master, you want to
+<em>rebase</em> your branch on top of the evolved master.</p>
 <div class="section" id="rebasing-on-trunk">
 <h3>Rebasing on trunk<a class="headerlink" href="#rebasing-on-trunk" title="Permalink to this headline">¶</a></h3>
 <p>Let’s say you thought of some work you’d like to do. You
 <a class="reference internal" href="#update-mirror-trunk"><span class="std std-ref">Updating the mirror of trunk</span></a> and <a class="reference internal" href="#make-feature-branch"><span class="std std-ref">Making a new feature branch</span></a> called
-<code class="docutils literal notranslate"><span class="pre">cool-feature</span></code>. At this stage trunk is at some commit, let’s call it E. Now
-you make some new commits on your <code class="docutils literal notranslate"><span class="pre">cool-feature</span></code> branch, let’s call them A,
+<code class="docutils literal notranslate"><span class="pre">cool-feature</span></code>. At this stage trunk is at some commit, let’s call it E. Now,
+you make some new commits on your <code class="docutils literal notranslate"><span class="pre">cool-feature</span></code> branch — let’s call them A,
 B, C. Maybe your changes take a while, or you come back to them after a while.
 In the meantime, trunk has progressed from commit E to commit (say) G:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">A</span><span class="o">---</span><span class="n">B</span><span class="o">---</span><span class="n">C</span> <span class="n">cool</span><span class="o">-</span><span class="n">feature</span>
@@ -631,7 +630,7 @@ command can be written more succinctly as:</p>
 <p>If you have made changes to files that have also changed in trunk, this may
 generate merge conflicts that you need to resolve - see the <a class="reference external" href="http://schacon.github.com/git/git-rebase.html">git rebase</a> man
 page for some instructions at the end of the “Description” section. There is
-some related help on merging in the git user manual - see <a class="reference external" href="http://schacon.github.com/git/user-manual.html#resolving-a-merge">resolving a
+some related help on merging in the git user manual — see <a class="reference external" href="http://schacon.github.com/git/user-manual.html#resolving-a-merge">resolving a
 merge</a>.</p>
 <p>If your feature branch is already on GitHub and you rebase, you will have to
 force push the branch; a normal push would give an error. If the branch you
@@ -642,7 +641,7 @@ remote called <code class="docutils literal notranslate"><span class="pre">origi
 </div>
 <p>Note that this will overwrite the branch on GitHub, i.e. this is one of the few
 ways you can actually lose commits with git. Also note that it is never allowed
-to force push to the main astropy repo (typically called <code class="docutils literal notranslate"><span class="pre">upstream</span></code>), because
+to force push to the main Astropy repo (typically called <code class="docutils literal notranslate"><span class="pre">upstream</span></code>), because
 this would re-write commit history and thus cause problems for all others.</p>
 </div>
 <div class="section" id="recovering-from-mess-ups">
@@ -675,10 +674,9 @@ straightforward to recover from such mistakes.</p>
 </div>
 <div class="section" id="reviewing-and-helping-others-with-pull-requests">
 <span id="reviewing-and-helping-with-pr"></span><h2>Reviewing and helping others with Pull Requests<a class="headerlink" href="#reviewing-and-helping-others-with-pull-requests" title="Permalink to this headline">¶</a></h2>
-<p>Github offers an extensive array of tools to comment on Pull Requests (line
-based, normal forum-like discussion, etc.). This system is described here in
+<p>Github offers an extensive array of tools to comment on Pull Requests (line-based, normal forum-like discussion, etc.). This system is described here in
 detail <a class="reference external" href="http://help.github.com/articles/using-pull-requests">http://help.github.com/articles/using-pull-requests</a>.</p>
-<p>However sometimes, it is easier to just add a few changes yourself to quickly
+<p>However, it is sometimes easier to just add a few changes yourself to quickly
 show what you would suggest to be changed. So it is possible to make a
 Pull Request on a Pull Request.</p>
 <p>There are several ways to do this, but the easiest is to first make sure

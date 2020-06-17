@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using a uniform composition &mdash; TARDIS v3.0.dev3459</title>
+  <title>Using a uniform composition &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -128,7 +128,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -251,24 +250,24 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The simplest possibility for specifying an ejecta composition is to use a
 uniform abundance pattern in all cells specified in the density profile setup
-step. These constant abundances  can be supplied directly in the input (yaml)
+step. These constant abundances  can be supplied directly in the input (YAML)
 file. Elemental and Isotopic abundances are set in the “abundances” subsection of the “model”
 section, following the “type: uniform” specifier (see example input
-file below). They are specified as mass fractions. E.g.</p>
+file below). They are specified as mass fractions, e.g.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Si: 0.6
 S: 0.2
 Ni56: 0.2
 </pre></div>
 </div>
-<p>will set the mass fraction of silicon (Z=14) to 0.6, sulphur (Z=16) to 0.2 and Nickel(Z=26, A=56) to 0.2.</p>
+<p>will set the mass fraction of silicon (Z=14) to 0.6, sulphur (Z=16) to 0.2 and Nickel (Z=26, A=56) to 0.2.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Suppose you specify Elemental and Isotopic abundance for the same element. For ex-</p>
+<p>Suppose you specify Elemental and Isotopic abundance for the same element, e.g.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ni: 0.8
 Ni56: 0.2
 </pre></div>
 </div>
-<p>Here, Ni will refer to the stable Nickel, i.e. (Z=26, A=58).</p>
+<p>Here, Ni will refer to the stable Nickel (i.e. Z=26, A=58).</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -278,8 +277,8 @@ renormalise all the supplied abundances and print a “WARNING” message.</p>
 </div>
 <div class="section" id="tardis-input-file">
 <h2>TARDIS input file<a class="headerlink" href="#tardis-input-file" title="Permalink to this headline">¶</a></h2>
-<p>The following example shows the relevant section of a TARDIS input yaml file
-which specifies a uniform ejecta composition;</p>
+<p>The following example shows the relevant section of a TARDIS input YAML file
+which specifies a uniform ejecta composition.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span>
     <span class="nt">abundances</span><span class="p">:</span>
         <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">uniform</span>

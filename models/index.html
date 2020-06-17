@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Model &mdash; TARDIS v3.0.dev3459</title>
+  <title>Model &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -128,7 +128,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -245,23 +244,23 @@
 <h1>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h1>
 <p>TARDIS requires a model of the homologously expanding ejecta in order to run a simulation.
 A model will include information like the velocity shell structure, abundances, density, etc.
-TARDIS offers two ways of specifying the model: either directly in the configuration yaml file
+TARDIS offers two ways of specifying the model: either directly in the configuration YAML file
 or separately in a model.csvy file. See <a class="reference external" href="https://csvy.org/">here</a> for an explanation of
-the csvy file format and <span class="xref std std-ref">here</span> for a link to the csvy_model schema.</p>
+the CSVY file format and <span class="xref std std-ref">here</span> for a link to the csvy_model schema.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We highly recommend using the cleaner csvy format.</p>
+<p>We highly recommend using the cleaner CSVY format.</p>
 </div>
 <div class="section" id="csvy-model">
 <h2>CSVY Model<a class="headerlink" href="#csvy-model" title="Permalink to this headline">¶</a></h2>
-<p>The TARDIS YAML delimiter for csvy files is <code class="docutils literal notranslate"><span class="pre">---</span></code>. This means that each csvy model
+<p>The TARDIS YAML delimiter for CSVY files is <code class="docutils literal notranslate"><span class="pre">---</span></code>. This means that each CSVY model
 file has the following structure: The first line of the file is the YAML delimiter,
-followed by the YAML portion of the csvy model. A line consisting of only the YAML
-delimiter separates the YAML portion of the csvy file from the csv part. The YAML part
-of the csvy file is for setting model parameters like <strong>v_inner_boundary</strong> or
-<strong>model_density_time_0</strong> while the csv part of the file is for setting profiles of
+followed by the YAML portion of the CSVY model. A line consisting of only the YAML
+delimiter separates the YAML portion of the CSVY file from the CSV part. The YAML part
+of the CSVY file is for setting model parameters like <strong>v_inner_boundary</strong> or
+<strong>model_density_time_0</strong>, while the CSV part of the file is for setting profiles of
 physical parameters of the model (e.g. abundances, radiative temperature, dilution factor, etc).
-If you use the csvy model, then you will need to specify the path to the csvy model file
+If you use the CSVY model, then you will need to specify the path to the CSVY model file
 in the main TARDIS configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">csvy_model</span><span class="p">:</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">csvy</span>
 </pre></div>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Random Sampling Basics &mdash; TARDIS v3.0.dev3459</title>
+  <title>Random Sampling Basics &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../new_plasma.html">Plasma</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Monte Carlo Primer</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="basicprinciples.html">Monte Carlo Radiative Transfer - Basic Principles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretization.html">Monte Carlo Discretization - Energy Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretization.html">Monte Carlo Discretization — Energy Packets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="propagation.html">Packet Propagation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lineinteraction.html">Line Interaction Treatments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estimators.html">Volume-based Monte Carlo Estimators</a></li>
@@ -124,25 +124,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Monte Carlo Primer</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="basicprinciples.html">Monte Carlo Radiative Transfer - Basic Principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="discretization.html">Monte Carlo Discretization - Energy Packets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="propagation.html">Packet Propagation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lineinteraction.html">Line Interaction Treatments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimators.html">Volume-based Monte Carlo Estimators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtualpackets.html">Spectrum Generation with Virtual Packets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sourceintegration.html">Direct integration of the radiation field</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Random Sampling Basics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#inverse-transformation-method">Inverse transformation method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#isotropic-scattering">Isotropic Scattering</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#next-interaction-location">Next Interaction Location</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -270,30 +251,30 @@ Number Generators are available. These produce (pseudo-) random numbers
 <span class="math notranslate nohighlight">\(z\)</span> uniformly distributed on the interval <span class="math notranslate nohighlight">\([0,1]\)</span>. The challenge
 now lies in using these numbers to sample any physical process involved in the
 Radiative transfer calculation. From a probability theory point of view, this
-just implies finding mapping between the probability distribution governing the
-physical process and the one underlying the Random number generator. This
+just implies finding a mapping between the probability distribution governing the
+physical process and the one underlying the Random Number Generator. This
 process is typically referred to as random sampling.</p>
 <div class="section" id="inverse-transformation-method">
 <h2>Inverse transformation method<a class="headerlink" href="#inverse-transformation-method" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is a very superficial and sloppy description Random sampling. More
+<p>This is a very superficial and sloppy description of Random sampling. More
 detailed and rigorous accounts are found in the standard literature, for
-example in <a class="bibtex reference internal" href="../../zreferences.html#kalos2008" id="id1">[KalosWhitlock08]</a></p>
+example in <a class="bibtex reference internal" href="../../zreferences.html#kalos2008" id="id1">[KalosWhitlock08]</a>.</p>
 </div>
-<p>The simplest and most used technique in Monte Carlo radiative transfer
+<p>The simplest and most-used technique in Monte Carlo radiative transfer
 applications is referred to as the inverse transformation method and involves
 the cumulative distribution function. In general, a random process captured by
 the random variable <span class="math notranslate nohighlight">\(X\)</span> is governed by a probability density
 <span class="math notranslate nohighlight">\(\rho_X(x)\)</span> (the continuous counterpart to discrete probabilities), with
 <span class="math notranslate nohighlight">\(\rho_X(x) \mathrm{d}x\)</span> describing the probability of the variable taking
 values in the interval <span class="math notranslate nohighlight">\([x, x+\mathrm{d}x]\)</span>. The cumulative distribution
-function in turn describes, as the name suggests the probability of the
-variable taking the any value between <span class="math notranslate nohighlight">\(-\infty\)</span> and <span class="math notranslate nohighlight">\(x\)</span>:</p>
+function in turn describes, as the name suggests, the probability of the
+variable taking any value between <span class="math notranslate nohighlight">\(-\infty\)</span> and <span class="math notranslate nohighlight">\(x\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[f_X(x) = \int_{-\infty}^x \mathrm{d}x \rho_X(x)\]</div>
 <p>Since the probability density is by definition always positive, the cumulative
-distribution function is monotonously increasing. This constitutes the basis
+distribution function is monotonically increasing. This constitutes the basis
 for the inverse transformation function. Consider two random variables,
 <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. A mapping between those may be established by equating
 their cumulative distribution functions. Numbers <span class="math notranslate nohighlight">\(y\)</span> distributed
@@ -306,7 +287,7 @@ function is trivial, namely <span class="math notranslate nohighlight">\(f_Z(z) 
 distribution sampling method relies on finding the analytic inverse function of
 the cumulative distribution function governing the physical processes to be
 sampled. If this is not possible, other sampling methods, such as von-Neumann
-rejection sampling techniques have to be used.</p>
+rejection sampling techniques, have to be used.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>

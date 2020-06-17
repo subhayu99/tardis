@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/06/12 18:07 +00:00)
+### upcoming (2020/06/17 15:54 +00:00)
+- [#1158](https://github.com/tardis-sn/tardis/pull/1158) Make consistency edits to documentation (#1158) (@arjunsavel)
+
+### v3.0.dev3459 (2020/06/12 18:01 +00:00)
 - [#1185](https://github.com/tardis-sn/tardis/pull/1185) Upgrade pytest version (#1185) (@epassaro)
 
 ### v3.0.dev3458 (2020/06/02 19:11 +00:00)

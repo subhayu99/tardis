@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Direct integration of the radiation field &mdash; TARDIS v3.0.dev3459</title>
+  <title>Direct integration of the radiation field &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../new_plasma.html">Plasma</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Monte Carlo Primer</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="basicprinciples.html">Monte Carlo Radiative Transfer - Basic Principles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="discretization.html">Monte Carlo Discretization - Energy Packets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretization.html">Monte Carlo Discretization — Energy Packets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="propagation.html">Packet Propagation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lineinteraction.html">Line Interaction Treatments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="estimators.html">Volume-based Monte Carlo Estimators</a></li>
@@ -126,23 +126,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Monte Carlo Primer</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="basicprinciples.html">Monte Carlo Radiative Transfer - Basic Principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="discretization.html">Monte Carlo Discretization - Energy Packets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="propagation.html">Packet Propagation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lineinteraction.html">Line Interaction Treatments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimators.html">Volume-based Monte Carlo Estimators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="virtualpackets.html">Spectrum Generation with Virtual Packets</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Direct integration of the radiation field</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#estimators">Estimators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#integration">Integration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#implementation-details">Implementation Details</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#current-limitations">Current Limitations</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="randomsampling.html">Random Sampling Basics</a></li>
-</ul>
-</li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -263,7 +246,7 @@
 synthetic supernova spectra. Instead of using the frequency and energy of
 virtual Monte Carlo (MC) packets to create a spectrum through binning, one can
 formally integrate the line source functions which can be calculated from
-volume based estimators collected during the MC simulation. Spectra generated
+volume-based estimators collected during the MC simulation. Spectra generated
 using this method are virtually noise-free. However, statistical fluctuations
 inherent to Monte Carlo calculations still affect the determination of the
 source functions and thus indirectly introduce an uncertainty in the spectral
@@ -295,10 +278,10 @@ target level</p>
 \[\left( 1- e^{-\tau_{lu}}\right) S_{ul} = \frac{\lambda_{ul} t}{4 \pi} q_{ul}
 \dot E_u\]</div>
 <p>Here, <span class="math notranslate nohighlight">\(\lambda_{ul}\)</span> is the wavelength of the line  <span class="math notranslate nohighlight">\(u \rightarrow
-l\)</span>, and <span class="math notranslate nohighlight">\(q_{ul}\)</span> is the corresponding branching ratio, i.e.the fraction
+l\)</span>, and <span class="math notranslate nohighlight">\(q_{ul}\)</span> is the corresponding branching ratio, i.e. the fraction
 of de-excitations of level <span class="math notranslate nohighlight">\(u\)</span> proceeding via the transition
 <span class="math notranslate nohighlight">\(u\rightarrow l\)</span>. For convenience, the attenuating factor is kept on the
-left hand side because it is the product of the two that will appear in later
+left-hand side because it is the product of the two that will appear in later
 formulae.</p>
 <p>Finally, if the contribution by electron-scattering has to be taken into
 account, estimators for the diffuse radiation field in the blue and red wings
@@ -346,9 +329,9 @@ B_\nu(T)\)</span> if the ray intersects the photosphere or <span class="math not
 <p>We seek to integrate all emissions at a certain wavelength <span class="math notranslate nohighlight">\(\nu\)</span> along a
 ray with impact parameter <span class="math notranslate nohighlight">\(p\)</span>. Because the supernova ejecta is expanding
 homologously, the co-moving frame frequency is continuously shifted to longer
-wavelength due to the relativistic Doppler effect as the packet/photon
+wavelengths due to the relativistic Doppler effect as the packet/photon
 propagates.</p>
-<p>To find out, which lines can shift into the target frequency, we need to
+<p>To find out which lines can shift into the target frequency, we need to
 calculate the maximum Doppler shift along a given ray. At any point, the
 Doppler effect in our coordinates is</p>
 <div class="math notranslate nohighlight">
@@ -365,13 +348,13 @@ Examining the figure, we see that for positive <span class="math notranslate noh
 <p>and in turn <span class="math notranslate nohighlight">\(z_c\)</span> can be given as</p>
 <div class="math notranslate nohighlight">
 \[z_c = \sqrt{r_c^2 + p_c^2}\]</div>
-<p>where the subscripts indicate the value at point C. By symmetry the
+<p>where the subscripts indicate the value at point C. By symmetry, the
 intersection point for negative <span class="math notranslate nohighlight">\(z\)</span> is simply <span class="math notranslate nohighlight">\(-z_c\)</span>.</p>
 <p>Using the expression for <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> above leads to the
 dependence on <span class="math notranslate nohighlight">\(r\)</span> cancelling, and solving for <span class="math notranslate nohighlight">\(\nu_0\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[\nu_0 = \frac{\nu}{1 + \frac{z}{ct}}\]</div>
-<p>For any given shell and impact parameter we can thus find the maximum and
+<p>For any given shell and impact parameter, we can thus find the maximum and
 minimum co-moving frequency that will give the specified lab frame frequency.
 This allows us to find the section of the line list with the transitions whose
 resonances have to be considered in the calculation of the limiting specific
@@ -386,7 +369,7 @@ results when multiple resonances occur on the rays. This is simply because
 otherwise the <span class="math notranslate nohighlight">\(J^b\)</span> and <span class="math notranslate nohighlight">\(J^r\)</span> do not provide an accurate
 representation of the diffuse radiation field at the current location on the
 ray. Also, <span class="math notranslate nohighlight">\(d\tau\)</span> can become large which can create unphysical,
-negative intensities</p></li>
+negative intensities.</p></li>
 </ul>
 <p>It is always advised to check the results of the formal integration against the
 spectrum constructed from the emerging Monte Carlo packets.</p>

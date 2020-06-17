@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using a custom stratified composition &mdash; TARDIS v3.0.dev3459</title>
+  <title>Using a custom stratified composition &mdash; TARDIS v3.0.dev3460</title>
   
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                3.0.dev3459
+                3.0.dev3460
               </div>
             
           
@@ -128,7 +128,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/plasma/index.html">Overview of plasma calculations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -250,8 +249,8 @@
 <div class="section" id="ascii-format">
 <h2>ASCII Format<a class="headerlink" href="#ascii-format" title="Permalink to this headline">¶</a></h2>
 <p>To use a stratified ejecta composition in TARDIS, the elemental abundances may
-be specified on a per-cell basis via an external ascii file (similar to setting
-up a <a class="reference internal" href="densitycust.html"><span class="doc">custom density</span></a> profile). An ascii file that could
+be specified on a per-cell basis via an external ASCII file (similar to setting
+up a <a class="reference internal" href="densitycust.html"><span class="doc">custom density</span></a> profile). An ASCII file that could
 work on a mesh with ten cells should be formatted like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># index Z=1 - Z=30</span>
 <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">0</span> <span class="mf">0.2</span> <span class="mi">0</span> <span class="mf">0.2</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.2</span> <span class="mf">0.1</span> <span class="mf">0.1</span> <span class="mi">0</span> <span class="mi">0</span>
@@ -273,10 +272,10 @@ work on a mesh with ten cells should be formatted like this:</p>
 <li><p>the remaining 30 entries in each row give the set of elemental abundances for atomic number Z=1 to Z=30 (in order)</p></li>
 </ul>
 <p>The abundances are specified as mass fractions (i.e. the sum of columns 1 to 30
-in each row should be 1.0).  TARDIS does not currently include any elements
-heavier that Z=30.  The mass fractions specified will be adopted directly in
-the TARDIS calculations - so if your model is e.g. based on an explosion
-simulation you may need to calculate the state of any radioactive decay chains
+in each row should be 1.0). TARDIS does not currently include any elements
+heavier that Z=30. The mass fractions specified will be adopted directly in
+the TARDIS calculations — so if your model is, for example, based on an explosion
+simulation, you may need to calculate the state of any radioactive decay chains
 at the correct epoch.</p>
 <p>The example file shown here has three simple layers:</p>
 <ul class="simple">
@@ -287,13 +286,13 @@ at the correct epoch.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The example given here is to show the format only. It is not a
-realistic model. In any real calculation better resolution
+realistic model. In any real calculation, better resolution
 (i.e. more grid points) should be used.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The calculation can be no better / more complete than the atomic
-data set. For further information on the atomic database -
+data set. For further information on the atomic database —
 including details of how to develop your own dataset to suit your
 needs, please contact us.</p>
 </div>
@@ -302,7 +301,7 @@ needs, please contact us.</p>
 <h2>TARDIS ascii input file<a class="headerlink" href="#tardis-ascii-input-file" title="Permalink to this headline">¶</a></h2>
 <p>If you create a correctly formatted abundance profile file (called “abund.dat”
 in this example), you can use it in TARDIS by putting the following lines in
-the model section of the yaml file:</p>
+the model section of the YAML file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span>
     <span class="nt">abundances</span><span class="p">:</span>
         <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
@@ -314,7 +313,7 @@ the model section of the yaml file:</p>
 <div class="section" id="csv-format">
 <h2>CSV Format<a class="headerlink" href="#csv-format" title="Permalink to this headline">¶</a></h2>
 <p>In this format, both elemental and isotopic abundances may
-be specified on a per-cell basis via an external csv file. A csv file that could
+be specified on a per-cell basis via an external CSV file. A CSV file that could
 work on a mesh with ten cells should be formatted like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span> <span class="n">C</span> <span class="n">O</span> <span class="n">Mg</span> <span class="n">Si</span> <span class="n">Ni56</span> <span class="n">Ni58</span>
 <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.6</span> <span class="mf">0.4</span> <span class="mi">0</span>
@@ -337,7 +336,7 @@ first column.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>The header line for the isotopic abundance structure can under no
-circumstances start with a ‘#’</p>
+circumstances start with a ‘#’.</p>
 </div>
 <p>In this file:</p>
 <ul class="simple">
@@ -352,19 +351,19 @@ the TARDIS calculations.</p>
 <ul class="simple">
 <li><p>an innermost region that is composed of Si and two Nickel Isotopes Ni56 and Ni58</p></li>
 <li><p>a middle region that is composed of O and Mg</p></li>
-<li><p>an outer region that is composed of C and O.</p></li>
+<li><p>an outer region that is composed of C and O</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Suppose you specify Elemental and Isotopic abundances for the same element. For ex-
 <code class="code docutils literal notranslate"><span class="pre">Ni</span></code> and <code class="code docutils literal notranslate"><span class="pre">Ni56</span></code>.
-Here, Ni will refer to the stable Nickel, i.e. (Z=26, A=58).</p>
+Here, Ni will refer to the stable Nickel (i.e. Z=26, A=58).</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As with the custom density file, the first row will be ignored. It is
 supposed to give the composition below the photosphere. Thus, the first row
-(after the header) can be filled with dummy values</p>
+(after the header) can be filled with dummy values.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -374,10 +373,10 @@ realistic model. In any real calculation better resolution
 </div>
 </div>
 <div class="section" id="tardis-csv-input-file">
-<h2>TARDIS csv input file<a class="headerlink" href="#tardis-csv-input-file" title="Permalink to this headline">¶</a></h2>
+<h2>TARDIS CSV input file<a class="headerlink" href="#tardis-csv-input-file" title="Permalink to this headline">¶</a></h2>
 <p>If you create a correctly formatted abundance profile file (called “tardis_model_abund.csv”
 in this example), you can use it in TARDIS by putting the following lines in
-the model section of the yaml file:</p>
+the model section of the YAML file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">model</span><span class="p">:</span>
     <span class="nt">abundances</span><span class="p">:</span>
         <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file</span>
@@ -387,8 +386,8 @@ the model section of the yaml file:</p>
 </div>
 </div>
 <div class="section" id="convert-ascii-abundance-file-format-to-csv-format">
-<h2>Convert ascii abundance file format to csv format<a class="headerlink" href="#convert-ascii-abundance-file-format-to-csv-format" title="Permalink to this headline">¶</a></h2>
-<p>If you want to convert an ASCII abundance file(say “abund.dat”) to CSV format, you can use
+<h2>Convert ASCII abundance file format to CSV format<a class="headerlink" href="#convert-ascii-abundance-file-format-to-csv-format" title="Permalink to this headline">¶</a></h2>
+<p>If you want to convert an ASCII abundance file (say “abund.dat”) to CSV format, you can use
 <code class="code docutils literal notranslate"><span class="pre">convert_abundances_format</span></code> function for it. Here is an example to demonstrate this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tardis.util</span> <span class="kn">import</span> <span class="n">convert_abundances_format</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">convert_abundances_format</span><span class="p">(</span><span class="s1">&#39;abund.dat&#39;</span><span class="p">)</span>
