@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; TARDIS v3.0.dev3460</title>
+  <title>Installation &mdash; TARDIS v3.0.dev3461</title>
   
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
   
@@ -19,7 +23,9 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -35,11 +41,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Quickstart for TARDIS" href="quickstart/quickstart.html" />
@@ -59,7 +60,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> TARDIS
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> TARDIS
           
 
           
@@ -69,7 +70,7 @@
             
             
               <div class="version">
-                3.0.dev3460
+                3.0.dev3461
               </div>
             
           
@@ -86,6 +87,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -140,6 +142,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -178,7 +181,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Installation</li>
     
@@ -230,14 +233,13 @@ Anaconda. If you encounter problems, consult the
 <a class="reference internal" href="#troubleshooting-inst-label"><span class="std std-ref">troubleshooting</span></a> section. Once you have
 installed TARDIS, check out <span class="xref std std-doc">running</span> for instructions regarding how to perform
 simple TARDIS calculations.</p>
-<div class="admonition warning" id="requirements-label">
-<p class="admonition-title">Warning</p>
-<p>TARDIS is only compatible with Python &gt;3.6</p>
-</div>
-<div class="admonition note">
+<div class="admonition note" id="requirements-label">
 <p class="admonition-title">Note</p>
-<p>We strongly recommend installing TARDIS within an Anaconda environment and
-to always use the latest GitHub development version.</p>
+<ul class="simple">
+<li><p>TARDIS is only compatible with Python &gt;=3.6</p></li>
+<li><p>TARDIS only supports Linux and MacOS.</p></li>
+<li><p>We strongly recommend installing TARDIS within an Anaconda environment and to always use the latest GitHub development version.</p></li>
+</ul>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
@@ -382,11 +384,19 @@ may encounter the following error:</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2013, TARDIS collaboration
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -397,7 +407,6 @@ may encounter the following error:</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
