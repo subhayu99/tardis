@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/06/19 13:35 +00:00)
+### upcoming (2020/06/19 22:42 +00:00)
+- [#1193](https://github.com/tardis-sn/tardis/pull/1193) Unpin astropy version (#1193) (@epassaro)
 - [#1191](https://github.com/tardis-sn/tardis/pull/1191) Add note to tell users which OS are supported (issue #1125) (#1191) (@jordi5)
 - [#1158](https://github.com/tardis-sn/tardis/pull/1158) Make consistency edits to documentation (#1158) (@arjunsavel)
 
