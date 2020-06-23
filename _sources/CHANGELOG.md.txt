@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/06/19 22:56 +00:00)
+### upcoming (2020/06/23 23:24 +00:00)
+- [#1166](https://github.com/tardis-sn/tardis/pull/1166) Create a new subpackage for jupyter-widgets and add shell info widgets (#1166) (@jaladh-singhal)
+
+### v3.0.dev3463 (2020/06/19 22:51 +00:00)
 - [#1195](https://github.com/tardis-sn/tardis/pull/1195) Fix badges in README.rst (#1195) (@epassaro)
 - [#1193](https://github.com/tardis-sn/tardis/pull/1193) Unpin astropy version (#1193) (@epassaro)
 - [#1191](https://github.com/tardis-sn/tardis/pull/1191) Add note to tell users which OS are supported (issue #1125) (#1191) (@jordi5)

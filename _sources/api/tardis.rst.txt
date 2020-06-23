@@ -15,6 +15,7 @@ Subpackages
    tardis.simulation
    tardis.stats
    tardis.util
+   tardis.widgets
 
 Submodules
 ----------
