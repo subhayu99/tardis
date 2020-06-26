@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.util &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.io.util &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -191,7 +191,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for tardis.io.util</h1><div class="highlight"><pre>
-<span></span><span class="c1">#Utility functions for the IO part of TARDIS</span>
+<span></span><span class="c1"># Utility functions for the IO part of TARDIS</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">re</span>
@@ -214,7 +214,6 @@
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-
 <div class="viewcode-block" id="get_internal_data_path"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.get_internal_data_path">[docs]</a><span class="k">def</span> <span class="nf">get_internal_data_path</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get internal data path of TARDIS</span>
@@ -225,7 +224,8 @@
 <span class="sd">            internal data path of TARDIS</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TARDIS_PATH</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TARDIS_PATH</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="quantity_from_str"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.quantity_from_str">[docs]</a><span class="k">def</span> <span class="nf">quantity_from_str</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -240,9 +240,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">value_str</span><span class="p">,</span> <span class="n">unit_str</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value_str</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">unit_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;log_lsun&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">unit_str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;log_lsun&quot;</span><span class="p">:</span>
         <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="n">value</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">constants</span><span class="o">.</span><span class="n">L_sun</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
-        <span class="n">unit_str</span> <span class="o">=</span> <span class="s1">&#39;erg/s&#39;</span>
+        <span class="n">unit_str</span> <span class="o">=</span> <span class="s2">&quot;erg/s&quot;</span>
 
     <span class="n">unit</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="n">unit_str</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">unit</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">L_sun</span><span class="p">:</span>
@@ -258,6 +258,7 @@
 
 <span class="sd">    Note: This is usually a lot slower than regex matching.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_type</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">target_type</span>
 
@@ -308,13 +309,18 @@
 <div class="viewcode-block" id="YAMLLoader.mapping_constructor"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.YAMLLoader.mapping_constructor">[docs]</a>    <span class="k">def</span> <span class="nf">mapping_constructor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">construct_pairs</span><span class="p">(</span><span class="n">node</span><span class="p">))</span></div></div>
 
-<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_constructor</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;!quantity&#39;</span><span class="p">,</span> <span class="n">YAMLLoader</span><span class="o">.</span><span class="n">construct_quantity</span><span class="p">)</span>
-<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_implicit_resolver</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;!quantity&#39;</span><span class="p">,</span>
-                                 <span class="n">MockRegexPattern</span><span class="p">(</span><span class="n">quantity_from_str</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_implicit_resolver</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;tag:yaml.org,2002:float&#39;</span><span class="p">,</span>
-                                 <span class="n">MockRegexPattern</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_constructor</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">BaseResolver</span><span class="o">.</span><span class="n">DEFAULT_MAPPING_TAG</span><span class="p">,</span>
-                           <span class="n">YAMLLoader</span><span class="o">.</span><span class="n">mapping_constructor</span><span class="p">)</span>
+
+<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_constructor</span><span class="p">(</span><span class="s2">&quot;!quantity&quot;</span><span class="p">,</span> <span class="n">YAMLLoader</span><span class="o">.</span><span class="n">construct_quantity</span><span class="p">)</span>
+<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_implicit_resolver</span><span class="p">(</span>
+    <span class="s2">&quot;!quantity&quot;</span><span class="p">,</span> <span class="n">MockRegexPattern</span><span class="p">(</span><span class="n">quantity_from_str</span><span class="p">),</span> <span class="kc">None</span>
+<span class="p">)</span>
+<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_implicit_resolver</span><span class="p">(</span>
+    <span class="s2">&quot;tag:yaml.org,2002:float&quot;</span><span class="p">,</span> <span class="n">MockRegexPattern</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="kc">None</span>
+<span class="p">)</span>
+<span class="n">YAMLLoader</span><span class="o">.</span><span class="n">add_constructor</span><span class="p">(</span>
+    <span class="n">yaml</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">BaseResolver</span><span class="o">.</span><span class="n">DEFAULT_MAPPING_TAG</span><span class="p">,</span>
+    <span class="n">YAMLLoader</span><span class="o">.</span><span class="n">mapping_constructor</span><span class="p">,</span>
+<span class="p">)</span>
 
 
 <div class="viewcode-block" id="yaml_load_file"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.yaml_load_file">[docs]</a><span class="k">def</span> <span class="nf">yaml_load_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">Loader</span><span class="p">):</span>
@@ -347,7 +353,11 @@
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">base</span><span class="p">:</span>
             <span class="n">traverse_configs</span><span class="p">(</span><span class="n">base</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">other</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">basestring</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">basestring</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">)</span>
+    <span class="p">):</span>
         <span class="k">for</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
             <span class="n">traverse_configs</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -357,7 +367,7 @@
 <div class="viewcode-block" id="assert_equality"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.assert_equality">[docs]</a><span class="k">def</span> <span class="nf">assert_equality</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">):</span>
     <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">item1</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">item2</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="s1">&#39;unit&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">):</span>
             <span class="k">assert</span> <span class="n">item1</span><span class="o">.</span><span class="n">unit</span> <span class="o">==</span> <span class="n">item2</span><span class="o">.</span><span class="n">unit</span>
         <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
     <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
@@ -381,7 +391,7 @@
         <span class="k">return</span> <span class="n">instance</span>
 
 <div class="viewcode-block" id="HDFWriterMixin.to_hdf_util"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.HDFWriterMixin.to_hdf_util">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">to_hdf_util</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">complevel</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">complib</span><span class="o">=</span><span class="s1">&#39;blosc&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to_hdf_util</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">complevel</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">complib</span><span class="o">=</span><span class="s2">&quot;blosc&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A function to uniformly store TARDIS data</span>
 <span class="sd">        to an HDF file.</span>
@@ -409,13 +419,9 @@
         <span class="n">we_opened</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">buf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span>
-                    <span class="n">path_or_buf</span><span class="p">,</span>
-                    <span class="n">complevel</span><span class="o">=</span><span class="n">complevel</span><span class="p">,</span>
-                    <span class="n">complib</span><span class="o">=</span><span class="n">complib</span>
-                    <span class="p">)</span>
+            <span class="n">buf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">complevel</span><span class="o">=</span><span class="n">complevel</span><span class="p">,</span> <span class="n">complib</span><span class="o">=</span><span class="n">complib</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># Already a HDFStore</span>
-            <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s1">&#39;Expected bytes, got HDFStore&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s2">&quot;Expected bytes, got HDFStore&quot;</span><span class="p">:</span>
                 <span class="n">buf</span> <span class="o">=</span> <span class="n">path_or_buf</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">e</span>
@@ -429,23 +435,20 @@
         <span class="n">scalars</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">elements</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;cgs&#39;</span><span class="p">):</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;cgs&quot;</span><span class="p">):</span>
                 <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span>
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
                 <span class="n">scalars</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">):</span>
+            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                     <span class="c1"># This try,except block is only for model.plasma.levels</span>
                     <span class="k">try</span><span class="p">:</span>
-                        <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span>
-                                                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+                        <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
                     <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
-                        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span>
-                                                   <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+                        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span>
-                        <span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+                    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">value</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
@@ -457,12 +460,12 @@
             <span class="n">scalars_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">scalars</span><span class="p">)</span>
 
             <span class="c1"># Unfortunately, with to_hdf we cannot append, so merge beforehand</span>
-            <span class="n">scalars_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;scalars&#39;</span><span class="p">)</span>
+            <span class="n">scalars_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;scalars&quot;</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">scalars_series</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">scalars_path</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scalars_series</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>  <span class="c1"># no scalars in HDFStore</span>
                 <span class="k">pass</span>
-            <span class="n">scalars_series</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;scalars&#39;</span><span class="p">))</span>
+            <span class="n">scalars_series</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;scalars&quot;</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">we_opened</span><span class="p">:</span>
             <span class="n">buf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
@@ -477,10 +480,10 @@
 
 <div class="viewcode-block" id="HDFWriterMixin.convert_to_snake_case"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.HDFWriterMixin.convert_to_snake_case">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">convert_to_snake_case</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-        <span class="n">s1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(.)([A-Z][a-z]+)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([a-z0-9])([A-Z])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;(.)([A-Z][a-z]+)&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\1_\2&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;([a-z0-9])([A-Z])&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\1_\2&quot;</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="HDFWriterMixin.to_hdf"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.HDFWriterMixin.to_hdf">[docs]</a>    <span class="k">def</span> <span class="nf">to_hdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="HDFWriterMixin.to_hdf"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.HDFWriterMixin.to_hdf">[docs]</a>    <span class="k">def</span> <span class="nf">to_hdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -507,27 +510,29 @@
 
 
 <div class="viewcode-block" id="PlasmaWriterMixin"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.PlasmaWriterMixin">[docs]</a><span class="k">class</span> <span class="nc">PlasmaWriterMixin</span><span class="p">(</span><span class="n">HDFWriterMixin</span><span class="p">):</span>
-
 <div class="viewcode-block" id="PlasmaWriterMixin.get_properties"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.PlasmaWriterMixin.get_properties">[docs]</a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">:</span>
-            <span class="n">properties</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">plasma_properties</span>
-                          <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">))]</span>
+            <span class="n">properties</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">name</span>
+                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">plasma_properties</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="p">))</span>
+            <span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">properties</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plasma_properties</span>
         <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">prop</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span>
                 <span class="n">data</span><span class="p">[</span><span class="n">output</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
-        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;atom_data_uuid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atomic_data</span><span class="o">.</span><span class="n">uuid1</span>
-        <span class="k">if</span> <span class="s1">&#39;atomic_data&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-            <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;atomic_data&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s1">&#39;nlte_data&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;atom_data_uuid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atomic_data</span><span class="o">.</span><span class="n">uuid1</span>
+        <span class="k">if</span> <span class="s2">&quot;atomic_data&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;atomic_data&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;nlte_data&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;nlte_data can&#39;t be saved&quot;</span><span class="p">)</span>
-            <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;nlte_data&#39;</span><span class="p">)</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;nlte_data&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">data</span></div>
 
-<div class="viewcode-block" id="PlasmaWriterMixin.to_hdf"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.PlasmaWriterMixin.to_hdf">[docs]</a>    <span class="k">def</span> <span class="nf">to_hdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
+<div class="viewcode-block" id="PlasmaWriterMixin.to_hdf"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.PlasmaWriterMixin.to_hdf">[docs]</a>    <span class="k">def</span> <span class="nf">to_hdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">collection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        file_path: str</span>
@@ -548,7 +553,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 
-<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">collection</span> <span class="o">=</span> <span class="n">collection</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PlasmaWriterMixin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div></div>
 
@@ -569,10 +574,14 @@
         <span class="k">return</span> <span class="n">file_size</span>
     <span class="n">header</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Range&quot;</span><span class="p">:</span> <span class="s2">&quot;bytes=</span><span class="si">%s</span><span class="s2">-</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">first_byte</span><span class="p">,</span> <span class="n">file_size</span><span class="p">)}</span>
     <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span>
-        <span class="n">total</span><span class="o">=</span><span class="n">file_size</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="n">first_byte</span><span class="p">,</span>
-        <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">total</span><span class="o">=</span><span class="n">file_size</span><span class="p">,</span>
+        <span class="n">initial</span><span class="o">=</span><span class="n">first_byte</span><span class="p">,</span>
+        <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">desc</span><span class="o">=</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">)</span>
     <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">with</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="s1">&#39;ab&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">req</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>

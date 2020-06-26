@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.ion_population &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.properties.ion_population &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -208,15 +208,22 @@
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PhiSahaNebular&#39;</span><span class="p">,</span> <span class="s1">&#39;PhiSahaLTE&#39;</span><span class="p">,</span> <span class="s1">&#39;RadiationFieldCorrection&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;IonNumberDensity&#39;</span><span class="p">,</span> <span class="s1">&#39;IonNumberDensityHeNLTE&#39;</span><span class="p">,</span> <span class="s1">&#39;SahaFactor&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;ThermalPhiSahaLTE&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;PhiSahaNebular&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PhiSahaLTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RadiationFieldCorrection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IonNumberDensity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IonNumberDensityHeNLTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SahaFactor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ThermalPhiSahaLTE&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">calculate_block_ids_from_dataframe</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
-        <span class="n">block_start_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span>
-            <span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(([</span><span class="mi">0</span><span class="p">],</span> <span class="n">block_start_id</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)]))</span>
+    <span class="n">block_start_id</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(([</span><span class="mi">0</span><span class="p">],</span> <span class="n">block_start_id</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)]))</span>
 
 
 <div class="viewcode-block" id="PhiSahaLTE"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.PhiSahaLTE">[docs]</a><span class="k">class</span> <span class="nc">PhiSahaLTE</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
@@ -226,12 +233,15 @@
 <span class="sd">          Used for LTE ionization (at the radiation temperature).</span>
 <span class="sd">          Indexed by atomic number, ion number. Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Phi&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">dfrac{2Z_{i,j+1}}{Z_{i,j}}</span><span class="se">\\</span><span class="s1">Big(</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">dfrac{2</span><span class="se">\\</span><span class="s1">pi m_</span><span class="si">{e}</span><span class="s1">/</span><span class="se">\\</span><span class="s1">beta_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}}{h^2}</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">Big)^{3/2}e^{</span><span class="se">\\</span><span class="s1">dfrac{-</span><span class="se">\\</span><span class="s1">chi_{i,j}}{kT_{</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}}}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;phi&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">dfrac{2Z_{i,j+1}}{Z_{i,j}}</span><span class="se">\\</span><span class="s2">Big(</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">dfrac{2</span><span class="se">\\</span><span class="s2">pi m_</span><span class="si">{e}</span><span class="s2">/</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}{h^2}</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">Big)^{3/2}e^{</span><span class="se">\\</span><span class="s2">dfrac{-</span><span class="se">\\</span><span class="s2">chi_{i,j}}{kT_{</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="n">broadcast_ionization_energy</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -239,9 +249,12 @@
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">g_electron</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">):</span>
 
         <span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
-            <span class="p">(</span><span class="n">partition_function</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span>
-             <span class="n">partition_function</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
-            <span class="n">partition_function</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="p">(</span>
+                <span class="n">partition_function</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="o">-</span> <span class="n">partition_function</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+                <span class="n">partition_function</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
         <span class="n">block_ids</span> <span class="o">=</span> <span class="n">calculate_block_ids_from_dataframe</span><span class="p">(</span><span class="n">partition_function</span><span class="p">)</span>
 
@@ -249,15 +262,19 @@
             <span class="n">end_id</span> <span class="o">=</span> <span class="n">block_ids</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">current_block</span> <span class="o">=</span> <span class="n">partition_function</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">start_id</span><span class="p">:</span><span class="n">end_id</span><span class="p">]</span>
             <span class="n">current_phis</span> <span class="o">=</span> <span class="n">current_block</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">current_block</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">phis</span><span class="p">[</span><span class="n">start_id</span> <span class="o">-</span> <span class="n">i</span><span class="p">:</span><span class="n">end_id</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_phis</span>
+            <span class="n">phis</span><span class="p">[</span><span class="n">start_id</span> <span class="o">-</span> <span class="n">i</span> <span class="p">:</span> <span class="n">end_id</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_phis</span>
 
-        <span class="n">broadcast_ionization_energy</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">ionization_data</span><span class="p">[</span><span class="n">partition_function</span><span class="o">.</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+        <span class="n">broadcast_ionization_energy</span> <span class="o">=</span> <span class="n">ionization_data</span><span class="p">[</span>
+            <span class="n">partition_function</span><span class="o">.</span><span class="n">index</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
         <span class="n">phi_index</span> <span class="o">=</span> <span class="n">broadcast_ionization_energy</span><span class="o">.</span><span class="n">index</span>
         <span class="n">broadcast_ionization_energy</span> <span class="o">=</span> <span class="n">broadcast_ionization_energy</span><span class="o">.</span><span class="n">values</span>
 
-        <span class="n">phi_coefficient</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">g_electron</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">broadcast_ionization_energy</span><span class="p">,</span> <span class="o">-</span><span class="n">beta_rad</span><span class="p">)))</span>
+        <span class="n">phi_coefficient</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="mi">2</span>
+            <span class="o">*</span> <span class="n">g_electron</span>
+            <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">broadcast_ionization_energy</span><span class="p">,</span> <span class="o">-</span><span class="n">beta_rad</span><span class="p">))</span>
+        <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">phis</span> <span class="o">*</span> <span class="n">phi_coefficient</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">phi_index</span><span class="p">)</span></div>
 
@@ -273,19 +290,28 @@
 <span class="sd">          Used for LTE ionization (at the electron temperature).</span>
 <span class="sd">          Indexed by atomic number, ion number. Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;thermal_phi_lte&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Phi^{*}(T_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{e}</span><span class="s1">)&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">dfrac{2Z_{i,j+1}}{Z_{i,j}}</span><span class="se">\\</span><span class="s1">Big(</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">dfrac{2</span><span class="se">\\</span><span class="s1">pi m_</span><span class="si">{e}</span><span class="s1">/</span><span class="se">\\</span><span class="s1">beta_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}}{h^2}</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">Big)^{3/2}e^{</span><span class="se">\\</span><span class="s1">dfrac{-</span><span class="se">\\</span><span class="s1">chi_{i,j}}{kT_{</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}}}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_phi_lte&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi^{*}(T_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{e}</span><span class="s2">)&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">dfrac{2Z_{i,j+1}}{Z_{i,j}}</span><span class="se">\\</span><span class="s2">Big(</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">dfrac{2</span><span class="se">\\</span><span class="s2">pi m_</span><span class="si">{e}</span><span class="s2">/</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}{h^2}</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">Big)^{3/2}e^{</span><span class="se">\\</span><span class="s2">dfrac{-</span><span class="se">\\</span><span class="s2">chi_{i,j}}{kT_{</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="ThermalPhiSahaLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.ThermalPhiSahaLTE.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">thermal_g_electron</span><span class="p">,</span> <span class="n">beta_electron</span><span class="p">,</span>
-                  <span class="n">thermal_lte_partition_function</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
+        <span class="n">thermal_g_electron</span><span class="p">,</span>
+        <span class="n">beta_electron</span><span class="p">,</span>
+        <span class="n">thermal_lte_partition_function</span><span class="p">,</span>
+        <span class="n">ionization_data</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ThermalPhiSahaLTE</span><span class="p">,</span> <span class="n">ThermalPhiSahaLTE</span><span class="p">)</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span>
-            <span class="n">thermal_g_electron</span><span class="p">,</span> <span class="n">beta_electron</span><span class="p">,</span> <span class="n">thermal_lte_partition_function</span><span class="p">,</span>
-            <span class="n">ionization_data</span>
+            <span class="n">thermal_g_electron</span><span class="p">,</span>
+            <span class="n">beta_electron</span><span class="p">,</span>
+            <span class="n">thermal_lte_partition_function</span><span class="p">,</span>
+            <span class="n">ionization_data</span><span class="p">,</span>
         <span class="p">)</span></div></div>
 
 
@@ -295,38 +321,62 @@
 <span class="sd">    phi : Pandas DataFrame, dtype float</span>
 <span class="sd">          Used for nebular ionization. Indexed by atomic number, ion number. Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Phi&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;W(</span><span class="se">\\</span><span class="s1">delta</span><span class="se">\\</span><span class="s1">zeta_{i,j}+W(1-</span><span class="se">\\</span><span class="s1">zeta_{i,j}))</span><span class="se">\\</span><span class="s1">left(</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">dfrac{T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}}{T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}}</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">right)^{1/2}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;phi&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;W(</span><span class="se">\\</span><span class="s2">delta</span><span class="se">\\</span><span class="s2">zeta_{i,j}+W(1-</span><span class="se">\\</span><span class="s2">zeta_{i,j}))</span><span class="se">\\</span><span class="s2">left(</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">dfrac{T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}{T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}</span><span class="se">\</span>
+<span class="s2">                     </span><span class="se">\\</span><span class="s2">right)^{1/2}&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
 <div class="viewcode-block" id="PhiSahaNebular.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.PhiSahaNebular.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">t_rad</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">zeta_data</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span>
-            <span class="n">g_electron</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">):</span>
-        <span class="n">phi_lte</span> <span class="o">=</span> <span class="n">PhiSahaLTE</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">g_electron</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span>
-            <span class="n">partition_function</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
+        <span class="n">t_rad</span><span class="p">,</span>
+        <span class="n">w</span><span class="p">,</span>
+        <span class="n">zeta_data</span><span class="p">,</span>
+        <span class="n">t_electrons</span><span class="p">,</span>
+        <span class="n">delta</span><span class="p">,</span>
+        <span class="n">g_electron</span><span class="p">,</span>
+        <span class="n">beta_rad</span><span class="p">,</span>
+        <span class="n">partition_function</span><span class="p">,</span>
+        <span class="n">ionization_data</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">phi_lte</span> <span class="o">=</span> <span class="n">PhiSahaLTE</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span>
+            <span class="n">g_electron</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">ionization_data</span>
+        <span class="p">)</span>
         <span class="n">zeta</span> <span class="o">=</span> <span class="n">PhiSahaNebular</span><span class="o">.</span><span class="n">get_zeta_values</span><span class="p">(</span><span class="n">zeta_data</span><span class="p">,</span> <span class="n">phi_lte</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">t_rad</span><span class="p">)</span>
-        <span class="n">phis</span> <span class="o">=</span> <span class="n">phi_lte</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="p">((</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">zeta</span><span class="p">))</span> <span class="o">*</span> \
-               <span class="p">(</span><span class="n">t_electrons</span><span class="o">/</span><span class="n">t_rad</span><span class="p">)</span> <span class="o">**</span> <span class="o">.</span><span class="mi">5</span>
+        <span class="n">phis</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">phi_lte</span>
+            <span class="o">*</span> <span class="n">w</span>
+            <span class="o">*</span> <span class="p">((</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">zeta</span><span class="p">))</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">t_electrons</span> <span class="o">/</span> <span class="n">t_rad</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">phis</span></div>
 
 <div class="viewcode-block" id="PhiSahaNebular.get_zeta_values"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.PhiSahaNebular.get_zeta_values">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">get_zeta_values</span><span class="p">(</span><span class="n">zeta_data</span><span class="p">,</span> <span class="n">ion_index</span><span class="p">,</span> <span class="n">t_rad</span><span class="p">):</span>
         <span class="n">zeta_t_rad</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">zeta_values</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ion_index</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-        <span class="n">zeta</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">zeta_t_rad</span><span class="p">,</span> <span class="n">zeta_values</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                    <span class="n">fill_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)(</span><span class="n">t_rad</span><span class="p">)</span>
+        <span class="n">zeta</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+            <span class="n">zeta_t_rad</span><span class="p">,</span> <span class="n">zeta_values</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="p">)(</span><span class="n">t_rad</span><span class="p">)</span>
         <span class="n">zeta</span> <span class="o">=</span> <span class="n">zeta</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">zeta</span><span class="p">)):</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;t_rads outside of zeta factor interpolation&#39;</span>
-                                 <span class="s1">&#39; zeta_min=</span><span class="si">{0:.2f}</span><span class="s1"> zeta_max=</span><span class="si">{1:.2f}</span><span class="s1"> &#39;</span>
-                                 <span class="s1">&#39;- replacing with 1s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">zeta_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
-                <span class="n">t_rad</span><span class="p">))</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;t_rads outside of zeta factor interpolation&quot;</span>
+                <span class="s2">&quot; zeta_min=</span><span class="si">{0:.2f}</span><span class="s2"> zeta_max=</span><span class="si">{1:.2f}</span><span class="s2"> &quot;</span>
+                <span class="s2">&quot;- replacing with 1s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                    <span class="n">t_rad</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
             <span class="n">zeta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">zeta</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">1.0</span>
 
         <span class="k">return</span> <span class="n">zeta</span></div></div>
+
 
 <div class="viewcode-block" id="RadiationFieldCorrection"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.RadiationFieldCorrection">[docs]</a><span class="k">class</span> <span class="nc">RadiationFieldCorrection</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -337,11 +387,17 @@
 <span class="sd">            Ca II, which is good for type Ia supernovae. For type II supernovae,</span>
 <span class="sd">            (1, 1) should be used. Indexed by atomic number, ion number. The columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;delta&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">delta&#39;</span><span class="p">,)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">departure_coefficient</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">chi_0_species</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">delta_treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;delta&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">delta&quot;</span><span class="p">,)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">plasma_parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">departure_coefficient</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">chi_0_species</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">delta_treatment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RadiationFieldCorrection</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plasma_parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">departure_coefficient</span> <span class="o">=</span> <span class="n">departure_coefficient</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">delta_treatment</span> <span class="o">=</span> <span class="n">delta_treatment</span>
@@ -353,35 +409,47 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">chi_0</span> <span class="o">=</span> <span class="n">ionization_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">chi_0_species</span><span class="p">]</span>
 
-<div class="viewcode-block" id="RadiationFieldCorrection.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.RadiationFieldCorrection.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">t_rad</span><span class="p">,</span>
-        <span class="n">beta_electron</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;chi_0&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="RadiationFieldCorrection.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.RadiationFieldCorrection.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">t_rad</span><span class="p">,</span> <span class="n">beta_electron</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;chi_0&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_set_chi_0</span><span class="p">(</span><span class="n">ionization_data</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta_treatment</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">departure_coefficient</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">departure_coefficient</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">w</span>
+                <span class="n">departure_coefficient</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">w</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">departure_coefficient</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">departure_coefficient</span>
-            <span class="n">radiation_field_correction</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ionization_data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span>
-                <span class="n">beta_rad</span><span class="p">)))</span>
-            <span class="n">less_than_chi_0</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">ionization_data</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi_0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-            <span class="n">factor_a</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_electrons</span> <span class="o">/</span> <span class="p">(</span><span class="n">departure_coefficient</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">t_rad</span><span class="p">))</span>
-            <span class="n">radiation_field_correction</span><span class="p">[</span><span class="o">~</span><span class="n">less_than_chi_0</span><span class="p">]</span> <span class="o">=</span> <span class="n">factor_a</span> <span class="o">*</span> \
-                <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">ionization_data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span>
-                <span class="o">~</span><span class="n">less_than_chi_0</span><span class="p">],</span> <span class="n">beta_rad</span> <span class="o">-</span> <span class="n">beta_electron</span><span class="p">))</span>
-            <span class="n">radiation_field_correction</span><span class="p">[</span><span class="n">less_than_chi_0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
-                <span class="n">ionization_data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">less_than_chi_0</span><span class="p">],</span>
-                <span class="n">beta_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">beta_rad</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi_0</span><span class="p">)</span>
+            <span class="n">radiation_field_correction</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
+                <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ionization_data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta_rad</span><span class="p">))</span>
+            <span class="p">)</span>
+            <span class="n">less_than_chi_0</span> <span class="o">=</span> <span class="p">(</span><span class="n">ionization_data</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi_0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">factor_a</span> <span class="o">=</span> <span class="n">t_electrons</span> <span class="o">/</span> <span class="p">(</span><span class="n">departure_coefficient</span> <span class="o">*</span> <span class="n">w</span> <span class="o">*</span> <span class="n">t_rad</span><span class="p">)</span>
+            <span class="n">radiation_field_correction</span><span class="p">[</span><span class="o">~</span><span class="n">less_than_chi_0</span><span class="p">]</span> <span class="o">=</span> <span class="n">factor_a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
+                    <span class="n">ionization_data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">~</span><span class="n">less_than_chi_0</span><span class="p">],</span>
+                    <span class="n">beta_rad</span> <span class="o">-</span> <span class="n">beta_electron</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">radiation_field_correction</span><span class="p">[</span><span class="n">less_than_chi_0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">ionization_data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">less_than_chi_0</span><span class="p">],</span> <span class="n">beta_rad</span><span class="p">)</span>
+                <span class="o">-</span> <span class="n">beta_rad</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi_0</span>
+            <span class="p">)</span>
             <span class="n">radiation_field_correction</span><span class="p">[</span><span class="n">less_than_chi_0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">factor_a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">ionization_data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span>
-                <span class="n">less_than_chi_0</span><span class="p">],</span><span class="n">beta_rad</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi_0</span> <span class="o">*</span> <span class="n">beta_electron</span><span class="p">)</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">ionization_data</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">less_than_chi_0</span><span class="p">],</span> <span class="n">beta_rad</span><span class="p">)</span>
+                <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">chi_0</span> <span class="o">*</span> <span class="n">beta_electron</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">radiation_field_correction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ionization_data</span><span class="p">),</span>
-                <span class="nb">len</span><span class="p">(</span><span class="n">beta_rad</span><span class="p">)))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta_treatment</span>
-        <span class="n">delta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">radiation_field_correction</span><span class="p">,</span>
-            <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_rad</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="n">ionization_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">radiation_field_correction</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ionization_data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">beta_rad</span><span class="p">)))</span>
+                <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta_treatment</span>
+            <span class="p">)</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">radiation_field_correction</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_rad</span><span class="p">)),</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">ionization_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">delta</span></div></div>
+
 
 <div class="viewcode-block" id="IonNumberDensity"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensity">[docs]</a><span class="k">class</span> <span class="nc">IonNumberDensity</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -399,19 +467,30 @@
 <span class="sd">    value, a new guess for the value of the electron density is chosen</span>
 <span class="sd">    and the process is repeated.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ion_number_density&#39;</span><span class="p">,</span> <span class="s1">&#39;electron_densities&#39;</span><span class="p">)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;N_{i,j}&#39;</span><span class="p">,</span><span class="s1">&#39;n_</span><span class="si">{e}</span><span class="s1">&#39;</span><span class="p">,)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">,</span> <span class="n">ion_zero_threshold</span><span class="o">=</span><span class="mf">1e-20</span><span class="p">,</span> <span class="n">electron_densities</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;ion_number_density&quot;</span><span class="p">,</span> <span class="s2">&quot;electron_densities&quot;</span><span class="p">)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;N_{i,j}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;n_</span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">,</span> <span class="n">ion_zero_threshold</span><span class="o">=</span><span class="mf">1e-20</span><span class="p">,</span> <span class="n">electron_densities</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">IonNumberDensity</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plasma_parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span> <span class="o">=</span> <span class="n">ion_zero_threshold</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_electron_densities</span> <span class="o">=</span> <span class="n">electron_densities</span>
 
 <div class="viewcode-block" id="IonNumberDensity.calculate_with_n_electron"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensity.calculate_with_n_electron">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">calculate_with_n_electron</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span>
-                                  <span class="n">number_density</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span> <span class="n">block_ids</span><span class="p">,</span>
-                                  <span class="n">ion_zero_threshold</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calculate_with_n_electron</span><span class="p">(</span>
+        <span class="n">phi</span><span class="p">,</span>
+        <span class="n">partition_function</span><span class="p">,</span>
+        <span class="n">number_density</span><span class="p">,</span>
+        <span class="n">n_electron</span><span class="p">,</span>
+        <span class="n">block_ids</span><span class="p">,</span>
+        <span class="n">ion_zero_threshold</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="k">if</span> <span class="n">block_ids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">block_ids</span> <span class="o">=</span> <span class="n">IonNumberDensity</span><span class="o">.</span><span class="n">_calculate_block_ids</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span>
 
@@ -424,18 +503,22 @@
             <span class="n">current_phis</span> <span class="o">=</span> <span class="n">phi_electron</span><span class="p">[</span><span class="n">start_id</span><span class="p">:</span><span class="n">end_id</span><span class="p">]</span>
             <span class="n">phis_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">current_phis</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-            <span class="n">tmp_ion_populations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">current_phis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-                                            <span class="n">current_phis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-            <span class="n">tmp_ion_populations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">number_density</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span>
-                                    <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">phis_product</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)))</span>
+            <span class="n">tmp_ion_populations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">current_phis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">current_phis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">)</span>
+            <span class="n">tmp_ion_populations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_density</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span>
+                <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">phis_product</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
             <span class="n">tmp_ion_populations</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">tmp_ion_populations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">phis_product</span>
 
-            <span class="n">ion_populations</span><span class="p">[</span><span class="n">start_id</span> <span class="o">+</span> <span class="n">i</span><span class="p">:</span><span class="n">end_id</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_ion_populations</span>
+            <span class="n">ion_populations</span><span class="p">[</span><span class="n">start_id</span> <span class="o">+</span> <span class="n">i</span> <span class="p">:</span> <span class="n">end_id</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_ion_populations</span>
 
         <span class="n">ion_populations</span><span class="p">[</span><span class="n">ion_populations</span> <span class="o">&lt;</span> <span class="n">ion_zero_threshold</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ion_populations</span><span class="p">,</span>
-                            <span class="n">index</span><span class="o">=</span><span class="n">partition_function</span><span class="o">.</span><span class="n">index</span><span class="p">),</span> <span class="n">block_ids</span></div>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ion_populations</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">partition_function</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
+            <span class="n">block_ids</span><span class="p">,</span>
+        <span class="p">)</span></div>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_calculate_block_ids</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
@@ -448,34 +531,55 @@
             <span class="n">n_electron_iterations</span> <span class="o">=</span> <span class="mi">0</span>
 
             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-                <span class="n">ion_number_density</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span> <span class="o">=</span> \
-                    <span class="bp">self</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
-                    <span class="n">phi</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">number_density</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">)</span>
-                <span class="n">ion_numbers</span> <span class="o">=</span> <span class="n">ion_number_density</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+                <span class="p">(</span>
+                    <span class="n">ion_number_density</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span>
+                <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
+                    <span class="n">phi</span><span class="p">,</span>
+                    <span class="n">partition_function</span><span class="p">,</span>
+                    <span class="n">number_density</span><span class="p">,</span>
+                    <span class="n">n_electron</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">ion_numbers</span> <span class="o">=</span> <span class="n">ion_number_density</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span>
+                    <span class="mi">1</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">values</span>
                 <span class="n">ion_numbers</span> <span class="o">=</span> <span class="n">ion_numbers</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ion_numbers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
                 <span class="n">new_n_electron</span> <span class="o">=</span> <span class="p">(</span><span class="n">ion_number_density</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="n">ion_numbers</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
-                    <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+                <span class="p">)</span>
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">new_n_electron</span><span class="p">)):</span>
-                    <span class="k">raise</span> <span class="n">PlasmaIonizationError</span><span class="p">(</span><span class="s1">&#39;n_electron just turned &quot;nan&quot; -&#39;</span>
-                                                <span class="s1">&#39; aborting&#39;</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">PlasmaIonizationError</span><span class="p">(</span>
+                        <span class="s1">&#39;n_electron just turned &quot;nan&quot; -&#39;</span> <span class="s2">&quot; aborting&quot;</span>
+                    <span class="p">)</span>
                 <span class="n">n_electron_iterations</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">if</span> <span class="n">n_electron_iterations</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;n_electron iterations above 100 (</span><span class="si">{0}</span><span class="s1">) -&#39;</span>
-                                <span class="s1">&#39; something is probably wrong&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">n_electron_iterations</span><span class="p">))</span>
-                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">new_n_electron</span> <span class="o">-</span> <span class="n">n_electron</span><span class="p">)</span>
-                                <span class="o">/</span> <span class="n">n_electron</span> <span class="o">&lt;</span> <span class="n">n_e_convergence_threshold</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                        <span class="s2">&quot;n_electron iterations above 100 (</span><span class="si">{0}</span><span class="s2">) -&quot;</span>
+                        <span class="s2">&quot; something is probably wrong&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="n">n_electron_iterations</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">new_n_electron</span> <span class="o">-</span> <span class="n">n_electron</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_electron</span>
+                    <span class="o">&lt;</span> <span class="n">n_e_convergence_threshold</span>
+                <span class="p">):</span>
                     <span class="k">break</span>
                 <span class="n">n_electron</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">new_n_electron</span> <span class="o">+</span> <span class="n">n_electron</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">n_electron</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_electron_densities</span>
-            <span class="n">ion_number_density</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span> <span class="o">=</span> \
-                <span class="bp">self</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
-                    <span class="n">phi</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">number_density</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">)</span>
+            <span class="n">ion_number_density</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
+                <span class="n">phi</span><span class="p">,</span>
+                <span class="n">partition_function</span><span class="p">,</span>
+                <span class="n">number_density</span><span class="p">,</span>
+                <span class="n">n_electron</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">,</span>
+            <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">ion_number_density</span><span class="p">,</span> <span class="n">n_electron</span></div></div>
+
 
 <div class="viewcode-block" id="IonNumberDensityHeNLTE"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE">[docs]</a><span class="k">class</span> <span class="nc">IonNumberDensityHeNLTE</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -493,80 +597,124 @@
 <span class="sd">    value, a new guess for the value of the electron density is chosen</span>
 <span class="sd">    and the process is repeated.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ion_number_density&#39;</span><span class="p">,</span> <span class="s1">&#39;electron_densities&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;helium_population_updated&#39;</span><span class="p">)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;N_{i,j}&#39;</span><span class="p">,</span><span class="s1">&#39;n_</span><span class="si">{e}</span><span class="s1">&#39;</span><span class="p">,)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">,</span> <span class="n">ion_zero_threshold</span><span class="o">=</span><span class="mf">1e-20</span><span class="p">,</span> <span class="n">electron_densities</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;ion_number_density&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;electron_densities&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;helium_population_updated&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;N_{i,j}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;n_</span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">,</span> <span class="n">ion_zero_threshold</span><span class="o">=</span><span class="mf">1e-20</span><span class="p">,</span> <span class="n">electron_densities</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">IonNumberDensityHeNLTE</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plasma_parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span> <span class="o">=</span> <span class="n">ion_zero_threshold</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_electron_densities</span> <span class="o">=</span> <span class="n">electron_densities</span>
 
-<div class="viewcode-block" id="IonNumberDensityHeNLTE.update_he_population"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE.update_he_population">[docs]</a>    <span class="k">def</span> <span class="nf">update_he_population</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">helium_population</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span>
-                             <span class="n">number_density</span><span class="p">):</span>
+<div class="viewcode-block" id="IonNumberDensityHeNLTE.update_he_population"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE.update_he_population">[docs]</a>    <span class="k">def</span> <span class="nf">update_he_population</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">helium_population</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span> <span class="n">number_density</span>
+    <span class="p">):</span>
         <span class="n">helium_population_updated</span> <span class="o">=</span> <span class="n">helium_population</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">he_one_population</span> <span class="o">=</span> <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">n_electron</span><span class="p">)</span>
         <span class="n">he_three_population</span> <span class="o">=</span> <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span>
-            <span class="mf">1.</span><span class="o">/</span><span class="n">n_electron</span><span class="p">)</span>
+            <span class="mf">1.0</span> <span class="o">/</span> <span class="n">n_electron</span>
+        <span class="p">)</span>
         <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">he_one_population</span><span class="p">)</span>
         <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">he_three_population</span><span class="p">)</span>
         <span class="n">unnormalised</span> <span class="o">=</span> <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-        <span class="n">normalised</span> <span class="o">=</span> <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span>
-            <span class="n">unnormalised</span><span class="p">)</span>
+        <span class="n">normalised</span> <span class="o">=</span> <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span>
+            <span class="n">number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="n">unnormalised</span>
+        <span class="p">)</span>
         <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">normalised</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">helium_population_updated</span></div>
 
-<div class="viewcode-block" id="IonNumberDensityHeNLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">number_density</span><span class="p">,</span>
-                  <span class="n">helium_population</span><span class="p">):</span>
+<div class="viewcode-block" id="IonNumberDensityHeNLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">number_density</span><span class="p">,</span> <span class="n">helium_population</span>
+    <span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_electron_densities</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">n_e_convergence_threshold</span> <span class="o">=</span> <span class="mf">0.05</span>
             <span class="n">n_electron</span> <span class="o">=</span> <span class="n">number_density</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
             <span class="n">n_electron_iterations</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-                <span class="n">ion_number_density</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span> <span class="o">=</span> \
-                    <span class="n">IonNumberDensity</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
-                    <span class="n">phi</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">number_density</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">)</span>
+                <span class="p">(</span>
+                    <span class="n">ion_number_density</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span>
+                <span class="p">)</span> <span class="o">=</span> <span class="n">IonNumberDensity</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
+                    <span class="n">phi</span><span class="p">,</span>
+                    <span class="n">partition_function</span><span class="p">,</span>
+                    <span class="n">number_density</span><span class="p">,</span>
+                    <span class="n">n_electron</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">,</span>
+                <span class="p">)</span>
                 <span class="n">helium_population_updated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_he_population</span><span class="p">(</span>
-                    <span class="n">helium_population</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span> <span class="n">number_density</span><span class="p">)</span>
-                <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-                                                        <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-                <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-                                                        <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-                <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-                                                        <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-                <span class="n">ion_numbers</span> <span class="o">=</span> <span class="n">ion_number_density</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+                    <span class="n">helium_population</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span> <span class="n">number_density</span>
+                <span class="p">)</span>
+                <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+                <span class="p">)</span>
+                <span class="n">ion_numbers</span> <span class="o">=</span> <span class="n">ion_number_density</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span>
+                    <span class="mi">1</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">values</span>
                 <span class="n">ion_numbers</span> <span class="o">=</span> <span class="n">ion_numbers</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ion_numbers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
                 <span class="n">new_n_electron</span> <span class="o">=</span> <span class="p">(</span><span class="n">ion_number_density</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="n">ion_numbers</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
-                    <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+                <span class="p">)</span>
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">new_n_electron</span><span class="p">)):</span>
-                    <span class="k">raise</span> <span class="n">PlasmaIonizationError</span><span class="p">(</span><span class="s1">&#39;n_electron just turned &quot;nan&quot; -&#39;</span>
-                                                <span class="s1">&#39; aborting&#39;</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">PlasmaIonizationError</span><span class="p">(</span>
+                        <span class="s1">&#39;n_electron just turned &quot;nan&quot; -&#39;</span> <span class="s2">&quot; aborting&quot;</span>
+                    <span class="p">)</span>
                 <span class="n">n_electron_iterations</span> <span class="o">+=</span> <span class="mi">1</span>
                 <span class="k">if</span> <span class="n">n_electron_iterations</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;n_electron iterations above 100 (</span><span class="si">{0}</span><span class="s1">) -&#39;</span>
-                                <span class="s1">&#39; something is probably wrong&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">n_electron_iterations</span><span class="p">))</span>
-                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">new_n_electron</span> <span class="o">-</span> <span class="n">n_electron</span><span class="p">)</span>
-                                <span class="o">/</span> <span class="n">n_electron</span> <span class="o">&lt;</span> <span class="n">n_e_convergence_threshold</span><span class="p">):</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                        <span class="s2">&quot;n_electron iterations above 100 (</span><span class="si">{0}</span><span class="s2">) -&quot;</span>
+                        <span class="s2">&quot; something is probably wrong&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="n">n_electron_iterations</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">new_n_electron</span> <span class="o">-</span> <span class="n">n_electron</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_electron</span>
+                    <span class="o">&lt;</span> <span class="n">n_e_convergence_threshold</span>
+                <span class="p">):</span>
                     <span class="k">break</span>
                 <span class="n">n_electron</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">new_n_electron</span> <span class="o">+</span> <span class="n">n_electron</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">n_electron</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_electron_densities</span>
-            <span class="n">ion_number_density</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span> <span class="o">=</span> \
-                <span class="n">IonNumberDensity</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
-                    <span class="n">phi</span><span class="p">,</span> <span class="n">partition_function</span><span class="p">,</span> <span class="n">number_density</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">)</span>
+            <span class="p">(</span>
+                <span class="n">ion_number_density</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">=</span> <span class="n">IonNumberDensity</span><span class="o">.</span><span class="n">calculate_with_n_electron</span><span class="p">(</span>
+                <span class="n">phi</span><span class="p">,</span>
+                <span class="n">partition_function</span><span class="p">,</span>
+                <span class="n">number_density</span><span class="p">,</span>
+                <span class="n">n_electron</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">block_ids</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ion_zero_threshold</span><span class="p">,</span>
+            <span class="p">)</span>
 
             <span class="n">helium_population_updated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_he_population</span><span class="p">(</span>
-                <span class="n">helium_population</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span> <span class="n">number_density</span><span class="p">)</span>
-            <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-                                                      <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-            <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-                                                      <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-            <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-                                                      <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+                <span class="n">helium_population</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span> <span class="n">number_density</span>
+            <span class="p">)</span>
+            <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">ion_number_density</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">helium_population_updated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="p">)</span>
         <span class="k">return</span> <span class="n">ion_number_density</span><span class="p">,</span> <span class="n">n_electron</span><span class="p">,</span> <span class="n">helium_population_updated</span></div></div>
 
 
@@ -581,29 +729,36 @@
 <span class="sd">            Indexed by atom number, ion number, level number.</span>
 <span class="sd">            Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;phi_ik&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Phi_{i,</span><span class="se">\\</span><span class="s1">kappa}&#39;</span><span class="p">,)</span>
 
-<div class="viewcode-block" id="SahaFactor.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.SahaFactor.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thermal_phi_lte</span><span class="p">,</span> <span class="n">thermal_lte_level_boltzmann_factor</span><span class="p">,</span>
-                  <span class="n">thermal_lte_partition_function</span><span class="p">):</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;phi_ik&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi_{i,</span><span class="se">\\</span><span class="s2">kappa}&quot;</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="SahaFactor.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.SahaFactor.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">thermal_phi_lte</span><span class="p">,</span>
+        <span class="n">thermal_lte_level_boltzmann_factor</span><span class="p">,</span>
+        <span class="n">thermal_lte_partition_function</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="n">boltzmann_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_boltzmann_factor</span><span class="p">(</span>
             <span class="n">thermal_lte_level_boltzmann_factor</span>
         <span class="p">)</span>
         <span class="n">phi_saha_index</span> <span class="o">=</span> <span class="n">get_ion_multi_index</span><span class="p">(</span><span class="n">boltzmann_factor</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-        <span class="n">partition_function_index</span> <span class="o">=</span> <span class="n">get_ion_multi_index</span><span class="p">(</span><span class="n">boltzmann_factor</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-                                                       <span class="n">next_higher</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">partition_function_index</span> <span class="o">=</span> <span class="n">get_ion_multi_index</span><span class="p">(</span>
+            <span class="n">boltzmann_factor</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">next_higher</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
         <span class="n">phi_saha</span> <span class="o">=</span> <span class="n">thermal_phi_lte</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">phi_saha_index</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
         <span class="c1"># Replace zero values in phi_saha to avoid zero division in Saha factor</span>
         <span class="n">phi_saha</span><span class="p">[</span><span class="n">phi_saha</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span>
         <span class="n">partition_function</span> <span class="o">=</span> <span class="n">thermal_lte_partition_function</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-            <span class="n">partition_function_index</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">partition_function_index</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">values</span>
         <span class="k">return</span> <span class="n">boltzmann_factor</span> <span class="o">/</span> <span class="p">(</span><span class="n">phi_saha</span> <span class="o">*</span> <span class="n">partition_function</span><span class="p">)</span></div>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_prepare_boltzmann_factor</span><span class="p">(</span><span class="n">boltzmann_factor</span><span class="p">):</span>
         <span class="n">atomic_number</span> <span class="o">=</span> <span class="n">boltzmann_factor</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">ion_number</span> <span class="o">=</span> <span class="n">boltzmann_factor</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">selected_ions_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">atomic_number</span> <span class="o">!=</span> <span class="n">ion_number</span><span class="p">)</span>
+        <span class="n">selected_ions_mask</span> <span class="o">=</span> <span class="n">atomic_number</span> <span class="o">!=</span> <span class="n">ion_number</span>
         <span class="k">return</span> <span class="n">boltzmann_factor</span><span class="p">[</span><span class="n">selected_ions_mask</span><span class="p">]</span></div>
 </pre></div>
 

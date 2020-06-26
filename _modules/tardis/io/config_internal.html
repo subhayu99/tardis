@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.config_internal &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.io.config_internal &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -198,41 +198,58 @@
 <span class="kn">from</span> <span class="nn">astropy.config</span> <span class="kn">import</span> <span class="n">get_config_dir</span>
 
 <span class="n">TARDIS_PATH</span> <span class="o">=</span> <span class="n">TARDIS_PATH</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">DEFAULT_CONFIG_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TARDIS_PATH</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;default_tardis_internal_config.yml&#39;</span><span class="p">)</span>
-<span class="n">DEFAULT_DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;Downloads&#39;</span><span class="p">,</span> <span class="s1">&#39;tardis-data&#39;</span><span class="p">)</span>
+<span class="n">DEFAULT_CONFIG_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">TARDIS_PATH</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;default_tardis_internal_config.yml&quot;</span>
+<span class="p">)</span>
+<span class="n">DEFAULT_DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">),</span> <span class="s2">&quot;Downloads&quot;</span><span class="p">,</span> <span class="s2">&quot;tardis-data&quot;</span>
+<span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
 
 <div class="viewcode-block" id="get_internal_configuration"><a class="viewcode-back" href="../../../api/tardis.io.config_internal.html#tardis.io.config_internal.get_internal_configuration">[docs]</a><span class="k">def</span> <span class="nf">get_internal_configuration</span><span class="p">():</span>
 
-    <span class="n">config_fpath</span>  <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_config_dir</span><span class="p">(),</span> <span class="s1">&#39;tardis_internal_config.yml&#39;</span><span class="p">)</span>
+    <span class="n">config_fpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_config_dir</span><span class="p">(),</span> <span class="s2">&quot;tardis_internal_config.yml&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_fpath</span><span class="p">):</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Configuration File </span><span class="si">{0}</span><span class="s2"> does not exist - creating new one from default&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config_fpath</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s2">&quot;Configuration File </span><span class="si">{0}</span><span class="s2"> does not exist - creating new one from default&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">config_fpath</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">DEFAULT_CONFIG_PATH</span><span class="p">,</span> <span class="n">config_fpath</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_fpath</span><span class="p">)</span> <span class="k">as</span> <span class="n">config_fh</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">config_fh</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">CLoader</span><span class="p">)</span></div>
 
 
-
 <div class="viewcode-block" id="get_data_dir"><a class="viewcode-back" href="../../../api/tardis.io.config_internal.html#tardis.io.config_internal.get_data_dir">[docs]</a><span class="k">def</span> <span class="nf">get_data_dir</span><span class="p">():</span>
 
     <span class="n">config</span> <span class="o">=</span> <span class="n">get_internal_configuration</span><span class="p">()</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data_dir&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_dir&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">data_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">config_fpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_config_dir</span><span class="p">(),</span> <span class="s1">&#39;tardis_internal_config.yml&#39;</span><span class="p">)</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{line_stars}</span><span class="se">\n\n</span><span class="s1">TARDIS will download different kinds of data (e.g. atomic) to its data directory </span><span class="si">{default_data_dir}</span><span class="se">\n\n</span><span class="s1">&#39;</span>
-                         <span class="s1">&#39;TARDIS DATA DIRECTORY not specified in </span><span class="si">{config_file}</span><span class="s1">:</span><span class="se">\n\n</span><span class="s1">&#39;</span>
-                         <span class="s1">&#39;ASSUMING DEFAULT DATA DIRECTORY </span><span class="si">{default_data_dir}</span><span class="se">\n</span><span class="s1"> &#39;</span>
-                         <span class="s1">&#39;YOU CAN CHANGE THIS AT ANY TIME IN </span><span class="si">{config_file}</span><span class="s1"> </span><span class="se">\n\n</span><span class="s1">&#39;</span>
-                         <span class="s1">&#39;</span><span class="si">{line_stars}</span><span class="s1"> </span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line_stars</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">80</span><span class="p">,</span> <span class="n">config_file</span><span class="o">=</span><span class="n">config_fpath</span><span class="p">,</span>
-                                                     <span class="n">default_data_dir</span><span class="o">=</span><span class="n">DEFAULT_DATA_DIR</span><span class="p">))</span>
+        <span class="n">config_fpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">get_config_dir</span><span class="p">(),</span> <span class="s2">&quot;tardis_internal_config.yml&quot;</span>
+        <span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="si">{line_stars}</span><span class="se">\n\n</span><span class="s2">TARDIS will download different kinds of data (e.g. atomic) to its data directory </span><span class="si">{default_data_dir}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;TARDIS DATA DIRECTORY not specified in </span><span class="si">{config_file}</span><span class="s2">:</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;ASSUMING DEFAULT DATA DIRECTORY </span><span class="si">{default_data_dir}</span><span class="se">\n</span><span class="s2"> &quot;</span>
+            <span class="s2">&quot;YOU CAN CHANGE THIS AT ANY TIME IN </span><span class="si">{config_file}</span><span class="s2"> </span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;</span><span class="si">{line_stars}</span><span class="s2"> </span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">line_stars</span><span class="o">=</span><span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">,</span>
+                <span class="n">config_file</span><span class="o">=</span><span class="n">config_fpath</span><span class="p">,</span>
+                <span class="n">default_data_dir</span><span class="o">=</span><span class="n">DEFAULT_DATA_DIR</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">DEFAULT_DATA_DIR</span><span class="p">):</span>
             <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">DEFAULT_DATA_DIR</span><span class="p">)</span>
-        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;data_dir&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_DATA_DIR</span>
-        <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_fpath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">),</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">config</span><span class="p">[</span><span class="s2">&quot;data_dir&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_DATA_DIR</span>
+        <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_fpath</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">),</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">data_dir</span> <span class="o">=</span> <span class="n">DEFAULT_DATA_DIR</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;Data directory specified in </span><span class="si">{0}</span><span class="s1"> does not exist&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_dir</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span>
+            <span class="s2">&quot;Data directory specified in </span><span class="si">{0}</span><span class="s2"> does not exist&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+        <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">data_dir</span></div>
 </pre></div>

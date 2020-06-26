@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.model_reader &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.io.model_reader &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -191,7 +191,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for tardis.io.model_reader</h1><div class="highlight"><pre>
-<span></span><span class="c1">#reading different model files</span>
+<span></span><span class="c1"># reading different model files</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -201,6 +201,7 @@
 <span class="kn">from</span> <span class="nn">pyne</span> <span class="kn">import</span> <span class="n">nucname</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
+
 <span class="c1"># Adding logging support</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -236,37 +237,62 @@
 <span class="sd">        the array containing the densities</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">file_parsers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;artis&#39;</span><span class="p">:</span> <span class="n">read_artis_density</span><span class="p">,</span>
-                    <span class="s1">&#39;simple_ascii&#39;</span><span class="p">:</span> <span class="n">read_simple_ascii_density</span><span class="p">,</span>
-                    <span class="s1">&#39;cmfgen_model&#39;</span><span class="p">:</span> <span class="n">read_cmfgen_density</span><span class="p">}</span>
+    <span class="n">file_parsers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;artis&quot;</span><span class="p">:</span> <span class="n">read_artis_density</span><span class="p">,</span>
+        <span class="s2">&quot;simple_ascii&quot;</span><span class="p">:</span> <span class="n">read_simple_ascii_density</span><span class="p">,</span>
+        <span class="s2">&quot;cmfgen_model&quot;</span><span class="p">:</span> <span class="n">read_cmfgen_density</span><span class="p">,</span>
+    <span class="p">}</span>
 
     <span class="n">electron_densities</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">temperature</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">if</span> <span class="n">filetype</span> <span class="o">==</span> <span class="s1">&#39;cmfgen_model&#39;</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">time_of_model</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span>
-         <span class="n">unscaled_mean_densities</span><span class="p">,</span> <span class="n">electron_densities</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span> <span class="o">=</span> <span class="n">read_cmfgen_density</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filetype</span> <span class="o">==</span> <span class="s2">&quot;cmfgen_model&quot;</span><span class="p">:</span>
+        <span class="p">(</span>
+            <span class="n">time_of_model</span><span class="p">,</span>
+            <span class="n">velocity</span><span class="p">,</span>
+            <span class="n">unscaled_mean_densities</span><span class="p">,</span>
+            <span class="n">electron_densities</span><span class="p">,</span>
+            <span class="n">temperature</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">read_cmfgen_density</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">time_of_model</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span>
-         <span class="n">unscaled_mean_densities</span><span class="p">)</span> <span class="o">=</span> <span class="n">file_parsers</span><span class="p">[</span><span class="n">filetype</span><span class="p">](</span><span class="n">filename</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">time_of_model</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">unscaled_mean_densities</span><span class="p">)</span> <span class="o">=</span> <span class="n">file_parsers</span><span class="p">[</span>
+            <span class="n">filetype</span>
+        <span class="p">](</span><span class="n">filename</span><span class="p">)</span>
 
     <span class="n">v_inner</span> <span class="o">=</span> <span class="n">velocity</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">v_outer</span> <span class="o">=</span> <span class="n">velocity</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
     <span class="n">invalid_volume_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_outer</span> <span class="o">-</span> <span class="n">v_inner</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">invalid_volume_mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;cell </span><span class="si">{0:d}</span><span class="s2">: v_inner </span><span class="si">{1:s}</span><span class="s2">, v_outer &quot;</span>
-                             <span class="s2">&quot;</span><span class="si">{2:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v_inner_i</span><span class="p">,</span> <span class="n">v_outer_i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span>
-                               <span class="n">v_inner_i</span><span class="p">,</span> <span class="n">v_outer_i</span> <span class="ow">in</span>
-                             <span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v_outer</span><span class="p">))[</span><span class="n">invalid_volume_mask</span><span class="p">],</span>
-                                 <span class="n">v_inner</span><span class="p">[</span><span class="n">invalid_volume_mask</span><span class="p">],</span>
-                                 <span class="n">v_outer</span><span class="p">[</span><span class="n">invalid_volume_mask</span><span class="p">])])</span>
-        <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span><span class="s2">&quot;Invalid volume of following cell(s):</span><span class="se">\n</span><span class="s2">&quot;</span>
-                                 <span class="s2">&quot;</span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;cell </span><span class="si">{0:d}</span><span class="s2">: v_inner </span><span class="si">{1:s}</span><span class="s2">, v_outer &quot;</span>
+                <span class="s2">&quot;</span><span class="si">{2:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v_inner_i</span><span class="p">,</span> <span class="n">v_outer_i</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v_inner_i</span><span class="p">,</span> <span class="n">v_outer_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v_outer</span><span class="p">))[</span><span class="n">invalid_volume_mask</span><span class="p">],</span>
+                    <span class="n">v_inner</span><span class="p">[</span><span class="n">invalid_volume_mask</span><span class="p">],</span>
+                    <span class="n">v_outer</span><span class="p">[</span><span class="n">invalid_volume_mask</span><span class="p">],</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span>
+            <span class="s2">&quot;Invalid volume of following cell(s):</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">time_of_model</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">unscaled_mean_densities</span><span class="p">,</span> <span class="n">electron_densities</span><span class="p">,</span> <span class="n">temperature</span></div>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">time_of_model</span><span class="p">,</span>
+        <span class="n">velocity</span><span class="p">,</span>
+        <span class="n">unscaled_mean_densities</span><span class="p">,</span>
+        <span class="n">electron_densities</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="p">,</span>
+    <span class="p">)</span></div>
 
-<div class="viewcode-block" id="read_abundances_file"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_abundances_file">[docs]</a><span class="k">def</span> <span class="nf">read_abundances_file</span><span class="p">(</span><span class="n">abundance_filename</span><span class="p">,</span> <span class="n">abundance_filetype</span><span class="p">,</span>
-                         <span class="n">inner_boundary_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">outer_boundary_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="read_abundances_file"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_abundances_file">[docs]</a><span class="k">def</span> <span class="nf">read_abundances_file</span><span class="p">(</span>
+    <span class="n">abundance_filename</span><span class="p">,</span>
+    <span class="n">abundance_filetype</span><span class="p">,</span>
+    <span class="n">inner_boundary_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">outer_boundary_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    read different density file formats</span>
 
@@ -288,25 +314,29 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">file_parsers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;simple_ascii&#39;</span><span class="p">:</span> <span class="n">read_simple_ascii_abundances</span><span class="p">,</span>
-                    <span class="s1">&#39;artis&#39;</span><span class="p">:</span> <span class="n">read_simple_ascii_abundances</span><span class="p">,</span>
-                    <span class="s1">&#39;cmfgen_model&#39;</span><span class="p">:</span> <span class="n">read_cmfgen_composition</span><span class="p">,</span>
-                    <span class="s1">&#39;custom_composition&#39;</span><span class="p">:</span> <span class="n">read_csv_composition</span><span class="p">}</span>
+    <span class="n">file_parsers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;simple_ascii&quot;</span><span class="p">:</span> <span class="n">read_simple_ascii_abundances</span><span class="p">,</span>
+        <span class="s2">&quot;artis&quot;</span><span class="p">:</span> <span class="n">read_simple_ascii_abundances</span><span class="p">,</span>
+        <span class="s2">&quot;cmfgen_model&quot;</span><span class="p">:</span> <span class="n">read_cmfgen_composition</span><span class="p">,</span>
+        <span class="s2">&quot;custom_composition&quot;</span><span class="p">:</span> <span class="n">read_csv_composition</span><span class="p">,</span>
+    <span class="p">}</span>
 
     <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">abundance_filetype</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;cmfgen_model&quot;</span><span class="p">,</span> <span class="s2">&quot;custom_composition&quot;</span><span class="p">]:</span>
         <span class="n">index</span><span class="p">,</span> <span class="n">abundances</span><span class="p">,</span> <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">file_parsers</span><span class="p">[</span><span class="n">abundance_filetype</span><span class="p">](</span>
-            <span class="n">abundance_filename</span><span class="p">)</span>
+            <span class="n">abundance_filename</span>
+        <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">index</span><span class="p">,</span> <span class="n">abundances</span> <span class="o">=</span> <span class="n">file_parsers</span><span class="p">[</span><span class="n">abundance_filetype</span><span class="p">](</span>
-            <span class="n">abundance_filename</span><span class="p">)</span>
+        <span class="n">index</span><span class="p">,</span> <span class="n">abundances</span> <span class="o">=</span> <span class="n">file_parsers</span><span class="p">[</span><span class="n">abundance_filetype</span><span class="p">](</span><span class="n">abundance_filename</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">outer_boundary_index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">outer_boundary_index_m1</span> <span class="o">=</span> <span class="n">outer_boundary_index</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">outer_boundary_index_m1</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">inner_boundary_index</span><span class="p">:</span><span class="n">outer_boundary_index</span><span class="p">]</span>
-    <span class="n">abundances</span> <span class="o">=</span> <span class="n">abundances</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="nb">slice</span><span class="p">(</span><span class="n">inner_boundary_index</span><span class="p">,</span> <span class="n">outer_boundary_index_m1</span><span class="p">)]</span>
+    <span class="n">abundances</span> <span class="o">=</span> <span class="n">abundances</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+        <span class="p">:,</span> <span class="nb">slice</span><span class="p">(</span><span class="n">inner_boundary_index</span><span class="p">,</span> <span class="n">outer_boundary_index_m1</span><span class="p">)</span>
+    <span class="p">]</span>
     <span class="n">abundances</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">abundances</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">index</span><span class="p">,</span> <span class="n">abundances</span><span class="p">,</span> <span class="n">isotope_abundance</span></div>
 
@@ -324,36 +354,44 @@
 <span class="sd">    abundance: ~pandas.DataFrame</span>
 <span class="sd">    isotope_abundance: ~pandas.DataFrame</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">no_of_shells</span><span class="p">),</span>
-                             <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span>
-                                            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">),</span>
-                             <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">no_of_shells</span><span class="p">),</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="n">isotope_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">(</span>
-        <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">,</span> <span class="s1">&#39;mass_number&#39;</span><span class="p">])</span>
-    <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">no_of_shells</span><span class="p">),</span>
-                                     <span class="n">index</span><span class="o">=</span><span class="n">isotope_index</span><span class="p">,</span>
-                                     <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_number&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">no_of_shells</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">isotope_index</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+    <span class="p">)</span>
 
     <span class="k">for</span> <span class="n">element_symbol_string</span> <span class="ow">in</span> <span class="n">abundances_section</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">element_symbol_string</span> <span class="o">==</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element_symbol_string</span> <span class="o">==</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">element_symbol_string</span> <span class="ow">in</span> <span class="n">nucname</span><span class="o">.</span><span class="n">name_zz</span><span class="p">:</span>
                 <span class="n">z</span> <span class="o">=</span> <span class="n">nucname</span><span class="o">.</span><span class="n">name_zz</span><span class="p">[</span><span class="n">element_symbol_string</span><span class="p">]</span>
                 <span class="n">abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span>
-                    <span class="n">abundances_section</span><span class="p">[</span><span class="n">element_symbol_string</span><span class="p">])</span>
+                    <span class="n">abundances_section</span><span class="p">[</span><span class="n">element_symbol_string</span><span class="p">]</span>
+                <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">mass_no</span> <span class="o">=</span> <span class="n">nucname</span><span class="o">.</span><span class="n">anum</span><span class="p">(</span><span class="n">element_symbol_string</span><span class="p">)</span>
                 <span class="n">z</span> <span class="o">=</span> <span class="n">nucname</span><span class="o">.</span><span class="n">znum</span><span class="p">(</span><span class="n">element_symbol_string</span><span class="p">)</span>
                 <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">z</span><span class="p">,</span> <span class="n">mass_no</span><span class="p">),</span> <span class="p">:]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span>
-                    <span class="n">abundances_section</span><span class="p">[</span><span class="n">element_symbol_string</span><span class="p">])</span>
+                    <span class="n">abundances_section</span><span class="p">[</span><span class="n">element_symbol_string</span><span class="p">]</span>
+                <span class="p">)</span>
 
         <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-                <span class="s2">&quot;Abundances are not defined properly in config file : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+                <span class="s2">&quot;Abundances are not defined properly in config file : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">err</span><span class="o">.</span><span class="n">args</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">abundance</span><span class="p">,</span> <span class="n">isotope_abundance</span></div>
+
 
 <div class="viewcode-block" id="read_simple_ascii_density"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_simple_ascii_density">[docs]</a><span class="k">def</span> <span class="nf">read_simple_ascii_density</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -385,13 +423,17 @@
         <span class="n">time_of_model_string</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="n">time_of_model</span> <span class="o">=</span> <span class="n">parse_quantity</span><span class="p">(</span><span class="n">time_of_model_string</span><span class="p">)</span>
 
-    <span class="n">data</span> <span class="o">=</span> <span class="n">recfromtxt</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                      <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;velocity&#39;</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">),</span>
-                      <span class="n">dtype</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
-    <span class="n">velocity</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cm/s&#39;</span><span class="p">)</span>
-    <span class="n">mean_density</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;g/cm^3&#39;</span><span class="p">))[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">recfromtxt</span><span class="p">(</span>
+        <span class="n">fname</span><span class="p">,</span>
+        <span class="n">skip_header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="s2">&quot;velocity&quot;</span><span class="p">,</span> <span class="s2">&quot;density&quot;</span><span class="p">),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;velocity&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cm/s&quot;</span><span class="p">)</span>
+    <span class="n">mean_density</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;g/cm^3&quot;</span><span class="p">))[</span><span class="mi">1</span><span class="p">:]</span>
 
     <span class="k">return</span> <span class="n">time_of_model</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">mean_density</span></div>
+
 
 <div class="viewcode-block" id="read_artis_density"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_artis_density">[docs]</a><span class="k">def</span> <span class="nf">read_artis_density</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -424,18 +466,31 @@
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">no_of_shells</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
             <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">time_of_model</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()),</span> <span class="s1">&#39;day&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+                <span class="n">time_of_model</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()),</span> <span class="s2">&quot;day&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="k">break</span>
 
-    <span class="n">artis_model_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;velocities&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_densities_0&#39;</span><span class="p">,</span> <span class="s1">&#39;ni56_fraction&#39;</span><span class="p">,</span> <span class="s1">&#39;co56_fraction&#39;</span><span class="p">,</span> <span class="s1">&#39;fe52_fraction&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;cr48_fraction&#39;</span><span class="p">]</span>
-    <span class="n">artis_model</span> <span class="o">=</span> <span class="n">recfromtxt</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="n">item</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">artis_model_columns</span><span class="p">])</span>
+    <span class="n">artis_model_columns</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;index&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;velocities&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mean_densities_0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ni56_fraction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;co56_fraction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fe52_fraction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cr48_fraction&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">artis_model</span> <span class="o">=</span> <span class="n">recfromtxt</span><span class="p">(</span>
+        <span class="n">fname</span><span class="p">,</span>
+        <span class="n">skip_header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">usecols</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="n">item</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">artis_model_columns</span><span class="p">],</span>
+    <span class="p">)</span>
 
-
-    <span class="n">velocity</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">artis_model</span><span class="p">[</span><span class="s1">&#39;velocities&#39;</span><span class="p">],</span> <span class="s1">&#39;km/s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cm/s&#39;</span><span class="p">)</span>
-    <span class="n">mean_density</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">artis_model</span><span class="p">[</span><span class="s1">&#39;mean_densities_0&#39;</span><span class="p">],</span> <span class="s1">&#39;g/cm^3&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">artis_model</span><span class="p">[</span><span class="s2">&quot;velocities&quot;</span><span class="p">],</span> <span class="s2">&quot;km/s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cm/s&quot;</span><span class="p">)</span>
+    <span class="n">mean_density</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">artis_model</span><span class="p">[</span><span class="s2">&quot;mean_densities_0&quot;</span><span class="p">],</span> <span class="s2">&quot;g/cm^3&quot;</span><span class="p">)[</span>
+        <span class="mi">1</span><span class="p">:</span>
+    <span class="p">]</span>
 
     <span class="k">return</span> <span class="n">time_of_model</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">mean_density</span></div>
 
@@ -475,26 +530,35 @@
 <span class="sd">    temperature: ~np.ndarray</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;The current CMFGEN model parser is deprecated&quot;</span><span class="p">,</span>
-                  <span class="ne">DeprecationWarning</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;The current CMFGEN model parser is deprecated&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span>
+    <span class="p">)</span>
 
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">row_index</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">row_index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">time_of_model_string</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;t0:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                <span class="n">time_of_model_string</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;t0:&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
                 <span class="n">time_of_model</span> <span class="o">=</span> <span class="n">parse_quantity</span><span class="p">(</span><span class="n">time_of_model_string</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">row_index</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="n">quantities</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-    <span class="n">velocity</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cm/s&#39;</span><span class="p">)</span>
-    <span class="n">temperature</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">2</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="n">mean_density</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;densities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">3</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;velocity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cm/s&quot;</span><span class="p">)</span>
+    <span class="n">temperature</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">2</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">mean_density</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;densities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">3</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
     <span class="n">electron_densities</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;electron_densities&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">4</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;electron_densities&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">quantities</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
 
-    <span class="k">return</span> <span class="n">time_of_model</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">mean_density</span><span class="p">,</span> <span class="n">electron_densities</span><span class="p">,</span> <span class="n">temperature</span></div>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">time_of_model</span><span class="p">,</span>
+        <span class="n">velocity</span><span class="p">,</span>
+        <span class="n">mean_density</span><span class="p">,</span>
+        <span class="n">electron_densities</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="read_simple_ascii_abundances"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_simple_ascii_abundances">[docs]</a><span class="k">def</span> <span class="nf">read_simple_ascii_abundances</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -520,13 +584,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 
-    <span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">abundances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">abundances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">index</span><span class="p">,</span> <span class="n">abundances</span></div>
 
 
-<div class="viewcode-block" id="read_cmfgen_composition"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_cmfgen_composition">[docs]</a><span class="k">def</span> <span class="nf">read_cmfgen_composition</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="read_cmfgen_composition"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_cmfgen_composition">[docs]</a><span class="k">def</span> <span class="nf">read_cmfgen_composition</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Read composition from a CMFGEN model file</span>
 
 <span class="sd">    The CMFGEN file format contains information about the ejecta state in the</span>
@@ -539,14 +605,16 @@
 <span class="sd">        filename of the csv file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;The current CMFGEN model parser is deprecated&quot;</span><span class="p">,</span>
-                  <span class="ne">DeprecationWarning</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;The current CMFGEN model parser is deprecated&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span>
+    <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">read_csv_isotope_abundances</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span>
-                                       <span class="n">skip_columns</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">skip_rows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span></div>
+    <span class="k">return</span> <span class="n">read_csv_isotope_abundances</span><span class="p">(</span>
+        <span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span> <span class="n">skip_columns</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">skip_rows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="read_csv_composition"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_csv_composition">[docs]</a><span class="k">def</span> <span class="nf">read_csv_composition</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="read_csv_composition"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_csv_composition">[docs]</a><span class="k">def</span> <span class="nf">read_csv_composition</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Read composition from a simple CSV file</span>
 
 <span class="sd">    The CSV file can contain specific isotopes or elemental abundances in the</span>
@@ -562,12 +630,14 @@
 <span class="sd">        filename of the csv file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="n">read_csv_isotope_abundances</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span>
-                                       <span class="n">skip_columns</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">skip_rows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div>
+    <span class="k">return</span> <span class="n">read_csv_isotope_abundances</span><span class="p">(</span>
+        <span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span> <span class="n">skip_columns</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">skip_rows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="read_csv_isotope_abundances"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_csv_isotope_abundances">[docs]</a><span class="k">def</span> <span class="nf">read_csv_isotope_abundances</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">skip_columns</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                                <span class="n">skip_rows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+<div class="viewcode-block" id="read_csv_isotope_abundances"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.read_csv_isotope_abundances">[docs]</a><span class="k">def</span> <span class="nf">read_csv_isotope_abundances</span><span class="p">(</span>
+    <span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="n">skip_columns</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">skip_rows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A generic parser for a TARDIS composition stored as a CSV file</span>
 
@@ -606,20 +676,23 @@
 <span class="sd">    isotope_abundance: ~pandas.MultiIndex</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span>
-                     <span class="n">sep</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="n">skip_rows</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+        <span class="n">fname</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="n">skip_rows</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span>
+    <span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 
-    <span class="n">abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-                             <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([],</span>
-                                            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">),</span>
-                             <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="n">isotope_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">(</span>
-        <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">,</span> <span class="s1">&#39;mass_number&#39;</span><span class="p">])</span>
-    <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-                                     <span class="n">index</span><span class="o">=</span><span class="n">isotope_index</span><span class="p">,</span>
-                                     <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_number&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">index</span><span class="o">=</span><span class="n">isotope_index</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+    <span class="p">)</span>
 
     <span class="k">for</span> <span class="n">element_symbol_string</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">skip_columns</span><span class="p">:]:</span>
         <span class="k">if</span> <span class="n">element_symbol_string</span> <span class="ow">in</span> <span class="n">nucname</span><span class="o">.</span><span class="n">name_zz</span><span class="p">:</span>
@@ -628,10 +701,12 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">z</span> <span class="o">=</span> <span class="n">nucname</span><span class="o">.</span><span class="n">znum</span><span class="p">(</span><span class="n">element_symbol_string</span><span class="p">)</span>
             <span class="n">mass_no</span> <span class="o">=</span> <span class="n">nucname</span><span class="o">.</span><span class="n">anum</span><span class="p">(</span><span class="n">element_symbol_string</span><span class="p">)</span>
-            <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span>
-                <span class="n">z</span><span class="p">,</span> <span class="n">mass_no</span><span class="p">),</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">element_symbol_string</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">z</span><span class="p">,</span> <span class="n">mass_no</span><span class="p">),</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                <span class="n">element_symbol_string</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">abundance</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">abundance</span><span class="p">,</span> <span class="n">isotope_abundance</span></div>
+
 
 <div class="viewcode-block" id="parse_csv_abundances"><a class="viewcode-back" href="../../../api/tardis.io.model_reader.html#tardis.io.model_reader.parse_csv_abundances">[docs]</a><span class="k">def</span> <span class="nf">parse_csv_abundances</span><span class="p">(</span><span class="n">csvy_data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -650,21 +725,27 @@
 <span class="sd">    isotope_abundance : ~pandas.MultiIndex</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">abundance_col_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">csvy_data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">nucname</span><span class="o">.</span><span class="n">iselement</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">or</span> <span class="n">nucname</span><span class="o">.</span><span class="n">isnuclide</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span>
+    <span class="n">abundance_col_names</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">name</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">csvy_data</span><span class="o">.</span><span class="n">columns</span>
+        <span class="k">if</span> <span class="n">nucname</span><span class="o">.</span><span class="n">iselement</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="ow">or</span> <span class="n">nucname</span><span class="o">.</span><span class="n">isnuclide</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">]</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">csvy_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">abundance_col_names</span><span class="p">]</span>
-            
+
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 
-    <span class="n">abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-                             <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([],</span>
-                                            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">),</span>
-                             <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">),</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="n">isotope_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">(</span>
-        <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">,</span> <span class="s1">&#39;mass_number&#39;</span><span class="p">])</span>
-    <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-                                     <span class="n">index</span><span class="o">=</span><span class="n">isotope_index</span><span class="p">,</span>
-                                     <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[[]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_number&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">index</span><span class="o">=</span><span class="n">isotope_index</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+    <span class="p">)</span>
 
     <span class="k">for</span> <span class="n">element_symbol_string</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:]:</span>
         <span class="k">if</span> <span class="n">element_symbol_string</span> <span class="ow">in</span> <span class="n">nucname</span><span class="o">.</span><span class="n">name_zz</span><span class="p">:</span>
@@ -673,8 +754,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">z</span> <span class="o">=</span> <span class="n">nucname</span><span class="o">.</span><span class="n">znum</span><span class="p">(</span><span class="n">element_symbol_string</span><span class="p">)</span>
             <span class="n">mass_no</span> <span class="o">=</span> <span class="n">nucname</span><span class="o">.</span><span class="n">anum</span><span class="p">(</span><span class="n">element_symbol_string</span><span class="p">)</span>
-            <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span>
-                <span class="n">z</span><span class="p">,</span> <span class="n">mass_no</span><span class="p">),</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">element_symbol_string</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">z</span><span class="p">,</span> <span class="n">mass_no</span><span class="p">),</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                <span class="n">element_symbol_string</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">abundance</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">abundance</span><span class="p">,</span> <span class="n">isotope_abundance</span></div>
 </pre></div>

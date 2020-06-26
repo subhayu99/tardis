@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.general &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.properties.general &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -202,9 +202,18 @@
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BetaRadiation&#39;</span><span class="p">,</span> <span class="s1">&#39;GElectron&#39;</span><span class="p">,</span> <span class="s1">&#39;NumberDensity&#39;</span><span class="p">,</span> <span class="s1">&#39;SelectedAtoms&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;ElectronTemperature&#39;</span><span class="p">,</span> <span class="s1">&#39;BetaElectron&#39;</span><span class="p">,</span> <span class="s1">&#39;LuminosityInner&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;TimeSimulation&#39;</span><span class="p">,</span> <span class="s1">&#39;ThermalGElectron&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;BetaRadiation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GElectron&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NumberDensity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SelectedAtoms&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ElectronTemperature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BetaElectron&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LuminosityInner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TimeSimulation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ThermalGElectron&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
 
 <div class="viewcode-block" id="BetaRadiation"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.BetaRadiation">[docs]</a><span class="k">class</span> <span class="nc">BetaRadiation</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -212,9 +221,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    beta_rad : Numpy Array, dtype float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;beta_rad&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">beta_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">dfrac</span><span class="si">{1}</span><span class="s1">{k_</span><span class="si">{B}</span><span class="s1"> T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;beta_rad&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">dfrac</span><span class="si">{1}</span><span class="s2">{k_</span><span class="si">{B}</span><span class="s2"> T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">BetaRadiation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plasma_parent</span><span class="p">)</span>
@@ -223,20 +233,23 @@
 <div class="viewcode-block" id="BetaRadiation.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.BetaRadiation.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_rad</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_B_cgs</span> <span class="o">*</span> <span class="n">t_rad</span><span class="p">)</span></div></div>
 
+
 <div class="viewcode-block" id="GElectron"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.GElectron">[docs]</a><span class="k">class</span> <span class="nc">GElectron</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    g_electron : Numpy Array, dtype float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;g_electron&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;g_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Big(</span><span class="se">\\</span><span class="s1">dfrac{2</span><span class="se">\\</span><span class="s1">pi m_</span><span class="si">{e}</span><span class="s1">/</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">beta_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}}{h^2}</span><span class="se">\\</span><span class="s1">Big)^{3/2}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;g_electron&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;g_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\Big(\dfrac{2\pi m_</span><span class="si">{e}</span><span class="s2">/\beta_{\textrm</span><span class="si">{rad}</span><span class="s2">}}{h^2}\Big)^{3/2}&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="GElectron.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.GElectron.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">m_e</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">beta_rad</span><span class="p">)</span> <span class="o">/</span>
-                <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">**</span> <span class="mf">1.5</span></div></div>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">m_e</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">beta_rad</span><span class="p">)</span>
+            <span class="o">/</span> <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span></div></div>
 
 
 <div class="viewcode-block" id="ThermalGElectron"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.ThermalGElectron">[docs]</a><span class="k">class</span> <span class="nc">ThermalGElectron</span><span class="p">(</span><span class="n">GElectron</span><span class="p">):</span>
@@ -245,10 +258,12 @@
 <span class="sd">    ----------</span>
 <span class="sd">    thermal_g_electron : Numpy Array, dtype float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;thermal_g_electron&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;g_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron_thermal}</span><span class="s1">}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">Big(</span><span class="se">\\</span><span class="s1">dfrac{2</span><span class="se">\\</span><span class="s1">pi m_</span><span class="si">{e}</span><span class="s1">/</span><span class="se">\</span>
-<span class="s1">                     </span><span class="se">\\</span><span class="s1">beta_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}}{h^2}</span><span class="se">\\</span><span class="s1">Big)^{3/2}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_g_electron&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;g_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron_thermal}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;\Big(\dfrac{2\pi m_</span><span class="si">{e}</span><span class="s2">/\beta_{\textrm</span><span class="si">{electron}</span><span class="s2">}}{h^2}\Big)^{3/2}&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="ThermalGElectron.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.ThermalGElectron.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beta_electron</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ThermalGElectron</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">beta_electron</span><span class="p">)</span></div></div>
@@ -261,13 +276,15 @@
 <span class="sd">    number_density : Pandas DataFrame, dtype float</span>
 <span class="sd">                     Indexed by atomic number, columns corresponding to zones</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;number_density&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;N_</span><span class="si">{i}</span><span class="s1">&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;number_density&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;N_</span><span class="si">{i}</span><span class="s2">&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="NumberDensity.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.NumberDensity.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">atomic_mass</span><span class="p">,</span> <span class="n">abundance</span><span class="p">,</span> <span class="n">density</span><span class="p">):</span>
-        <span class="n">number_densities</span> <span class="o">=</span> <span class="p">(</span><span class="n">abundance</span> <span class="o">*</span> <span class="n">density</span><span class="p">)</span>
+        <span class="n">number_densities</span> <span class="o">=</span> <span class="n">abundance</span> <span class="o">*</span> <span class="n">density</span>
         <span class="k">return</span> <span class="n">number_densities</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">atomic_mass</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">abundance</span><span class="o">.</span><span class="n">index</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div></div>
+
 
 <div class="viewcode-block" id="SelectedAtoms"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.SelectedAtoms">[docs]</a><span class="k">class</span> <span class="nc">SelectedAtoms</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -276,10 +293,12 @@
 <span class="sd">    selected_atoms : Pandas Int64Index, dtype int</span>
 <span class="sd">                     Atomic numbers of elements required for particular simulation</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;selected_atoms&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;selected_atoms&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="SelectedAtoms.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.SelectedAtoms.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">abundance</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">abundance</span><span class="o">.</span><span class="n">index</span></div></div>
+
 
 <div class="viewcode-block" id="ElectronTemperature"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.ElectronTemperature">[docs]</a><span class="k">class</span> <span class="nc">ElectronTemperature</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -287,12 +306,14 @@
 <span class="sd">    ----------</span>
 <span class="sd">    t_electron : Numpy Array, dtype float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;t_electrons&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">textrm{const.}</span><span class="se">\\</span><span class="s1">times T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;t_electrons&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">textrm{const.}</span><span class="se">\\</span><span class="s2">times T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="ElectronTemperature.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.ElectronTemperature.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_rad</span><span class="p">,</span> <span class="n">link_t_rad_t_electron</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">t_rad</span> <span class="o">*</span> <span class="n">link_t_rad_t_electron</span></div></div>
+
 
 <div class="viewcode-block" id="BetaElectron"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.BetaElectron">[docs]</a><span class="k">class</span> <span class="nc">BetaElectron</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -300,9 +321,10 @@
 <span class="sd">    ----------</span>
 <span class="sd">    beta_electron : Numpy Array, dtype float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;beta_electron&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">beta_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">frac</span><span class="si">{1}</span><span class="s1">{K_</span><span class="si">{B}</span><span class="s1"> T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;beta_electron&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">frac</span><span class="si">{1}</span><span class="s2">{K_</span><span class="si">{B}</span><span class="s2"> T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">BetaElectron</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plasma_parent</span><span class="p">)</span>
@@ -311,16 +333,19 @@
 <div class="viewcode-block" id="BetaElectron.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.BetaElectron.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_B_cgs</span> <span class="o">*</span> <span class="n">t_electrons</span><span class="p">)</span></div></div>
 
+
 <div class="viewcode-block" id="LuminosityInner"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.LuminosityInner">[docs]</a><span class="k">class</span> <span class="nc">LuminosityInner</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;luminosity_inner&#39;</span><span class="p">,)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;luminosity_inner&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="LuminosityInner.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.LuminosityInner.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">r_inner</span><span class="p">,</span> <span class="n">t_inner</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">sigma_sb</span><span class="o">.</span><span class="n">cgs</span> <span class="o">*</span> <span class="n">r_inner</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
-                <span class="o">*</span> <span class="n">t_inner</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;erg/s&#39;</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">sigma_sb</span><span class="o">.</span><span class="n">cgs</span> <span class="o">*</span> <span class="n">r_inner</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">t_inner</span> <span class="o">**</span> <span class="mi">4</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;erg/s&quot;</span><span class="p">)</span></div></div>
+
 
 <div class="viewcode-block" id="TimeSimulation"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.TimeSimulation">[docs]</a><span class="k">class</span> <span class="nc">TimeSimulation</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;time_simulation&#39;</span><span class="p">,)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;time_simulation&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="TimeSimulation.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.TimeSimulation.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">luminosity_inner</span><span class="p">):</span>

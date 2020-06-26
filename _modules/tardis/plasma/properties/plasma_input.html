@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.plasma_input &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.properties.plasma_input &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -191,12 +191,23 @@
            <div itemprop="articleBody">
             
   <h1>Source code for tardis.plasma.properties.plasma_input</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">tardis.plasma.properties.base</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Input</span><span class="p">,</span> <span class="n">ArrayInput</span><span class="p">,</span> <span class="n">DataFrameInput</span><span class="p">)</span>
+<span></span><span class="kn">from</span> <span class="nn">tardis.plasma.properties.base</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">ArrayInput</span><span class="p">,</span> <span class="n">DataFrameInput</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TRadiative&#39;</span><span class="p">,</span> <span class="s1">&#39;DilutionFactor&#39;</span><span class="p">,</span> <span class="s1">&#39;AtomicData&#39;</span><span class="p">,</span> <span class="s1">&#39;Abundance&#39;</span><span class="p">,</span> <span class="s1">&#39;Density&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;TimeExplosion&#39;</span><span class="p">,</span> <span class="s1">&#39;JBlueEstimator&#39;</span><span class="p">,</span> <span class="s1">&#39;LinkTRadTElectron&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;HeliumTreatment&#39;</span><span class="p">,</span> <span class="s1">&#39;RInner&#39;</span><span class="p">,</span> <span class="s1">&#39;TInner&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;ContinuumInteractionSpecies&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;TRadiative&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DilutionFactor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AtomicData&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Abundance&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Density&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TimeExplosion&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;JBlueEstimator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LinkTRadTElectron&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HeliumTreatment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RInner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TInner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Volume&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ContinuumInteractionSpecies&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <div class="viewcode-block" id="TRadiative"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.TRadiative">[docs]</a><span class="k">class</span> <span class="nc">TRadiative</span><span class="p">(</span><span class="n">ArrayInput</span><span class="p">):</span>
@@ -205,8 +216,9 @@
 <span class="sd">    ----------</span>
 <span class="sd">    t_rad : Numpy Array, dtype float</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;t_rad&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;t_rad&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="DilutionFactor"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.DilutionFactor">[docs]</a><span class="k">class</span> <span class="nc">DilutionFactor</span><span class="p">(</span><span class="n">ArrayInput</span><span class="p">):</span>
@@ -217,8 +229,9 @@
 <span class="sd">        Factor used in nebular ionisation / dilute excitation calculations</span>
 <span class="sd">        to account for the dilution of the radiation field.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="AtomicData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.AtomicData">[docs]</a><span class="k">class</span> <span class="nc">AtomicData</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
@@ -227,7 +240,8 @@
 <span class="sd">    ----------</span>
 <span class="sd">    atomic_data : Object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;atomic_data&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;atomic_data&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="Abundance"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.Abundance">[docs]</a><span class="k">class</span> <span class="nc">Abundance</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
@@ -237,7 +251,8 @@
 <span class="sd">    abundance : Numpy array, dtype float</span>
 <span class="sd">                Fractional abundance of elements</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;abundance&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;abundance&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="Density"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.Density">[docs]</a><span class="k">class</span> <span class="nc">Density</span><span class="p">(</span><span class="n">ArrayInput</span><span class="p">):</span>
@@ -247,8 +262,9 @@
 <span class="sd">    density : Numpy array, dtype float</span>
 <span class="sd">              Total density values</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;density&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">rho&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;density&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">rho&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="TimeExplosion"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.TimeExplosion">[docs]</a><span class="k">class</span> <span class="nc">TimeExplosion</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
@@ -258,8 +274,9 @@
 <span class="sd">    time_explosion : Float</span>
 <span class="sd">                     Time since explosion in seconds</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;time_explosion&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;t_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{exp}</span><span class="s1">}&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;time_explosion&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;t_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{exp}</span><span class="s2">}&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="JBlueEstimator"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.JBlueEstimator">[docs]</a><span class="k">class</span> <span class="nc">JBlueEstimator</span><span class="p">(</span><span class="n">ArrayInput</span><span class="p">):</span>
@@ -268,8 +285,9 @@
 <span class="sd">    ----------</span>
 <span class="sd">    j_blue_estimators : Numpy array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;j_blue_estimators&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;J_{</span><span class="se">\\</span><span class="s1">textrm{blue-estimator}}&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;j_blue_estimators&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;J_{</span><span class="se">\\</span><span class="s2">textrm{blue-estimator}}&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="LinkTRadTElectron"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.LinkTRadTElectron">[docs]</a><span class="k">class</span> <span class="nc">LinkTRadTElectron</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
@@ -280,24 +298,25 @@
 <span class="sd">                            Value used for estimate of electron temperature.</span>
 <span class="sd">                            Default is 0.9.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;link_t_rad_t_electron&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}/T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;link_t_rad_t_electron&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}/T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="HeliumTreatment"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.HeliumTreatment">[docs]</a><span class="k">class</span> <span class="nc">HeliumTreatment</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;helium_treatment&#39;</span><span class="p">,)</span></div>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;helium_treatment&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="RInner"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.RInner">[docs]</a><span class="k">class</span> <span class="nc">RInner</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;r_inner&#39;</span><span class="p">,)</span></div>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;r_inner&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="TInner"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.TInner">[docs]</a><span class="k">class</span> <span class="nc">TInner</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;t_inner&#39;</span><span class="p">,)</span></div>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;t_inner&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="Volume"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.Volume">[docs]</a><span class="k">class</span> <span class="nc">Volume</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;volume&#39;</span><span class="p">,)</span></div>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">,)</span></div>
 
 
 <div class="viewcode-block" id="ContinuumInteractionSpecies"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.plasma_input.html#tardis.plasma.properties.plasma_input.ContinuumInteractionSpecies">[docs]</a><span class="k">class</span> <span class="nc">ContinuumInteractionSpecies</span><span class="p">(</span><span class="n">Input</span><span class="p">):</span>
@@ -308,7 +327,8 @@
 <span class="sd">        Atomic and ion numbers of elements for which continuum interactions</span>
 <span class="sd">        (radiative/collisional ionization and recombination) are treated</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;continuum_interaction_species&#39;</span><span class="p">,)</span></div>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;continuum_interaction_species&quot;</span><span class="p">,)</span></div>
 </pre></div>
 
            </div>

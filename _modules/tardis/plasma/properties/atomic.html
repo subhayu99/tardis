@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.atomic &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.properties.atomic &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -197,15 +197,27 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span> <span class="k">as</span> <span class="n">counter</span>
 
-<span class="kn">from</span> <span class="nn">tardis.plasma.properties.base</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">,</span>
-    <span class="n">HiddenPlasmaProperty</span><span class="p">,</span> <span class="n">BaseAtomicDataProperty</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tardis.plasma.properties.base</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ProcessingPlasmaProperty</span><span class="p">,</span>
+    <span class="n">HiddenPlasmaProperty</span><span class="p">,</span>
+    <span class="n">BaseAtomicDataProperty</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">tardis.plasma.exceptions</span> <span class="kn">import</span> <span class="n">IncompleteAtomicData</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Levels&#39;</span><span class="p">,</span> <span class="s1">&#39;Lines&#39;</span><span class="p">,</span> <span class="s1">&#39;LinesLowerLevelIndex&#39;</span><span class="p">,</span> <span class="s1">&#39;LinesUpperLevelIndex&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;AtomicMass&#39;</span><span class="p">,</span> <span class="s1">&#39;IonizationData&#39;</span><span class="p">,</span> <span class="s1">&#39;ZetaData&#39;</span><span class="p">,</span> <span class="s1">&#39;NLTEData&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;PhotoIonizationData&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Levels&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Lines&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LinesLowerLevelIndex&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LinesUpperLevelIndex&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AtomicMass&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IonizationData&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ZetaData&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NLTEData&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PhotoIonizationData&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
 
 <div class="viewcode-block" id="Levels"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.Levels">[docs]</a><span class="k">class</span> <span class="nc">Levels</span><span class="p">(</span><span class="n">BaseAtomicDataProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -220,9 +232,14 @@
 <span class="sd">    g : Pandas DataFrame (index=levels), dtype float</span>
 <span class="sd">             Statistical weights of atomic levels</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;levels&#39;</span><span class="p">,</span> <span class="s1">&#39;excitation_energy&#39;</span><span class="p">,</span> <span class="s1">&#39;metastability&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{levels}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">epsilon_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{k}</span><span class="s1">}&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{metastability}</span><span class="s1">&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;levels&quot;</span><span class="p">,</span> <span class="s2">&quot;excitation_energy&quot;</span><span class="p">,</span> <span class="s2">&quot;metastability&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{levels}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">epsilon_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{k}</span><span class="s2">}&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{metastability}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;g&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_filter_atomic_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">selected_atoms</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">levels</span>
@@ -231,8 +248,13 @@
     <span class="k">def</span> <span class="nf">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
         <span class="c1"># levels = levels.set_index([&#39;atomic_number&#39;, &#39;ion_number&#39;,</span>
         <span class="c1">#                          &#39;level_number&#39;])</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">levels</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;energy&#39;</span><span class="p">],</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;metastable&#39;</span><span class="p">],</span>
-            <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;g&#39;</span><span class="p">])</span></div>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">levels</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+            <span class="n">levels</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">],</span>
+            <span class="n">levels</span><span class="p">[</span><span class="s2">&quot;metastable&quot;</span><span class="p">],</span>
+            <span class="n">levels</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="Lines"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.Lines">[docs]</a><span class="k">class</span> <span class="nc">Lines</span><span class="p">(</span><span class="n">BaseAtomicDataProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -248,8 +270,9 @@
 <span class="sd">    wavelength_cm: Pandas DataFrame (index=line_id), dtype float</span>
 <span class="sd">            Line wavelengths in cm</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<span class="c1"># Would like for lines to just be the line_id values</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="s1">&#39;nu&#39;</span><span class="p">,</span> <span class="s1">&#39;f_lu&#39;</span><span class="p">,</span> <span class="s1">&#39;wavelength_cm&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Would like for lines to just be the line_id values</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="s2">&quot;nu&quot;</span><span class="p">,</span> <span class="s2">&quot;f_lu&quot;</span><span class="p">,</span> <span class="s2">&quot;wavelength_cm&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_filter_atomic_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">selected_atoms</span><span class="p">):</span>
         <span class="c1"># return lines[lines.atomic_number.isin(selected_atoms)]</span>
@@ -257,7 +280,7 @@
 
     <span class="k">def</span> <span class="nf">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
         <span class="c1"># lines.set_index(&#39;line_id&#39;, inplace=True)</span>
-        <span class="k">return</span> <span class="n">lines</span><span class="p">,</span> <span class="n">lines</span><span class="p">[</span><span class="s1">&#39;nu&#39;</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="s1">&#39;f_lu&#39;</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="s1">&#39;wavelength_cm&#39;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="n">lines</span><span class="p">,</span> <span class="n">lines</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="s2">&quot;f_lu&quot;</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="s2">&quot;wavelength_cm&quot;</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="PhotoIonizationData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.PhotoIonizationData">[docs]</a><span class="k">class</span> <span class="nc">PhotoIonizationData</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
@@ -279,23 +302,27 @@
 <span class="sd">                              Atomic, ion and level numbers for which</span>
 <span class="sd">                              photoionization data exists.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;photo_ion_cross_sections&#39;</span><span class="p">,</span> <span class="s1">&#39;photo_ion_block_references&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;photo_ion_index&#39;</span><span class="p">)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">xi_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{i}</span><span class="s1">}(</span><span class="se">\\</span><span class="s1">nu)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;photo_ion_cross_sections&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;photo_ion_block_references&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;photo_ion_index&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">xi_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{i}</span><span class="s2">}(</span><span class="se">\\</span><span class="s2">nu)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PhotoIonizationData.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.PhotoIonizationData.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span> <span class="n">continuum_interaction_species</span><span class="p">):</span>
         <span class="n">photoionization_data</span> <span class="o">=</span> <span class="n">atomic_data</span><span class="o">.</span><span class="n">photoionization_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span>
-            <span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">,</span> <span class="s1">&#39;ion_number&#39;</span><span class="p">,</span> <span class="s1">&#39;level_number&#39;</span><span class="p">]</span>
+            <span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">,</span> <span class="s2">&quot;ion_number&quot;</span><span class="p">,</span> <span class="s2">&quot;level_number&quot;</span><span class="p">]</span>
         <span class="p">)</span>
         <span class="n">selected_species_idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span><span class="p">[</span>
-            <span class="n">continuum_interaction_species</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">),</span>
-            <span class="n">continuum_interaction_species</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;ion_number&#39;</span><span class="p">),</span>
-            <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="n">continuum_interaction_species</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">),</span>
+            <span class="n">continuum_interaction_species</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s2">&quot;ion_number&quot;</span><span class="p">),</span>
+            <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
         <span class="p">]</span>
         <span class="n">photoionization_data</span> <span class="o">=</span> <span class="n">photoionization_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">selected_species_idx</span><span class="p">]</span>
-        <span class="n">phot_nus</span> <span class="o">=</span> <span class="n">photoionization_data</span><span class="p">[</span><span class="s1">&#39;nu&#39;</span><span class="p">]</span>
+        <span class="n">phot_nus</span> <span class="o">=</span> <span class="n">photoionization_data</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">]</span>
         <span class="n">block_references</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
-            <span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="n">phot_nus</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span>
+            <span class="p">[[</span><span class="mi">0</span><span class="p">],</span> <span class="n">phot_nus</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span>
         <span class="p">)</span>
         <span class="n">photo_ion_index</span> <span class="o">=</span> <span class="n">photoionization_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">photoionization_data</span><span class="p">,</span> <span class="n">block_references</span><span class="p">,</span> <span class="n">photo_ion_index</span></div></div>
@@ -307,12 +334,16 @@
 <span class="sd">    lines_lower_level_index : One-dimensional Numpy Array, dtype int</span>
 <span class="sd">        Levels data for lower levels of particular lines</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;lines_lower_level_index&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;lines_lower_level_index&quot;</span><span class="p">,)</span>
+
 <div class="viewcode-block" id="LinesLowerLevelIndex.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesLowerLevelIndex.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
-        <span class="n">levels_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
-                                 <span class="n">index</span><span class="o">=</span><span class="n">levels</span><span class="p">)</span>
-        <span class="n">lines_index</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="s1">&#39;level_number_upper&#39;</span><span class="p">)</span>
+        <span class="n">levels_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">levels</span>
+        <span class="p">)</span>
+        <span class="n">lines_index</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="s2">&quot;level_number_upper&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">levels_index</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lines_index</span><span class="p">])</span></div></div>
+
 
 <div class="viewcode-block" id="LinesUpperLevelIndex"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesUpperLevelIndex">[docs]</a><span class="k">class</span> <span class="nc">LinesUpperLevelIndex</span><span class="p">(</span><span class="n">HiddenPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -320,12 +351,14 @@
 <span class="sd">    lines_upper_level_index : One-dimensional Numpy Array, dtype int</span>
 <span class="sd">        Levels data for upper levels of particular lines</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;lines_upper_level_index&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;lines_upper_level_index&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="LinesUpperLevelIndex.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.LinesUpperLevelIndex.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
-        <span class="n">levels_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
-                                 <span class="n">index</span><span class="o">=</span><span class="n">levels</span><span class="p">)</span>
-        <span class="n">lines_index</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="s1">&#39;level_number_lower&#39;</span><span class="p">)</span>
+        <span class="n">levels_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">levels</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">levels</span>
+        <span class="p">)</span>
+        <span class="n">lines_index</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="s2">&quot;level_number_lower&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">levels_index</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lines_index</span><span class="p">])</span></div></div>
 
 
@@ -335,13 +368,15 @@
 <span class="sd">    atomic_mass : Pandas Series</span>
 <span class="sd">        Atomic masses of the elements used. Indexed by atomic number.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;atomic_mass&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;atomic_mass&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="AtomicMass.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.AtomicMass.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span> <span class="n">selected_atoms</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="k">return</span> <span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">atomic_data</span><span class="o">.</span><span class="n">atom_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">selected_atoms</span><span class="p">]</span><span class="o">.</span><span class="n">mass</span></div></div>
+
 
 <div class="viewcode-block" id="IonizationData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.IonizationData">[docs]</a><span class="k">class</span> <span class="nc">IonizationData</span><span class="p">(</span><span class="n">BaseAtomicDataProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -349,29 +384,27 @@
 <span class="sd">    ionization_data : Pandas Series holding ionization energies</span>
 <span class="sd">        Indexed by atomic number, ion number.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ionization_data&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;ionization_data&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="nf">_filter_atomic_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">,</span> <span class="n">selected_atoms</span><span class="p">):</span>
-        <span class="n">mask</span> <span class="o">=</span> <span class="n">ionization_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span>
-                <span class="n">selected_atoms</span><span class="p">,</span>
-                <span class="n">level</span><span class="o">=</span><span class="s1">&#39;atomic_number&#39;</span>
-                <span class="p">)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">ionization_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">selected_atoms</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">)</span>
         <span class="n">ionization_data</span> <span class="o">=</span> <span class="n">ionization_data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-        <span class="n">counts</span> <span class="o">=</span> <span class="n">ionization_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
-                <span class="n">level</span><span class="o">=</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">ionization_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">alltrue</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">counts</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">ionization_data</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">IncompleteAtomicData</span><span class="p">(</span>
-                    <span class="s1">&#39;ionization data for the ion (</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                            <span class="nb">str</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="n">counts</span><span class="p">]),</span>
-                            <span class="nb">str</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="n">counts</span><span class="p">])</span>
-                            <span class="p">)</span>
-                    <span class="p">)</span>
+                <span class="s2">&quot;ionization data for the ion (</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="n">counts</span><span class="p">]),</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="n">counts</span><span class="p">]),</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ionization_data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ionization_data</span></div>
+
 
 <div class="viewcode-block" id="ZetaData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.ZetaData">[docs]</a><span class="k">class</span> <span class="nc">ZetaData</span><span class="p">(</span><span class="n">BaseAtomicDataProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -382,11 +415,12 @@
 <span class="sd">        The zeta value represents the fraction of recombination events</span>
 <span class="sd">        from the ionized state that go directly to the ground state.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;zeta_data&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;zeta_data&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="nf">_filter_atomic_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zeta_data</span><span class="p">,</span> <span class="n">selected_atoms</span><span class="p">):</span>
-        <span class="n">zeta_data</span><span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">zeta_data</span><span class="p">[</span><span class="s1">&#39;ion_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">zeta_data</span><span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">zeta_data</span><span class="p">[</span><span class="s2">&quot;ion_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="n">zeta_data</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="p">[</span><span class="n">zeta_data</span><span class="o">.</span><span class="n">atomic_number</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">selected_atoms</span><span class="p">)]</span>
         <span class="n">zeta_data_check</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="n">zeta_data</span><span class="o">.</span><span class="n">atomic_number</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
         <span class="n">keys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">zeta_data_check</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
@@ -394,36 +428,47 @@
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">alltrue</span><span class="p">(</span><span class="n">keys</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">values</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">zeta_data</span>
         <span class="k">else</span><span class="p">:</span>
-<span class="c1">#            raise IncompleteAtomicData(&#39;zeta data&#39;)</span>
-<span class="c1"># This currently replaces missing zeta data with 1, which is necessary with</span>
-<span class="c1"># the present atomic data. Will replace with the error above when I have</span>
-<span class="c1"># complete atomic data.</span>
+            <span class="c1">#            raise IncompleteAtomicData(&#39;zeta data&#39;)</span>
+            <span class="c1"># This currently replaces missing zeta data with 1, which is necessary with</span>
+            <span class="c1"># the present atomic data. Will replace with the error above when I have</span>
+            <span class="c1"># complete atomic data.</span>
             <span class="n">missing_ions</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">updated_index</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">selected_atoms</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">ion</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">atom</span> <span class="o">+</span> <span class="mi">2</span><span class="p">):</span>
                     <span class="k">if</span> <span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">ion</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-                        <span class="n">missing_ions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">atom</span><span class="p">,</span><span class="n">ion</span><span class="p">))</span>
+                        <span class="n">missing_ions</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">atom</span><span class="p">,</span> <span class="n">ion</span><span class="p">))</span>
                     <span class="n">updated_index</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">atom</span><span class="p">,</span> <span class="n">ion</span><span class="p">])</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Zeta_data missing - replaced with 1s. Missing ions: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">missing_ions</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Zeta_data missing - replaced with 1s. Missing ions: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">missing_ions</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
             <span class="n">updated_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">updated_index</span><span class="p">)</span>
-            <span class="n">updated_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
-                <span class="n">updated_index</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)),</span>
-                <span class="n">columns</span><span class="o">=</span><span class="n">zeta_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+            <span class="n">updated_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
+                    <span class="n">updated_index</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+                <span class="p">),</span>
+                <span class="n">columns</span><span class="o">=</span><span class="n">zeta_data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zeta_data</span><span class="p">)):</span>
-                <span class="n">updated_dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">zeta_data</span><span class="o">.</span><span class="n">atomic_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">],</span>
-                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">ion_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">]]</span> <span class="o">=</span> \
-                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">zeta_data</span><span class="o">.</span><span class="n">atomic_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">],</span>
-                        <span class="n">zeta_data</span><span class="o">.</span><span class="n">ion_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">]]</span>
+                <span class="n">updated_dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">atomic_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">],</span>
+                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">ion_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">],</span>
+                <span class="p">]</span> <span class="o">=</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">atomic_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">],</span>
+                    <span class="n">zeta_data</span><span class="o">.</span><span class="n">ion_number</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">value</span><span class="p">],</span>
+                <span class="p">]</span>
             <span class="n">updated_dataframe</span> <span class="o">=</span> <span class="n">updated_dataframe</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
             <span class="n">updated_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">updated_index</span><span class="p">)</span>
-            <span class="n">updated_dataframe</span><span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">updated_index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">updated_dataframe</span><span class="p">[</span><span class="s1">&#39;ion_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">updated_index</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">updated_dataframe</span><span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">updated_index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">updated_dataframe</span><span class="p">[</span><span class="s2">&quot;ion_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">updated_index</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">updated_dataframe</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">updated_dataframe</span>
 
     <span class="k">def</span> <span class="nf">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zeta_data</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">,</span> <span class="s1">&#39;ion_number&#39;</span><span class="p">])</span></div>
+        <span class="k">return</span> <span class="n">zeta_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">,</span> <span class="s2">&quot;ion_number&quot;</span><span class="p">])</span></div>
+
 
 <div class="viewcode-block" id="NLTEData"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.NLTEData">[docs]</a><span class="k">class</span> <span class="nc">NLTEData</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -431,7 +476,8 @@
 <span class="sd">    nlte_data :</span>
 <span class="sd">#Finish later (need atomic dataset with NLTE data).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;nlte_data&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;nlte_data&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="NLTEData.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.NLTEData.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>

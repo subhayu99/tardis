@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.continuum_processes &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.properties.continuum_processes &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -201,11 +201,11 @@
 
 <span class="kn">from</span> <span class="nn">tardis.plasma.properties.base</span> <span class="kn">import</span> <span class="n">ProcessingPlasmaProperty</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SpontRecombRateCoeff&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SpontRecombRateCoeff&quot;</span><span class="p">]</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="n">njit_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fastmath&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;parallel&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">njit_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;fastmath&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;parallel&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 
 
 <span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
@@ -266,21 +266,32 @@
 <span class="sd">    alpha_sp : Pandas DataFrame, dtype float</span>
 <span class="sd">               The rate coefficient for spontaneous recombination.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;alpha_sp&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">alpha^{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{sp}</span><span class="s1">}&#39;</span><span class="p">,)</span>
 
-<div class="viewcode-block" id="SpontRecombRateCoeff.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.continuum_processes.html#tardis.plasma.properties.continuum_processes.SpontRecombRateCoeff.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">photo_ion_cross_sections</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span>
-                  <span class="n">photo_ion_block_references</span><span class="p">,</span> <span class="n">photo_ion_index</span><span class="p">,</span> <span class="n">phi_ik</span><span class="p">):</span>
-        <span class="n">x_sect</span> <span class="o">=</span> <span class="n">photo_ion_cross_sections</span><span class="p">[</span><span class="s1">&#39;x_sect&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-        <span class="n">nu</span> <span class="o">=</span> <span class="n">photo_ion_cross_sections</span><span class="p">[</span><span class="s1">&#39;nu&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;alpha_sp&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">alpha^{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{sp}</span><span class="s2">}&quot;</span><span class="p">,)</span>
 
-        <span class="n">alpha_sp</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x_sect</span> <span class="o">*</span> <span class="n">nu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<div class="viewcode-block" id="SpontRecombRateCoeff.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.continuum_processes.html#tardis.plasma.properties.continuum_processes.SpontRecombRateCoeff.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">photo_ion_cross_sections</span><span class="p">,</span>
+        <span class="n">t_electrons</span><span class="p">,</span>
+        <span class="n">photo_ion_block_references</span><span class="p">,</span>
+        <span class="n">photo_ion_index</span><span class="p">,</span>
+        <span class="n">phi_ik</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">x_sect</span> <span class="o">=</span> <span class="n">photo_ion_cross_sections</span><span class="p">[</span><span class="s2">&quot;x_sect&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">nu</span> <span class="o">=</span> <span class="n">photo_ion_cross_sections</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+        <span class="n">alpha_sp</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x_sect</span> <span class="o">*</span> <span class="n">nu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
         <span class="n">alpha_sp</span> <span class="o">=</span> <span class="n">alpha_sp</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-        <span class="n">boltzmann_factor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">nu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">/</span> <span class="n">t_electrons</span> <span class="o">*</span>
-                                  <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">const</span><span class="o">.</span><span class="n">k_B</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+        <span class="n">boltzmann_factor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+            <span class="o">-</span><span class="n">nu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+            <span class="o">/</span> <span class="n">t_electrons</span>
+            <span class="o">*</span> <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">h</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">const</span><span class="o">.</span><span class="n">k_B</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="n">alpha_sp</span> <span class="o">=</span> <span class="n">alpha_sp</span> <span class="o">*</span> <span class="n">boltzmann_factor</span>
-        <span class="n">alpha_sp</span> <span class="o">=</span> <span class="n">integrate_array_by_blocks</span><span class="p">(</span><span class="n">alpha_sp</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span>
-                                             <span class="n">photo_ion_block_references</span><span class="p">)</span>
+        <span class="n">alpha_sp</span> <span class="o">=</span> <span class="n">integrate_array_by_blocks</span><span class="p">(</span>
+            <span class="n">alpha_sp</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">photo_ion_block_references</span>
+        <span class="p">)</span>
         <span class="n">alpha_sp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">alpha_sp</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">photo_ion_index</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">alpha_sp</span> <span class="o">*</span> <span class="n">phi_ik</span></div></div>
 </pre></div>

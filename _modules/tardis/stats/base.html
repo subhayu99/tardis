@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.stats.base &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.stats.base &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -193,12 +193,15 @@
   <h1>Source code for tardis.stats.base</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+
 <div class="viewcode-block" id="get_trivial_poisson_uncertainty"><a class="viewcode-back" href="../../../api/tardis.stats.base.html#tardis.stats.base.get_trivial_poisson_uncertainty">[docs]</a><span class="k">def</span> <span class="nf">get_trivial_poisson_uncertainty</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">emitted_nu</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">montecarlo_nu</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">montecarlo_luminosity</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
-    <span class="n">emitted_luminosity</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">montecarlo_luminosity</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">montecarlo_luminosity</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">emitted_luminosity</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">montecarlo_luminosity</span><span class="p">[</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">montecarlo_luminosity</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="p">]</span>
     <span class="n">freq_bins</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tardis_config</span><span class="o">.</span><span class="n">spectrum</span><span class="o">.</span><span class="n">frequency</span><span class="o">.</span><span class="n">value</span>
 
     <span class="n">bin_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">emitted_nu</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">freq_bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -206,7 +209,6 @@
     <span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">bin_counts</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">emitted_luminosity</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">uncertainty</span> <span class="o">/</span> <span class="p">(</span><span class="n">freq_bins</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">freq_bins</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
-
 </pre></div>
 
            </div>

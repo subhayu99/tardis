@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.base &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.properties.base &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -198,13 +198,21 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BasePlasmaProperty&#39;</span><span class="p">,</span> <span class="s1">&#39;BaseAtomicDataProperty&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;HiddenPlasmaProperty&#39;</span><span class="p">,</span> <span class="s1">&#39;Input&#39;</span><span class="p">,</span> <span class="s1">&#39;ArrayInput&#39;</span><span class="p">,</span> <span class="s1">&#39;DataFrameInput&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;ProcessingPlasmaProperty&#39;</span><span class="p">,</span> <span class="s1">&#39;PreviousIterationProperty&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;BasePlasmaProperty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BaseAtomicDataProperty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HiddenPlasmaProperty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Input&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ArrayInput&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DataFrameInput&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ProcessingPlasmaProperty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PreviousIterationProperty&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
+
 
 <div class="viewcode-block" id="BasePlasmaProperty"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.base.html#tardis.plasma.properties.base.BasePlasmaProperty">[docs]</a><span class="k">class</span> <span class="nc">BasePlasmaProperty</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -238,25 +246,19 @@
 <span class="s2">\textbf{{Formula}} </span><span class="si">{formula}</span><span class="s2"></span>
 <span class="si">{description}</span><span class="s2"></span>
 <span class="s2">&quot;&quot;&quot;</span>
-        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\_&#39;</span><span class="p">)</span>
-        <span class="n">latex_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;latex_name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">latex_name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-            <span class="n">complete_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> [</span><span class="si">{1}</span><span class="s1">]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latex_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">latex_name</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\_&quot;</span><span class="p">)</span>
+        <span class="n">latex_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;latex_name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">latex_name</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">complete_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> [</span><span class="si">{1}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">latex_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">latex_name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">complete_name</span> <span class="o">=</span> <span class="n">latex_name</span>
 
         <span class="n">latex_label</span> <span class="o">=</span> <span class="n">latex_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="n">name</span><span class="o">=</span><span class="n">complete_name</span><span class="p">,</span>
-                <span class="n">formula</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="p">,</span>
-                    <span class="s1">&#39;latex_formula&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">),</span>
-                <span class="n">description</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="p">,</span>
-                    <span class="s1">&#39;latex_description&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;&#39;</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">latex_label</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span></div></div>
-
-
+            <span class="n">name</span><span class="o">=</span><span class="n">complete_name</span><span class="p">,</span>
+            <span class="n">formula</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;latex_formula&quot;</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">),</span>
+            <span class="n">description</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;latex_description&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">latex_label</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="ProcessingPlasmaProperty"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty">[docs]</a><span class="k">class</span> <span class="nc">ProcessingPlasmaProperty</span><span class="p">(</span><span class="n">BasePlasmaProperty</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
@@ -278,10 +280,11 @@
 <span class="sd">        `calculate`-function and makes the plasma routines easily programmable.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">calculate_call_signature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span>
-                                   <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span><span class="p">]</span>
+            <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span>
+        <span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">calculate_call_signature</span>
-                <span class="k">if</span> <span class="n">item</span> <span class="o">!=</span> <span class="s1">&#39;self&#39;</span><span class="p">]</span>
+            <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">calculate_call_signature</span> <span class="k">if</span> <span class="n">item</span> <span class="o">!=</span> <span class="s2">&quot;self&quot;</span>
+        <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_get_input_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plasma_parent</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">)</span>
@@ -294,8 +297,9 @@
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span>
-                <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_input_values</span><span class="p">()))</span>
+            <span class="nb">setattr</span><span class="p">(</span>
+                <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_input_values</span><span class="p">())</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">new_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_input_values</span><span class="p">())</span>
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">output</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">):</span>
@@ -303,8 +307,10 @@
 
 <div class="viewcode-block" id="ProcessingPlasmaProperty.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty.calculate">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;This method needs to be implemented by &#39;</span>
-                                  <span class="s1">&#39;processing plasma modules&#39;</span><span class="p">)</span></div></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;This method needs to be implemented by &quot;</span>
+            <span class="s2">&quot;processing plasma modules&quot;</span>
+        <span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="HiddenPlasmaProperty"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.base.html#tardis.plasma.properties.base.HiddenPlasmaProperty">[docs]</a><span class="k">class</span> <span class="nc">HiddenPlasmaProperty</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
@@ -324,7 +330,7 @@
 <span class="sd">    the simulation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;atomic_data&#39;</span><span class="p">,</span> <span class="s1">&#39;selected_atoms&#39;</span><span class="p">]</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;atomic_data&quot;</span><span class="p">,</span> <span class="s2">&quot;selected_atoms&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">):</span>
 
@@ -333,11 +339,11 @@
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_atomic_property</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Needs to be implemented in subclasses&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Needs to be implemented in subclasses&quot;</span><span class="p">)</span>
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">_filter_atomic_property</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_atomic_property</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Needs to be implemented in subclasses&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Needs to be implemented in subclasses&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="BaseAtomicDataProperty.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.base.html#tardis.plasma.properties.base.BaseAtomicDataProperty.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span> <span class="n">selected_atoms</span><span class="p">):</span>
 
@@ -346,9 +352,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">raw_atomic_property</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">atomic_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_index</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_filter_atomic_property</span><span class="p">(</span>
-                        <span class="n">raw_atomic_property</span><span class="p">,</span> <span class="n">selected_atoms</span><span class="p">)</span>
-                    <span class="p">)</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_filter_atomic_property</span><span class="p">(</span>
+                    <span class="n">raw_atomic_property</span><span class="p">,</span> <span class="n">selected_atoms</span>
+                <span class="p">)</span>
+            <span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Input"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.base.html#tardis.plasma.properties.base.Input">[docs]</a><span class="k">class</span> <span class="nc">Input</span><span class="p">(</span><span class="n">BasePlasmaProperty</span><span class="p">):</span>
@@ -356,6 +363,7 @@
 <span class="sd">    The plasma property class for properties that are input directly from model</span>
 <span class="sd">    and not calculated within the plasma module, e.g. t_rad.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">_set_output_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
@@ -381,6 +389,7 @@
 <span class="sd">    calculations. Given a sufficient number of iterations, the values should converge successfully on the correct</span>
 <span class="sd">    solution.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">_set_initial_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 

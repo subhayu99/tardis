@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.partition_function &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.properties.partition_function &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -202,10 +202,15 @@
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LevelBoltzmannFactorLTE&#39;</span><span class="p">,</span> <span class="s1">&#39;LevelBoltzmannFactorDiluteLTE&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;LevelBoltzmannFactorNoNLTE&#39;</span><span class="p">,</span> <span class="s1">&#39;LevelBoltzmannFactorNLTE&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;PartitionFunction&#39;</span><span class="p">,</span> <span class="s1">&#39;ThermalLevelBoltzmannFactorLTE&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;ThermalLTEPartitionFunction&#39;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;LevelBoltzmannFactorLTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LevelBoltzmannFactorDiluteLTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LevelBoltzmannFactorNoNLTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LevelBoltzmannFactorNLTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PartitionFunction&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ThermalLevelBoltzmannFactorLTE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ThermalLTEPartitionFunction&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <div class="viewcode-block" id="LevelBoltzmannFactorLTE"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.LevelBoltzmannFactorLTE">[docs]</a><span class="k">class</span> <span class="nc">LevelBoltzmannFactorLTE</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
@@ -219,20 +224,24 @@
 <span class="sd">                             Columns corresponding to zones. Does not consider</span>
 <span class="sd">                             NLTE.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;general_level_boltzmann_factor&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;bf_{i,j,k}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;g_{i,j,k}e^{</span><span class="se">\\</span><span class="s1">dfrac{-</span><span class="se">\\</span><span class="s1">epsilon_{i,j,k}}{k_{</span><span class="se">\</span>
-<span class="s1">        </span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{B}</span><span class="s1">}T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}}}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;general_level_boltzmann_factor&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;bf_{i,j,k}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;g_{i,j,k}e^{</span><span class="se">\\</span><span class="s2">dfrac{-</span><span class="se">\\</span><span class="s2">epsilon_{i,j,k}}{k_{</span><span class="se">\</span>
+<span class="s2">        </span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{B}</span><span class="s2">}T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="LevelBoltzmannFactorLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.LevelBoltzmannFactorLTE.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">excitation_energy</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
         <span class="n">exponential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">excitation_energy</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">-</span><span class="n">beta_rad</span><span class="p">))</span>
-        <span class="n">level_boltzmann_factor_array</span> <span class="o">=</span> <span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span>
-                                        <span class="n">exponential</span><span class="p">)</span>
-        <span class="n">level_boltzmann_factor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">level_boltzmann_factor_array</span><span class="p">,</span>
-                                              <span class="n">index</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
-                                              <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta_rad</span><span class="p">)),</span>
-                                              <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">level_boltzmann_factor_array</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">exponential</span>
+        <span class="n">level_boltzmann_factor</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">level_boltzmann_factor_array</span><span class="p">,</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta_rad</span><span class="p">)),</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">level_boltzmann_factor</span></div></div>
 
 
@@ -247,17 +256,19 @@
 <span class="sd">                             by atomic number, ion number, level number.</span>
 <span class="sd">                             Columns corresponding to zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;thermal_lte_level_boltzmann_factor&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;bf_{i,j,k}^{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{LTE}</span><span class="s1">}(T_e)&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;g_{i,j,k}e^{</span><span class="se">\\</span><span class="s1">dfrac{-</span><span class="se">\\</span><span class="s1">epsilon_{i,j,k}}{k_{</span><span class="se">\</span>
-<span class="s1">        </span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{B}</span><span class="s1">}T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{electron}</span><span class="s1">}}}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_lte_level_boltzmann_factor&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;bf_{i,j,k}^{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{LTE}</span><span class="s2">}(T_e)&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;g_{i,j,k}e^{</span><span class="se">\\</span><span class="s2">dfrac{-</span><span class="se">\\</span><span class="s2">epsilon_{i,j,k}}{k_{</span><span class="se">\</span>
+<span class="s2">        </span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{B}</span><span class="s2">}T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="ThermalLevelBoltzmannFactorLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.ThermalLevelBoltzmannFactorLTE.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">excitation_energy</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">beta_electron</span><span class="p">,</span> <span class="n">levels</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ThermalLevelBoltzmannFactorLTE</span><span class="p">,</span>
-                     <span class="n">ThermalLevelBoltzmannFactorLTE</span><span class="p">)</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span>
-                         <span class="n">excitation_energy</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">beta_electron</span><span class="p">,</span> <span class="n">levels</span>
-                     <span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span>
+            <span class="n">ThermalLevelBoltzmannFactorLTE</span><span class="p">,</span> <span class="n">ThermalLevelBoltzmannFactorLTE</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">excitation_energy</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">beta_electron</span><span class="p">,</span> <span class="n">levels</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="LevelBoltzmannFactorDiluteLTE"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.LevelBoltzmannFactorDiluteLTE">[docs]</a><span class="k">class</span> <span class="nc">LevelBoltzmannFactorDiluteLTE</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
@@ -272,16 +283,20 @@
 <span class="sd">                             multiplied by an additional factor W. Does not</span>
 <span class="sd">                             consider NLTE.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;general_level_boltzmann_factor&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;bf_{i,j,k}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Wg_{i,j,k}e^{</span><span class="se">\\</span><span class="s1">dfrac{-</span><span class="se">\\</span><span class="s1">epsilon_{i,j,k}}{k_{</span><span class="se">\</span>
-<span class="s1">        </span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{B}</span><span class="s1">}T_{</span><span class="se">\\</span><span class="s1">textrm</span><span class="si">{rad}</span><span class="s1">}}}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;general_level_boltzmann_factor&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;bf_{i,j,k}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;Wg_{i,j,k}e^{</span><span class="se">\\</span><span class="s2">dfrac{-</span><span class="se">\\</span><span class="s2">epsilon_{i,j,k}}{k_{</span><span class="se">\</span>
+<span class="s2">        </span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{B}</span><span class="s2">}T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
 
 <div class="viewcode-block" id="LevelBoltzmannFactorDiluteLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.LevelBoltzmannFactorDiluteLTE.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">excitation_energy</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span>
-            <span class="n">metastability</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">excitation_energy</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">metastability</span>
+    <span class="p">):</span>
         <span class="n">level_boltzmann_factor</span> <span class="o">=</span> <span class="n">LevelBoltzmannFactorLTE</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span>
-            <span class="n">excitation_energy</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">levels</span><span class="p">)</span>
+            <span class="n">excitation_energy</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">beta_rad</span><span class="p">,</span> <span class="n">levels</span>
+        <span class="p">)</span>
         <span class="n">level_boltzmann_factor</span><span class="p">[</span><span class="o">~</span><span class="n">metastability</span><span class="p">]</span> <span class="o">*=</span> <span class="n">w</span>
         <span class="k">return</span> <span class="n">level_boltzmann_factor</span></div></div>
 
@@ -294,7 +309,8 @@
 <span class="sd">                             Returns general_level_boltzmann_factor as this</span>
 <span class="sd">                             property is included if NLTE is not used.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;level_boltzmann_factor&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;level_boltzmann_factor&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="LevelBoltzmannFactorNoNLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.LevelBoltzmannFactorNoNLTE.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">general_level_boltzmann_factor</span><span class="p">):</span>
@@ -309,25 +325,27 @@
 <span class="sd">                             Returns general_level_boltzmann_factor but</span>
 <span class="sd">                             updated for those species treated in NLTE.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;level_boltzmann_factor&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;level_boltzmann_factor&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="LevelBoltzmannFactorNLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.LevelBoltzmannFactorNLTE.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-                <span class="s1">&#39;This attribute is not defined on the parent class.&#39;</span>
-                <span class="s1">&#39;Please use one of the subclasses.&#39;</span><span class="p">)</span></div>
+            <span class="s2">&quot;This attribute is not defined on the parent class.&quot;</span>
+            <span class="s2">&quot;Please use one of the subclasses.&quot;</span>
+        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="LevelBoltzmannFactorNLTE.from_config"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.LevelBoltzmannFactorNLTE.from_config">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="n">nlte_conf</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">nlte_conf</span><span class="o">.</span><span class="n">classical_nebular</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">nlte_conf</span><span class="o">.</span><span class="n">coronal_approximation</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">LevelBoltzmannFactorNLTEClassic</span>
         <span class="k">elif</span> <span class="p">(</span>
-                <span class="n">nlte_conf</span><span class="o">.</span><span class="n">coronal_approximation</span> <span class="ow">and</span>
-                <span class="ow">not</span> <span class="n">nlte_conf</span><span class="o">.</span><span class="n">classical_nebular</span><span class="p">):</span>
+            <span class="n">nlte_conf</span><span class="o">.</span><span class="n">coronal_approximation</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">nlte_conf</span><span class="o">.</span><span class="n">classical_nebular</span>
+        <span class="p">):</span>
             <span class="k">return</span> <span class="n">LevelBoltzmannFactorNLTECoronal</span>
         <span class="k">elif</span> <span class="n">nlte_conf</span><span class="o">.</span><span class="n">coronal_approximation</span> <span class="ow">and</span> <span class="n">nlte_conf</span><span class="o">.</span><span class="n">classical_nebular</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">PlasmaConfigError</span><span class="p">(</span><span class="s1">&#39;Both coronal approximation and &#39;</span>
-                                    <span class="s1">&#39;classical nebular specified in the &#39;</span>
-                                    <span class="s1">&#39;config.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">PlasmaConfigError</span><span class="p">(</span>
+                <span class="s2">&quot;Both coronal approximation and classical nebular specified in the config.&quot;</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">LevelBoltzmannFactorNLTEGeneral</span></div>
 
@@ -341,19 +359,26 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_inputs</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_main_nlte_calculation</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span> <span class="n">nlte_data</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span>
-            <span class="n">j_blues</span><span class="p">,</span> <span class="n">beta_sobolevs</span><span class="p">,</span> <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
-            <span class="n">previous_electron_densities</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">atomic_data</span><span class="p">,</span>
+        <span class="n">nlte_data</span><span class="p">,</span>
+        <span class="n">t_electrons</span><span class="p">,</span>
+        <span class="n">j_blues</span><span class="p">,</span>
+        <span class="n">beta_sobolevs</span><span class="p">,</span>
+        <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
+        <span class="n">previous_electron_densities</span><span class="p">,</span>
+        <span class="n">g</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The core of the NLTE calculation, used with all possible config.</span>
 <span class="sd">        options.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="n">nlte_data</span><span class="o">.</span><span class="n">nlte_species</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Calculating rates for species </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculating rates for species </span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">number_of_levels</span> <span class="o">=</span> <span class="n">atomic_data</span><span class="o">.</span><span class="n">levels</span><span class="o">.</span><span class="n">energy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">species</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
             <span class="n">lnl</span> <span class="o">=</span> <span class="n">nlte_data</span><span class="o">.</span><span class="n">lines_level_number_lower</span><span class="p">[</span><span class="n">species</span><span class="p">]</span>
             <span class="n">lnu</span> <span class="o">=</span> <span class="n">nlte_data</span><span class="o">.</span><span class="n">lines_level_number_upper</span><span class="p">[</span><span class="n">species</span><span class="p">]</span>
-            <span class="n">lines_index</span><span class="p">,</span> <span class="o">=</span> <span class="n">nlte_data</span><span class="o">.</span><span class="n">lines_idx</span><span class="p">[</span><span class="n">species</span><span class="p">]</span>
+            <span class="p">(</span><span class="n">lines_index</span><span class="p">,)</span> <span class="o">=</span> <span class="n">nlte_data</span><span class="o">.</span><span class="n">lines_idx</span><span class="p">[</span><span class="n">species</span><span class="p">]</span>
 
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">j_blues_filtered</span> <span class="o">=</span> <span class="n">j_blues</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">lines_index</span><span class="p">]</span>
@@ -369,27 +394,33 @@
             <span class="n">r_lu_index</span> <span class="o">=</span> <span class="n">lnu</span> <span class="o">*</span> <span class="n">number_of_levels</span> <span class="o">+</span> <span class="n">lnl</span>
             <span class="n">r_ul_index</span> <span class="o">=</span> <span class="n">lnl</span> <span class="o">*</span> <span class="n">number_of_levels</span> <span class="o">+</span> <span class="n">lnu</span>
             <span class="n">r_ul_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
-                    <span class="p">(</span><span class="n">number_of_levels</span><span class="p">,</span> <span class="n">number_of_levels</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_electrons</span><span class="p">)),</span>
-                    <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+                <span class="p">(</span><span class="n">number_of_levels</span><span class="p">,</span> <span class="n">number_of_levels</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_electrons</span><span class="p">)),</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="n">r_ul_matrix_reshaped</span> <span class="o">=</span> <span class="n">r_ul_matrix</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-                    <span class="p">(</span><span class="n">number_of_levels</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_electrons</span><span class="p">)))</span>
-            <span class="n">r_ul_matrix_reshaped</span><span class="p">[</span><span class="n">r_ul_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">A_uls</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> \
-                <span class="n">B_uls</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">j_blues_filtered</span>
+                <span class="p">(</span><span class="n">number_of_levels</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_electrons</span><span class="p">))</span>
+            <span class="p">)</span>
+            <span class="n">r_ul_matrix_reshaped</span><span class="p">[</span><span class="n">r_ul_index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">A_uls</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">B_uls</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">j_blues_filtered</span>
+            <span class="p">)</span>
             <span class="n">r_ul_matrix_reshaped</span><span class="p">[</span><span class="n">r_ul_index</span><span class="p">]</span> <span class="o">*=</span> <span class="n">beta_sobolevs_filtered</span>
             <span class="n">r_lu_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_ul_matrix</span><span class="p">)</span>
             <span class="n">r_lu_matrix_reshaped</span> <span class="o">=</span> <span class="n">r_lu_matrix</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-                    <span class="p">(</span><span class="n">number_of_levels</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_electrons</span><span class="p">)))</span>
-            <span class="n">r_lu_matrix_reshaped</span><span class="p">[</span><span class="n">r_lu_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">B_lus</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> \
-                <span class="n">j_blues_filtered</span> <span class="o">*</span> <span class="n">beta_sobolevs_filtered</span>
+                <span class="p">(</span><span class="n">number_of_levels</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t_electrons</span><span class="p">))</span>
+            <span class="p">)</span>
+            <span class="n">r_lu_matrix_reshaped</span><span class="p">[</span><span class="n">r_lu_index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">B_lus</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">j_blues_filtered</span> <span class="o">*</span> <span class="n">beta_sobolevs_filtered</span>
+            <span class="p">)</span>
             <span class="k">if</span> <span class="n">atomic_data</span><span class="o">.</span><span class="n">collision_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">collision_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_ul_matrix</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">previous_electron_densities</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="n">collision_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">r_ul_matrix</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">collision_matrix</span> <span class="o">=</span> <span class="n">nlte_data</span><span class="o">.</span><span class="n">get_collision_matrix</span><span class="p">(</span>
-                            <span class="n">species</span><span class="p">,</span> <span class="n">t_electrons</span>
-                            <span class="p">)</span> <span class="o">*</span> <span class="n">previous_electron_densities</span><span class="o">.</span><span class="n">values</span>
+                    <span class="n">collision_matrix</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">nlte_data</span><span class="o">.</span><span class="n">get_collision_matrix</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">)</span>
+                        <span class="o">*</span> <span class="n">previous_electron_densities</span><span class="o">.</span><span class="n">values</span>
+                    <span class="p">)</span>
             <span class="n">rates_matrix</span> <span class="o">=</span> <span class="n">r_lu_matrix</span> <span class="o">+</span> <span class="n">r_ul_matrix</span> <span class="o">+</span> <span class="n">collision_matrix</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">number_of_levels</span><span class="p">):</span>
                 <span class="n">rates_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">rates_matrix</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -399,23 +430,35 @@
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_electrons</span><span class="p">)):</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">level_boltzmann_factor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
-                            <span class="n">rates_matrix</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
+                        <span class="n">rates_matrix</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">x</span>
+                    <span class="p">)</span>
                 <span class="k">except</span> <span class="n">LinAlgError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s1">&#39;Singular matrix&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s2">&quot;Singular matrix&quot;</span><span class="p">:</span>
                         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                                <span class="s1">&#39;SingularMatrixError during solving of the &#39;</span>
-                                <span class="s1">&#39;rate matrix. Does the atomic data contain &#39;</span>
-                                <span class="s1">&#39;collision data?&#39;</span><span class="p">)</span>
+                            <span class="s2">&quot;SingularMatrixError during solving of the &quot;</span>
+                            <span class="s2">&quot;rate matrix. Does the atomic data contain &quot;</span>
+                            <span class="s2">&quot;collision data?&quot;</span>
+                        <span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
                         <span class="k">raise</span> <span class="n">e</span>
-                <span class="n">general_level_boltzmann_factor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">species</span><span class="p">]</span> <span class="o">=</span> \
-                    <span class="n">level_boltzmann_factor</span> <span class="o">*</span> <span class="n">g</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">species</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">level_boltzmann_factor</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">general_level_boltzmann_factor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">species</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">level_boltzmann_factor</span>
+                    <span class="o">*</span> <span class="n">g</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">species</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="o">/</span> <span class="n">level_boltzmann_factor</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="p">)</span>
         <span class="k">return</span> <span class="n">general_level_boltzmann_factor</span>
 
     <span class="k">def</span> <span class="nf">_calculate_classical_nebular</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span>
-            <span class="n">nlte_data</span><span class="p">,</span> <span class="n">general_level_boltzmann_factor</span><span class="p">,</span> <span class="n">j_blues</span><span class="p">,</span>
-            <span class="n">previous_electron_densities</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">t_electrons</span><span class="p">,</span>
+        <span class="n">lines</span><span class="p">,</span>
+        <span class="n">atomic_data</span><span class="p">,</span>
+        <span class="n">nlte_data</span><span class="p">,</span>
+        <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
+        <span class="n">j_blues</span><span class="p">,</span>
+        <span class="n">previous_electron_densities</span><span class="p">,</span>
+        <span class="n">g</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs NLTE calculations using the classical nebular treatment.</span>
 <span class="sd">        All beta sobolev values taken as 1.</span>
@@ -423,19 +466,27 @@
         <span class="n">beta_sobolevs</span> <span class="o">=</span> <span class="mf">1.0</span>
 
         <span class="n">general_level_boltzmann_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_main_nlte_calculation</span><span class="p">(</span>
-                <span class="n">atomic_data</span><span class="p">,</span>
-                <span class="n">nlte_data</span><span class="p">,</span>
-                <span class="n">t_electrons</span><span class="p">,</span>
-                <span class="n">j_blues</span><span class="p">,</span>
-                <span class="n">beta_sobolevs</span><span class="p">,</span>
-                <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
-                <span class="n">previous_electron_densities</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+            <span class="n">atomic_data</span><span class="p">,</span>
+            <span class="n">nlte_data</span><span class="p">,</span>
+            <span class="n">t_electrons</span><span class="p">,</span>
+            <span class="n">j_blues</span><span class="p">,</span>
+            <span class="n">beta_sobolevs</span><span class="p">,</span>
+            <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
+            <span class="n">previous_electron_densities</span><span class="p">,</span>
+            <span class="n">g</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">general_level_boltzmann_factor</span>
 
     <span class="k">def</span> <span class="nf">_calculate_coronal_approximation</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span>
-            <span class="n">nlte_data</span><span class="p">,</span> <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
-            <span class="n">previous_electron_densities</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">t_electrons</span><span class="p">,</span>
+        <span class="n">lines</span><span class="p">,</span>
+        <span class="n">atomic_data</span><span class="p">,</span>
+        <span class="n">nlte_data</span><span class="p">,</span>
+        <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
+        <span class="n">previous_electron_densities</span><span class="p">,</span>
+        <span class="n">g</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs NLTE calculations using the coronal approximation.</span>
 <span class="sd">        All beta sobolev values taken as 1 and j_blues taken as 0.</span>
@@ -443,15 +494,29 @@
         <span class="n">beta_sobolevs</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="n">j_blues</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">general_level_boltzmann_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_main_nlte_calculation</span><span class="p">(</span>
-            <span class="n">atomic_data</span><span class="p">,</span> <span class="n">nlte_data</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">j_blues</span><span class="p">,</span>
-            <span class="n">beta_sobolevs</span><span class="p">,</span> <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
-            <span class="n">previous_electron_densities</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+            <span class="n">atomic_data</span><span class="p">,</span>
+            <span class="n">nlte_data</span><span class="p">,</span>
+            <span class="n">t_electrons</span><span class="p">,</span>
+            <span class="n">j_blues</span><span class="p">,</span>
+            <span class="n">beta_sobolevs</span><span class="p">,</span>
+            <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
+            <span class="n">previous_electron_densities</span><span class="p">,</span>
+            <span class="n">g</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">general_level_boltzmann_factor</span>
 
     <span class="k">def</span> <span class="nf">_calculate_general</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span> <span class="n">nlte_data</span><span class="p">,</span>
-            <span class="n">general_level_boltzmann_factor</span><span class="p">,</span> <span class="n">j_blues</span><span class="p">,</span>
-            <span class="n">previous_beta_sobolev</span><span class="p">,</span> <span class="n">previous_electron_densities</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">t_electrons</span><span class="p">,</span>
+        <span class="n">lines</span><span class="p">,</span>
+        <span class="n">atomic_data</span><span class="p">,</span>
+        <span class="n">nlte_data</span><span class="p">,</span>
+        <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
+        <span class="n">j_blues</span><span class="p">,</span>
+        <span class="n">previous_beta_sobolev</span><span class="p">,</span>
+        <span class="n">previous_electron_densities</span><span class="p">,</span>
+        <span class="n">g</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Full NLTE calculation without approximations.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -461,9 +526,15 @@
             <span class="n">beta_sobolevs</span> <span class="o">=</span> <span class="n">previous_beta_sobolev</span>
 
         <span class="n">general_level_boltzmann_factor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_main_nlte_calculation</span><span class="p">(</span>
-            <span class="n">atomic_data</span><span class="p">,</span> <span class="n">nlte_data</span><span class="p">,</span> <span class="n">t_electrons</span><span class="p">,</span> <span class="n">j_blues</span><span class="p">,</span>
-            <span class="n">beta_sobolevs</span><span class="p">,</span> <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
-            <span class="n">previous_electron_densities</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+            <span class="n">atomic_data</span><span class="p">,</span>
+            <span class="n">nlte_data</span><span class="p">,</span>
+            <span class="n">t_electrons</span><span class="p">,</span>
+            <span class="n">j_blues</span><span class="p">,</span>
+            <span class="n">beta_sobolevs</span><span class="p">,</span>
+            <span class="n">general_level_boltzmann_factor</span><span class="p">,</span>
+            <span class="n">previous_electron_densities</span><span class="p">,</span>
+            <span class="n">g</span><span class="p">,</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">general_level_boltzmann_factor</span></div>
 
 
@@ -487,13 +558,15 @@
 <span class="sd">                         Indexed by atomic number, ion number.</span>
 <span class="sd">                         Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;partition_function&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Z_{i,j}&#39;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">sum_</span><span class="si">{k}</span><span class="s1">bf_{i,j,k}&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;partition_function&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Z_{i,j}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">sum_</span><span class="si">{k}</span><span class="s2">bf_{i,j,k}&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="PartitionFunction.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.PartitionFunction.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level_boltzmann_factor</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">level_boltzmann_factor</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
-            <span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">,</span> <span class="s1">&#39;ion_number&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div></div>
+            <span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">,</span> <span class="s2">&quot;ion_number&quot;</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div></div>
 
 
 <div class="viewcode-block" id="ThermalLTEPartitionFunction"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.ThermalLTEPartitionFunction">[docs]</a><span class="k">class</span> <span class="nc">ThermalLTEPartitionFunction</span><span class="p">(</span><span class="n">PartitionFunction</span><span class="p">):</span>
@@ -504,8 +577,9 @@
 <span class="sd">                                     Indexed by atomic number, ion number.</span>
 <span class="sd">                                     Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;thermal_lte_partition_function&#39;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Z_{i,j}(T_</span><span class="se">\\</span><span class="s1">mathrm</span><span class="si">{e}</span><span class="s1">&#39;</span><span class="p">,)</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_lte_partition_function&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Z_{i,j}(T_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="ThermalLTEPartitionFunction.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.partition_function.html#tardis.plasma.properties.partition_function.ThermalLTEPartitionFunction.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thermal_lte_level_boltzmann_factor</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ThermalLTEPartitionFunction</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span>

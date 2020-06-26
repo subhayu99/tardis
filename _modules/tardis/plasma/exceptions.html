@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.exceptions &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.plasma.exceptions &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -194,25 +194,33 @@
 <div class="viewcode-block" id="PlasmaException"><a class="viewcode-back" href="../../../api/tardis.plasma.exceptions.html#tardis.plasma.exceptions.PlasmaException">[docs]</a><span></span><span class="k">class</span> <span class="nc">PlasmaException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
+
 <div class="viewcode-block" id="IncompleteAtomicData"><a class="viewcode-back" href="../../../api/tardis.plasma.exceptions.html#tardis.plasma.exceptions.IncompleteAtomicData">[docs]</a><span class="k">class</span> <span class="nc">IncompleteAtomicData</span><span class="p">(</span><span class="n">PlasmaException</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atomic_data_name</span><span class="p">):</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;The current plasma calculation requires </span><span class="si">{0}</span><span class="s1">, &#39;</span>
-                   <span class="s1">&#39;which is not provided by the given atomic data&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">atomic_data_name</span><span class="p">))</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;The current plasma calculation requires </span><span class="si">{0}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;which is not provided by the given atomic data&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">atomic_data_name</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PlasmaException</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="PlasmaMissingModule"><a class="viewcode-back" href="../../../api/tardis.plasma.exceptions.html#tardis.plasma.exceptions.PlasmaMissingModule">[docs]</a><span class="k">class</span> <span class="nc">PlasmaMissingModule</span><span class="p">(</span><span class="n">PlasmaException</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
+
 <div class="viewcode-block" id="PlasmaIsolatedModule"><a class="viewcode-back" href="../../../api/tardis.plasma.exceptions.html#tardis.plasma.exceptions.PlasmaIsolatedModule">[docs]</a><span class="k">class</span> <span class="nc">PlasmaIsolatedModule</span><span class="p">(</span><span class="n">PlasmaException</span><span class="p">):</span>
     <span class="k">pass</span></div>
+
 
 <div class="viewcode-block" id="NotInitializedModule"><a class="viewcode-back" href="../../../api/tardis.plasma.exceptions.html#tardis.plasma.exceptions.NotInitializedModule">[docs]</a><span class="k">class</span> <span class="nc">NotInitializedModule</span><span class="p">(</span><span class="n">PlasmaException</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
+
 <div class="viewcode-block" id="PlasmaIonizationError"><a class="viewcode-back" href="../../../api/tardis.plasma.exceptions.html#tardis.plasma.exceptions.PlasmaIonizationError">[docs]</a><span class="k">class</span> <span class="nc">PlasmaIonizationError</span><span class="p">(</span><span class="n">PlasmaException</span><span class="p">):</span>
     <span class="k">pass</span></div>
+
 
 <div class="viewcode-block" id="PlasmaConfigError"><a class="viewcode-back" href="../../../api/tardis.plasma.exceptions.html#tardis.plasma.exceptions.PlasmaConfigError">[docs]</a><span class="k">class</span> <span class="nc">PlasmaConfigError</span><span class="p">(</span><span class="n">PlasmaException</span><span class="p">):</span>
     <span class="k">pass</span></div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.config_reader &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.io.config_reader &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -206,7 +206,7 @@
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tardis</span><span class="o">.</span><span class="n">__path__</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;data&#39;</span><span class="p">))</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tardis</span><span class="o">.</span><span class="n">__path__</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;data&quot;</span><span class="p">))</span>
 
 
 <div class="viewcode-block" id="ConfigurationError"><a class="viewcode-back" href="../../../api/tardis.io.config_reader.html#tardis.io.config_reader.ConfigurationError">[docs]</a><span class="k">class</span> <span class="nc">ConfigurationError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
@@ -224,17 +224,20 @@
 <span class="sd">        dictionary</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">convergence_parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;damping_constant&#39;</span><span class="p">,</span> <span class="s1">&#39;threshold&#39;</span><span class="p">]</span>
+    <span class="n">convergence_parameters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;damping_constant&quot;</span><span class="p">,</span> <span class="s2">&quot;threshold&quot;</span><span class="p">]</span>
 
-    <span class="k">for</span> <span class="n">convergence_variable</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;t_inner&#39;</span><span class="p">,</span> <span class="s1">&#39;t_rad&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">convergence_variable</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;t_inner&quot;</span><span class="p">,</span> <span class="s2">&quot;t_rad&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">convergence_variable</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">convergence_section_dict</span><span class="p">:</span>
             <span class="n">convergence_section_dict</span><span class="p">[</span><span class="n">convergence_variable</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">convergence_variable_section</span> <span class="o">=</span> <span class="n">convergence_section_dict</span><span class="p">[</span><span class="n">convergence_variable</span><span class="p">]</span>
+        <span class="n">convergence_variable_section</span> <span class="o">=</span> <span class="n">convergence_section_dict</span><span class="p">[</span>
+            <span class="n">convergence_variable</span>
+        <span class="p">]</span>
         <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">convergence_parameters</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">convergence_variable_section</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">convergence_section_dict</span><span class="p">:</span>
-                    <span class="n">convergence_section_dict</span><span class="p">[</span><span class="n">convergence_variable</span><span class="p">][</span><span class="n">param</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                        <span class="n">convergence_section_dict</span><span class="p">[</span><span class="n">param</span><span class="p">])</span>
+                    <span class="n">convergence_section_dict</span><span class="p">[</span><span class="n">convergence_variable</span><span class="p">][</span>
+                        <span class="n">param</span>
+                    <span class="p">]</span> <span class="o">=</span> <span class="n">convergence_section_dict</span><span class="p">[</span><span class="n">param</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">convergence_section_dict</span></div>
 
@@ -272,9 +275,8 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">yaml_dict</span> <span class="o">=</span> <span class="n">yaml_load_file</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;No config file named: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No config file named: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">e</span>
-
 
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_config_dict</span><span class="p">(</span><span class="n">yaml_dict</span><span class="p">)</span></div>
 
@@ -308,30 +310,32 @@
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="s1">&#39;expected dict&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="s2">&quot;expected dict&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;csvy_model&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot specify both model and csvy_model in main config file.&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;csvy_model&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;csvy_model&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot specify both model and csvy_model in main config file.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;csvy_model&quot;</span><span class="p">):</span>
             <span class="n">model</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-            <span class="n">csvy_model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_dirname</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">csvy_model</span><span class="p">)</span>
+            <span class="n">csvy_model_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_dirname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">csvy_model</span><span class="p">)</span>
             <span class="n">csvy_yml</span> <span class="o">=</span> <span class="n">load_yaml_from_csvy</span><span class="p">(</span><span class="n">csvy_model_path</span><span class="p">)</span>
-            <span class="k">if</span> <span class="s1">&#39;v_inner_boundary&#39;</span> <span class="ow">in</span> <span class="n">csvy_yml</span><span class="p">:</span>
-                <span class="n">model</span><span class="p">[</span><span class="s1">&#39;v_inner_boundary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csvy_yml</span><span class="p">[</span><span class="s1">&#39;v_inner_boundary&#39;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="s1">&#39;v_outer_boundary&#39;</span> <span class="ow">in</span> <span class="n">csvy_yml</span><span class="p">:</span>
-                <span class="n">model</span><span class="p">[</span><span class="s1">&#39;v_outer_boundary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csvy_yml</span><span class="p">[</span><span class="s1">&#39;v_outer_boundary&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;v_inner_boundary&quot;</span> <span class="ow">in</span> <span class="n">csvy_yml</span><span class="p">:</span>
+                <span class="n">model</span><span class="p">[</span><span class="s2">&quot;v_inner_boundary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csvy_yml</span><span class="p">[</span><span class="s2">&quot;v_inner_boundary&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="s2">&quot;v_outer_boundary&quot;</span> <span class="ow">in</span> <span class="n">csvy_yml</span><span class="p">:</span>
+                <span class="n">model</span><span class="p">[</span><span class="s2">&quot;v_outer_boundary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csvy_yml</span><span class="p">[</span><span class="s2">&quot;v_outer_boundary&quot;</span><span class="p">]</span>
 
-            <span class="bp">self</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span><span class="n">model</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
 
-
     <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span>
-                                                      <span class="n">ConfigurationNameSpace</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">value</span><span class="p">,</span> <span class="n">ConfigurationNameSpace</span>
+        <span class="p">):</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">ConfigurationNameSpace</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="s1">&#39;unit&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="s2">&quot;unit&quot;</span><span class="p">):</span>
             <span class="n">value</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
 
         <span class="nb">dict</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
@@ -360,23 +364,26 @@
 <span class="sd">        config_item_string: ~str</span>
 <span class="sd">            string of shape &#39;section1.sectionb.param1&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">config_item_path</span> <span class="o">=</span> <span class="n">config_item_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">config_item_path</span> <span class="o">=</span> <span class="n">config_item_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">config_item</span> <span class="o">=</span> <span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-            <span class="k">if</span> <span class="n">config_item</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">config_item</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">):</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">config_item</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span>\
-                <span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
+            <span class="s2">&quot;item&quot;</span>
+        <span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span>
-                <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))]</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+            <span class="p">]</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">get_config_item</span><span class="p">(</span>
-                <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span></div>
+                <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+            <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ConfigurationNameSpace.set_config_item"><a class="viewcode-back" href="../../../api/tardis.io.config_reader.html#tardis.io.config_reader.ConfigurationNameSpace.set_config_item">[docs]</a>    <span class="k">def</span> <span class="nf">set_config_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_item_string</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -392,24 +399,28 @@
 <span class="sd">            value to set the parameter with it</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">config_item_path</span> <span class="o">=</span> <span class="n">config_item_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">config_item_path</span> <span class="o">=</span> <span class="n">config_item_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> \
-                <span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
+            <span class="s2">&quot;item&quot;</span>
+        <span class="p">):</span>
             <span class="n">current_value</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span>
-                <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))]</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_value</span><span class="p">,</span> <span class="s1">&#39;unit&#39;</span><span class="p">):</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">current_value</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">):</span>
                 <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span>
-                    <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))]</span> <span class="o">=</span>\
-                    <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">current_value</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+                    <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+                <span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">current_value</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span>
-                    <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))]</span> <span class="o">=</span> <span class="n">value</span>
+                    <span class="nb">int</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+                <span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="p">[</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">set_config_item</span><span class="p">(</span>
-                <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">value</span><span class="p">)</span></div>
+                <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_item_path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">value</span>
+            <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ConfigurationNameSpace.deepcopy"><a class="viewcode-back" href="../../../api/tardis.io.config_reader.html#tardis.io.config_reader.ConfigurationNameSpace.deepcopy">[docs]</a>    <span class="k">def</span> <span class="nf">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">ConfigurationNameSpace</span><span class="p">(</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)))</span></div></div>
@@ -423,24 +434,25 @@
 <div class="viewcode-block" id="Configuration.from_yaml"><a class="viewcode-back" href="../../../api/tardis.io.config_reader.html#tardis.io.config_reader.Configuration.from_yaml">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_yaml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">yaml_dict</span> <span class="o">=</span> <span class="n">yaml_load_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span>
-                                       <span class="n">loader</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;loader&#39;</span><span class="p">,</span> <span class="n">YAMLLoader</span><span class="p">))</span>
+            <span class="n">yaml_dict</span> <span class="o">=</span> <span class="n">yaml_load_file</span><span class="p">(</span>
+                <span class="n">fname</span><span class="p">,</span> <span class="n">loader</span><span class="o">=</span><span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;loader&quot;</span><span class="p">,</span> <span class="n">YAMLLoader</span><span class="p">)</span>
+            <span class="p">)</span>
         <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;No config file named: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No config file named: </span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">e</span>
 
-        <span class="n">tardis_config_version</span> <span class="o">=</span> <span class="n">yaml_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tardis_config_version&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">tardis_config_version</span> <span class="o">!=</span> <span class="s1">&#39;v1.0&#39;</span><span class="p">:</span>
+        <span class="n">tardis_config_version</span> <span class="o">=</span> <span class="n">yaml_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tardis_config_version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tardis_config_version</span> <span class="o">!=</span> <span class="s2">&quot;v1.0&quot;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ConfigurationError</span><span class="p">(</span>
-                    <span class="s1">&#39;Currently only tardis_config_version v1.0 supported&#39;</span><span class="p">)</span>
+                <span class="s2">&quot;Currently only tardis_config_version v1.0 supported&quot;</span>
+            <span class="p">)</span>
 
-        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;config_dirname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;config_dirname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_config_dict</span><span class="p">(</span>
-            <span class="n">yaml_dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_config_dict</span><span class="p">(</span><span class="n">yaml_dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Configuration.from_config_dict"><a class="viewcode-back" href="../../../api/tardis.io.config_reader.html#tardis.io.config_reader.Configuration.from_config_dict">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_config_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config_dict</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">config_dirname</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">from_config_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config_dict</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">config_dirname</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validating and subsequently parsing a config file.</span>
 
@@ -465,24 +477,28 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">validated_config_dict</span> <span class="o">=</span> <span class="n">config_dict</span>
 
-        <span class="n">validated_config_dict</span><span class="p">[</span><span class="s1">&#39;config_dirname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config_dirname</span>
+        <span class="n">validated_config_dict</span><span class="p">[</span><span class="s2">&quot;config_dirname&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config_dirname</span>
 
-        <span class="n">montecarlo_section</span> <span class="o">=</span> <span class="n">validated_config_dict</span><span class="p">[</span><span class="s1">&#39;montecarlo&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">montecarlo_section</span><span class="p">[</span><span class="s1">&#39;convergence_strategy&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;damped&quot;</span><span class="p">:</span>
-            <span class="n">montecarlo_section</span><span class="p">[</span><span class="s1">&#39;convergence_strategy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="n">parse_convergence_section</span><span class="p">(</span>
-                        <span class="n">montecarlo_section</span><span class="p">[</span><span class="s1">&#39;convergence_strategy&#39;</span><span class="p">]))</span>
-        <span class="k">elif</span> <span class="n">montecarlo_section</span><span class="p">[</span><span class="s1">&#39;convergence_strategy&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;custom&quot;</span><span class="p">:</span>
+        <span class="n">montecarlo_section</span> <span class="o">=</span> <span class="n">validated_config_dict</span><span class="p">[</span><span class="s2">&quot;montecarlo&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">montecarlo_section</span><span class="p">[</span><span class="s2">&quot;convergence_strategy&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;damped&quot;</span><span class="p">:</span>
+            <span class="n">montecarlo_section</span><span class="p">[</span>
+                <span class="s2">&quot;convergence_strategy&quot;</span>
+            <span class="p">]</span> <span class="o">=</span> <span class="n">parse_convergence_section</span><span class="p">(</span>
+                <span class="n">montecarlo_section</span><span class="p">[</span><span class="s2">&quot;convergence_strategy&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">montecarlo_section</span><span class="p">[</span><span class="s2">&quot;convergence_strategy&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;custom&quot;</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
                 <span class="s1">&#39;convergence_strategy is set to &quot;custom&quot;; &#39;</span>
-                <span class="s1">&#39;you need to implement your specific convergence treatment&#39;</span><span class="p">)</span>
+                <span class="s2">&quot;you need to implement your specific convergence treatment&quot;</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;convergence_strategy is not &quot;damped&quot; &#39;</span>
-                             <span class="s1">&#39;or &quot;custom&quot;&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;convergence_strategy is not &quot;damped&quot; &#39;</span> <span class="s1">&#39;or &quot;custom&quot;&#39;</span>
+            <span class="p">)</span>
 
-        <span class="n">enable_full_relativity</span> <span class="o">=</span> <span class="n">montecarlo_section</span><span class="p">[</span><span class="s1">&#39;enable_full_relativity&#39;</span><span class="p">]</span>
+        <span class="n">enable_full_relativity</span> <span class="o">=</span> <span class="n">montecarlo_section</span><span class="p">[</span><span class="s2">&quot;enable_full_relativity&quot;</span><span class="p">]</span>
         <span class="n">spectrum_integrated</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">validated_config_dict</span><span class="p">[</span><span class="s1">&#39;spectrum&#39;</span><span class="p">][</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;integrated&#39;</span>
+            <span class="n">validated_config_dict</span><span class="p">[</span><span class="s2">&quot;spectrum&quot;</span><span class="p">][</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;integrated&quot;</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">enable_full_relativity</span> <span class="ow">and</span> <span class="n">spectrum_integrated</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
@@ -493,7 +509,6 @@
             <span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">validated_config_dict</span><span class="p">)</span></div>
-
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_dict</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Configuration</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config_dict</span><span class="p">)</span></div>

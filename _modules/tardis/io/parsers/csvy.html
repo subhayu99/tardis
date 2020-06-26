@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.parsers.csvy &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.io.parsers.csvy &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -195,7 +195,9 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">tardis.io.util</span> <span class="kn">import</span> <span class="n">YAMLLoader</span>
 
-<span class="n">YAML_DELIMITER</span> <span class="o">=</span> <span class="s1">&#39;---&#39;</span>
+<span class="n">YAML_DELIMITER</span> <span class="o">=</span> <span class="s2">&quot;---&quot;</span>
+
+
 <div class="viewcode-block" id="load_csvy"><a class="viewcode-back" href="../../../../api/tardis.io.parsers.csvy.html#tardis.io.parsers.csvy.load_csvy">[docs]</a><span class="k">def</span> <span class="nf">load_csvy</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parameters</span>
@@ -217,20 +219,23 @@
         <span class="n">yaml_end_ind</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">YAML_DELIMITER</span><span class="p">,</span> <span class="s1">&#39;First line of csvy file is not </span><span class="se">\&#39;</span><span class="s1">---</span><span class="se">\&#39;</span><span class="s1">&#39;</span>
+                <span class="k">assert</span> <span class="p">(</span>
+                    <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">YAML_DELIMITER</span>
+                <span class="p">),</span> <span class="s2">&quot;First line of csvy file is not &#39;---&#39;&quot;</span>
             <span class="n">yaml_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">YAML_DELIMITER</span><span class="p">:</span>
                 <span class="n">yaml_end_ind</span> <span class="o">=</span> <span class="n">i</span>
                 <span class="k">break</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;End </span><span class="si">%s</span><span class="s1"> not found&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">YAML_DELIMITER</span><span class="p">))</span> 
-        <span class="n">yaml_dict</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">yaml_lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">YAMLLoader</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;End </span><span class="si">%s</span><span class="s2"> not found&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">YAML_DELIMITER</span><span class="p">))</span>
+        <span class="n">yaml_dict</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">yaml_lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">YAMLLoader</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="n">yaml_end_ind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">EmptyDataError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">return</span> <span class="n">yaml_dict</span><span class="p">,</span> <span class="n">data</span></div>
+
 
 <div class="viewcode-block" id="load_yaml_from_csvy"><a class="viewcode-back" href="../../../../api/tardis.io.parsers.csvy.html#tardis.io.parsers.csvy.load_yaml_from_csvy">[docs]</a><span class="k">def</span> <span class="nf">load_yaml_from_csvy</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -250,15 +255,18 @@
         <span class="n">yaml_end_ind</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fh</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">YAML_DELIMITER</span><span class="p">,</span> <span class="s1">&#39;First line of csvy file is not </span><span class="se">\&#39;</span><span class="s1">---</span><span class="se">\&#39;</span><span class="s1">&#39;</span>
+                <span class="k">assert</span> <span class="p">(</span>
+                    <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">YAML_DELIMITER</span>
+                <span class="p">),</span> <span class="s2">&quot;First line of csvy file is not &#39;---&#39;&quot;</span>
             <span class="n">yaml_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">YAML_DELIMITER</span><span class="p">:</span>
                 <span class="n">yaml_end_ind</span> <span class="o">=</span> <span class="n">i</span>
                 <span class="k">break</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;End </span><span class="si">%s</span><span class="s1"> not found&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">YAML_DELIMITER</span><span class="p">))</span> 
-        <span class="n">yaml_dict</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">yaml_lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">YAMLLoader</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;End </span><span class="si">%s</span><span class="s2"> not found&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">YAML_DELIMITER</span><span class="p">))</span>
+        <span class="n">yaml_dict</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">yaml_lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">YAMLLoader</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">yaml_dict</span></div>
+
 
 <div class="viewcode-block" id="load_csv_from_csvy"><a class="viewcode-back" href="../../../../api/tardis.io.parsers.csvy.html#tardis.io.parsers.csvy.load_csv_from_csvy">[docs]</a><span class="k">def</span> <span class="nf">load_csv_from_csvy</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>

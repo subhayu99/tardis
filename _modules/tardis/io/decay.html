@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.decay &mdash; TARDIS v3.0.dev3468</title>
+  <title>tardis.io.decay &mdash; TARDIS v3.0.dev3469</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3468
+                3.0.dev3469
               </div>
             
           
@@ -195,14 +195,15 @@
 <span class="kn">from</span> <span class="nn">pyne</span> <span class="kn">import</span> <span class="n">nucname</span><span class="p">,</span> <span class="n">material</span>
 <span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
 
+
 <div class="viewcode-block" id="IsotopeAbundances"><a class="viewcode-back" href="../../../api/tardis.io.decay.html#tardis.io.decay.IsotopeAbundances">[docs]</a><span class="k">class</span> <span class="nc">IsotopeAbundances</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
 
     <span class="n">_metadata</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time_0&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">&#39;time_0&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-            <span class="n">time_0</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;time_0&#39;</span><span class="p">]</span>
-            <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;time_0&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;time_0&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">time_0</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;time_0&quot;</span><span class="p">]</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;time_0&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">time_0</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">d</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">IsotopeAbundances</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -215,8 +216,7 @@
     <span class="k">def</span> <span class="nf">_update_material</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comp_dicts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">))]</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">atomic_number</span><span class="p">,</span> <span class="n">mass_number</span><span class="p">),</span> <span class="n">abundances</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-            <span class="n">nuclear_symbol</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s%d</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nucname</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">atomic_number</span><span class="p">),</span>
-                                           <span class="n">mass_number</span><span class="p">)</span>
+            <span class="n">nuclear_symbol</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nucname</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">atomic_number</span><span class="p">)</span><span class="si">}{</span><span class="n">mass_number</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">comp_dicts</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">nuclear_symbol</span><span class="p">]</span> <span class="o">=</span> <span class="n">abundances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
@@ -224,14 +224,17 @@
     <span class="k">def</span> <span class="nf">from_materials</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">materials</span><span class="p">):</span>
         <span class="n">multi_index_tuples</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
         <span class="k">for</span> <span class="n">material</span> <span class="ow">in</span> <span class="n">materials</span><span class="p">:</span>
-            <span class="n">multi_index_tuples</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="bp">cls</span><span class="o">.</span><span class="n">id_to_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-                                       <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">material</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+            <span class="n">multi_index_tuples</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">id_to_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">material</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+            <span class="p">)</span>
 
         <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span>
-            <span class="n">multi_index_tuples</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">,</span> <span class="s1">&#39;mass_number&#39;</span><span class="p">])</span>
+            <span class="n">multi_index_tuples</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">,</span> <span class="s2">&quot;mass_number&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
 
-
-        <span class="n">abundances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">materials</span><span class="p">)))</span>
+        <span class="n">abundances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">materials</span><span class="p">))</span>
+        <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">material</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">materials</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">material</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -239,13 +242,9 @@
 
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">abundances</span><span class="p">)</span></div>
 
-
-
-
 <div class="viewcode-block" id="IsotopeAbundances.id_to_tuple"><a class="viewcode-back" href="../../../api/tardis.io.decay.html#tardis.io.decay.IsotopeAbundances.id_to_tuple">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">id_to_tuple</span><span class="p">(</span><span class="n">atomic_id</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">nucname</span><span class="o">.</span><span class="n">znum</span><span class="p">(</span><span class="n">atomic_id</span><span class="p">),</span> <span class="n">nucname</span><span class="o">.</span><span class="n">anum</span><span class="p">(</span><span class="n">atomic_id</span><span class="p">)</span></div>
-
 
 <div class="viewcode-block" id="IsotopeAbundances.to_materials"><a class="viewcode-back" href="../../../api/tardis.io.decay.html#tardis.io.decay.IsotopeAbundances.to_materials">[docs]</a>    <span class="k">def</span> <span class="nf">to_materials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -261,13 +260,12 @@
 
         <span class="n">comp_dicts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">))]</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">atomic_number</span><span class="p">,</span> <span class="n">mass_number</span><span class="p">),</span> <span class="n">abundances</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-            <span class="n">nuclear_symbol</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0:s}{1:d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nucname</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">atomic_number</span><span class="p">),</span>
-                                           <span class="n">mass_number</span><span class="p">)</span>
+            <span class="n">nuclear_symbol</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0:s}{1:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">nucname</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">atomic_number</span><span class="p">),</span> <span class="n">mass_number</span>
+            <span class="p">)</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)):</span>
                 <span class="n">comp_dicts</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">nuclear_symbol</span><span class="p">]</span> <span class="o">=</span> <span class="n">abundances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">material</span><span class="o">.</span><span class="n">Material</span><span class="p">(</span><span class="n">comp_dict</span><span class="p">)</span> <span class="k">for</span> <span class="n">comp_dict</span> <span class="ow">in</span> <span class="n">comp_dicts</span><span class="p">]</span></div>
-
-
 
 <div class="viewcode-block" id="IsotopeAbundances.decay"><a class="viewcode-back" href="../../../api/tardis.io.decay.html#tardis.io.decay.IsotopeAbundances.decay">[docs]</a>    <span class="k">def</span> <span class="nf">decay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -284,13 +282,15 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">materials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_materials</span><span class="p">()</span>
-        <span class="n">t_second</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">day</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_0</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        <span class="n">t_second</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">u</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">day</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_0</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+        <span class="p">)</span>
         <span class="n">decayed_materials</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="n">t_second</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">materials</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">materials</span><span class="p">)):</span>
             <span class="n">materials</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">decayed_materials</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">IsotopeAbundances</span><span class="o">.</span><span class="n">from_materials</span><span class="p">(</span><span class="n">materials</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">df</span> </div>
+        <span class="k">return</span> <span class="n">df</span></div>
 
 <div class="viewcode-block" id="IsotopeAbundances.as_atoms"><a class="viewcode-back" href="../../../api/tardis.io.decay.html#tardis.io.decay.IsotopeAbundances.as_atoms">[docs]</a>    <span class="k">def</span> <span class="nf">as_atoms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -300,7 +300,7 @@
 <span class="sd">            : merged isotope abundances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;atomic_number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="IsotopeAbundances.merge"><a class="viewcode-back" href="../../../api/tardis.io.decay.html#tardis.io.decay.IsotopeAbundances.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -317,7 +317,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_atoms</span><span class="p">()</span>
         <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
-        <span class="c1">#Merge abundance and isotope dataframe</span>
+        <span class="c1"># Merge abundance and isotope dataframe</span>
         <span class="n">modified_df</span> <span class="o">=</span> <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
