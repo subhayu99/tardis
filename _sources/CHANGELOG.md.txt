@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/06/26 19:20 +00:00)
+### upcoming (2020/06/26 19:26 +00:00)
+- [#1207](https://github.com/tardis-sn/tardis/pull/1207) add git-blame-ignore for code style black Changes (#1207) (@wkerzendorf)
 - [#1201](https://github.com/tardis-sn/tardis/pull/1201) Code style black (#1201) (@wkerzendorf)
 - [#1200](https://github.com/tardis-sn/tardis/pull/1200) Added jaladh-singhal's orcid (#1200) (@jaladh-singhal)
 - [#1197](https://github.com/tardis-sn/tardis/pull/1197) add arjun's name to the ORCID list (#1197) (@arjunsavel)
