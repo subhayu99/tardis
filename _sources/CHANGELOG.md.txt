@@ -1,6 +1,6 @@
 ## Change Log
 
-### upcoming (2020/06/24 17:48 +00:00)
+### upcoming (2020/06/26 14:31 +00:00)
 - [#1197](https://github.com/tardis-sn/tardis/pull/1197) add arjun's name to the ORCID list (#1197) (@arjunsavel)
 - [#1166](https://github.com/tardis-sn/tardis/pull/1166) Create a new subpackage for jupyter-widgets and add shell info widgets (#1166) (@jaladh-singhal)
 
