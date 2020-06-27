@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/06/27 13:22 +00:00)
+### upcoming (2020/06/27 20:17 +00:00)
+- [#1203](https://github.com/tardis-sn/tardis/pull/1203) Minor changes to the environment file and cleanup (#1203) (@epassaro)
 - [#1209](https://github.com/tardis-sn/tardis/pull/1209) add sashank27 orcid (#1209) (@sashank27)
 - [#1207](https://github.com/tardis-sn/tardis/pull/1207) add git-blame-ignore for code style black Changes (#1207) (@wkerzendorf)
 - [#1201](https://github.com/tardis-sn/tardis/pull/1201) Code style black (#1201) (@wkerzendorf)
