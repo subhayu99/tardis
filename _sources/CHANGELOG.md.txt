@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/07/06 13:20 +00:00)
+### upcoming (2020/07/06 18:05 +00:00)
+- [#1190](https://github.com/tardis-sn/tardis/pull/1190) Change `pytestconfig` to `request.config` (#1190) (@epassaro)
 - [#1219](https://github.com/tardis-sn/tardis/pull/1219) Update index.rst (#1219) (@ycamacho)
 
 ### v3.0.dev3472 (2020/06/27 20:11 +00:00)
