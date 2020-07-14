@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/07/09 03:11 +00:00)
+### upcoming (2020/07/14 15:36 +00:00)
+- [#1227](https://github.com/tardis-sn/tardis/pull/1227) Update base.py (#1227) (@arjunsavel)
+
+### v3.0.dev3477 (2020/07/09 03:06 +00:00)
 - [#1218](https://github.com/tardis-sn/tardis/pull/1218) Move and rename coverage file (#1218) (@arjunsavel)
 - [#1224](https://github.com/tardis-sn/tardis/pull/1224) Added better mission statement (@wkerzendorf)
 - [#1190](https://github.com/tardis-sn/tardis/pull/1190) Change `pytestconfig` to `request.config` (#1190) (@epassaro)
