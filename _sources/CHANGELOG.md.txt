@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/07/14 20:58 +00:00)
+### upcoming (2020/07/15 13:12 +00:00)
+- [#1234](https://github.com/tardis-sn/tardis/pull/1234) TARDIS Code of Conduct (#1234) (@wkerzendorf)
 - [#1233](https://github.com/tardis-sn/tardis/pull/1233) Update of the Governance model (#1233) (@wkerzendorf)
 - [#1231](https://github.com/tardis-sn/tardis/pull/1231) Roadmap Documentation Page (#1231) (@marxwillia)
 - [#1227](https://github.com/tardis-sn/tardis/pull/1227) Update base.py (#1227) (@arjunsavel)
