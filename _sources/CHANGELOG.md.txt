@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/07/15 13:54 +00:00)
+### upcoming (2020/07/15 14:22 +00:00)
+- [#1237](https://github.com/tardis-sn/tardis/pull/1237) Add new Contribution guidelines (#1237) (@jaladh-singhal)
 - [#1238](https://github.com/tardis-sn/tardis/pull/1238) code of conduct symlink (#1238) (@wkerzendorf)
 - [#1234](https://github.com/tardis-sn/tardis/pull/1234) TARDIS Code of Conduct (#1234) (@wkerzendorf)
 - [#1233](https://github.com/tardis-sn/tardis/pull/1233) Update of the Governance model (#1233) (@wkerzendorf)
