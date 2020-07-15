@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; TARDIS v3.0.dev3482</title>
+  <title>TARDIS Community Code of Conduct &mdash; TARDIS v3.0.dev3482</title>
   
 
   
@@ -23,7 +23,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -42,9 +41,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developer Workflow" href="development/index.html" />
+    <link rel="prev" title="Credits &amp; Publication Policies" href="credits.html" />
     <link href="_static/tardis.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -77,7 +77,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -113,10 +113,10 @@
 <li class="toctree-l1"><a class="reference internal" href="research/index.html">Overview</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Team &amp; Credits</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
 <li class="toctree-l1"><a class="reference internal" href="credits.html">Credits &amp; Publication Policies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code of Conduct</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
@@ -177,12 +177,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>TARDIS Community Code of Conduct</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/CODE_OF_CONDUCT.md.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -194,23 +196,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
 
-  
-  <div id="search-results">
-  
-  </div>
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="tardis-community-code-of-conduct">
+<h1>TARDIS Community Code of Conduct<a class="headerlink" href="#tardis-community-code-of-conduct" title="Permalink to this headline">¶</a></h1>
+<p>The TARDIS community is made up of members from around the globe with a diverse set of skills, personalities, and experiences. It is through these differences that our community experiences success and continued growth. We expect everyone in our community to follow these guidelines when interacting with others both inside and outside of our community. Our goal is to keep ours a positive, inclusive, successful, and growing community.</p>
+<p>As members of the community,</p>
+<ul class="simple">
+<li><p>We pledge to treat all people with respect and provide a harassment- and bullying-free environment, regardless of sex, sexual orientation and/or gender identity, disability, physical appearance, body size, race, nationality, ethnicity, and religion. In particular, sexual language and imagery, sexist, racist, or otherwise exclusionary jokes are not appropriate.</p></li>
+<li><p>We pledge to respect the work of others by recognizing acknowledgment/citation requests of original authors. As authors, we pledge to be explicit about how we want our own work to be cited or acknowledged.</p></li>
+<li><p>We pledge to welcome those interested in joining the community, and realize that including people with a variety of opinions and backgrounds will only serve to enrich our community. In particular, discussions relating to pros/cons of various technologies, programming languages, and so on are welcome, but these should be done with respect, taking proactive measure to ensure that all participants are heard and feel confident that they can freely express their opinions.</p></li>
+<li><p>We pledge to welcome questions and answer them respectfully, paying particular attention to those new to the community. We pledge to provide respectful criticisms and feedback in forums, especially in discussion threads resulting from code contributions.</p></li>
+<li><p>We pledge to be conscientious of the perceptions of the wider community and to respond to criticism respectfully. We will strive to model behaviors that encourage productive debate and disagreement, both within our community and where we are criticized. We will treat those outside our community with the same respect as people within our community.</p></li>
+<li><p>We pledge to help the entire community follow the code of conduct, and to not remain silent when we see violations of the code of conduct. We will take action when members of our community violate this code such as contacting the TARDIS core or the TARDIS ombudsperson (who is outside of the TARDIS collaboration and will treat reports confidentially) or talking privately with the person.</p></li>
+<li><p>This code of conduct applies to all community situations online and offline, including mailing lists, forums, social media, conferences, meetings, associated social events, and one-to-one interactions.</p></li>
+</ul>
+<p>This code of conduct has been adapted from the Astropy Code of Conduct, which in turn uses parts of the PSF code of conduct.</p>
+</div>
+
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="development/index.html" class="btn btn-neutral float-right" title="Developer Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="credits.html" class="btn btn-neutral float-left" title="Credits &amp; Publication Policies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -250,14 +289,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
