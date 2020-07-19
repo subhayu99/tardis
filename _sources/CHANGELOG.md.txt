@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/07/15 14:22 +00:00)
+### upcoming (2020/07/19 14:35 +00:00)
+- [#1210](https://github.com/tardis-sn/tardis/pull/1210) [MRG] Using Mamba in Pipelines (#1210) (@kaushik94)
 - [#1237](https://github.com/tardis-sn/tardis/pull/1237) Add new Contribution guidelines (#1237) (@jaladh-singhal)
 - [#1238](https://github.com/tardis-sn/tardis/pull/1238) code of conduct symlink (#1238) (@wkerzendorf)
 - [#1234](https://github.com/tardis-sn/tardis/pull/1234) TARDIS Code of Conduct (#1234) (@wkerzendorf)
