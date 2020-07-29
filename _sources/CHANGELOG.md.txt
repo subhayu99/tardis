@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/07/19 14:35 +00:00)
+### upcoming (2020/07/29 13:55 +00:00)
+- [#1213](https://github.com/tardis-sn/tardis/pull/1213) Re-applied Black formatting to tardis after excluding undesired directories (#1213) (@jaladh-singhal)
+
+### v3.0.dev3484 (2020/07/19 14:30 +00:00)
 - [#1210](https://github.com/tardis-sn/tardis/pull/1210) [MRG] Using Mamba in Pipelines (#1210) (@kaushik94)
 - [#1237](https://github.com/tardis-sn/tardis/pull/1237) Add new Contribution guidelines (#1237) (@jaladh-singhal)
 - [#1238](https://github.com/tardis-sn/tardis/pull/1238) code of conduct symlink (#1238) (@wkerzendorf)
