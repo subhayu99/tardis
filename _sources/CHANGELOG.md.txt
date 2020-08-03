@@ -1,6 +1,6 @@
 ## Change Log
 
-### upcoming (2020/08/03 16:04 +00:00)
+### upcoming (2020/08/03 16:12 +00:00)
 - [#1263](https://github.com/tardis-sn/tardis/pull/1263) Clean up status badge display (#1263) (@chvogl)
 - [#1261](https://github.com/tardis-sn/tardis/pull/1261) Add governance document (#1261) (@wkerzendorf)
 
