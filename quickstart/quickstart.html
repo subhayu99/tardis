@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quickstart for TARDIS &mdash; TARDIS v3.0.dev3494</title>
+  <title>Quickstart for TARDIS &mdash; TARDIS v3.0.dev3495</title>
   
 
   
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                3.0.dev3494
+                3.0.dev3495
               </div>
             
           
@@ -482,7 +482,7 @@ quickstart is <code class="docutils literal notranslate"><span class="pre">tardi
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/usr/share/miniconda/envs/tardis/lib/python3.6/importlib/_bootstrap.py:219: QAWarning: pyne.data is not yet QA compliant.
+/usr/share/miniconda/envs/tardis/lib/python3.7/importlib/_bootstrap.py:219: QAWarning: pyne.data is not yet QA compliant.
   return f(*args, **kwds)
 </pre></div></div>
 </div>
@@ -525,7 +525,7 @@ quickstart is <code class="docutils literal notranslate"><span class="pre">tardi
 <div class="highlight"><pre>
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   980  100   980    0     0   7197      0 --:--:-- --:--:-- --:--:--  7259
+100   980  100   980    0     0   9383      0 --:--:-- --:--:-- --:--:--  9423
 </pre></div></div>
 </div>
 </div>
@@ -548,11 +548,14 @@ quickstart is <code class="docutils literal notranslate"><span class="pre">tardi
 <div class="highlight"><pre>
 [<span class="ansi-bold">tardis.plasma.standard_plasmas</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Reading Atomic Data from kurucz_cd23_chianti_H_He.h5 (<span class="ansi-bold">standard_plasmas.py</span>:87)
 [<span class="ansi-bold">tardis.io.atom_data.util</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Atom Data kurucz_cd23_chianti_H_He.h5 not found in local path. Exists in TARDIS Data repo /home/vsts/Downloads/tardis-data/kurucz_cd23_chianti_H_He.h5 (<span class="ansi-bold">util.py</span>:35)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.6/site-packages/IPython/core/interactiveshell.py:3343: PerformanceWarning: indexing past lexsort depth may impact performance.
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/IPython/core/interactiveshell.py:3417: PerformanceWarning: indexing past lexsort depth may impact performance.
   exec(code_obj, self.user_global_ns, self.user_ns)
- (<span class="ansi-bold">warnings.py</span>:99)
+ (<span class="ansi-bold">warnings.py</span>:110)
 [<span class="ansi-bold">tardis.io.atom_data.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Read Atom Data with UUID=6f7b09e887a311e7a06b246e96350010 and MD5=864f1753714343c41f99cb065710cace. (<span class="ansi-bold">base.py</span>:187)
 [<span class="ansi-bold">tardis.io.atom_data.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Non provided atomic data: synpp_refs, photoionization_data (<span class="ansi-bold">base.py</span>:193)
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:355: NumbaWarning: The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 9002. The TBB threading layer is disabled.
+  warnings.warn(problem)
+ (<span class="ansi-bold">warnings.py</span>:110)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 1/20 (<span class="ansi-bold">base.py</span>:325)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 7.96915e+42 erg / s Luminosity absorbed = 2.63370e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:447)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Plasma stratification:
@@ -783,7 +786,7 @@ quickstart is <code class="docutils literal notranslate"><span class="pre">tardi
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  t_inner 10314.623 K -- next t_inner 11009.102 K (<span class="ansi-bold">base.py</span>:436)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 20/20 (<span class="ansi-bold">base.py</span>:325)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.21062e+43 erg / s Luminosity absorbed = 3.88405e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:447)
-[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 35.34 s (<span class="ansi-bold">base.py</span>:380)
+[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 34.82 s (<span class="ansi-bold">base.py</span>:380)
 </pre></div></div>
 </div>
 </div>
