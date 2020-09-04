@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.model.base &mdash; TARDIS v3.0.dev3495</title>
+  <title>tardis.model.base &mdash; TARDIS v3.0.dev3503</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3495
+                3.0.dev3503
               </div>
             
           
@@ -786,14 +786,16 @@
             <span class="n">abundance</span><span class="p">,</span> <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">read_uniform_abundances</span><span class="p">(</span><span class="n">abundances_section</span><span class="p">,</span> <span class="n">no_of_shells</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">index</span><span class="p">,</span> <span class="n">abundance</span><span class="p">,</span> <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">parse_csv_abundances</span><span class="p">(</span><span class="n">csvy_model_data</span><span class="p">)</span>
-
+            <span class="n">abundance</span> <span class="o">=</span> <span class="n">abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="n">abundance</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">abundance</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">isotope_abundance</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 
         <span class="n">abundance</span> <span class="o">=</span> <span class="n">abundance</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
         <span class="n">abundance</span> <span class="o">=</span> <span class="n">abundance</span><span class="p">[</span><span class="n">abundance</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
-        <span class="n">abundance</span> <span class="o">=</span> <span class="n">abundance</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
-        <span class="n">abundance</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">abundance</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
+        <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">isotope_abundance</span><span class="p">[</span><span class="n">isotope_abundance</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
         <span class="n">norm_factor</span> <span class="o">=</span> <span class="n">abundance</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">norm_factor</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-12</span><span class="p">):</span>

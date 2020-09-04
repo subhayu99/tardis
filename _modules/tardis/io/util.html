@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.io.util &mdash; TARDIS v3.0.dev3495</title>
+  <title>tardis.io.util &mdash; TARDIS v3.0.dev3503</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3495
+                3.0.dev3503
               </div>
             
           
@@ -480,6 +480,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">full_hdf_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># If tardis was compiled --with-vpacket-logging, add vpacket properties</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;virt_logging&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">virt_logging</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hdf_properties</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vpacket_hdf_properties</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">optional_hdf_properties</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hdf_properties</span>
 
 <div class="viewcode-block" id="HDFWriterMixin.convert_to_snake_case"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.HDFWriterMixin.convert_to_snake_case">[docs]</a>    <span class="nd">@staticmethod</span>

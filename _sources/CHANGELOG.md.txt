@@ -1,6 +1,18 @@
 ## Change Log
 
-### upcoming (2020/08/05 16:04 +00:00)
+### upcoming (2020/09/04 09:22 +00:00)
+- [#1291](https://github.com/tardis-sn/tardis/pull/1291) Download atom data from opensupernova mirror (#1291) (@epassaro)
+- [#1254](https://github.com/tardis-sn/tardis/pull/1254) Fix how virtual_packet properties are saved in hdf (#1254) (@jaladh-singhal)
+- [#1278](https://github.com/tardis-sn/tardis/pull/1278) Pin numpy to v1.17 (#1278) (@epassaro)
+
+### v3.0.dev3500 (2020/08/12 09:52 +00:00)
+- [#1271](https://github.com/tardis-sn/tardis/pull/1271) Pin numpy to v1.19.0 (#1271) (@epassaro)
+- [#1266](https://github.com/tardis-sn/tardis/pull/1266) Move to Pandas 1.x (#1266) (@epassaro)
+- [#1235](https://github.com/tardis-sn/tardis/pull/1235) test and fix for issue #1228 (#1235) (@jordi5)
+
+### v3.0.dev3497 (2020/08/07 15:26 +00:00)
+- [#1267](https://github.com/tardis-sn/tardis/pull/1267) Temporarily fetch refdata from GDrive (#1267) (@epassaro)
+- [#1265](https://github.com/tardis-sn/tardis/pull/1265) add GIT_LFS_SMUDGE (#1265) (@kaushik94)
 - [#1262](https://github.com/tardis-sn/tardis/pull/1262) Update package versions (#1262) (@epassaro)
 - [#1263](https://github.com/tardis-sn/tardis/pull/1263) Clean up status badge display (#1263) (@chvogl)
 - [#1261](https://github.com/tardis-sn/tardis/pull/1261) Add governance document (#1261) (@wkerzendorf)
