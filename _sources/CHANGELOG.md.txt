@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/09/04 09:22 +00:00)
+### upcoming (2020/09/09 10:21 +00:00)
+- [#1296](https://github.com/tardis-sn/tardis/pull/1296) Pin pyne to 0.7.0 (#1296) (@andrewfullard)
+
+### v3.0.dev3503 (2020/09/04 09:18 +00:00)
 - [#1291](https://github.com/tardis-sn/tardis/pull/1291) Download atom data from opensupernova mirror (#1291) (@epassaro)
 - [#1254](https://github.com/tardis-sn/tardis/pull/1254) Fix how virtual_packet properties are saved in hdf (#1254) (@jaladh-singhal)
 - [#1278](https://github.com/tardis-sn/tardis/pull/1278) Pin numpy to v1.17 (#1278) (@epassaro)
