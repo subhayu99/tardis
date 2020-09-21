@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/09/09 10:21 +00:00)
+### upcoming (2020/09/21 18:02 +00:00)
+- [#1264](https://github.com/tardis-sn/tardis/pull/1264) Add line info widget to widgets subpackage (#1264) (@jaladh-singhal)
+
+### v3.0.dev3504 (2020/09/09 10:16 +00:00)
 - [#1296](https://github.com/tardis-sn/tardis/pull/1296) Pin pyne to 0.7.0 (#1296) (@andrewfullard)
 
 ### v3.0.dev3503 (2020/09/04 09:18 +00:00)

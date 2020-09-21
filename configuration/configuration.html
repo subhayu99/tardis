@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration File &mdash; TARDIS v3.0.dev3504</title>
+  <title>Configuration File &mdash; TARDIS v3.0.dev3505</title>
   
 
   
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                3.0.dev3504
+                3.0.dev3505
               </div>
             
           
@@ -449,67 +449,50 @@ are allowed or available.</p>
 file type where the information is stored or a number of other sections.</p>
 <table class="docutils align-default" id="model-yml">
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>type</p></td>
-<td colspan="3"><p><em>object</em></p></td>
+<td colspan="2"><p><em>object</em></p></td>
 </tr>
-<tr class="row-even"><td colspan="4"><p>properties</p></td>
+<tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>structure</p></li>
 </ul>
 </td>
 <td rowspan="2"><p>oneOf</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
 <td><p><span class="xref std std-ref">#/definitions/structure/file</span></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><span class="xref std std-ref">#/definitions/structure/specific</span></p></td>
+<tr class="row-even"><td><p><span class="xref std std-ref">#/definitions/structure/specific</span></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><ul class="simple">
 <li><p>abundances</p></li>
 </ul>
 </td>
 <td rowspan="2"><p>oneOf</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
 <td><p><span class="xref std std-ref">#/definitions/abundances/file</span></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><span class="xref std std-ref">#/definitions/abundances/uniform</span></p></td>
+<tr class="row-even"><td><p><span class="xref std std-ref">#/definitions/abundances/uniform</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>additionalProperties</p></td>
-<td colspan="3"><p>False</p></td>
+<td colspan="2"><p>False</p></td>
 </tr>
-<tr class="row-even"><td colspan="4"><p>definitions</p></td>
+<tr class="row-even"><td colspan="3"><p>definitions</p></td>
 </tr>
-<tr class="row-odd"><td colspan="4"><ul class="simple">
+<tr class="row-odd"><td colspan="3"><ul class="simple">
 <li><p>density</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td colspan="4"><ul class="simple">
+<tr class="row-even"><td colspan="3"><ul class="simple">
 <li><p>structure</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td colspan="4"><ul class="simple">
+<tr class="row-odd"><td colspan="3"><ul class="simple">
 <li><p>abundances</p></li>
 </ul>
 </td>
@@ -666,7 +649,7 @@ relative abundance fraction. If it does not add up to 1., TARDIS will warn — b
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-even"><td><p>default</p></td>
-<td colspan="2"><p>OrderedDict()</p></td>
+<td colspan="2"></td>
 </tr>
 <tr class="row-odd"><td colspan="3"><p>properties</p></td>
 </tr>
@@ -680,7 +663,7 @@ relative abundance fraction. If it does not add up to 1., TARDIS will warn — b
 <td><p><em>array</em></p></td>
 </tr>
 <tr class="row-even"><td><p>default</p></td>
-<td><p>[]</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>coronal_approximation</p></li>
@@ -717,7 +700,7 @@ relative abundance fraction. If it does not add up to 1., TARDIS will warn — b
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>default</p></td>
-<td colspan="2"><p>OrderedDict()</p></td>
+<td colspan="2"></td>
 </tr>
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
@@ -731,7 +714,7 @@ relative abundance fraction. If it does not add up to 1., TARDIS will warn — b
 <td><p><em>array</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>default</p></td>
-<td><p>[]</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>additionalProperties</p></td>
 <td colspan="2"><p>False</p></td>
@@ -909,7 +892,7 @@ normal operations.</p>
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-odd"><td><p>default</p></td>
-<td colspan="2"><p>OrderedDict()</p></td>
+<td colspan="2"></td>
 </tr>
 <tr class="row-even"><td colspan="3"><p>properties</p></td>
 </tr>
@@ -975,20 +958,13 @@ normal operations.</p>
 </ul>
 </td>
 <td><p>default</p></td>
-<td colspan="2"><p>OrderedDict([(‘type’, ‘damped’)])</p></td>
+<td><p>type</p></td>
+<td><p>damped</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="2"><p>oneOf</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><span class="xref std std-ref">#/definitions/convergence_strategy/damped</span></p></td>
+<td colspan="2"><p><span class="xref std std-ref">#/definitions/convergence_strategy/damped</span></p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><span class="xref std std-ref">#/definitions/convergence_strategy/custom</span></p></td>
+<tr class="row-even"><td colspan="2"><p><span class="xref std std-ref">#/definitions/convergence_strategy/custom</span></p></td>
 </tr>
 <tr class="row-odd"><td rowspan="3"><ul class="simple">
 <li><p>enable_full_relativity</p></li>
@@ -1097,7 +1073,7 @@ override the defaults.</p>
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-even"><td><p>default</p></td>
-<td colspan="2"><p>OrderedDict()</p></td>
+<td colspan="2"></td>
 </tr>
 <tr class="row-odd"><td colspan="3"><p>properties</p></td>
 </tr>
@@ -1136,7 +1112,7 @@ override the defaults.</p>
 <td colspan="2"><p><em>object</em></p></td>
 </tr>
 <tr class="row-even"><td><p>default</p></td>
-<td colspan="2"><p>OrderedDict()</p></td>
+<td colspan="2"></td>
 </tr>
 <tr class="row-odd"><td colspan="3"><p>properties</p></td>
 </tr>

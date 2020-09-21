@@ -1,7 +1,7 @@
-tardis.widgets.base module
+tardis.widgets.util module
 ==========================
 
-.. automodule:: tardis.widgets.base
+.. automodule:: tardis.widgets.util
    :members:
    :undoc-members:
    :show-inheritance:
