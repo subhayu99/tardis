@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/09/21 18:02 +00:00)
+### upcoming (2020/09/25 12:28 +00:00)
+- [#1304](https://github.com/tardis-sn/tardis/pull/1304) Use tardis-refdata from Azure mirror (CI/CD) (#1304) (@epassaro)
 - [#1264](https://github.com/tardis-sn/tardis/pull/1264) Add line info widget to widgets subpackage (#1264) (@jaladh-singhal)
 
 ### v3.0.dev3504 (2020/09/09 10:16 +00:00)
