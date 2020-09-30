@@ -1,6 +1,6 @@
 ## Change Log
 
-### upcoming (2020/09/29 15:16 +00:00)
+### upcoming (2020/09/30 13:28 +00:00)
 - [#1280](https://github.com/tardis-sn/tardis/pull/1280) Add widgets documentation to tardis docs (@jaladh-singhal)
 
 ### v3.0.dev3510 (2020/09/25 15:56 +00:00)
