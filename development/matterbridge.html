@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Developer Workflow &mdash; TARDIS v3.0.dev3526</title>
+  <title>Matterbridge &mdash; TARDIS v3.0.dev3526</title>
   
 
   
@@ -43,8 +43,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Running tests" href="running_tests.html" />
-    <link rel="prev" title="Contributing to TARDIS" href="../CONTRIBUTING.html" />
+    <link rel="next" title="Developer FAQ" href="developer_faq.html" />
+    <link rel="prev" title="Continuous Integration" href="continuous_integration.html" />
     <link href="../_static/tardis.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -122,7 +122,7 @@
 <p class="caption"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributing to TARDIS</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Workflow</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Workflow</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="running_tests.html">Running tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="issues.html">Reporting Issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="git_workflow.html">General Workflow to add a new feature</a></li>
@@ -130,7 +130,17 @@
 <li class="toctree-l2"><a class="reference internal" href="release_workflow.html">Release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update_refdata.html">Procedure to update the reference data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="continuous_integration.html">Continuous Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matterbridge.html">Matterbridge</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matterbridge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#slack">Slack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gitter">Gitter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-server-for-the-first-time">Setting up the server for the first time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-new-gateways">Adding new gateways</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="developer_faq.html">Developer FAQ</a></li>
 </ul>
 </li>
@@ -190,13 +200,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Developer Workflow</li>
+          <li><a href="index.html">Developer Workflow</a> &raquo;</li>
+        
+      <li>Matterbridge</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/development/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/development/matterbridge.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -233,70 +245,68 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="developer-workflow">
-<h1>Developer Workflow<a class="headerlink" href="#developer-workflow" title="Permalink to this headline">¶</a></h1>
-<p>If you want to contribute to the development of TARDIS, please read through
-this page and follow the guidelines outlined here.  Many of the Development
-workflow is taken from <a class="reference external" href="http://docs.astropy.org/en/stable/development/workflow/development_workflow.html">Astropy</a>, and credit belongs
-to the Astropy team for designing it.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="running_tests.html">Running tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="running_tests.html#running-the-unit-tests">Running the Unit Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_tests.html#generating-plasma-reference">Generating Plasma Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_tests.html#running-the-integration-tests">Running the Integration Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running_tests.html#setting-up-the-dokuwiki-report">Setting up the DokuWiki report</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="issues.html">Reporting Issues</a></li>
-</ul>
+<div class="section" id="matterbridge">
+<h1>Matterbridge<a class="headerlink" href="#matterbridge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>We use Matterbridge to connect channels across different messaging platforms
+such as Slack, Mattermost and Gitter. Matterbridge provides binaries for many
+operating systems. These files are intended to be used in combination with
+TOML configuration files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./matterbridge -conf config-tardis-matterbridge.toml
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Git and coding workflow</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="git_workflow.html">General Workflow to add a new feature</a></li>
-<li class="toctree-l1"><a class="reference internal" href="git_workflow.html#preparation-and-working-with-git">Preparation and Working with Git</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#creating-a-fork">Creating a fork</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#set-up-and-configure-a-github-account">Set up and configure a GitHub account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#create-your-own-fork-of-a-repository">Create your own fork of a repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#setting-up-the-fork-to-work-on">Setting up the fork to work on</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#installing-tardis-in-develop-mode">Installing TARDIS in develop mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#workflow-summary">Workflow summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#deleting-your-master-branch">Deleting your master branch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#updating-the-mirror-of-trunk">Updating the mirror of trunk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#making-a-new-feature-branch">Making a new feature branch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#the-editing-workflow">The editing workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#asking-for-your-changes-to-be-reviewed-and-or-merged">Asking for your changes to be reviewed and/or merged</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#making-sure-your-pull-request-stays-up-to-date">Making sure your Pull Request stays up-to-date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="git_workflow.html#reviewing-and-helping-others-with-pull-requests">Reviewing and helping others with Pull Requests</a></li>
-</ul>
-</li>
-</ul>
+<p>The TOML file includes all the configuration needed to connect as many
+messaging platforms as you want, including tokens and passwords.</p>
+<p>Currently, we keep a service running on <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a> server to keep
+running Matterbridge as a daemon. Our configuration files are stored in the
+private repository <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code>. These files include our custom
+TOML configuration file and the files needed to set up the Linux service.</p>
+<p>Since this server runs Ubuntu 14.04 we use an <a class="reference external" href="https://www.digitalocean.com/community/tutorials/the-upstart-event-system-what-it-is-and-how-to-use-it">Upstart script</a> instead a
+<a class="reference external" href="https://freedesktop.org/software/systemd/man/systemd.service.html">Systemd service</a> file. But a <em>Systemd</em> file is also included in
+<code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> repository, just in case.</p>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">TARDIS core team instructions</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="release_workflow.html">Release</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="release_workflow.html#update-the-changelog">Update the Changelog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="release_workflow.html#doing-the-actual-release">Doing the actual release</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="update_refdata.html">Procedure to update the reference data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="update_refdata.html#troubleshooting">Troubleshooting</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="continuous_integration.html">Continuous Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="continuous_integration.html#azure-pipelines">Azure Pipelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="continuous_integration.html#tardis-pipelines">TARDIS Pipelines</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="matterbridge.html">Matterbridge</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="matterbridge.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="matterbridge.html#setup">Setup</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="developer_faq.html">Developer FAQ</a></li>
-</ul>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Use the TOML file in <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> as an example. You can set up
+as many gateways as you want.</p>
+<div class="section" id="slack">
+<h3>Slack<a class="headerlink" href="#slack" title="Permalink to this headline">¶</a></h3>
+<p>Follow the <a class="reference external" href="https://github.com/42wim/matterbridge/wiki/Slack-bot-setup">steps for Slack in the Matterbridge wiki</a> and read carefully
+<a class="reference external" href="https://github.com/42wim/matterbridge/issues/964#issuecomment-612721850">this comment</a>. Do not add any scopes manually. Copy the token to use later
+in the TOML file.</p>
+</div>
+<div class="section" id="gitter">
+<h3>Gitter<a class="headerlink" href="#gitter" title="Permalink to this headline">¶</a></h3>
+<p>Create a new GitHub dedicated account to use as a bot, refer to <a class="reference external" href="https://developer.gitter.im/docs/authentication">this link</a>
+and copy the token.</p>
+</div>
+<div class="section" id="setting-up-the-server-for-the-first-time">
+<h3>Setting up the server for the first time<a class="headerlink" href="#setting-up-the-server-for-the-first-time" title="Permalink to this headline">¶</a></h3>
+<p>Follow these steps to set up the server for the first time:</p>
+<ol class="arabic simple">
+<li><p><em>ssh</em> to <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a></p></li>
+<li><p>Download the Matterbridge binary for Linux from the <a class="reference external" href="https://github.com/42wim/matterbridge/releases/latest">releases section</a></p></li>
+<li><p>Make the file executable and rename it to <code class="docutils literal notranslate"><span class="pre">matterbridge</span></code></p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">matterbridge</span></code> executable to <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code></p></li>
+<li><p>Clone <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> repository</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">config-tardis-matterbridge.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">/usr/local/etc/matterbridge/</span></code></p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">matterbridge.conf</span></code> to <code class="docutils literal notranslate"><span class="pre">/etc/init/</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">matterbridge</span> <span class="pre">start</span></code></p></li>
+<li><p>Test your gateways</p></li>
+</ol>
+</div>
+<div class="section" id="adding-new-gateways">
+<h3>Adding new gateways<a class="headerlink" href="#adding-new-gateways" title="Permalink to this headline">¶</a></h3>
+<p>After updating the TOML file, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><em>ssh</em> to <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a></p></li>
+<li><p>Copy your new <code class="docutils literal notranslate"><span class="pre">config-tardis-matterbridge.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">/usr/local/etc/matterbridge/</span></code></p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">matterbridge</span> <span class="pre">restart</span></code></p></li>
+<li><p>Test your gateways</p></li>
+<li><p>If everything is ok, make a pull request to <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> with your new TOML file</p></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -308,10 +318,10 @@ to the Astropy team for designing it.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="running_tests.html" class="btn btn-neutral float-right" title="Running tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="developer_faq.html" class="btn btn-neutral float-right" title="Developer FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../CONTRIBUTING.html" class="btn btn-neutral float-left" title="Contributing to TARDIS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="continuous_integration.html" class="btn btn-neutral float-left" title="Continuous Integration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
