@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/10/01 09:55 +00:00)
+### upcoming (2020/10/05 16:48 +00:00)
+- [#1313](https://github.com/tardis-sn/tardis/pull/1313) Create FUNDING.yml (#1313) (@jaladh-singhal)
+
+### v3.0.dev3526 (2020/10/01 09:50 +00:00)
 - [#1312](https://github.com/tardis-sn/tardis/pull/1312) Initial commit (#1312) (@epassaro)
 - [#1274](https://github.com/tardis-sn/tardis/pull/1274) Add space to plasma error message (@arjunsavel)
 - [#1280](https://github.com/tardis-sn/tardis/pull/1280) Add widgets documentation to tardis docs (@jaladh-singhal)
