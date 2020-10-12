@@ -1,6 +1,9 @@
 ## Change Log
 
-### upcoming (2020/10/05 16:48 +00:00)
+### upcoming (2020/10/12 18:05 +00:00)
+- [#1308](https://github.com/tardis-sn/tardis/pull/1308) Apply new template to release pipeline (#1308) (@epassaro)
+
+### v3.0.dev3527 (2020/10/05 16:43 +00:00)
 - [#1313](https://github.com/tardis-sn/tardis/pull/1313) Create FUNDING.yml (#1313) (@jaladh-singhal)
 
 ### v3.0.dev3526 (2020/10/01 09:50 +00:00)
