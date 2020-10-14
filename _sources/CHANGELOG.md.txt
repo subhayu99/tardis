@@ -1,6 +1,6 @@
 ## Change Log
 
-### upcoming (2020/10/12 18:05 +00:00)
+### upcoming (2020/10/14 14:57 +00:00)
 - [#1308](https://github.com/tardis-sn/tardis/pull/1308) Apply new template to release pipeline (#1308) (@epassaro)
 
 ### v3.0.dev3527 (2020/10/05 16:43 +00:00)
