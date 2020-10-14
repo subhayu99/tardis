@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.atomic &mdash; TARDIS v3.0.dev3530</title>
+  <title>tardis.plasma.properties.atomic &mdash; TARDIS v3.0.dev3531</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3530
+                3.0.dev3531
               </div>
             
           
@@ -239,9 +239,9 @@
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;levels&quot;</span><span class="p">,</span> <span class="s2">&quot;excitation_energy&quot;</span><span class="p">,</span> <span class="s2">&quot;metastability&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">)</span>
     <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{levels}</span><span class="s2">&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">epsilon_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{k}</span><span class="s2">}&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{metastability}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s2">&quot;\textrm</span><span class="si">{levels}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s2">&quot;\epsilon_{\textrm</span><span class="si">{k}</span><span class="s2">}&quot;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s2">&quot;\textrm</span><span class="si">{metastability}</span><span class="s2">&quot;</span><span class="p">,</span>
         <span class="s2">&quot;g&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
@@ -312,7 +312,7 @@
         <span class="s2">&quot;photo_ion_block_references&quot;</span><span class="p">,</span>
         <span class="s2">&quot;photo_ion_index&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">xi_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{i}</span><span class="s2">}(</span><span class="se">\\</span><span class="s2">nu)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\xi_{\textrm</span><span class="si">{i}</span><span class="s2">}(\nu)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PhotoIonizationData.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.atomic.html#tardis.plasma.properties.atomic.PhotoIonizationData.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atomic_data</span><span class="p">,</span> <span class="n">continuum_interaction_species</span><span class="p">):</span>
         <span class="n">photoionization_data</span> <span class="o">=</span> <span class="n">atomic_data</span><span class="o">.</span><span class="n">photoionization_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span>

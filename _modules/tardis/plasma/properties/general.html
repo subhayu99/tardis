@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.general &mdash; TARDIS v3.0.dev3530</title>
+  <title>tardis.plasma.properties.general &mdash; TARDIS v3.0.dev3531</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3530
+                3.0.dev3531
               </div>
             
           
@@ -227,8 +227,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;beta_rad&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">dfrac</span><span class="si">{1}</span><span class="s2">{k_</span><span class="si">{B}</span><span class="s2"> T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\beta_{\textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\dfrac</span><span class="si">{1}</span><span class="s2">{k_</span><span class="si">{B}</span><span class="s2"> T_{\textrm</span><span class="si">{rad}</span><span class="s2">}}&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">BetaRadiation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plasma_parent</span><span class="p">)</span>
@@ -246,7 +246,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;g_electron&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;g_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;g_{\textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
     <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
         <span class="sa">r</span><span class="s2">&quot;\Big(\dfrac{2\pi m_</span><span class="si">{e}</span><span class="s2">/\beta_{\textrm</span><span class="si">{rad}</span><span class="s2">}}{h^2}\Big)^{3/2}&quot;</span><span class="p">,</span>
     <span class="p">)</span>
@@ -266,7 +266,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_g_electron&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;g_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron_thermal}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;g_{\textrm</span><span class="si">{electron_thermal}</span><span class="s2">}&quot;</span><span class="p">,)</span>
     <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
         <span class="sa">r</span><span class="s2">&quot;\Big(\dfrac{2\pi m_</span><span class="si">{e}</span><span class="s2">/\beta_{\textrm</span><span class="si">{electron}</span><span class="s2">}}{h^2}\Big)^{3/2}&quot;</span><span class="p">,</span>
     <span class="p">)</span>
@@ -314,8 +314,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;t_electrons&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">textrm{const.}</span><span class="se">\\</span><span class="s2">times T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;T_{\textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\textrm{const.}\times T_{\textrm</span><span class="si">{rad}</span><span class="s2">}&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="ElectronTemperature.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.general.html#tardis.plasma.properties.general.ElectronTemperature.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_rad</span><span class="p">,</span> <span class="n">link_t_rad_t_electron</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">t_rad</span> <span class="o">*</span> <span class="n">link_t_rad_t_electron</span></div></div>
@@ -329,8 +329,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;beta_electron&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
-    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">frac</span><span class="si">{1}</span><span class="s2">{K_</span><span class="si">{B}</span><span class="s2"> T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\beta_{\textrm</span><span class="si">{electron}</span><span class="s2">}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\frac</span><span class="si">{1}</span><span class="s2">{K_</span><span class="si">{B}</span><span class="s2"> T_{\textrm</span><span class="si">{electron}</span><span class="s2">}}&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plasma_parent</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">BetaElectron</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plasma_parent</span><span class="p">)</span>

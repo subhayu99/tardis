@@ -1,6 +1,7 @@
 ## Change Log
 
-### upcoming (2020/10/14 16:00 +00:00)
+### upcoming (2020/10/14 16:06 +00:00)
+- [#1283](https://github.com/tardis-sn/tardis/pull/1283) Changed latex strings to raw strings (#1283) (@Ak0303)
 - [#1310](https://github.com/tardis-sn/tardis/pull/1310) Apply new template to refdata pipeline (#1310) (@epassaro)
 - [#1308](https://github.com/tardis-sn/tardis/pull/1308) Apply new template to release pipeline (#1308) (@epassaro)
 

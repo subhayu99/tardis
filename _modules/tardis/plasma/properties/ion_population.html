@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tardis.plasma.properties.ion_population &mdash; TARDIS v3.0.dev3530</title>
+  <title>tardis.plasma.properties.ion_population &mdash; TARDIS v3.0.dev3531</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                3.0.dev3530
+                3.0.dev3531
               </div>
             
           
@@ -239,12 +239,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;phi&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\Phi&quot;</span><span class="p">,)</span>
     <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">dfrac{2Z_{i,j+1}}{Z_{i,j}}</span><span class="se">\\</span><span class="s2">Big(</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">dfrac{2</span><span class="se">\\</span><span class="s2">pi m_</span><span class="si">{e}</span><span class="s2">/</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}{h^2}</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">Big)^{3/2}e^{</span><span class="se">\\</span><span class="s2">dfrac{-</span><span class="se">\\</span><span class="s2">chi_{i,j}}{kT_{</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s2">&quot;\dfrac{2Z_{i,j+1}}{Z_{i,j}}\Big(</span><span class="se">\</span>
+<span class="s2">                     dfrac{2\pi m_</span><span class="si">{e}</span><span class="s2">/\beta_{\textrm</span><span class="si">{rad}</span><span class="s2">}}{h^2}</span><span class="se">\</span>
+<span class="s2">                     Big)^{3/2}e^{\dfrac{-\chi_{i,j}}{kT_{\textrm</span><span class="si">{rad}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">broadcast_ionization_energy</span> <span class="o">=</span> <span class="kc">None</span>
@@ -296,12 +295,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_phi_lte&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi^{*}(T_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="si">{e}</span><span class="s2">)&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\Phi^{*}(T_\mathrm</span><span class="si">{e}</span><span class="s2">)&quot;</span><span class="p">,)</span>
     <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">dfrac{2Z_{i,j+1}}{Z_{i,j}}</span><span class="se">\\</span><span class="s2">Big(</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">dfrac{2</span><span class="se">\\</span><span class="s2">pi m_</span><span class="si">{e}</span><span class="s2">/</span><span class="se">\\</span><span class="s2">beta_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}{h^2}</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">Big)^{3/2}e^{</span><span class="se">\\</span><span class="s2">dfrac{-</span><span class="se">\\</span><span class="s2">chi_{i,j}}{kT_{</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s2">&quot;\dfrac{2Z_{i,j+1}}{Z_{i,j}}\Big(</span><span class="se">\</span>
+<span class="s2">                     dfrac{2\pi m_</span><span class="si">{e}</span><span class="s2">/\beta_{\textrm</span><span class="si">{electron}</span><span class="s2">}}{h^2}</span><span class="se">\</span>
+<span class="s2">                     Big)^{3/2}e^{\dfrac{-\chi_{i,j}}{kT_{\textrm</span><span class="si">{electron}</span><span class="s2">}}}&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
 <div class="viewcode-block" id="ThermalPhiSahaLTE.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.ThermalPhiSahaLTE.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
@@ -327,11 +325,10 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;phi&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\Phi&quot;</span><span class="p">,)</span>
     <span class="n">latex_formula</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot;W(</span><span class="se">\\</span><span class="s2">delta</span><span class="se">\\</span><span class="s2">zeta_{i,j}+W(1-</span><span class="se">\\</span><span class="s2">zeta_{i,j}))</span><span class="se">\\</span><span class="s2">left(</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">dfrac{T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{electron}</span><span class="s2">}}{T_{</span><span class="se">\\</span><span class="s2">textrm</span><span class="si">{rad}</span><span class="s2">}}</span><span class="se">\</span>
-<span class="s2">                     </span><span class="se">\\</span><span class="s2">right)^{1/2}&quot;</span><span class="p">,</span>
+        <span class="sa">r</span><span class="s2">&quot;W(\delta\zeta_{i,j}+W(1-\zeta_{i,j}))\left(</span><span class="se">\</span>
+<span class="s2">                     dfrac{T_{\textrm</span><span class="si">{electron}</span><span class="s2">}}{T_{\textrm</span><span class="si">{rad}</span><span class="s2">}}\right)^{1/2}&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
 <div class="viewcode-block" id="PhiSahaNebular.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.PhiSahaNebular.calculate">[docs]</a>    <span class="nd">@staticmethod</span>
@@ -393,7 +390,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;delta&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">delta&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\delta&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -735,7 +732,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;phi_ik&quot;</span><span class="p">,)</span>
-    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">Phi_{i,</span><span class="se">\\</span><span class="s2">kappa}&quot;</span><span class="p">,)</span>
+    <span class="n">latex_name</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\Phi_{i,\kappa}&quot;</span><span class="p">,)</span>
 
 <div class="viewcode-block" id="SahaFactor.calculate"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.SahaFactor.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
