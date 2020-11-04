@@ -395,13 +395,15 @@ command.</p>
 to paths in Azure:</p>
 <ul class="simple">
 <li><p>All folders for a given pipeline are created under <code class="docutils literal notranslate"><span class="pre">Agent.BuildDirectory</span></code>
-variable, alias <code class="docutils literal notranslate"><span class="pre">Pipeline.Workspace</span></code>.</p></li>
-<li><p>Cloned repositories are under the <code class="docutils literal notranslate"><span class="pre">Build.Repository.LocalPath</span></code> variable
-alias <code class="docutils literal notranslate"><span class="pre">Build.SourcesDirectory</span></code>. In TARDIS we implemented another alias
-for this variable, named <code class="docutils literal notranslate"><span class="pre">sources.dir</span></code>.</p></li>
+variable, alias <code class="docutils literal notranslate"><span class="pre">Pipeline.Workspace</span></code>. This includes subdirectories like
+<code class="docutils literal notranslate"><span class="pre">/s</span></code> for sources or <code class="docutils literal notranslate"><span class="pre">/a</span></code> for artifacts.</p></li>
+<li><p>Path to source code varies depending on how many repositories we fetch.
+For example, source code is located under the <code class="docutils literal notranslate"><span class="pre">Build.Repository.LocalPath</span></code>
+variable (alias <code class="docutils literal notranslate"><span class="pre">Build.SourcesDirectory</span></code>) when fetching a single repository,
+but after fetching a second repository code is moved automatically to
+<code class="docutils literal notranslate"><span class="pre">Build.Repository.LocalPath/repository-name</span></code>.</p></li>
 </ul>
-<p>Our advice is to stick with <code class="docutils literal notranslate"><span class="pre">Build.SourcesDirectory</span></code> as much as possible
-to avoid problems when <a class="reference external" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/multi-repo-checkout?view=azure-devops">checking out multiple repositories</a>.</p>
+<p>See the Azure documentation to learn more about <a class="reference external" href="https://github.com/microsoft/azure-pipelines-yaml/blob/master/design/multi-checkout.md#behavior-changes-in-multi-checkout-mode">checking out multiple repositories</a>.</p>
 </div>
 <div class="section" id="jobs">
 <h3>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h3>
@@ -466,7 +468,6 @@ to start a new pipeline use:</p>
 </ul>
 <p><strong>List of predefined custom variables:</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sources.dir</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">$(Build.SourcesDirectory)</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tardis.dir</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">$(Build.SourcesDirectory)/tardis</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">refdata.dir</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">$(Build.SourcesDirectory)/tardis-refdata</span></code>.</p></li>
 </ul>
@@ -480,7 +481,7 @@ extra steps to run the tests and upload the coverage results.</p>
 <div class="section" id="documentation-pipeline">
 <h3>Documentation pipeline<a class="headerlink" href="#documentation-pipeline" title="Permalink to this headline">¶</a></h3>
 <p>Builds and deploys the TARDIS documentation website. Currently, we are
-using a github action to complete this pipeline. The action can be found at <code class="docutils literal notranslate"><span class="pre">.github/workflows/documentation-build.yml</span></code></p>
+using GitHub Actions for this purpose.</p>
 </div>
 <div class="section" id="zenodo-json-pipeline">
 <h3>Zenodo JSON pipeline<a class="headerlink" href="#zenodo-json-pipeline" title="Permalink to this headline">¶</a></h3>
