@@ -273,9 +273,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>config_dict</strong><span class="classifier">~dict</span></dt><dd><p>dictionary of a raw unvalidated config file</p>
+<dt><strong>config_dict</strong><span class="classifier">dict</span></dt><dd><p>dictionary of a raw unvalidated config file</p>
 </dd>
-<dt><strong>validate: ~bool</strong></dt><dd><p>Turn validation on or off.</p>
+<dt><strong>validate</strong><span class="classifier">bool</span></dt><dd><p>Turn validation on or off.</p>
 </dd>
 </dl>
 </dd>
@@ -294,7 +294,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>fname: str</strong></dt><dd><p>filename or path</p>
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename or path</p>
 </dd>
 </dl>
 </dd>
@@ -324,13 +324,13 @@ utility functions for easy access. Accesses like a.b.c are then possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>config_dict: ~dict</strong></dt><dd><p>configuration dictionary</p>
+<dt><strong>config_dict</strong><span class="classifier">dict</span></dt><dd><p>configuration dictionary</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>config_ns: ConfigurationNameSpace</dt><dd></dd>
+<dt><strong>config_ns</strong><span class="classifier">ConfigurationNameSpace</span></dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -346,7 +346,7 @@ utility functions for easy access. Accesses like a.b.c are then possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>config_dict</strong><span class="classifier">~dict</span></dt><dd><p>dictionary of a raw unvalidated config file</p>
+<dt><strong>config_dict</strong><span class="classifier">dict</span></dt><dd><p>dictionary of a raw unvalidated config file</p>
 </dd>
 </dl>
 </dd>
@@ -365,7 +365,7 @@ utility functions for easy access. Accesses like a.b.c are then possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>fname: str</strong></dt><dd><p>filename or path</p>
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>filename or path</p>
 </dd>
 </dl>
 </dd>
@@ -379,7 +379,7 @@ utility functions for easy access. Accesses like a.b.c are then possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>config_item_string: ~str</strong></dt><dd><p>string of shape ‘section1.sectionb.param1’</p>
+<dt><strong>config_item_string</strong><span class="classifier">str</span></dt><dd><p>string of shape ‘section1.sectionb.param1’</p>
 </dd>
 </dl>
 </dd>
@@ -393,9 +393,9 @@ utility functions for easy access. Accesses like a.b.c are then possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>config_item_string: ~str</strong></dt><dd><p>string of shape ‘section1.sectionb.param1’</p>
+<dt><strong>config_item_string</strong><span class="classifier">str</span></dt><dd><p>string of shape ‘section1.sectionb.param1’</p>
 </dd>
-<dt><strong>value:</strong></dt><dd><p>value to set the parameter with it</p>
+<dt><strong>value :</strong></dt><dd><p>value to set the parameter with it</p>
 </dd>
 </dl>
 </dd>
@@ -407,19 +407,13 @@ utility functions for easy access. Accesses like a.b.c are then possible</p>
 <dl class="py function">
 <dt id="tardis.io.config_reader.cns_representer">
 <code class="sig-prename descclassname">tardis.io.config_reader.</code><code class="sig-name descname">cns_representer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dumper</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/config_reader.html#cns_representer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.config_reader.cns_representer" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Represents Configuration as dict</p>
-</div></blockquote>
-<dl class="field-list">
+<dd><p>Represents Configuration as dict</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>dumper :</strong></dt><dd><blockquote>
-<div><p>YAML dumper object</p>
-</div></blockquote>
-<dl class="simple">
-<dt>data :</dt><dd><p>ConfigurationNameSpace object</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dumper :</strong></dt><dd><p>YAML dumper object</p>
 </dd>
-</dl>
+<dt><strong>data :</strong></dt><dd><p>ConfigurationNameSpace object</p>
 </dd>
 </dl>
 </dd>
@@ -438,7 +432,7 @@ utility functions for easy access. Accesses like a.b.c are then possible</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>convergence_section_dict: ~dict</strong></dt><dd><p>dictionary</p>
+<dt><strong>convergence_section_dict</strong><span class="classifier">dict</span></dt><dd><p>dictionary</p>
 </dd>
 </dl>
 </dd>

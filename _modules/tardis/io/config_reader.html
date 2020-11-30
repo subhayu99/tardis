@@ -225,8 +225,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
-<span class="sd">    convergence_section_dict: ~dict</span>
+<span class="sd">    convergence_section_dict : dict</span>
 <span class="sd">        dictionary</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -257,14 +256,12 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
-<span class="sd">    config_dict: ~dict</span>
+<span class="sd">    config_dict : dict</span>
 <span class="sd">        configuration dictionary</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-
-<span class="sd">    config_ns: ConfigurationNameSpace</span>
+<span class="sd">    config_ns : ConfigurationNameSpace</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ConfigurationNameSpace.from_yaml"><a class="viewcode-back" href="../../../api/tardis.io.config_reader.html#tardis.io.config_reader.ConfigurationNameSpace.from_yaml">[docs]</a>    <span class="nd">@classmethod</span>
@@ -274,8 +271,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        fname: str</span>
+<span class="sd">        fname : str</span>
 <span class="sd">            filename or path</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
@@ -291,20 +287,14 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validating a config file.</span>
 
-
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        config_dict : ~dict</span>
+<span class="sd">        config_dict : dict</span>
 <span class="sd">            dictionary of a raw unvalidated config file</span>
-
-
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        `tardis.config_reader.Configuration`</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">config_validator</span><span class="o">.</span><span class="n">validate_dict</span><span class="p">(</span><span class="n">config_dict</span><span class="p">))</span></div>
@@ -366,8 +356,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        config_item_string: ~str</span>
+<span class="sd">        config_item_string : str</span>
 <span class="sd">            string of shape &#39;section1.sectionb.param1&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">config_item_path</span> <span class="o">=</span> <span class="n">config_item_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
@@ -397,11 +386,9 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        config_item_string: ~str</span>
+<span class="sd">        config_item_string : str</span>
 <span class="sd">            string of shape &#39;section1.sectionb.param1&#39;</span>
-
-<span class="sd">        value:</span>
+<span class="sd">        value :</span>
 <span class="sd">            value to set the parameter with it</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -477,18 +464,14 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        config_dict : ~dict</span>
+<span class="sd">        config_dict : dict</span>
 <span class="sd">            dictionary of a raw unvalidated config file</span>
-
-<span class="sd">        validate: ~bool</span>
+<span class="sd">        validate : bool</span>
 <span class="sd">            Turn validation on or off.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        `tardis.config_reader.Configuration`</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
@@ -539,40 +522,32 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
 <span class="sd">    dumper :</span>
 <span class="sd">        YAML dumper object</span>
-
 <span class="sd">    data :</span>
 <span class="sd">        ConfigurationNameSpace object</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-
 <span class="sd">    yaml dumper representation of Quantity as string</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">dumper</span><span class="o">.</span><span class="n">represent_data</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="cns_representer"><a class="viewcode-back" href="../../../api/tardis.io.config_reader.html#tardis.io.config_reader.cns_representer">[docs]</a><span class="k">def</span> <span class="nf">cns_representer</span><span class="p">(</span><span class="n">dumper</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">     Represents Configuration as dict</span>
-
+<span class="sd">    Represents Configuration as dict</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
-<span class="sd">     ----------</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dumper :</span>
+<span class="sd">        YAML dumper object</span>
+<span class="sd">    data :</span>
+<span class="sd">        ConfigurationNameSpace object</span>
 
-<span class="sd">     dumper :</span>
-<span class="sd">         YAML dumper object</span>
-
-<span class="sd">     data :</span>
-<span class="sd">         ConfigurationNameSpace object</span>
-
-<span class="sd">     Returns</span>
-<span class="sd">     -------</span>
-
-<span class="sd">     yaml dumper representation of Configuration as dict</span>
-
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    yaml dumper representation of Configuration as dict</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">dumper</span><span class="o">.</span><span class="n">represent_dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>
 

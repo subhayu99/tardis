@@ -222,11 +222,11 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    general_level_boltzmann_factor : Pandas DataFrame, dtype float</span>
-<span class="sd">                             Level population proportionality values.</span>
-<span class="sd">                             Evaluated at the radiation temperature.</span>
-<span class="sd">                             Indexed by atomic number, ion number, level number.</span>
-<span class="sd">                             Columns corresponding to zones. Does not consider</span>
-<span class="sd">                             NLTE.</span>
+<span class="sd">        Level population proportionality values.</span>
+<span class="sd">        Evaluated at the radiation temperature.</span>
+<span class="sd">        Indexed by atomic number, ion number, level number.</span>
+<span class="sd">        Columns corresponding to zones. Does not consider</span>
+<span class="sd">        NLTE.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;general_level_boltzmann_factor&quot;</span><span class="p">,)</span>
@@ -253,11 +253,11 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    thermal_lte_level_boltzmann_factor : Pandas DataFrame, dtype float</span>
-<span class="sd">                             Level population proportionality values for LTE.</span>
-<span class="sd">                             Evaluated at the temperature of the</span>
-<span class="sd">                             electron gas (thermal). Indexed</span>
-<span class="sd">                             by atomic number, ion number, level number.</span>
-<span class="sd">                             Columns corresponding to zones.</span>
+<span class="sd">        Level population proportionality values for LTE.</span>
+<span class="sd">        Evaluated at the temperature of the</span>
+<span class="sd">        electron gas (thermal). Indexed</span>
+<span class="sd">        by atomic number, ion number, level number.</span>
+<span class="sd">        Columns corresponding to zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_lte_level_boltzmann_factor&quot;</span><span class="p">,)</span>
@@ -278,12 +278,12 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    general_level_boltzmann_factor : Pandas DataFrame, dtype float</span>
-<span class="sd">                             Level population proportionality values. Indexed</span>
-<span class="sd">                             by atomic number, ion number, level number.</span>
-<span class="sd">                             Columns corresponding to zones. Dilute radiation</span>
-<span class="sd">                             field means non-metastable level values are</span>
-<span class="sd">                             multiplied by an additional factor W. Does not</span>
-<span class="sd">                             consider NLTE.</span>
+<span class="sd">        Level population proportionality values. Indexed</span>
+<span class="sd">        by atomic number, ion number, level number.</span>
+<span class="sd">        Columns corresponding to zones. Dilute radiation</span>
+<span class="sd">        field means non-metastable level values are</span>
+<span class="sd">        multiplied by an additional factor W. Does not</span>
+<span class="sd">        consider NLTE.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;general_level_boltzmann_factor&quot;</span><span class="p">,)</span>
@@ -307,8 +307,8 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    level_boltzmann_factor : Pandas DataFrame, dtype float</span>
-<span class="sd">                             Returns general_level_boltzmann_factor as this</span>
-<span class="sd">                             property is included if NLTE is not used.</span>
+<span class="sd">        Returns general_level_boltzmann_factor as this</span>
+<span class="sd">        property is included if NLTE is not used.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;level_boltzmann_factor&quot;</span><span class="p">,)</span>
@@ -323,8 +323,8 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    level_boltzmann_factor : Pandas DataFrame, dtype float</span>
-<span class="sd">                             Returns general_level_boltzmann_factor but</span>
-<span class="sd">                             updated for those species treated in NLTE.</span>
+<span class="sd">        Returns general_level_boltzmann_factor but</span>
+<span class="sd">        updated for those species treated in NLTE.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;level_boltzmann_factor&quot;</span><span class="p">,)</span>
@@ -556,8 +556,8 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    partition_function : Pandas DataFrame, dtype float</span>
-<span class="sd">                         Indexed by atomic number, ion number.</span>
-<span class="sd">                         Columns are zones.</span>
+<span class="sd">        Indexed by atomic number, ion number.</span>
+<span class="sd">        Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;partition_function&quot;</span><span class="p">,)</span>
@@ -575,8 +575,8 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    thermal_lte_partition_function : Pandas DataFrame, dtype float</span>
-<span class="sd">                                     Indexed by atomic number, ion number.</span>
-<span class="sd">                                     Columns are zones.</span>
+<span class="sd">        Indexed by atomic number, ion number.</span>
+<span class="sd">        Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;thermal_lte_partition_function&quot;</span><span class="p">,)</span>

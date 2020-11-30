@@ -518,7 +518,6 @@
 <span class="sd">    species_tuple : tuple</span>
 <span class="sd">        Tuple of 2 values indicated atomic number and number of</span>
 <span class="sd">        electrons missing</span>
-
 <span class="sd">    roman_numerals : bool, optional(default = TRUE)</span>
 <span class="sd">        Indicates whether the returned ion number is in roman numerals</span>
 
@@ -602,7 +601,7 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    q : ~u.Quantity</span>
+<span class="sd">    q : u.Quantity</span>
 <span class="sd">        Corresponding astropy.Quantity object for passed string</span>
 
 <span class="sd">    Raises</span>
@@ -695,16 +694,16 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    start : ~astropy.Quantity</span>
+<span class="sd">    start : astropy.Quantity</span>
 <span class="sd">        Starting value of the sequence</span>
-<span class="sd">    stop : ~astropy.Quantity</span>
+<span class="sd">    stop : astropy.Quantity</span>
 <span class="sd">        End value of the sequence</span>
 <span class="sd">    num : int</span>
 <span class="sd">        Number of samples to generate</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    ~astropy.Quantity</span>
+<span class="sd">    astropy.Quantity</span>
 <span class="sd">        Returns num evenly spaced characters of type astropy.Quantity</span>
 
 <span class="sd">    Raises</span>

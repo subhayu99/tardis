@@ -224,9 +224,8 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        data_path: str</span>
-<span class="sd">            internal data path of TARDIS</span>
-
+<span class="sd">    data_path : str</span>
+<span class="sd">        internal data path of TARDIS</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TARDIS_PATH</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span></div>
 
@@ -234,10 +233,12 @@
 <div class="viewcode-block" id="quantity_from_str"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.quantity_from_str">[docs]</a><span class="k">def</span> <span class="nf">quantity_from_str</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a string to `astropy.units.Quantity`</span>
+<span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    text:</span>
+<span class="sd">    text :</span>
 <span class="sd">        The string to convert to `astropy.units.Quantity`</span>
+<span class="sd">        </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    `astropy.units.Quantity`</span>
@@ -268,11 +269,11 @@
 
 <div class="viewcode-block" id="MockRegexPattern.match"><a class="viewcode-back" href="../../../api/tardis.io.util.html#tardis.io.util.MockRegexPattern.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        text:</span>
+<span class="sd">        text :</span>
 <span class="sd">            A string to be passed to `target_type` for conversion.</span>
+<span class="sd">            </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        `True` if `text` can be converted to `target_type`.</span>
@@ -297,13 +298,11 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        node:</span>
+<span class="sd">        node :</span>
 <span class="sd">            The YAML node to be constructed</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        `astropy.units.Quantity`</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -343,16 +342,15 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    base:</span>
+<span class="sd">    base :</span>
 <span class="sd">        The object on which the traversing is done</span>
-<span class="sd">    other:</span>
+<span class="sd">    other :</span>
 <span class="sd">        The object which is traversed along with `base`</span>
-<span class="sd">    func:</span>
+<span class="sd">    func :</span>
 <span class="sd">        A function called for each leaf of `base` and the correspnding leaf of `other`</span>
 <span class="sd">        Signature: `func(item1, item2, *args)`</span>
-<span class="sd">    args:</span>
+<span class="sd">    args :</span>
 <span class="sd">        Arguments passed into `func`</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">base</span><span class="p">:</span>
@@ -408,17 +406,16 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        path_or_buf:</span>
+<span class="sd">        path_or_buf :</span>
 <span class="sd">            Path or buffer to the HDF store</span>
-<span class="sd">        path: str</span>
+<span class="sd">        path : str</span>
 <span class="sd">            Path inside the HDF store to store the `elements`</span>
-<span class="sd">        elements: dict</span>
+<span class="sd">        elements : dict</span>
 <span class="sd">            A dict of property names and their values to be</span>
 <span class="sd">            stored.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">we_opened</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -495,16 +492,15 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        file_path: str</span>
+<span class="sd">        file_path : str</span>
 <span class="sd">            Path or buffer to the HDF store</span>
-<span class="sd">        path: str</span>
+<span class="sd">        path : str</span>
 <span class="sd">            Path inside the HDF store to store the `elements`</span>
-<span class="sd">        name: str</span>
+<span class="sd">        name : str</span>
 <span class="sd">            Group inside the HDF store to which the `elements` need to be saved</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -543,13 +539,13 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        file_path: str</span>
+<span class="sd">        file_path : str</span>
 <span class="sd">            Path or buffer to the HDF store</span>
-<span class="sd">        path: str</span>
+<span class="sd">        path : str</span>
 <span class="sd">            Path inside the HDF store to store the `elements`</span>
-<span class="sd">        name: str</span>
+<span class="sd">        name : str</span>
 <span class="sd">            Group inside the HDF store to which the `elements` need to be saved</span>
-<span class="sd">        collection:</span>
+<span class="sd">        collection :</span>
 <span class="sd">            `None` or a `PlasmaPropertyCollection` of which members are</span>
 <span class="sd">            the property types which will be stored. If `None` then</span>
 <span class="sd">            all types of properties will be stored.</span>
@@ -560,7 +556,6 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">collection</span> <span class="o">=</span> <span class="n">collection</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PlasmaWriterMixin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div></div>

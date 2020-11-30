@@ -227,7 +227,6 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    integrated : Two-dimensional Numpy Array, dtype float</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">integrated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">block_references</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>  <span class="c1"># columns</span>
@@ -254,7 +253,6 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    multi_index : Pandas MultiIndex (atomic_number, ion_number)</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">atomic_number</span> <span class="o">=</span> <span class="n">multi_index_full</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">ion_number</span> <span class="o">=</span> <span class="n">multi_index_full</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>

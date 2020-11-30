@@ -232,7 +232,8 @@
 
 <div class="viewcode-block" id="PhiSahaLTE"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.PhiSahaLTE">[docs]</a><span class="k">class</span> <span class="nc">PhiSahaLTE</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Attributes:</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
 <span class="sd">    phi : Pandas DataFrame, dtype float</span>
 <span class="sd">          Used for LTE ionization (at the radiation temperature).</span>
 <span class="sd">          Indexed by atomic number, ion number. Columns are zones.</span>
@@ -288,7 +289,8 @@
 
 <div class="viewcode-block" id="ThermalPhiSahaLTE"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.ThermalPhiSahaLTE">[docs]</a><span class="k">class</span> <span class="nc">ThermalPhiSahaLTE</span><span class="p">(</span><span class="n">PhiSahaLTE</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Attributes:</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
 <span class="sd">    phi : Pandas DataFrame, dtype float</span>
 <span class="sd">          Used for LTE ionization (at the electron temperature).</span>
 <span class="sd">          Indexed by atomic number, ion number. Columns are zones.</span>
@@ -319,7 +321,8 @@
 
 <div class="viewcode-block" id="PhiSahaNebular"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.PhiSahaNebular">[docs]</a><span class="k">class</span> <span class="nc">PhiSahaNebular</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Attributes:</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
 <span class="sd">    phi : Pandas DataFrame, dtype float</span>
 <span class="sd">          Used for nebular ionization. Indexed by atomic number, ion number. Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -381,7 +384,8 @@
 
 <div class="viewcode-block" id="RadiationFieldCorrection"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.RadiationFieldCorrection">[docs]</a><span class="k">class</span> <span class="nc">RadiationFieldCorrection</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Attributes:</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
 <span class="sd">    delta : Pandas DataFrame, dtype float</span>
 <span class="sd">            Calculates the radiation field correction (see Mazzali &amp; Lucy, 1993) if</span>
 <span class="sd">            not given as input in the config. file. The default chi_0_species is</span>
@@ -454,7 +458,8 @@
 
 <div class="viewcode-block" id="IonNumberDensity"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensity">[docs]</a><span class="k">class</span> <span class="nc">IonNumberDensity</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Attributes:</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
 <span class="sd">    ion_number_density : Pandas DataFrame, dtype float</span>
 <span class="sd">                         Index atom number, ion number. Columns zones.</span>
 <span class="sd">    electron_densities : Numpy Array, dtype float</span>
@@ -584,7 +589,8 @@
 
 <div class="viewcode-block" id="IonNumberDensityHeNLTE"><a class="viewcode-back" href="../../../../api/tardis.plasma.properties.ion_population.html#tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE">[docs]</a><span class="k">class</span> <span class="nc">IonNumberDensityHeNLTE</span><span class="p">(</span><span class="n">ProcessingPlasmaProperty</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Attributes:</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
 <span class="sd">    ion_number_density : Pandas DataFrame, dtype float</span>
 <span class="sd">                         Index atom number, ion number. Columns zones.</span>
 <span class="sd">    electron_densities : Numpy Array, dtype float</span>
@@ -725,8 +731,9 @@
 <span class="sd">    the ratio of the LTE level population n_i*, and the product of</span>
 <span class="sd">    the LTE ion density n_k* and the actual electron density n_e.</span>
 
-<span class="sd">    Attributes:</span>
-<span class="sd">    phi_ik: Pandas DataFrame, dtype float</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    phi_ik : Pandas DataFrame, dtype float</span>
 <span class="sd">            Indexed by atom number, ion number, level number.</span>
 <span class="sd">            Columns are zones.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

@@ -344,20 +344,18 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
-<span class="sd">    velocities : ~astropy.Quantity</span>
+<span class="sd">    velocities : astropy.Quantity</span>
 <span class="sd">        Array like velocity profile</span>
-<span class="sd">    velocity_0 : ~astropy.Quantity</span>
+<span class="sd">    velocity_0 : astropy.Quantity</span>
 <span class="sd">        reference velocity</span>
-<span class="sd">    rho_0 : ~astropy.Quantity</span>
+<span class="sd">    rho_0 : astropy.Quantity</span>
 <span class="sd">        reference density</span>
-<span class="sd">    exponent : ~float</span>
+<span class="sd">    exponent : float</span>
 <span class="sd">        exponent used in the powerlaw</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-
-<span class="sd">    densities : ~astropy.Quantity</span>
+<span class="sd">    densities : astropy.Quantity</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">densities</span> <span class="o">=</span> <span class="n">rho_0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">velocities</span> <span class="o">/</span> <span class="n">velocity_0</span><span class="p">),</span> <span class="n">exponent</span><span class="p">)</span>
@@ -371,18 +369,16 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-
-<span class="sd">    velocities : ~astropy.Quantity</span>
+<span class="sd">    velocities : astropy.Quantity</span>
 <span class="sd">        Array like velocity profile</span>
-<span class="sd">    velocity_0 : ~astropy.Quantity</span>
+<span class="sd">    velocity_0 : astropy.Quantity</span>
 <span class="sd">        reference velocity</span>
-<span class="sd">    rho_0 : ~astropy.Quantity</span>
+<span class="sd">    rho_0 : astropy.Quantity</span>
 <span class="sd">        reference density</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-
-<span class="sd">    densities : ~astropy.Quantity</span>
+<span class="sd">    densities : astropy.Quantity</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">densities</span> <span class="o">=</span> <span class="n">rho_0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">velocities</span> <span class="o">/</span> <span class="n">velocity_0</span><span class="p">))</span>
@@ -396,19 +392,15 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    -----------</span>
-
-<span class="sd">    densities: ~astropy.units.Quantity</span>
+<span class="sd">    densities : astropy.units.Quantity</span>
 <span class="sd">        densities</span>
-
-<span class="sd">    time_0: ~astropy.units.Quantity</span>
+<span class="sd">    time_0 : astropy.units.Quantity</span>
 <span class="sd">        time of the model</span>
-
-<span class="sd">    time_explosion: ~astropy.units.Quantity</span>
+<span class="sd">    time_explosion : astropy.units.Quantity</span>
 <span class="sd">        time to be scaled to</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    --------</span>
-
 <span class="sd">    scaled_density</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 

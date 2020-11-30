@@ -274,11 +274,11 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>file_path: str</strong></dt><dd><p>Path or buffer to the HDF store</p>
+<dt><strong>file_path</strong><span class="classifier">str</span></dt><dd><p>Path or buffer to the HDF store</p>
 </dd>
-<dt><strong>path: str</strong></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
+<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
 </dd>
-<dt><strong>name: str</strong></dt><dd><p>Group inside the HDF store to which the <cite>elements</cite> need to be saved</p>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Group inside the HDF store to which the <cite>elements</cite> need to be saved</p>
 </dd>
 </dl>
 </dd>
@@ -297,11 +297,11 @@ to an HDF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>path_or_buf:</strong></dt><dd><p>Path or buffer to the HDF store</p>
+<dt><strong>path_or_buf :</strong></dt><dd><p>Path or buffer to the HDF store</p>
 </dd>
-<dt><strong>path: str</strong></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
+<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
 </dd>
-<dt><strong>elements: dict</strong></dt><dd><p>A dict of property names and their values to be
+<dt><strong>elements</strong><span class="classifier">dict</span></dt><dd><p>A dict of property names and their values to be
 stored.</p>
 </dd>
 </dl>
@@ -324,11 +324,13 @@ when a type check is needed instead of a regex match.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>text:</strong></dt><dd><p>A string to be passed to <cite>target_type</cite> for conversion.</p>
+<dt><strong>text :</strong></dt><dd><p>A string to be passed to <cite>target_type</cite> for conversion.</p>
 </dd>
-<dt><strong>Returns</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd></dd>
-<dt><strong>`True` if `text` can be converted to `target_type`.</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><cite>True</cite> if <cite>text</cite> can be converted to <cite>target_type</cite>.</dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -351,13 +353,13 @@ when a type check is needed instead of a regex match.</p>
 <dd><dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>file_path: str</strong></dt><dd><p>Path or buffer to the HDF store</p>
+<dt><strong>file_path</strong><span class="classifier">str</span></dt><dd><p>Path or buffer to the HDF store</p>
 </dd>
-<dt><strong>path: str</strong></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
+<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
 </dd>
-<dt><strong>name: str</strong></dt><dd><p>Group inside the HDF store to which the <cite>elements</cite> need to be saved</p>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Group inside the HDF store to which the <cite>elements</cite> need to be saved</p>
 </dd>
-<dt><strong>collection:</strong></dt><dd><p><cite>None</cite> or a <cite>PlasmaPropertyCollection</cite> of which members are
+<dt><strong>collection :</strong></dt><dd><p><cite>None</cite> or a <cite>PlasmaPropertyCollection</cite> of which members are
 the property types which will be stored. If <cite>None</cite> then
 all types of properties will be stored.</p>
 <p>This acts like a filter, for example if a value of
@@ -385,7 +387,7 @@ to properly parse the tardis configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>node:</strong></dt><dd><p>The YAML node to be constructed</p>
+<dt><strong>node :</strong></dt><dd><p>The YAML node to be constructed</p>
 </dd>
 </dl>
 </dd>
@@ -439,7 +441,7 @@ to properly parse the tardis configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><dl class="simple">
-<dt>data_path: str</dt><dd><p>internal data path of TARDIS</p>
+<dt><strong>data_path</strong><span class="classifier">str</span></dt><dd><p>internal data path of TARDIS</p>
 </dd>
 </dl>
 </dd>
@@ -449,14 +451,20 @@ to properly parse the tardis configuration.</p>
 <dl class="py function">
 <dt id="tardis.io.util.quantity_from_str">
 <code class="sig-prename descclassname">tardis.io.util.</code><code class="sig-name descname">quantity_from_str</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#quantity_from_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.quantity_from_str" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a string to <cite>astropy.units.Quantity</cite>
-Parameters
-———-
-text:</p>
-<blockquote>
-<div><p>The string to convert to <cite>astropy.units.Quantity</cite></p>
-</div></blockquote>
-<p><cite>astropy.units.Quantity</cite></p>
+<dd><p>Convert a string to <cite>astropy.units.Quantity</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>text :</strong></dt><dd><p>The string to convert to <cite>astropy.units.Quantity</cite></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><cite>astropy.units.Quantity</cite></dt><dd></dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -467,14 +475,14 @@ calling <cite>func</cite> for leafs of both objects.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>base:</strong></dt><dd><p>The object on which the traversing is done</p>
+<dt><strong>base :</strong></dt><dd><p>The object on which the traversing is done</p>
 </dd>
-<dt><strong>other:</strong></dt><dd><p>The object which is traversed along with <cite>base</cite></p>
+<dt><strong>other :</strong></dt><dd><p>The object which is traversed along with <cite>base</cite></p>
 </dd>
-<dt><strong>func:</strong></dt><dd><p>A function called for each leaf of <cite>base</cite> and the correspnding leaf of <cite>other</cite>
+<dt><strong>func :</strong></dt><dd><p>A function called for each leaf of <cite>base</cite> and the correspnding leaf of <cite>other</cite>
 Signature: <cite>func(item1, item2, *args)</cite></p>
 </dd>
-<dt><strong>args:</strong></dt><dd><p>Arguments passed into <cite>func</cite></p>
+<dt><strong>args :</strong></dt><dd><p>Arguments passed into <cite>func</cite></p>
 </dd>
 </dl>
 </dd>

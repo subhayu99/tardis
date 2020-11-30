@@ -259,16 +259,16 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>atom_data: pandas.DataFrame</strong></dt><dd><dl class="simple">
-<dt>A DataFrame containing the <em>basic atomic data</em> with:</dt><dd><p>index: atomic_number;
-columns: symbol, name, mass[u].</p>
+<dt><strong>atom_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd><dl class="simple">
+<dt>A DataFrame containing the <em>basic atomic data</em> with:</dt><dd><p>index : atomic_number;
+columns : symbol, name, mass[u].</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>ionization_data: pandas.DataFrame</strong></dt><dd><blockquote>
+<dt><strong>ionization_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd><blockquote>
 <div><dl class="simple">
-<dt>A DataFrame containing the <em>ionization data</em> with:</dt><dd><p>index: atomic_number, ion_number;
-columns: ionization_energy[eV].</p>
+<dt>A DataFrame containing the <em>ionization data</em> with:</dt><dd><p>index : atomic_number, ion_number;
+columns : ionization_energy[eV].</p>
 </dd>
 </dl>
 </div></blockquote>
@@ -277,58 +277,58 @@ columns: ionization_energy[eV].</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>levels: pandas.DataFrame</strong></dt><dd><dl class="simple">
-<dt>A DataFrame containing the <em>levels data</em> with:</dt><dd><p>index: numerical index;
-columns: atomic_number, ion_number, level_number, energy[eV], g[1], metastable.</p>
+<dt><strong>levels</strong><span class="classifier">pandas.DataFrame</span></dt><dd><dl class="simple">
+<dt>A DataFrame containing the <em>levels data</em> with:</dt><dd><p>index : numerical index;
+columns : atomic_number, ion_number, level_number, energy[eV], g[1], metastable.</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>lines: pandas.DataFrame</strong></dt><dd><dl>
-<dt>A DataFrame containing the <em>lines data</em> with:</dt><dd><p>index: numerical index;
-columns: line_id, atomic_number, ion_number, level_number_lower, level_number_upper,</p>
+<dt><strong>lines</strong><span class="classifier">pandas.DataFrame</span></dt><dd><dl>
+<dt>A DataFrame containing the <em>lines data</em> with:</dt><dd><p>index : numerical index;
+columns : line_id, atomic_number, ion_number, level_number_lower, level_number_upper,</p>
 <blockquote>
 <div><p>wavelength[angstrom], nu[Hz], f_lu[1], f_ul[1], B_ul[?], B_ul[?], A_ul[1/s].</p>
 </div></blockquote>
 </dd>
 </dl>
 </dd>
-<dt><strong>macro_atom_data:</strong></dt><dd><dl>
-<dt>A DataFrame containing the <em>macro atom data</em> with:</dt><dd><p>index: numerical index;
-columns: atomic_number, ion_number, source_level_number, destination_level_number,</p>
+<dt><strong>macro_atom_data :</strong></dt><dd><dl>
+<dt>A DataFrame containing the <em>macro atom data</em> with:</dt><dd><p>index : numerical index;
+columns : atomic_number, ion_number, source_level_number, destination_level_number,</p>
 <blockquote>
 <div><p>transition_line_id, transition_type, transition_probability;</p>
 </div></blockquote>
 </dd>
 </dl>
 </dd>
-<dt><strong>macro_atom_references:</strong></dt><dd><dl class="simple">
-<dt>A DataFrame containing  the <em>macro atom references</em> with:</dt><dd><p>index: numerical index;
-columns: atomic_number, ion_number, source_level_number, count_down, count_up, count_total.</p>
+<dt><strong>macro_atom_references :</strong></dt><dd><dl class="simple">
+<dt>A DataFrame containing  the <em>macro atom references</em> with:</dt><dd><p>index : numerical index;
+columns : atomic_number, ion_number, source_level_number, count_down, count_up, count_total.</p>
 </dd>
 </dl>
 <p>Refer to the docs: <a class="reference external" href="http://tardis.readthedocs.io/en/latest/physics/plasma/macroatom.html">http://tardis.readthedocs.io/en/latest/physics/plasma/macroatom.html</a></p>
 </dd>
-<dt><strong>collision_data: (pandas.DataFrame, np.array)</strong></dt><dd><dl class="simple">
-<dt>A DataFrame containing the <em>electron collisions data</em> with:</dt><dd><p>index: atomic_number, ion_number, level_number_lower, level_number_upper;
-columns: e_col_id, delta_e, g_ratio, c_ul;</p>
+<dt><strong>collision_data</strong><span class="classifier">(pandas.DataFrame, np.array)</span></dt><dd><dl class="simple">
+<dt>A DataFrame containing the <em>electron collisions data</em> with:</dt><dd><p>index : atomic_number, ion_number, level_number_lower, level_number_upper;
+columns : e_col_id, delta_e, g_ratio, c_ul;</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>collision_data_temperatures: np.array</strong></dt><dd><p>An array with the collision temperatures.</p>
+<dt><strong>collision_data_temperatures</strong><span class="classifier">np.array</span></dt><dd><p>An array with the collision temperatures.</p>
 </dd>
-<dt><strong>zeta_data:</strong></dt><dd><p>A DataFrame containing the <em>zeta data</em> for the
+<dt><strong>zeta_data :</strong></dt><dd><p>A DataFrame containing the <em>zeta data</em> for the
 nebular ionization calculation
 (i.e., the fraction of recombinations that go directly to the
 ground state) with:</p>
 <blockquote>
-<div><p>index: atomic_number, ion_charge;
-columns: temperatures[K]</p>
+<div><p>index : atomic_number, ion_charge;
+columns : temperatures[K]</p>
 </div></blockquote>
 </dd>
-<dt><strong>synpp_refs: ?</strong></dt><dd></dd>
-<dt><strong>photoionization_data: pandas.DataFrame</strong></dt><dd><dl class="simple">
-<dt>A DataFrame containing the <em>photoionization data</em> with:</dt><dd><p>index: numerical index;
-columns: atomic_number, ion_number, level_number, nu[Hz], x_sect[cm^2]</p>
+<dt><strong>synpp_refs</strong><span class="classifier">?</span></dt><dd></dd>
+<dt><strong>photoionization_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd><dl class="simple">
+<dt>A DataFrame containing the <em>photoionization data</em> with:</dt><dd><p>index : numerical index;
+columns : atomic_number, ion_number, level_number, nu[Hz], x_sect[cm^2]</p>
 </dd>
 </dl>
 </dd>
@@ -342,18 +342,18 @@ columns: atomic_number, ion_number, level_number, nu[Hz], x_sect[cm^2]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>prepared: bool</strong></dt><dd></dd>
-<dt><strong>atom_data: pandas.DataFrame</strong></dt><dd></dd>
-<dt><strong>ionization_data: pandas.DataFrame</strong></dt><dd></dd>
-<dt><strong>macro_atom_data_all: pandas.DataFrame</strong></dt><dd></dd>
-<dt><strong>macro_atom_references_all: pandas.DataFrame</strong></dt><dd></dd>
-<dt><strong>collision_data: pandas.DataFrame</strong></dt><dd></dd>
-<dt><strong>collision_data_temperatures: numpy.array</strong></dt><dd></dd>
-<dt><strong>zeta_data: pandas.DataFrame</strong></dt><dd></dd>
-<dt><strong>synpp_refs: pandas.DataFrame</strong></dt><dd></dd>
-<dt><strong>symbol2atomic_number: OrderedDict</strong></dt><dd></dd>
-<dt><strong>atomic_number2symbol OrderedDict</strong></dt><dd></dd>
-<dt><strong>photoionization_data: pandas.DataFrame</strong></dt><dd></dd>
+<dt><strong>prepared</strong><span class="classifier">bool</span></dt><dd></dd>
+<dt><strong>atom_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
+<dt><strong>ionization_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
+<dt><strong>macro_atom_data_all</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
+<dt><strong>macro_atom_references_all</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
+<dt><strong>collision_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
+<dt><strong>collision_data_temperatures</strong><span class="classifier">numpy.array</span></dt><dd></dd>
+<dt><strong>zeta_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
+<dt><strong>synpp_refs</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
+<dt><strong>symbol2atomic_number</strong><span class="classifier">OrderedDict</span></dt><dd></dd>
+<dt><strong>atomic_number2symbol</strong><span class="classifier">OrderedDict</span></dt><dd></dd>
+<dt><strong>photoionization_data</strong><span class="classifier">pandas.DataFrame</span></dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -379,7 +379,7 @@ columns: atomic_number, ion_number, level_number, nu[Hz], x_sect[cm^2]</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>fname: str, optional</strong></dt><dd><p>Path to the HDFStore file or name of known atom data file
+<dt><strong>fname</strong><span class="classifier">str, optional</span></dt><dd><p>Path to the HDFStore file or name of known atom data file
 (default: None)</p>
 </dd>
 </dl>
@@ -399,12 +399,12 @@ columns: atomic_number, ion_number, level_number, nu[Hz], x_sect[cm^2]</p>
 atom data.  This function mainly cuts the <cite>levels</cite> and <cite>lines</cite> by
 discarding any data that is not needed (any data for atoms that are not
 needed</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>selected_atoms</strong><span class="classifier"><cite>~set</cite></span></dt><dd><p>set of selected atom numbers, e.g. set([14, 26])</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>selected_atoms</strong><span class="classifier">set</span></dt><dd><p>set of selected atom numbers, e.g. set([14, 26])</p>
 </dd>
-<dt><strong>line_interaction_type</strong><span class="classifier"><cite>~str</cite></span></dt><dd><p>can be ‘scatter’, ‘downbranch’ or ‘macroatom’</p>
+<dt><strong>line_interaction_type</strong><span class="classifier">str</span></dt><dd><p>can be ‘scatter’, ‘downbranch’ or ‘macroatom’</p>
 </dd>
 </dl>
 </dd>

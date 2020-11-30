@@ -257,7 +257,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            : ~list</span>
+<span class="sd">            : list</span>
 <span class="sd">            list of pyne Materialss</span>
 <span class="sd">        :return:</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -277,11 +277,11 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        t: ~float or ~astropy.units.Quantity</span>
+<span class="sd">        t : float or astropy.units.Quantity</span>
 <span class="sd">            if float it will be understood as days</span>
 
-<span class="sd">        Returns:</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
 <span class="sd">            : decayed abundances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -300,7 +300,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Merge Isotope dataframe according to atomic number</span>
 
-<span class="sd">        Returns:</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
 <span class="sd">            : merged isotope abundances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -312,11 +313,12 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        other: pd.DataFrame</span>
+<span class="sd">        other : pd.DataFrame </span>
 <span class="sd">        normalize : bool</span>
 <span class="sd">            If true, resultant dataframe will be normalized</span>
 
-<span class="sd">        Returns:</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
 <span class="sd">            : merged abundances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_atoms</span><span class="p">()</span>
