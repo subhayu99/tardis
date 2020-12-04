@@ -272,15 +272,17 @@
 
 <dl class="py method">
 <dt id="tardis.io.util.HDFWriterMixin.to_hdf">
-<code class="sig-name descname">to_hdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#HDFWriterMixin.to_hdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.HDFWriterMixin.to_hdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_hdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path_or_buf</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#HDFWriterMixin.to_hdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.HDFWriterMixin.to_hdf" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>file_path</strong><span class="classifier">str</span></dt><dd><p>Path or buffer to the HDF store</p>
+<dt><strong>file_path_or_buf</strong><span class="classifier">str or pandas.io.pytables.HDFStore</span></dt><dd><p>Path or buffer to the HDF file</p>
 </dd>
-<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
+<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF file to store the <cite>elements</cite></p>
 </dd>
-<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Group inside the HDF store to which the <cite>elements</cite> need to be saved</p>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Group inside the HDF file to which the <cite>elements</cite> need to be saved</p>
+</dd>
+<dt><strong>overwrite: bool</strong></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
 </dd>
 </dl>
 </dd>
@@ -289,9 +291,8 @@
 
 <dl class="py method">
 <dt id="tardis.io.util.HDFWriterMixin.to_hdf_util">
-<em class="property">static </em><code class="sig-name descname">to_hdf_util</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path_or_buf</span></em>, <em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">elements</span></em>, <em class="sig-param"><span class="n">complevel</span><span class="o">=</span><span class="default_value">9</span></em>, <em class="sig-param"><span class="n">complib</span><span class="o">=</span><span class="default_value">'blosc'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#HDFWriterMixin.to_hdf_util"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.HDFWriterMixin.to_hdf_util" title="Permalink to this definition">¶</a></dt>
-<dd><p>A function to uniformly store TARDIS data
-to an HDF file.</p>
+<em class="property">static </em><code class="sig-name descname">to_hdf_util</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path_or_buf</span></em>, <em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">elements</span></em>, <em class="sig-param"><span class="n">overwrite</span></em>, <em class="sig-param"><span class="n">complevel</span><span class="o">=</span><span class="default_value">9</span></em>, <em class="sig-param"><span class="n">complib</span><span class="o">=</span><span class="default_value">'blosc'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#HDFWriterMixin.to_hdf_util"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.HDFWriterMixin.to_hdf_util" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to uniformly store TARDIS data to an HDF file.</p>
 <p>Scalars will be stored in a Series under path/scalars
 1D arrays will be stored under path/property_name as distinct Series
 2D arrays will be stored under path/property_name as distinct DataFrames</p>
@@ -299,16 +300,22 @@ to an HDF file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>path_or_buf :</strong></dt><dd><p>Path or buffer to the HDF store</p>
+<dt><strong>path_or_buf</strong><span class="classifier">str or pandas.io.pytables.HDFStore</span></dt><dd><p>Path or buffer to the HDF file</p>
 </dd>
-<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
+<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF file to store the <cite>elements</cite></p>
 </dd>
 <dt><strong>elements</strong><span class="classifier">dict</span></dt><dd><p>A dict of property names and their values to be
 stored.</p>
 </dd>
+<dt><strong>overwrite: bool</strong></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
+</dd>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><cite>overwrite</cite> option doesn’t have any effect when <cite>path_or_buf</cite> is an
+HDFStore because the user decides on the mode in which they have
+opened the HDFStore (‘r’, ‘w’ or ‘a’).</p>
 </dd></dl>
 
 </dd></dl>
@@ -351,22 +358,23 @@ when a type check is needed instead of a regex match.</p>
 
 <dl class="py method">
 <dt id="tardis.io.util.PlasmaWriterMixin.to_hdf">
-<code class="sig-name descname">to_hdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#PlasmaWriterMixin.to_hdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.PlasmaWriterMixin.to_hdf" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list">
+<code class="sig-name descname">to_hdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_path_or_buf</span></em>, <em class="sig-param"><span class="n">path</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">collection</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#PlasmaWriterMixin.to_hdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.PlasmaWriterMixin.to_hdf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>file_path</strong><span class="classifier">str</span></dt><dd><p>Path or buffer to the HDF store</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file_path_or_buf</strong><span class="classifier">str or pandas.io.pytables.HDFStore</span></dt><dd><p>Path or buffer to the HDF file</p>
 </dd>
-<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF store to store the <cite>elements</cite></p>
+<dt><strong>path</strong><span class="classifier">str</span></dt><dd><p>Path inside the HDF file to store the <cite>elements</cite></p>
 </dd>
-<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Group inside the HDF store to which the <cite>elements</cite> need to be saved</p>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Group inside the HDF file to which the <cite>elements</cite> need to be saved</p>
 </dd>
 <dt><strong>collection :</strong></dt><dd><p><cite>None</cite> or a <cite>PlasmaPropertyCollection</cite> of which members are
 the property types which will be stored. If <cite>None</cite> then
-all types of properties will be stored.</p>
-<p>This acts like a filter, for example if a value of
-<cite>property_collections.basic_inputs</cite> is given, only
-those input parameters will be stored to the HDF store.</p>
+all types of properties will be stored. This acts like a filter,
+for example if a value of <cite>property_collections.basic_inputs</cite> is
+given, only those input parameters will be stored to the HDF file.</p>
+</dd>
+<dt><strong>overwrite: bool</strong></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
 </dd>
 </dl>
 </dd>
