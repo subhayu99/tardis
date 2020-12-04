@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Storing simulations to HDF" href="../to_hdf.html" />
+    <link rel="next" title="Additional Interactivity" href="../interaction/index.html" />
     <link rel="prev" title="Using TARDIS Widgets" href="using_widgets.html" />
     <link href="../../_static/tardis.css" rel="stylesheet" type="text/css">
 
@@ -101,33 +101,27 @@
 </ul>
 <p class="caption"><span class="caption-text">Using TARDIS</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Running TARDIS</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../models/index.html">Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../configuration/index.html">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../atomic/atomic_data.html">Atomic Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commandline.html">Running TARDIS in the commandline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gui.html">Graphical User Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../interaction/index.html">Interacting with TARDIS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../custom_source.html">Running TARDIS with a custom packet source</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">TARDIS Widgets</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="using_widgets.html">Using TARDIS Widgets</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Generating Widgets in a Notebook</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Shell-Info-Widget">Shell Info Widget</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Line-Info-Widget">Line Info Widget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components.html">Components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Graphical User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="using_widgets.html">Using TARDIS Widgets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generating Widgets in a Notebook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Shell-Info-Widget">Shell Info Widget</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Using-a-Simulation-object">Using a Simulation object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Using-a-saved-simulation-(HDF-file)">Using a saved simulation (HDF file)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Line-Info-Widget">Line Info Widget</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../to_hdf.html">Storing simulations to HDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../using_formal_integral.html">Spectral Synthesis with the Formal Integral Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../converters/index.html">Converters</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../interaction/index.html">Additional Interactivity</a></li>
 </ul>
 <p class="caption"><span class="caption-text">The Physics of TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/plasma/index.html">Overview of plasma calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/new_plasma.html">Plasma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/old_physics.html">Old Physics Section of the TARDIS Docu (Outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -135,8 +129,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Team &amp; Credits</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../team.html">Team</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../governance.html">Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../team_and_governance/index.html">Team and Governance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../credits.html">Credits &amp; Publication Policies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
 </ul>
@@ -200,9 +193,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../index.html">Running TARDIS</a> &raquo;</li>
-        
-          <li><a href="index.html">TARDIS Widgets</a> &raquo;</li>
+          <li><a href="index.html">Graphical User Interface</a> &raquo;</li>
         
       <li>Generating TARDIS Widgets</li>
     
@@ -852,7 +843,7 @@ div.rendered_html tbody tr:hover {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../to_hdf.html" class="btn btn-neutral float-right" title="Storing simulations to HDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../interaction/index.html" class="btn btn-neutral float-right" title="Additional Interactivity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="using_widgets.html" class="btn btn-neutral float-left" title="Using TARDIS Widgets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
