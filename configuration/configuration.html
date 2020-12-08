@@ -797,7 +797,7 @@ normal operations.</p>
 <li><p>nthreads</p></li>
 </ul>
 </td>
-<td colspan="3"><p>The number of OpenMP threads. If set to 0, the value stored in the OMP_NUM_THREADS environment variable is used. If this variable is not set, the maximum number of available threads are used.</p></td>
+<td colspan="3"><p>The number of Numba threads for parallelisation. Must be between 1 and the environment variable NUMBA_NUM_THREADS (by default NUMBA_NUM_THREADS is equal to the number of CPU cores on the local system).</p></td>
 </tr>
 <tr class="row-even"><td><p>type</p></td>
 <td colspan="2"><p><em>number</em></p></td>
@@ -806,7 +806,7 @@ normal operations.</p>
 <td colspan="2"><p>1.0</p></td>
 </tr>
 <tr class="row-even"><td><p>default</p></td>
-<td colspan="2"><p>0</p></td>
+<td colspan="2"><p>1</p></td>
 </tr>
 <tr class="row-odd"><td rowspan="4"><ul class="simple">
 <li><p>seed</p></li>
