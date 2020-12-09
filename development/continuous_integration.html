@@ -131,21 +131,21 @@
 <li class="toctree-l2"><a class="reference internal" href="git_workflow.html#preparation-and-working-with-git">Preparation and Working with Git</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update_refdata.html">Procedure to update the reference data</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Continuous Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#azure-pipelines">Azure Pipelines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#repos">Repos</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#yaml-files">YAML files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#triggers">Triggers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#predefined-variables">Predefined variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#jobs">Jobs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-repos">Azure Repos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#azure-pipelines-github-actions">Azure Pipelines &amp; GitHub Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#triggers">Triggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#variable-syntax">Variable syntax</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#define-variables">Define variables</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#predefined-variables">Predefined variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jobs">Jobs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tardis-pipelines">TARDIS Pipelines</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#default-template">Default template</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Testing pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-default-template">The default template</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#documentation-pipeline">Documentation pipeline</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#zenodo-json-pipeline">Zenodo JSON pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Testing pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authors-pipeline">Authors pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#release-pipeline">Release pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reference-data-pipeline">Reference data pipeline</a></li>
 </ul>
@@ -264,18 +264,12 @@ This means that each time a change is proposed (via pull request)
 or a change is merged into the <em>master</em> branch, a service will
 clone the repository, checkout to the current commit and execute
 all the TARDIS tests. This helps us to detect bugs immediately.</p>
-<div class="section" id="azure-pipelines">
-<h2>Azure Pipelines<a class="headerlink" href="#azure-pipelines" title="Permalink to this headline">¶</a></h2>
-<p>Currently, we use the <a class="reference external" href="http://azure.microsoft.com/en-us/services/devops/?nav=mi">Azure DevOps</a> service to run most of our
-pipelines. The following section explains briefly the different
-components of a pipeline.</p>
-<div class="section" id="repos">
-<h3>Repos<a class="headerlink" href="#repos" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="azure-repos">
+<h2>Azure Repos<a class="headerlink" href="#azure-repos" title="Permalink to this headline">¶</a></h2>
 <p>Azure Repos is just another service to store Git repositories.
 Currently, we use Azure Repos to mirror <code class="docutils literal notranslate"><span class="pre">tardis-refdata</span></code>
 repository since Azure does not impose limits on LFS bandwith
-nor storage. We should sync this mirror every time reference
-data is updated on GitHub.</p>
+nor storage.</p>
 <p><strong>To clone this repository:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">tardis</span><span class="o">-</span><span class="n">sn</span><span class="nd">@dev</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tardis</span><span class="o">-</span><span class="n">sn</span><span class="o">/</span><span class="n">TARDIS</span><span class="o">/</span><span class="n">_git</span><span class="o">/</span><span class="n">tardis</span><span class="o">-</span><span class="n">refdata</span>
 </pre></div>
@@ -284,20 +278,30 @@ data is updated on GitHub.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://dev.azure.com/tardis-sn/TARDIS/_apis/git/repositories/tardis-refdata/items?path=atom_data/kurucz_cd23_chianti_H_He.h5&amp;resolveLfs=true
 </pre></div>
 </div>
+<p>This mirror is automatically synced by <a href="#id3"><span class="problematic" id="id4">`a GitHub workflow`_</span></a>. If you want
+to <a href="#id5"><span class="problematic" id="id6">`update it manually`_</span></a>, remember to set <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">http.version</span> <span class="pre">HTTP/1.1</span></code>
+to avoid <a href="#id7"><span class="problematic" id="id8">`error 413`_</span></a> while pushing large files.</p>
 </div>
-<div class="section" id="yaml-files">
-<h3>YAML files<a class="headerlink" href="#yaml-files" title="Permalink to this headline">¶</a></h3>
-<p>A pipeline is essentially a YAML configuration file with different
-sections such as variables, jobs and steps. Unlike other services
-such as GitHub Actions, pipelines on Azure must be created through
-the web UI for the first time. Then, making changes to an existing
-pipeline is as easy as making a pull request.</p>
+<div class="section" id="azure-pipelines-github-actions">
+<h2>Azure Pipelines &amp; GitHub Actions<a class="headerlink" href="#azure-pipelines-github-actions" title="Permalink to this headline">¶</a></h2>
+<p>Currently, we use the <a class="reference external" href="http://azure.microsoft.com/en-us/services/devops/?nav=mi">Azure DevOps</a> service to run most of our
+pipelines and GitHub Actions for some others (called “workflows”). The
+following sections explains briefly the different components of a
+pipeline/workflow, mostly focused on the Azure service.</p>
+<p>A pipeline (or a workflow) is essentially a YAML configuration file
+with different sections such as variables, jobs and steps. These files
+run commands or tasks when they are triggered by some event, like a
+commit being pushed to a certain branch.</p>
+<p>Pipelines on Azure must be created through the web UI for the first time.
+Then, making changes to an existing pipeline is as easy as making a pull
+request. To create a new workflow on GitHub, just create a new YAML file
+in <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code>.</p>
 </div>
 <div class="section" id="triggers">
-<h3>Triggers<a class="headerlink" href="#triggers" title="Permalink to this headline">¶</a></h3>
-<p>First thing to do is telling the pipeline when it should run.
-<em>trigger</em> (also known as the CI trigger) sets up the pipeline to
-run every time changes are merged to the <em>master</em> branch.</p>
+<h2>Triggers<a class="headerlink" href="#triggers" title="Permalink to this headline">¶</a></h2>
+<p>First thing to do is telling the pipeline when it should run. In
+Azure, <em>trigger</em> (also known as the CI trigger) sets up the pipeline
+to run every time changes are pushed to a branch.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trigger</span><span class="p">:</span>
   <span class="o">-</span> <span class="n">master</span>
 </pre></div>
@@ -328,8 +332,8 @@ commits to a pull request.</p>
 <p>Notice that you can test changes in a pipeline by activating the PR
 trigger on a new pull request, even if that trigger is disabled on
 the YAML file present in the <em>master</em> branch.</p>
-<p>There are more useful triggers such as the <em>cron</em> trigger, see the
-<a class="reference external" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&amp;tabs=yaml#ci-triggers">Azure documentation section on triggers</a> for more information.</p>
+<p>On GitHub Actions these triggers are named <code class="docutils literal notranslate"><span class="pre">push</span></code> and <code class="docutils literal notranslate"><span class="pre">pull_request</span></code>,
+and works mostly in the same way.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Triggers also can be set on the Azure’s web interface
@@ -337,11 +341,13 @@ too, but this action is discouraged, since it overrides
 any trigger specified in the YAML file and could lead to
 confusing sitations.</p>
 </div>
+<p>There are more useful triggers such as the <em>cron</em> trigger, see the
+<a class="reference external" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&amp;tabs=yaml#ci-triggers">Azure documentation section on triggers</a> for more information.</p>
 </div>
 <div class="section" id="variables">
-<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="variable-syntax">
-<h4>Variable syntax<a class="headerlink" href="#variable-syntax" title="Permalink to this headline">¶</a></h4>
+<h3>Variable syntax<a class="headerlink" href="#variable-syntax" title="Permalink to this headline">¶</a></h3>
 <p>Azure Pipelines supports three different ways to reference variables:
 <em>macro</em>, <em>template expression</em>, and <em>runtime expression</em>. Each syntax
 can be used for a different purpose and has some limitations.</p>
@@ -352,7 +358,7 @@ conditions and expressions. If you are defining a variable in a template,
 use a <em>template expression</em>.</p>
 </div>
 <div class="section" id="define-variables">
-<h4>Define variables<a class="headerlink" href="#define-variables" title="Permalink to this headline">¶</a></h4>
+<h3>Define variables<a class="headerlink" href="#define-variables" title="Permalink to this headline">¶</a></h3>
 <p>Usually, we define variables at the top of the YAML file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>variables:
   my.var: &#39;foo&#39;
@@ -392,7 +398,7 @@ command.</p>
 </div>
 </div>
 <div class="section" id="predefined-variables">
-<h3>Predefined variables<a class="headerlink" href="#predefined-variables" title="Permalink to this headline">¶</a></h3>
+<h2>Predefined variables<a class="headerlink" href="#predefined-variables" title="Permalink to this headline">¶</a></h2>
 <p>The most important (and confusing) predefined variables are the ones related
 to paths in Azure:</p>
 <ul class="simple">
@@ -406,11 +412,9 @@ but after fetching a second repository code is moved automatically to
 <code class="docutils literal notranslate"><span class="pre">Build.Repository.LocalPath/repository-name</span></code>.</p></li>
 </ul>
 <p>See the Azure documentation to learn more about <a class="reference external" href="https://github.com/microsoft/azure-pipelines-yaml/blob/master/design/multi-checkout.md#behavior-changes-in-multi-checkout-mode">checking out multiple repositories</a>.</p>
-<p>Azure provides a list of agent hosts that can run the pipeline on a virtual machine. In our pipelines, we
-use the vm_Images: Ubuntu 16.04 and macOs-10.14.</p>
 </div>
 <div class="section" id="jobs">
-<h3>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h3>
+<h2>Jobs<a class="headerlink" href="#jobs" title="Permalink to this headline">¶</a></h2>
 <p>You can organize your pipeline into jobs. Every pipeline has at least one job.
 A job is a series of steps that run sequentially as a unit. In other words,
 a job is the smallest unit of work that can be scheduled to run.</p>
@@ -428,26 +432,21 @@ a job is the smallest unit of work that can be scheduled to run.</p>
 depend on a previous job.</p>
 <p>See the <a class="reference external" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&amp;tabs=yaml">Azure documentation section on jobs</a> for more information.</p>
 </div>
-<div class="section" id="templates">
-<h3>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tardis-pipelines">
+<h2>TARDIS Pipelines<a class="headerlink" href="#tardis-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>Brief description of pipelines already implemented on Azure or GitHub Actions.</p>
+<div class="section" id="the-default-template">
+<h3>The default template<a class="headerlink" href="#the-default-template" title="Permalink to this headline">¶</a></h3>
 <p>Templates let you define reusable content, logic, and parameters. It functions
 like an include directive in many programming languages (content from one file
 is inserted into another file).</p>
-<p>See the <a class="reference external" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops">Azure documentation section on templates</a> for more information.</p>
-</div>
-</div>
-<div class="section" id="tardis-pipelines">
-<h2>TARDIS Pipelines<a class="headerlink" href="#tardis-pipelines" title="Permalink to this headline">¶</a></h2>
-<p>Already implemented on Azure or GitHub Actions.</p>
-<div class="section" id="default-template">
-<h3>Default template<a class="headerlink" href="#default-template" title="Permalink to this headline">¶</a></h3>
-<p>The common set of steps used across most TARDIS pipelines now lives in the
-“default” template.</p>
+<p>The common set of steps used across most TARDIS pipelines resides in the
+“default” template:</p>
 <ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code> on Bash steps.</p></li>
-<li><p>Set custom variables.</p></li>
+<li><p>Force <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">-e</span></code> on all Bash steps.</p></li>
+<li><p>Set TARDIS custom variables.</p></li>
 <li><p>Fetch TARDIS main repository.</p></li>
-<li><p>Fetch TARDIS reference data repository (optional).</p></li>
+<li><p>Fetch TARDIS reference data repository from mirror (optional).</p></li>
 <li><p>Configure Anaconda for Linux and macOS agents.</p></li>
 <li><p>Install Mamba package manager (optional).</p></li>
 <li><p>Install TARDIS environment (optional).</p></li>
@@ -475,6 +474,12 @@ to start a new pipeline use:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">tardis.dir</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">$(Build.SourcesDirectory)/tardis</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">refdata.dir</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">$(Build.SourcesDirectory)/tardis-refdata</span></code>.</p></li>
 </ul>
+<p>See the <a class="reference external" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops">Azure documentation section on templates</a> for more information.</p>
+</div>
+<div class="section" id="documentation-pipeline">
+<h3>Documentation pipeline<a class="headerlink" href="#documentation-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>Builds and deploys the TARDIS documentation website. Currently, we use
+GitHub Actions for this purpose.</p>
 </div>
 <div class="section" id="id2">
 <h3>Testing pipeline<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
@@ -482,13 +487,8 @@ to start a new pipeline use:</p>
 in parallel (one for each OS) with the steps from the default template, plus
 extra steps to run the tests and upload the coverage results.</p>
 </div>
-<div class="section" id="documentation-pipeline">
-<h3>Documentation pipeline<a class="headerlink" href="#documentation-pipeline" title="Permalink to this headline">¶</a></h3>
-<p>Builds and deploys the TARDIS documentation website. Currently, we are
-using GitHub Actions for this purpose.</p>
-</div>
-<div class="section" id="zenodo-json-pipeline">
-<h3>Zenodo JSON pipeline<a class="headerlink" href="#zenodo-json-pipeline" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="authors-pipeline">
+<h3>Authors pipeline<a class="headerlink" href="#authors-pipeline" title="Permalink to this headline">¶</a></h3>
 <p>This pipeline runs a notebook located in <code class="docutils literal notranslate"><span class="pre">tardis-zenodo</span></code> repository and
 pushes a new version of <code class="docutils literal notranslate"><span class="pre">.zenodo.json</span></code> to the root of <code class="docutils literal notranslate"><span class="pre">tardis</span></code>
 repository if new commiters are found (or author order changes). The
