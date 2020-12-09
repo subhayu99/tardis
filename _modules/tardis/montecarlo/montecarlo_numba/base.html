@@ -279,18 +279,18 @@
         <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
             <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">virt_packet_energies</span><span class="p">)</span>
         <span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_interaction_in_nu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="n">virt_packet_last_interaction_in_nu</span>
-        <span class="p">)</span>
-        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_interaction_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="n">virt_packet_last_interaction_type</span>
-        <span class="p">)</span>
-        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_line_interaction_in_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="n">virt_packet_last_line_interaction_in_id</span>
-        <span class="p">)</span>
-        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_line_interaction_out_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="n">virt_packet_last_line_interaction_out_id</span>
-        <span class="p">)</span></div>
+        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_interaction_in_nu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">virt_packet_last_interaction_in_nu</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_interaction_type</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">virt_packet_last_interaction_type</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_line_interaction_in_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">virt_packet_last_line_interaction_in_id</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_last_line_interaction_out_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">virt_packet_last_line_interaction_out_id</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="montecarlo_main_loop"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.base.html#tardis.montecarlo.montecarlo_numba.base.montecarlo_main_loop">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">,</span> <span class="n">nogil</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -391,23 +391,27 @@
             <span class="n">v_packets_energy_hist</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">vpackets_energy</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">montecarlo_configuration</span><span class="o">.</span><span class="n">VPACKET_LOGGING</span><span class="p">:</span>
-            <span class="n">virt_packet_nus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">nus</span><span class="p">[:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span><span class="p">]</span>
-            <span class="p">)</span>
-            <span class="n">virt_packet_energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">energies</span><span class="p">[:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span><span class="p">]</span>
-            <span class="p">)</span>
+            <span class="n">virt_packet_nus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vpackets_nu</span><span class="p">)</span>
+            <span class="n">virt_packet_energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vpackets_energy</span><span class="p">)</span>
             <span class="n">virt_packet_last_interaction_in_nu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_in_nu</span>
+                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_in_nu</span><span class="p">[</span>
+                    <span class="p">:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span>
+                <span class="p">]</span>
             <span class="p">)</span>
             <span class="n">virt_packet_last_interaction_type</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_type</span>
+                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_type</span><span class="p">[</span>
+                    <span class="p">:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span>
+                <span class="p">]</span>
             <span class="p">)</span>
             <span class="n">virt_packet_last_line_interaction_in_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_in_id</span>
+                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_in_id</span><span class="p">[</span>
+                    <span class="p">:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span>
+                <span class="p">]</span>
             <span class="p">)</span>
             <span class="n">virt_packet_last_line_interaction_out_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_out_id</span>
+                <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">last_interaction_out_id</span><span class="p">[</span>
+                    <span class="p">:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span>
+                <span class="p">]</span>
             <span class="p">)</span>
 
     <span class="n">packet_collection</span><span class="o">.</span><span class="n">packets_output_energy</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">output_energies</span><span class="p">[:]</span>
