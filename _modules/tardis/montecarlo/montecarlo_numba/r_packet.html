@@ -244,6 +244,8 @@
     <span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">int64</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;is_close_line&quot;</span><span class="p">,</span> <span class="n">boolean</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;last_interaction_type&quot;</span><span class="p">,</span> <span class="n">int64</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;last_interaction_in_nu&quot;</span><span class="p">,</span> <span class="n">float64</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;last_line_interaction_in_id&quot;</span><span class="p">,</span> <span class="n">int64</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;last_line_interaction_out_id&quot;</span><span class="p">,</span> <span class="n">int64</span><span class="p">),</span>
 <span class="p">]</span>
 
@@ -261,6 +263,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_close_line</span> <span class="o">=</span> <span class="n">is_close_line</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_interaction_type</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_interaction_in_nu</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_line_interaction_in_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_line_interaction_out_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
     <span class="k">def</span> <span class="nf">initialize_line_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numba_plasma</span><span class="p">,</span> <span class="n">numba_model</span><span class="p">):</span>
@@ -655,6 +659,8 @@
             <span class="ow">and</span> <span class="ow">not</span> <span class="n">montecarlo_configuration</span><span class="o">.</span><span class="n">disable_line_scattering</span>
         <span class="p">):</span>
             <span class="n">interaction_type</span> <span class="o">=</span> <span class="n">InteractionType</span><span class="o">.</span><span class="n">LINE</span>  <span class="c1"># Line</span>
+            <span class="n">r_packet</span><span class="o">.</span><span class="n">last_interaction_in_nu</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">nu</span>
+            <span class="n">r_packet</span><span class="o">.</span><span class="n">last_line_interaction_in_id</span> <span class="o">=</span> <span class="n">cur_line_id</span>
             <span class="n">r_packet</span><span class="o">.</span><span class="n">next_line_id</span> <span class="o">=</span> <span class="n">cur_line_id</span>
             <span class="n">distance</span> <span class="o">=</span> <span class="n">distance_trace</span>
             <span class="k">break</span>

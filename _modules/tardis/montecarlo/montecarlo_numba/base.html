@@ -253,6 +253,9 @@
     <span class="p">(</span>
         <span class="n">v_packets_energy_hist</span><span class="p">,</span>
         <span class="n">last_interaction_type</span><span class="p">,</span>
+        <span class="n">last_interaction_in_nu</span><span class="p">,</span>
+        <span class="n">last_line_interaction_in_id</span><span class="p">,</span>
+        <span class="n">last_line_interaction_out_id</span><span class="p">,</span>
         <span class="n">virt_packet_nus</span><span class="p">,</span>
         <span class="n">virt_packet_energies</span><span class="p">,</span>
         <span class="n">virt_packet_last_interaction_in_nu</span><span class="p">,</span>
@@ -271,6 +274,9 @@
 
     <span class="n">runner</span><span class="o">.</span><span class="n">_montecarlo_virtual_luminosity</span><span class="o">.</span><span class="n">value</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">v_packets_energy_hist</span>
     <span class="n">runner</span><span class="o">.</span><span class="n">last_interaction_type</span> <span class="o">=</span> <span class="n">last_interaction_type</span>
+    <span class="n">runner</span><span class="o">.</span><span class="n">last_interaction_in_nu</span> <span class="o">=</span> <span class="n">last_interaction_in_nu</span>
+    <span class="n">runner</span><span class="o">.</span><span class="n">last_line_interaction_in_id</span> <span class="o">=</span> <span class="n">last_line_interaction_in_id</span>
+    <span class="n">runner</span><span class="o">.</span><span class="n">last_line_interaction_out_id</span> <span class="o">=</span> <span class="n">last_line_interaction_out_id</span>
 
     <span class="k">if</span> <span class="n">montecarlo_configuration</span><span class="o">.</span><span class="n">VPACKET_LOGGING</span> <span class="ow">and</span> <span class="n">number_of_vpackets</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">runner</span><span class="o">.</span><span class="n">virt_packet_nus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
@@ -324,6 +330,14 @@
     <span class="p">)</span>
     <span class="n">output_energies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">packet_collection</span><span class="o">.</span><span class="n">packets_output_nu</span><span class="p">)</span>
 
+    <span class="n">last_interaction_in_nus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">packet_collection</span><span class="o">.</span><span class="n">packets_output_nu</span><span class="p">)</span>
+    <span class="n">last_line_interaction_in_ids</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">packet_collection</span><span class="o">.</span><span class="n">packets_output_nu</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="n">last_line_interaction_out_ids</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">packet_collection</span><span class="o">.</span><span class="n">packets_output_nu</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="p">)</span>
+
     <span class="n">v_packets_energy_hist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">spectrum_frequency</span><span class="p">)</span>
     <span class="n">delta_nu</span> <span class="o">=</span> <span class="n">spectrum_frequency</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">spectrum_frequency</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -366,6 +380,9 @@
         <span class="c1">#     raise MonteCarloException</span>
 
         <span class="n">output_nus</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">nu</span>
+        <span class="n">last_interaction_in_nus</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">last_interaction_in_nu</span>
+        <span class="n">last_line_interaction_in_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">last_line_interaction_in_id</span>
+        <span class="n">last_line_interaction_out_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">last_line_interaction_out_id</span>
 
         <span class="k">if</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">PacketStatus</span><span class="o">.</span><span class="n">REABSORBED</span><span class="p">:</span>
             <span class="n">output_energies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">r_packet</span><span class="o">.</span><span class="n">energy</span>
@@ -420,6 +437,9 @@
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">v_packets_energy_hist</span><span class="p">,</span>
         <span class="n">last_interaction_types</span><span class="p">,</span>
+        <span class="n">last_interaction_in_nus</span><span class="p">,</span>
+        <span class="n">last_line_interaction_in_ids</span><span class="p">,</span>
+        <span class="n">last_line_interaction_out_ids</span><span class="p">,</span>
         <span class="n">virt_packet_nus</span><span class="p">,</span>
         <span class="n">virt_packet_energies</span><span class="p">,</span>
         <span class="n">virt_packet_last_interaction_in_nu</span><span class="p">,</span>
