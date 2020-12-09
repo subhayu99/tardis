@@ -43,8 +43,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Old Graphical User Interface Section" href="../gui.html" />
-    <link rel="prev" title="Convert CMFGEN files to TARDIS file format" href="../converters/cmfgen.html" />
+    <link rel="next" title="Running TARDIS with a custom packet source" href="custom_source.html" />
+    <link rel="prev" title="Convert CMFGEN files to TARDIS file format" href="converters/cmfgen.html" />
     <link href="../../_static/tardis.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -104,9 +104,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../components.html">Components</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tardis_widgets/index.html">Graphical User Interface</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Additional Interactivity</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../commandline.html">Running TARDIS in the commandline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commandline.html">Running TARDIS in the commandline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="callback_example.html">Using Custom Callbacks When Running TARDIS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../converters/index.html">Converters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="converters/index.html">Converters</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">How to run TARDIS with a custom ejecta model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Your-custom-density-file">Your custom density file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Important:">Important:</a></li>
@@ -121,21 +121,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#id3">Important:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../gui.html">Old Graphical User Interface Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_source.html">Running TARDIS with a custom packet source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="old_gui.html">Old Graphical User Interface (Outdated)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="access.html">Accessing Physical Information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="init_trad_bug.html">Initial_t_rad Bug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integrator.html">API example for the formal integral</a></li>
 <li class="toctree-l2"><a class="reference internal" href="isotope_pd_subclass.html">Extending Pandas DataFrame Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="to_hdf.html">Example to_hdf calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="to_hdf.html">Storing simulations to HDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hdf_writer.html">Example Usage of HDFWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physical_quantities.html">Accessing Physical Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_formal_integral.html">Spectral Synthesis with the Formal Integral Method</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">The Physics of TARDIS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/new_plasma.html">Plasma</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../physics/old_physics.html">Old Physics Section of the TARDIS Docu (Outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/old_physics.html">Old Physics Section (Outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -149,7 +151,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Contributing to TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributing to TARDIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contribution Guidelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Developer Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Change Log</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Development Roadmap</a></li>
@@ -1233,10 +1235,10 @@ densities loaded by TARDIS: (NOTE that the density in the first line of the file
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../gui.html" class="btn btn-neutral float-right" title="Old Graphical User Interface Section" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="custom_source.html" class="btn btn-neutral float-right" title="Running TARDIS with a custom packet source" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../converters/cmfgen.html" class="btn btn-neutral float-left" title="Convert CMFGEN files to TARDIS file format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="converters/cmfgen.html" class="btn btn-neutral float-left" title="Convert CMFGEN files to TARDIS file format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
