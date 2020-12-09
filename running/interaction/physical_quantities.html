@@ -129,6 +129,7 @@
 <p class="caption"><span class="caption-text">The Physics of TARDIS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/plasma.html">Plasma</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/old_physics.html">Old Physics Section (Outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
@@ -516,7 +517,7 @@ div.rendered_html tbody tr:hover {
 [<span class="ansi-bold">tardis.io.atom_data.atom_web_download</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Downloading atomic data from https://media.githubusercontent.com/media/tardis-sn/tardis-refdata/master/atom_data/kurucz_cd23_chianti_H_He.h5 to /home/runner/Downloads/tardis-data/kurucz_cd23_chianti_H_He.h5 (<span class="ansi-bold">atom_web_download.py</span>:49)
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   980  100   980    0     0  39200      0 --:--:-- --:--:-- --:--:-- 39200
+100   980  100   980    0     0  28823      0 --:--:-- --:--:-- --:--:-- 28823
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -542,370 +543,406 @@ div.rendered_html tbody tr:hover {
  (<span class="ansi-bold">warnings.py</span>:110)
 [<span class="ansi-bold">tardis.io.atom_data.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Read Atom Data with UUID=6f7b09e887a311e7a06b246e96350010 and MD5=864f1753714343c41f99cb065710cace. (<span class="ansi-bold">base.py</span>:172)
 [<span class="ansi-bold">tardis.io.atom_data.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Non provided atomic data: synpp_refs, photoionization_data (<span class="ansi-bold">base.py</span>:178)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:355: NumbaWarning: The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 9107. The TBB threading layer is disabled.
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/numba/np/ufunc/parallel.py:355: NumbaWarning: <span class="ansi-bold">The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 9107. The TBB threading layer is disabled.</span>
   warnings.warn(problem)
  (<span class="ansi-bold">warnings.py</span>:110)
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Starting iteration 1/20 (<span class="ansi-bold">base.py</span>:326)
 [<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/astropy/units/equivalencies.py:124: RuntimeWarning: divide by zero encountered in double_scalars
   (si.m, si.Hz, lambda x: _si.c.value / x),
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/interaction.py&#34;, line 21:
-@njit(**njit_dict)
-def thomson_scatter(r_packet, time_explosion):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/interaction.py&#34;, line 21:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def thomson_scatter(r_packet, time_explosion):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/interaction.py&#34;, line 56:
-@njit(**njit_dict)
-def line_scatter(r_packet, time_explosion, line_interaction_type, numba_plasma):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/interaction.py&#34;, line 56:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def line_scatter(r_packet, time_explosion, line_interaction_type, numba_plasma):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/interaction.py&#34;, line 87:
-@njit(**njit_dict)
-def line_emission(r_packet, emission_line_id, time_explosion, numba_plasma):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 344:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def trace_packet(r_packet, numba_model, numba_plasma, estimators):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/macro_atom.py&#34;, line 22:
-@njit(**njit_dict)
-def macro_atom(r_packet, numba_plasma):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 502:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def move_r_packet(r_packet, distance, time_explosion, numba_estimator):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 131:
-@njit(**njit_dict)
-def calculate_distance_line(
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 575:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def move_packet_across_shell_boundary(packet, delta_shell, no_of_shells):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 182:
-@njit(**njit_dict)
-def calculate_distance_line_full_relativity(
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/vpacket.py&#34;, line 193:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def trace_vpacket_volley(
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 207:
-@njit(**njit_dict)
-def calculate_distance_electron(electron_density, tau_event):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/interaction.py&#34;, line 87:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def line_emission(r_packet, emission_line_id, time_explosion, numba_plasma):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 219:
-@njit(**njit_dict)
-def calculate_tau_electron(electron_density, distance):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/macro_atom.py&#34;, line 22:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def macro_atom(r_packet, numba_plasma):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 233:
-@njit(**njit_dict)
-def get_doppler_factor(r, mu, time_explosion):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 131:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calculate_distance_line(
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 244:
-@njit(**njit_dict)
-def get_doppler_factor_partial_relativity(mu, beta):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 207:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calculate_distance_electron(electron_density, tau_event):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 249:
-@njit(**njit_dict)
-def get_doppler_factor_full_relativity(mu, beta):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 233:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def get_doppler_factor(r, mu, time_explosion):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 254:
-@njit(**njit_dict)
-def get_inverse_doppler_factor(r, mu, time_explosion):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 254:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def get_inverse_doppler_factor(r, mu, time_explosion):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 275:
-@njit(**njit_dict)
-def get_inverse_doppler_factor_partial_relativity(mu, beta):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 285:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def get_random_mu():
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 280:
-@njit(**njit_dict)
-def get_inverse_doppler_factor_full_relativity(mu, beta):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 290:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def update_line_estimators(
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 285:
-@njit(**njit_dict)
-def get_random_mu():
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 550:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def set_estimators(r_packet, distance, numba_estimator, comov_nu, comov_energy):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 290:
-@njit(**njit_dict)
-def update_line_estimators(
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 563:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def set_estimators_full_relativity(
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 328:
-@njit(**njit_dict)
-def calc_packet_energy_full_relativity(r_packet):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 603:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def angle_aberration_CMF_to_LF(r_packet, time_explosion, mu):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 334:
-@njit(**njit_dict)
-def calc_packet_energy(r_packet, distance_trace, time_explosion):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 614:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def angle_aberration_LF_to_CMF(r_packet, time_explosion, mu):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 344:
-@njit(**njit_dict)
-def trace_packet(r_packet, numba_model, numba_plasma, estimators):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 627:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def test_for_close_line(r_packet, line_id, nu_line, numba_plasma):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 502:
-@njit(**njit_dict)
-def move_r_packet(r_packet, distance, time_explosion, numba_estimator):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/vpacket.py&#34;, line 138:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def trace_vpacket(v_packet, numba_model, numba_plasma):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 550:
-@njit(**njit_dict)
-def set_estimators(r_packet, distance, numba_estimator, comov_nu, comov_energy):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 182:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calculate_distance_line_full_relativity(
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 563:
-@njit(**njit_dict)
-def set_estimators_full_relativity(
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 244:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def get_doppler_factor_partial_relativity(mu, beta):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 575:
-@njit(**njit_dict)
-def move_packet_across_shell_boundary(packet, delta_shell, no_of_shells):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 249:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def get_doppler_factor_full_relativity(mu, beta):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 603:
-@njit(**njit_dict)
-def angle_aberration_CMF_to_LF(r_packet, time_explosion, mu):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 275:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def get_inverse_doppler_factor_partial_relativity(mu, beta):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 614:
-@njit(**njit_dict)
-def angle_aberration_LF_to_CMF(r_packet, time_explosion, mu):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 280:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def get_inverse_doppler_factor_full_relativity(mu, beta):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 627:
-@njit(**njit_dict)
-def test_for_close_line(r_packet, line_id, nu_line, numba_plasma):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 328:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calc_packet_energy_full_relativity(r_packet):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 86:
-@njit(**njit_dict)
-def calculate_distance_boundary(r, mu, r_inner, r_outer):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 334:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calc_packet_energy(r_packet, distance_trace, time_explosion):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/vpacket.py&#34;, line 138:
-@njit(**njit_dict)
-def trace_vpacket(v_packet, numba_model, numba_plasma):
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 575:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def move_packet_across_shell_boundary(packet, delta_shell, no_of_shells):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
-
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/vpacket.py&#34;, line 193:
-@njit(**njit_dict)
-def trace_vpacket_volley(
-^
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/vpacket.py&#34;, line 62:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def trace_vpacket_within_shell(v_packet, numba_model, numba_plasma):
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
-[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning:
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
 The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
 
 To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 131:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calculate_distance_line(
+</span><span class="ansi-bold">^</span>
 
-File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/vpacket.py&#34;, line 62:
-@njit(**njit_dict)
-def trace_vpacket_within_shell(v_packet, numba_model, numba_plasma):
-^
+  r_packet, numba_model, numba_plasma, estimators, vpacket_collection
+ (<span class="ansi-bold">warnings.py</span>:110)
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
+The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
+
+To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 219:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calculate_tau_electron(electron_density, distance):
+</span><span class="ansi-bold">^</span>
+
+  r_packet, numba_model, numba_plasma, estimators, vpacket_collection
+ (<span class="ansi-bold">warnings.py</span>:110)
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
+The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
+
+To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 86:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calculate_distance_boundary(r, mu, r_inner, r_outer):
+</span><span class="ansi-bold">^</span>
+
+  r_packet, numba_model, numba_plasma, estimators, vpacket_collection
+ (<span class="ansi-bold">warnings.py</span>:110)
+[<span class="ansi-bold">py.warnings         </span>][<span class="ansi-yellow-intense-fg ansi-bold">WARNING</span>]  /usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/base.py:178: NumbaPerformanceWarning: <span class="ansi-bold">
+The keyword argument &#39;parallel=True&#39; was specified but no transformation for parallel execution was possible.
+
+To find out why, try turning on parallel diagnostics, see http://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics for help.
+</span><span class="ansi-bold">
+File &#34;../../../../../../../../usr/share/miniconda/envs/tardis/lib/python3.7/site-packages/tardis_sn-3.0.dev1-py3.7-linux-x86_64.egg/tardis/montecarlo/montecarlo_numba/r_packet.py&#34;, line 182:</span>
+<span class="ansi-bold">@njit(**njit_dict)
+</span><span class="ansi-bold">def calculate_distance_line_full_relativity(
+</span><span class="ansi-bold">^</span>
 
   r_packet, numba_model, numba_plasma, estimators, vpacket_collection
  (<span class="ansi-bold">warnings.py</span>:110)
@@ -1215,7 +1252,7 @@ Running post-merge numba montecarlo (with C close lines)!
  (<span class="ansi-bold">warnings.py</span>:110)
 Running post-merge numba montecarlo (with C close lines)!
 [<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Luminosity emitted = 1.26319e+43 erg / s Luminosity absorbed = 4.10706e+42 erg / s Luminosity requested = 1.05928e+43 erg / s (<span class="ansi-bold">base.py</span>:450)
-[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 48.18 s (<span class="ansi-bold">base.py</span>:384)
+[<span class="ansi-bold">tardis.simulation.base</span>][<span class="ansi-white-intense-fg ansi-bold">INFO</span>   ]  Simulation finished in 20 iterations and took 51.28 s (<span class="ansi-bold">base.py</span>:384)
 </pre></div></div>
 </div>
 <p>If all goes well, the simulation should run as usual. Afterwards, the information from the simulation will all exist in <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> and can be examined. Some examples for useful/interesting quantities are given below (but much more information is available: contact us via <a class="reference external" href="http://groups.google.com/forum/#!forum/tardis-sn-users">tardis-sn-users</a> if you need further help).</p>
