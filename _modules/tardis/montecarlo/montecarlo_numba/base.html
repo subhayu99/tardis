@@ -99,15 +99,15 @@
 </ul>
 <p class="caption"><span class="caption-text">Using TARDIS</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../running/components.html">Components</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../running/tardis_widgets/index.html">Graphical User Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../running/interaction/index.html">Additional Interactivity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/components/index.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/gui/index.html">Graphical User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using/interaction/index.html">Additional Interactivity</a></li>
 </ul>
 <p class="caption"><span class="caption-text">The Physics of TARDIS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../physics/montecarlo/index.html">Monte Carlo Primer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../physics/plasma.html">Plasma</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../physics/old_physics.html">Old Physics Section (Outdated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/old_physics/index.html">Old Physics Section (Outdated)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Research with TARDIS</span></p>
 <ul>
@@ -386,10 +386,10 @@
 
         <span class="k">if</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">PacketStatus</span><span class="o">.</span><span class="n">REABSORBED</span><span class="p">:</span>
             <span class="n">output_energies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">r_packet</span><span class="o">.</span><span class="n">energy</span>
-            <span class="n">last_interaction_types</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">last_interaction_types</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">last_interaction_type</span>
         <span class="k">elif</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">PacketStatus</span><span class="o">.</span><span class="n">EMITTED</span><span class="p">:</span>
             <span class="n">output_energies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">energy</span>
-            <span class="n">last_interaction_types</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">last_interaction_types</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">last_interaction_type</span>
 
         <span class="n">vpackets_nu</span> <span class="o">=</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">nus</span><span class="p">[:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span><span class="p">]</span>
         <span class="n">vpackets_energy</span> <span class="o">=</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">energies</span><span class="p">[:</span> <span class="n">vpacket_collection</span><span class="o">.</span><span class="n">idx</span><span class="p">]</span>
