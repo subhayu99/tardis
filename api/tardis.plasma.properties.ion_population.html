@@ -257,20 +257,20 @@
 <dt id="tardis.plasma.properties.ion_population.IonNumberDensity">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.ion_population.</code><code class="sig-name descname">IonNumberDensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em>, <em class="sig-param"><span class="n">ion_zero_threshold</span><span class="o">=</span><span class="default_value">1e-20</span></em>, <em class="sig-param"><span class="n">electron_densities</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/ion_population.html#IonNumberDensity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.ion_population.IonNumberDensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty" title="tardis.plasma.properties.base.ProcessingPlasmaProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ProcessingPlasmaProperty</span></code></a></p>
+<p>Convergence process to find the correct solution. A trial value for
+the electron density is initiated in a particular zone. The ion
+number densities are then calculated using the Saha equation. The
+electron density is then re-calculated by using the ion number
+densities to sum over the number of free electrons. If the two values
+for the electron densities are not similar to within the threshold
+value, a new guess for the value of the electron density is chosen
+and the process is repeated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>ion_number_density</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Index atom number, ion number. Columns zones.</p>
+<dt><strong>ion_number_density</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Index atom number, ion number. Columns zones.</p>
 </dd>
-<dt><strong>electron_densities</strong><span class="classifier">Numpy Array, dtype float</span></dt><dd></dd>
-<dt><strong>Convergence process to find the correct solution. A trial value for</strong></dt><dd></dd>
-<dt><strong>the electron density is initiated in a particular zone. The ion</strong></dt><dd></dd>
-<dt><strong>number densities are then calculated using the Saha equation. The</strong></dt><dd></dd>
-<dt><strong>electron density is then re-calculated by using the ion number</strong></dt><dd></dd>
-<dt><strong>densities to sum over the number of free electrons. If the two values</strong></dt><dd></dd>
-<dt><strong>for the electron densities are not similar to within the threshold</strong></dt><dd></dd>
-<dt><strong>value, a new guess for the value of the electron density is chosen</strong></dt><dd></dd>
-<dt><strong>and the process is repeated.</strong></dt><dd></dd>
+<dt><strong>electron_densities</strong><span class="classifier">numpy.ndarray, dtype float</span></dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -300,20 +300,20 @@
 <dt id="tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.ion_population.</code><code class="sig-name descname">IonNumberDensityHeNLTE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em>, <em class="sig-param"><span class="n">ion_zero_threshold</span><span class="o">=</span><span class="default_value">1e-20</span></em>, <em class="sig-param"><span class="n">electron_densities</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/ion_population.html#IonNumberDensityHeNLTE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.ion_population.IonNumberDensityHeNLTE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty" title="tardis.plasma.properties.base.ProcessingPlasmaProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ProcessingPlasmaProperty</span></code></a></p>
+<p>Convergence process to find the correct solution. A trial value for
+the electron density is initiated in a particular zone. The ion
+number densities are then calculated using the Saha equation. The
+electron density is then re-calculated by using the ion number
+densities to sum over the number of free electrons. If the two values
+for the electron densities are not similar to within the threshold
+value, a new guess for the value of the electron density is chosen
+and the process is repeated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>ion_number_density</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Index atom number, ion number. Columns zones.</p>
+<dt><strong>ion_number_density</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Index atom number, ion number. Columns zones.</p>
 </dd>
-<dt><strong>electron_densities</strong><span class="classifier">Numpy Array, dtype float</span></dt><dd></dd>
-<dt><strong>Convergence process to find the correct solution. A trial value for</strong></dt><dd></dd>
-<dt><strong>the electron density is initiated in a particular zone. The ion</strong></dt><dd></dd>
-<dt><strong>number densities are then calculated using the Saha equation. The</strong></dt><dd></dd>
-<dt><strong>electron density is then re-calculated by using the ion number</strong></dt><dd></dd>
-<dt><strong>densities to sum over the number of free electrons. If the two values</strong></dt><dd></dd>
-<dt><strong>for the electron densities are not similar to within the threshold</strong></dt><dd></dd>
-<dt><strong>value, a new guess for the value of the electron density is chosen</strong></dt><dd></dd>
-<dt><strong>and the process is repeated.</strong></dt><dd></dd>
+<dt><strong>electron_densities</strong><span class="classifier">numpy.ndarray, dtype float</span></dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -346,7 +346,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>phi</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Used for LTE ionization (at the radiation temperature).
+<dt><strong>phi</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Used for LTE ionization (at the radiation temperature).
 Indexed by atomic number, ion number. Columns are zones.</p>
 </dd>
 </dl>
@@ -386,7 +386,8 @@ Indexed by atomic number, ion number. Columns are zones.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>phi</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Used for nebular ionization. Indexed by atomic number, ion number. Columns are zones.</p>
+<dt><strong>phi</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Used for nebular ionization. Indexed by atomic number, ion number.
+Columns are zones.</p>
 </dd>
 </dl>
 </dd>
@@ -425,7 +426,7 @@ Indexed by atomic number, ion number. Columns are zones.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>delta</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Calculates the radiation field correction (see Mazzali &amp; Lucy, 1993) if
+<dt><strong>delta</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Calculates the radiation field correction (see Mazzali &amp; Lucy, 1993) if
 not given as input in the config. file. The default chi_0_species is
 Ca II, which is good for type Ia supernovae. For type II supernovae,
 (1, 1) should be used. Indexed by atomic number, ion number. The columns are zones.</p>
@@ -460,7 +461,7 @@ the LTE ion density n_k* and the actual electron density n_e.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>phi_ik</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Indexed by atom number, ion number, level number.
+<dt><strong>phi_ik</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Indexed by atom number, ion number, level number.
 Columns are zones.</p>
 </dd>
 </dl>
@@ -490,7 +491,7 @@ Columns are zones.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>phi</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Used for LTE ionization (at the electron temperature).
+<dt><strong>phi</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Used for LTE ionization (at the electron temperature).
 Indexed by atomic number, ion number. Columns are zones.</p>
 </dd>
 </dl>

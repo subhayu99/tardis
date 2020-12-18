@@ -235,21 +235,19 @@
     <span class="n">r_packet</span><span class="p">,</span> <span class="n">numba_model</span><span class="p">,</span> <span class="n">numba_plasma</span><span class="p">,</span> <span class="n">estimators</span><span class="p">,</span> <span class="n">vpacket_collection</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    r_packet: tardis.montecarlo.montecarlo_numba.r_packet.RPacket</span>
-<span class="sd">    numba_model: tardis.montecarlo.montecarlo_numba.numba_interface.NumbaModel</span>
-<span class="sd">    numba_plasma: tardis.montecarlo.montecarlo_numba.numba_interface.NumbaPlasma</span>
-<span class="sd">    estimators: tardis.montecarlo.montecarlo_numba.numba_interface.Estimators</span>
-<span class="sd">    vpacket_collection: tardis.montecarlo.montecarlo_numba.numba_interface.VPacketCollection</span>
+<span class="sd">    r_packet : tardis.montecarlo.montecarlo_numba.r_packet.RPacket</span>
+<span class="sd">    numba_model : tardis.montecarlo.montecarlo_numba.numba_interface.NumbaModel</span>
+<span class="sd">    numba_plasma : tardis.montecarlo.montecarlo_numba.numba_interface.NumbaPlasma</span>
+<span class="sd">    estimators : tardis.montecarlo.montecarlo_numba.numba_interface.Estimators</span>
+<span class="sd">    vpacket_collection : tardis.montecarlo.montecarlo_numba.numba_interface.VPacketCollection</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">        : None</span>
-
-<span class="sd">    This function does not return anything but changes the r_packet object</span>
-<span class="sd">    and if virtual packets are requested - also updates the vpacket_collection</span>
+<span class="sd">    None</span>
+<span class="sd">        This function does not return anything but changes the r_packet object</span>
+<span class="sd">        and if virtual packets are requested - also updates the vpacket_collection</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">line_interaction_type</span> <span class="o">=</span> <span class="n">montecarlo_configuration</span><span class="o">.</span><span class="n">line_interaction_type</span>

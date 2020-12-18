@@ -259,9 +259,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            : list</span>
-<span class="sd">            list of pyne Materialss</span>
-<span class="sd">        :return:</span>
+<span class="sd">        list</span>
+<span class="sd">            list of pyne Materials</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">comp_dicts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">))]</span>
@@ -284,7 +283,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            : decayed abundances</span>
+<span class="sd">        pandas.DataFrame</span>
+<span class="sd">            Decayed abundances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">materials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_materials</span><span class="p">()</span>
@@ -304,7 +304,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            : merged isotope abundances</span>
+<span class="sd">        pandas.DataFrame</span>
+<span class="sd">            Merged isotope abundances </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;atomic_number&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div>
@@ -321,7 +322,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            : merged abundances</span>
+<span class="sd">        pandas.DataFrame</span>
+<span class="sd">            merged abundances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_atoms</span><span class="p">()</span>
         <span class="n">isotope_abundance</span> <span class="o">=</span> <span class="n">isotope_abundance</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>

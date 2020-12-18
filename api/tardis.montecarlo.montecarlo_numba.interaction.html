@@ -260,10 +260,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>r_packet: RPacket</strong></dt><dd></dd>
-<dt><strong>emission_line_id: int</strong></dt><dd></dd>
-<dt><strong>time_explosion: float</strong></dt><dd></dd>
-<dt><strong>numba_plasma: NumbaPlasma</strong></dt><dd></dd>
+<dt><strong>r_packet</strong><span class="classifier">tardis.montecarlo.montecarlo_numba.r_packet.RPacket</span></dt><dd></dd>
+<dt><strong>emission_line_id</strong><span class="classifier">int</span></dt><dd></dd>
+<dt><strong>time_explosion</strong><span class="classifier">float</span></dt><dd></dd>
+<dt><strong>numba_plasma</strong><span class="classifier">tardis.montecarlo.montecarlo_numba.numba_interface.NumbaPlasma</span></dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -272,31 +272,38 @@
 <dl class="py function">
 <dt id="tardis.montecarlo.montecarlo_numba.interaction.line_scatter">
 <code class="sig-prename descclassname">tardis.montecarlo.montecarlo_numba.interaction.</code><code class="sig-name descname">line_scatter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">r_packet</span></em>, <em class="sig-param"><span class="n">time_explosion</span></em>, <em class="sig-param"><span class="n">line_interaction_type</span></em>, <em class="sig-param"><span class="n">numba_plasma</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/montecarlo_numba/interaction.html#line_scatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.montecarlo_numba.interaction.line_scatter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Line scatter function that handles the scattering itself, including new angle drawn, and calculating nu out using macro atom
-r_packet: RPacket
-time_explosion: float
-line_interaction_type: enum
-numba_plasma: NumbaPlasma</p>
+<dd><p>Line scatter function that handles the scattering itself, including new angle drawn, and calculating nu out using macro atom</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>r_packet</strong><span class="classifier">tardis.montecarlo.montecarlo_numba.r_packet.RPacket</span></dt><dd></dd>
+<dt><strong>time_explosion</strong><span class="classifier">float</span></dt><dd></dd>
+<dt><strong>line_interaction_type</strong><span class="classifier">enum</span></dt><dd></dd>
+<dt><strong>numba_plasma</strong><span class="classifier">tardis.montecarlo.montecarlo_numba.numba_interface.NumbaPlasma</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="tardis.montecarlo.montecarlo_numba.interaction.thomson_scatter">
 <code class="sig-prename descclassname">tardis.montecarlo.montecarlo_numba.interaction.</code><code class="sig-name descname">thomson_scatter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">r_packet</span></em>, <em class="sig-param"><span class="n">time_explosion</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/montecarlo/montecarlo_numba/interaction.html#thomson_scatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.montecarlo.montecarlo_numba.interaction.thomson_scatter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Thomson scattering — no longer line scattering
-2) get the doppler factor at that position with the old angle
-3) convert the current energy and nu into the comoving</p>
-<blockquote>
-<div><p>frame with the old mu</p>
+<dd><blockquote>
+<div><p>Thomson scattering — no longer line scattering</p>
 </div></blockquote>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple">
+<li><p>get the doppler factor at that position with the old angle</p></li>
+<li><p>convert the current energy and nu into the comoving frame with the old mu</p></li>
 <li><p>Scatter and draw new mu - update mu</p></li>
 <li><p>Transform the comoving energy and nu back using the new mu</p></li>
 </ol>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>r_packet</strong><span class="classifier">RPacket</span></dt><dd></dd>
-<dt><strong>time_explosion: float</strong></dt><dd><p>time since explosion in seconds</p>
+<dt><strong>r_packet</strong><span class="classifier">tardis.montecarlo.montecarlo_numba.r_packet.RPacket</span></dt><dd><dl class="simple">
+<dt>time_explosion<span class="classifier">float</span></dt><dd><p>time since explosion in seconds</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd>

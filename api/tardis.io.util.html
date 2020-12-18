@@ -282,7 +282,7 @@
 </dd>
 <dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Group inside the HDF file to which the <cite>elements</cite> need to be saved</p>
 </dd>
-<dt><strong>overwrite: bool</strong></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
+<dt><strong>overwrite</strong><span class="classifier">bool</span></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
 </dd>
 </dl>
 </dd>
@@ -307,7 +307,7 @@
 <dt><strong>elements</strong><span class="classifier">dict</span></dt><dd><p>A dict of property names and their values to be
 stored.</p>
 </dd>
-<dt><strong>overwrite: bool</strong></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
+<dt><strong>overwrite</strong><span class="classifier">bool</span></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
 </dd>
 </dl>
 </dd>
@@ -326,7 +326,8 @@ opened the HDFStore (‘r’, ‘w’ or ‘a’).</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A mock class to be used in place of a compiled regular expression
 when a type check is needed instead of a regex match.</p>
-<p>Note: This is usually a lot slower than regex matching.</p>
+<p class="rubric">Notes</p>
+<p>This is usually a lot slower than regex matching.</p>
 <dl class="py method">
 <dt id="tardis.io.util.MockRegexPattern.match">
 <code class="sig-name descname">match</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/io/util.html#MockRegexPattern.match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.io.util.MockRegexPattern.match" title="Permalink to this definition">¶</a></dt>
@@ -339,7 +340,9 @@ when a type check is needed instead of a regex match.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><cite>True</cite> if <cite>text</cite> can be converted to <cite>target_type</cite>.</dt><dd></dd>
+<dt>bool</dt><dd><p>Returns <cite>True</cite> if <cite>text</cite> can be converted to <cite>target_type</cite>,
+otherwise returns <cite>False</cite></p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -374,7 +377,7 @@ all types of properties will be stored. This acts like a filter,
 for example if a value of <cite>property_collections.basic_inputs</cite> is
 given, only those input parameters will be stored to the HDF file.</p>
 </dd>
-<dt><strong>overwrite: bool</strong></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
+<dt><strong>overwrite</strong><span class="classifier">bool</span></dt><dd><p>If the HDF file path already exists, whether to overwrite it or not</p>
 </dd>
 </dl>
 </dd>

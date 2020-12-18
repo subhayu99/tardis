@@ -260,7 +260,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>atomic_mass</strong><span class="classifier">Pandas Series</span></dt><dd><p>Atomic masses of the elements used. Indexed by atomic number.</p>
+<dt><strong>atomic_mass</strong><span class="classifier">pandas.Series</span></dt><dd><p>Atomic masses of the elements used. Indexed by atomic number.</p>
 </dd>
 </dl>
 </dd>
@@ -284,7 +284,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>ionization_data</strong><span class="classifier">Pandas Series holding ionization energies</span></dt><dd><p>Indexed by atomic number, ion number.</p>
+<dt><strong>ionization_data</strong><span class="classifier">pandas.Series</span></dt><dd><p>Holding ionization energies
+Indexed by atomic number, ion number.</p>
 </dd>
 </dl>
 </dd>
@@ -303,13 +304,16 @@
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>levels</strong><span class="classifier">Pandas MultiIndex (atomic_number, ion_number, level_number)</span></dt><dd><p>Index of filtered atomic data. Index used for all other attribute dataframes for this class</p>
+<dt><strong>levels</strong><span class="classifier">pandas.MultiIndex</span></dt><dd><p>(atomic_number, ion_number, level_number)
+Index of filtered atomic data. Index used for all other attribute dataframes for this class</p>
 </dd>
-<dt><strong>excitation_energy</strong><span class="classifier">Pandas DataFrame (index=levels), dtype float</span></dt><dd><p>Excitation energies of atomic levels</p>
+<dt><strong>excitation_energy</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Excitation energies of atomic levels.
+Index is levels.</p>
 </dd>
-<dt><strong>metastability</strong><span class="classifier">Pandas DataFrame (index=levels), dtype bool</span></dt><dd><p>Records whether atomic levels are metastable</p>
+<dt><strong>metastability</strong><span class="classifier">pandas.DataFrame, dtype bool</span></dt><dd><p>Records whether atomic levels are metastable.
+Index is levels.</p>
 </dd>
-<dt><strong>g</strong><span class="classifier">Pandas DataFrame (index=levels), dtype float</span></dt><dd><p>Statistical weights of atomic levels</p>
+<dt><strong>g</strong><span class="classifier">pandas.DataFrame (index=levels), dtype float</span></dt><dd><p>Statistical weights of atomic levels.</p>
 </dd>
 </dl>
 </dd>
@@ -330,19 +334,18 @@
 <dt id="tardis.plasma.properties.atomic.Lines">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">Lines</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#Lines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.Lines" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.BaseAtomicDataProperty" title="tardis.plasma.properties.base.BaseAtomicDataProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.BaseAtomicDataProperty</span></code></a></p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>lines</strong><span class="classifier">Pandas DataFrame (wavelength, atomic_number, ion_number, f_ul, f_lu, level_number_lower,</span></dt><dd><blockquote>
-<div><p>level_number_upper, nu, B_lu, B_ul, A_ul, wavelength)</p>
-</div></blockquote>
-<p>All atomic lines data. Index = line_id.</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>lines</strong><span class="classifier">pandas.DataFrame</span></dt><dd><p>Atomic lines data. Columns are wavelength, atomic_number,ion_number,
+f_ul, f_lu, level_number_lower, level_number_upper, nu, B_lu, B_ul, A_ul,
+wavelength. Index is line_id.</p>
 </dd>
-<dt><strong>nu</strong><span class="classifier">Pandas DataFrame (index=line_id), dtype float</span></dt><dd><p>Line frequency data</p>
+<dt><strong>nu</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Line frequency data. Index is line_id.</p>
 </dd>
-<dt><strong>f_lu</strong><span class="classifier">Pandas DataFrame (index=line_id), dtype float</span></dt><dd><p>Transition probability data</p>
+<dt><strong>f_lu</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Transition probability data. Index is line_id.</p>
 </dd>
-<dt><strong>wavelength_cm</strong><span class="classifier">Pandas DataFrame (index=line_id), dtype float</span></dt><dd><p>Line wavelengths in cm</p>
+<dt><strong>wavelength_cm</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Line wavelengths in cm. Index is line_id.</p>
 </dd>
 </dl>
 </dd>
@@ -361,7 +364,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>lines_lower_level_index</strong><span class="classifier">One-dimensional Numpy Array, dtype int</span></dt><dd><p>Levels data for lower levels of particular lines</p>
+<dt><strong>lines_lower_level_index</strong><span class="classifier">numpy.ndrarray, dtype int</span></dt><dd><p>Levels data for lower levels of particular lines</p>
 </dd>
 </dl>
 </dd>
@@ -385,7 +388,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>lines_upper_level_index</strong><span class="classifier">One-dimensional Numpy Array, dtype int</span></dt><dd><p>Levels data for upper levels of particular lines</p>
+<dt><strong>lines_upper_level_index</strong><span class="classifier">numpy.ndarray, dtype int</span></dt><dd><p>Levels data for upper levels of particular lines</p>
 </dd>
 </dl>
 </dd>
@@ -430,25 +433,17 @@
 <dt id="tardis.plasma.properties.atomic.PhotoIonizationData">
 <em class="property">class </em><code class="sig-prename descclassname">tardis.plasma.properties.atomic.</code><code class="sig-name descname">PhotoIonizationData</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plasma_parent</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/tardis/plasma/properties/atomic.html#PhotoIonizationData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tardis.plasma.properties.atomic.PhotoIonizationData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="tardis.plasma.properties.base.html#tardis.plasma.properties.base.ProcessingPlasmaProperty" title="tardis.plasma.properties.base.ProcessingPlasmaProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">tardis.plasma.properties.base.ProcessingPlasmaProperty</span></code></a></p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
-<dd class="field-odd"><dl>
-<dt><strong>photo_ion_cross_sections</strong><span class="classifier">Pandas DataFrame (nu, x_sect,</span></dt><dd><blockquote>
-<div><dl class="simple">
-<dt>index=[‘atomic_number’,</dt><dd><p>‘ion_number’,
-‘level_number’]),</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>photo_ion_cross_sections</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Photoionization cross sections as a function of frequency.
+Columns are nu, x_sect, index=(‘atomic_number’,’ion_number’,’level_number’)</p>
 </dd>
-</dl>
-<p>dtype float)</p>
-</div></blockquote>
-<p>Table of photoionization cross sections as a
-function of frequency.</p>
-</dd>
-<dt><strong>photo_ion_block_references</strong><span class="classifier">One-dimensional Numpy Array, dtype int</span></dt><dd><p>Indices where the photoionization data for
+<dt><strong>photo_ion_block_references</strong><span class="classifier">numpy.ndarray, dtype int</span></dt><dd><p>Indices where the photoionization data for
 a given level starts. Needed for calculation
 of recombination rates.</p>
 </dd>
-<dt><strong>photo_ion_index</strong><span class="classifier">Pandas MultiIndex, dtype int</span></dt><dd><p>Atomic, ion and level numbers for which
+<dt><strong>photo_ion_index</strong><span class="classifier">pandas.MultiIndex, dtype int</span></dt><dd><p>Atomic, ion and level numbers for which
 photoionization data exists.</p>
 </dd>
 </dl>
@@ -478,7 +473,7 @@ photoionization data exists.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>zeta_data</strong><span class="classifier">Pandas DataFrame, dtype float</span></dt><dd><p>Zeta data for the elements used. Indexed by atomic number, ion number.
+<dt><strong>zeta_data</strong><span class="classifier">pandas.DataFrame, dtype float</span></dt><dd><p>Zeta data for the elements used. Indexed by atomic number, ion number.
 Columns are temperature values up to 40,000 K in iterations of 2,000 K.
 The zeta value represents the fraction of recombination events
 from the ionized state that go directly to the ground state.</p>

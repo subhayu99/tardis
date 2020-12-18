@@ -228,9 +228,9 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        r_inner: numpy.ndarray</span>
-<span class="sd">        r_outer: numpy.ndarray</span>
-<span class="sd">        time_explosion: float</span>
+<span class="sd">        r_inner : numpy.ndarray</span>
+<span class="sd">        r_outer : numpy.ndarray</span>
+<span class="sd">        time_explosion : float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r_inner</span> <span class="o">=</span> <span class="n">r_inner</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">r_outer</span> <span class="o">=</span> <span class="n">r_outer</span>
@@ -266,18 +266,18 @@
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plasma for the Numba code</span>
+<span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-
-<span class="sd">        electron_density: numpy.array</span>
-<span class="sd">        line_list_nu: numpy.array</span>
-<span class="sd">        tau_sobolev: numpy.array</span>
-<span class="sd">        transition_probabilities: numpy.array</span>
-<span class="sd">        line2macro_level_upper: numpy.array</span>
-<span class="sd">        macro_block_references: numpy.array</span>
-<span class="sd">        transition_type: numpy.array</span>
-<span class="sd">        destination_level_id: numpy.array</span>
-<span class="sd">        transition_line_id: numpy.array</span>
+<span class="sd">        electron_density : numpy.ndarray</span>
+<span class="sd">        line_list_nu : numpy.ndarray</span>
+<span class="sd">        tau_sobolev : numpy.ndarray</span>
+<span class="sd">        transition_probabilities : numpy.ndarray</span>
+<span class="sd">        line2macro_level_upper : numpy.ndarray</span>
+<span class="sd">        macro_block_references : numpy.ndarray</span>
+<span class="sd">        transition_type : numpy.ndarray</span>
+<span class="sd">        destination_level_id : numpy.ndarray</span>
+<span class="sd">        transition_line_id : numpy.ndarray</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">electron_density</span> <span class="o">=</span> <span class="n">electron_density</span>
@@ -301,10 +301,9 @@
 <span class="sd">    Initialize the NumbaPlasma object and copy over the data over from TARDIS Plasma</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    -----------</span>
-
-<span class="sd">    plasma: tardis.plasma.BasePlasma</span>
-<span class="sd">    line_interaction_type: enum</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plasma : tardis.plasma.BasePlasma</span>
+<span class="sd">    line_interaction_type : enum</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">electron_densities</span> <span class="o">=</span> <span class="n">plasma</span><span class="o">.</span><span class="n">electron_densities</span><span class="o">.</span><span class="n">values</span>
     <span class="n">line_list_nu</span> <span class="o">=</span> <span class="n">plasma</span><span class="o">.</span><span class="n">atomic_data</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">nu</span><span class="o">.</span><span class="n">values</span>

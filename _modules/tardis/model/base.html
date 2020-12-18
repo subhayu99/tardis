@@ -219,7 +219,8 @@
 
 
 <div class="viewcode-block" id="Radial1DModel"><a class="viewcode-back" href="../../../api/tardis.model.base.html#tardis.model.base.Radial1DModel">[docs]</a><span class="k">class</span> <span class="nc">Radial1DModel</span><span class="p">(</span><span class="n">HDFWriterMixin</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;An object that hold information about the individual shells.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An object that hold information about the individual shells.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -227,8 +228,7 @@
 <span class="sd">        An array with n+1 (for n shells) velocities &quot;cut&quot; to the provided</span>
 <span class="sd">        boundaries</span>
 
-<span class="sd">        .. note:: To access the entire, &quot;uncut&quot;, velocity array,</span>
-<span class="sd">        use `raw_velocity`</span>
+<span class="sd">        .. note:: To access the entire, &quot;uncut&quot;, velocity array, use `raw_velocity`</span>
 <span class="sd">    homologous_density : HomologousDensity</span>
 <span class="sd">    abundance : pd.DataFrame</span>
 <span class="sd">    time_explosion : astropy.units.Quantity</span>
@@ -266,7 +266,6 @@
 <span class="sd">        The number of shells as formed by `v_boundary_inner` and</span>
 <span class="sd">        `v_boundary_outer`</span>
 <span class="sd">    no_of_raw_shells : int</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">hdf_properties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;t_inner&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;t_radiative&#39;</span><span class="p">,</span> <span class="s1">&#39;v_inner&#39;</span><span class="p">,</span> <span class="s1">&#39;v_outer&#39;</span><span class="p">,</span> <span class="s1">&#39;homologous_density&#39;</span><span class="p">]</span>
@@ -571,7 +570,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Radial1DModel</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">time_explosion</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">supernova</span><span class="o">.</span><span class="n">time_explosion</span><span class="o">.</span><span class="n">cgs</span>
 
@@ -668,7 +666,6 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        Radial1DModel</span>
-
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">CSVY_SUPPORTED_COLUMNS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;velocity&#39;</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="s1">&#39;t_rad&#39;</span><span class="p">,</span> <span class="s1">&#39;dilution_factor&#39;</span><span class="p">}</span>
 
