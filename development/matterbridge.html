@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Matterbridge &mdash; TARDIS v3.0.dev1</title>
+  <title>Matterbridge Server &mdash; TARDIS v3.0.dev1</title>
   
 
   
@@ -132,15 +132,17 @@
 <li class="toctree-l2"><a class="reference internal" href="update_refdata.html">Procedure to update the reference data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="continuous_integration.html">Continuous Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="documentation_preview.html">Documentation Preview</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Matterbridge</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matterbridge Server</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#slack">Slack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gitter">Gitter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-server-for-the-first-time">Setting up the server for the first time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adding-new-gateways">Adding new gateways</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mattermost">Mattermost</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#first-time-setup">First-time setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-server-configuration">Update server configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cron-job">Cron job</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="developer_faq.html">Developer FAQ</a></li>
@@ -204,7 +206,7 @@
         
           <li><a href="index.html">Developer Workflow</a> &raquo;</li>
         
-      <li>Matterbridge</li>
+      <li>Matterbridge Server</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -247,68 +249,77 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="matterbridge">
-<h1>Matterbridge<a class="headerlink" href="#matterbridge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="matterbridge-server">
+<h1>Matterbridge Server<a class="headerlink" href="#matterbridge-server" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>We use Matterbridge to connect channels across different messaging platforms
-such as Slack, Mattermost and Gitter. Matterbridge provides binaries for many
-operating systems. These files are intended to be used in combination with
-TOML configuration files:</p>
+such as <em>Slack</em>, <em>Mattermost</em> and <em>Gitter</em>. Matterbridge provides binaries
+for  many operating systems. The <code class="docutils literal notranslate"><span class="pre">matterbridge</span></code> binary is intended to be used
+in combination with a TOML configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./matterbridge -conf config-tardis-matterbridge.toml
 </pre></div>
 </div>
-<p>The TOML file includes all the configuration needed to connect as many
-messaging platforms as you want, including tokens and passwords.</p>
-<p>Currently, we keep a service running on <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a> server to keep
-running Matterbridge as a daemon. Our configuration files are stored in the
-private repository <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code>. These files include our custom
-TOML configuration file and the files needed to set up the Linux service.</p>
-<p>Since this server runs Ubuntu 14.04 we use an <a class="reference external" href="https://www.digitalocean.com/community/tutorials/the-upstart-event-system-what-it-is-and-how-to-use-it">Upstart script</a> instead a
-<a class="reference external" href="https://freedesktop.org/software/systemd/man/systemd.service.html">Systemd service</a> file. But a <em>Systemd</em> file is also included in
-<code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> repository, just in case.</p>
+<p>The TOML file includes all the parameters required to connect as many
+messaging platforms as you want, like <em>tokens</em> and <em>passwords</em>. Once the
+application is running, messages can be shared between the connected rooms.</p>
+<p>Currently, we keep a service running on the <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a> server to
+run Matterbridge as a daemon. Our configuration files are stored in a <a class="reference external" href="https://github.com/tardis-sn/tardis-matterbridge">private
+GitHub repository</a>, including our custom TOML and the files needed to set up the
+Linux service.</p>
+<p>Since this server runs Ubuntu 14.04 we use an <a class="reference external" href="https://www.digitalocean.com/community/tutorials/the-upstart-event-system-what-it-is-and-how-to-use-it">Upstart script</a> instead of a
+<a class="reference external" href="https://freedesktop.org/software/systemd/man/systemd.service.html">Systemd service</a> file, but a Systemd file is also included in our repository.
+A <em>cron</em> job restarts the service periodically to prevent disconnections.</p>
 </div>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>Use the TOML file in <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> as an example. You can set up
-as many gateways as you want.</p>
+as many gateways as you want!</p>
 <div class="section" id="slack">
 <h3>Slack<a class="headerlink" href="#slack" title="Permalink to this headline">¶</a></h3>
 <p>Follow the <a class="reference external" href="https://github.com/42wim/matterbridge/wiki/Slack-bot-setup">steps for Slack in the Matterbridge wiki</a> and read carefully
-<a class="reference external" href="https://github.com/42wim/matterbridge/issues/964#issuecomment-612721850">this comment</a>. Do not add any scopes manually. Copy the token to use later
-in the TOML file.</p>
+<a class="reference external" href="https://github.com/42wim/matterbridge/issues/964#issuecomment-612721850">this comment</a> (do not add any scopes manually!). Copy the token to use
+later in the TOML file.</p>
 </div>
 <div class="section" id="gitter">
 <h3>Gitter<a class="headerlink" href="#gitter" title="Permalink to this headline">¶</a></h3>
 <p>Create a new GitHub dedicated account to use as a bot, refer to <a class="reference external" href="https://developer.gitter.im/docs/authentication">this link</a>
-and copy the token.</p>
+and copy the token to use later in the TOML file.</p>
 </div>
-<div class="section" id="setting-up-the-server-for-the-first-time">
-<h3>Setting up the server for the first time<a class="headerlink" href="#setting-up-the-server-for-the-first-time" title="Permalink to this headline">¶</a></h3>
-<p>Follow these steps to set up the server for the first time:</p>
+<div class="section" id="mattermost">
+<h3>Mattermost<a class="headerlink" href="#mattermost" title="Permalink to this headline">¶</a></h3>
+<p>Follow the <a class="reference external" href="https://github.com/42wim/matterbridge/wiki/Section-Mattermost-%28basic%29">steps for Mattermost in the Matterbridge wiki</a>.</p>
+</div>
+</div>
+<div class="section" id="first-time-setup">
+<h2>First-time setup<a class="headerlink" href="#first-time-setup" title="Permalink to this headline">¶</a></h2>
+<p>Follow these steps to set up the server:</p>
 <ol class="arabic simple">
-<li><p><em>ssh</em> to <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a></p></li>
-<li><p>Download the Matterbridge binary for Linux from the <a class="reference external" href="https://github.com/42wim/matterbridge/releases/latest">releases section</a></p></li>
-<li><p>Make the file executable and rename it to <code class="docutils literal notranslate"><span class="pre">matterbridge</span></code></p></li>
-<li><p>Copy <code class="docutils literal notranslate"><span class="pre">matterbridge</span></code> executable to <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code></p></li>
-<li><p>Clone <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> repository</p></li>
-<li><p>Copy <code class="docutils literal notranslate"><span class="pre">config-tardis-matterbridge.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">/usr/local/etc/matterbridge/</span></code></p></li>
-<li><p>Copy <code class="docutils literal notranslate"><span class="pre">matterbridge.conf</span></code> to <code class="docutils literal notranslate"><span class="pre">/etc/init/</span></code></p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">matterbridge</span> <span class="pre">start</span></code></p></li>
-<li><p>Test your gateways</p></li>
+<li><p><em>ssh</em> to <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a> server.</p></li>
+<li><p>Download the Matterbridge binary for Linux from the <a class="reference external" href="https://github.com/42wim/matterbridge/releases/latest">releases section</a>.</p></li>
+<li><p>Make the file executable and rename it to <code class="docutils literal notranslate"><span class="pre">matterbridge</span></code>.</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">matterbridge</span></code> executable to <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>.</p></li>
+<li><p>Clone <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> repository in your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>.</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">config-tardis-matterbridge.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">/usr/local/etc/matterbridge/</span></code>.</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">matterbridge.conf</span></code> to <code class="docutils literal notranslate"><span class="pre">/etc/init/</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">matterbridge</span> <span class="pre">start</span></code>.</p></li>
+<li><p>Test your gateways.</p></li>
 </ol>
 </div>
-<div class="section" id="adding-new-gateways">
-<h3>Adding new gateways<a class="headerlink" href="#adding-new-gateways" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="update-server-configuration">
+<h2>Update server configuration<a class="headerlink" href="#update-server-configuration" title="Permalink to this headline">¶</a></h2>
 <p>After updating the TOML file, follow these steps:</p>
 <ol class="arabic simple">
-<li><p><em>ssh</em> to <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a></p></li>
-<li><p>Copy your new <code class="docutils literal notranslate"><span class="pre">config-tardis-matterbridge.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">/usr/local/etc/matterbridge/</span></code></p></li>
-<li><p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">matterbridge</span> <span class="pre">restart</span></code></p></li>
-<li><p>Test your gateways</p></li>
-<li><p>If everything is ok, make a pull request to <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> with your new TOML file</p></li>
+<li><p><em>ssh</em> to <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a> server.</p></li>
+<li><p>Copy your new <code class="docutils literal notranslate"><span class="pre">config-tardis-matterbridge.toml</span></code> to <code class="docutils literal notranslate"><span class="pre">/usr/local/etc/matterbridge/</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">matterbridge</span> <span class="pre">restart</span></code>.</p></li>
+<li><p>Test your gateways.</p></li>
+<li><p>If everything is ok, make a pull request to <code class="docutils literal notranslate"><span class="pre">tardis-matterbridge</span></code> with your new TOML file.</p></li>
 </ol>
 </div>
+<div class="section" id="cron-job">
+<h2>Cron job<a class="headerlink" href="#cron-job" title="Permalink to this headline">¶</a></h2>
+<p>To edit the cron job, <em>ssh</em> to <a class="reference external" href="http://opensupernova.org">OpenSupernova.org</a> and run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">crontab</span> <span class="pre">-e</span></code>.</p>
 </div>
 </div>
 
