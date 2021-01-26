@@ -262,8 +262,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="continuous-integration">
-<h1>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h1>Continuous Integration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>We use a so-called <a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> workflow with TARDIS.
 This means that each time a change is proposed (via pull request)
 or a change is merged into the <em>master</em> branch, a service will
@@ -283,9 +283,9 @@ nor storage.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://dev.azure.com/tardis-sn/TARDIS/_apis/git/repositories/tardis-refdata/items?path=atom_data/kurucz_cd23_chianti_H_He.h5&amp;resolveLfs=true
 </pre></div>
 </div>
-<p>This mirror is automatically synced by <a href="#id3"><span class="problematic" id="id4">`a GitHub workflow`_</span></a>. If you want
-to <a href="#id5"><span class="problematic" id="id6">`update it manually`_</span></a>, remember to set <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">http.version</span> <span class="pre">HTTP/1.1</span></code>
-to avoid <a href="#id7"><span class="problematic" id="id8">`error 413`_</span></a> while pushing large files.</p>
+<p>This mirror is automatically synced by <a class="reference external" href="https://github.com/tardis-sn/tardis-refdata/blob/master/.github/workflows/sync-mirror.yml">a GitHub workflow</a>. If you want
+to <a class="reference external" href="https://docs.microsoft.com/en-us/azure/devops/repos/git/import-git-repository?view=azure-devops#what-if-my-source-repository-contains-git-lfs-objects">update it manually</a>, remember to set <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">http.version</span> <span class="pre">HTTP/1.1</span></code>
+to avoid <a class="reference external" href="https://developercommunity.visualstudio.com/content/problem/867488/git-lfs-push-got-413-error.html">error 413</a> while pushing large files.</p>
 </div>
 <div class="section" id="azure-pipelines-github-actions">
 <h2>Azure Pipelines &amp; GitHub Actions<a class="headerlink" href="#azure-pipelines-github-actions" title="Permalink to this headline">¶</a></h2>
@@ -519,7 +519,7 @@ head of <code class="docutils literal notranslate"><span class="pre">tardis-refd
 the rendered notebook to the pipeline results.</p>
 <p>To trigger this pipeline is necessary to leave a comment in the GitHub pull
 request.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">AzurePipelines</span> <span class="n">run</span> <span class="n">TARDIS</span> <span class="n">refdata</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">AzurePipelines</span> <span class="n">run</span> <span class="n">compare</span><span class="o">-</span><span class="n">refdata</span>
 </pre></div>
 </div>
 <p>For brevity, you can comment using <code class="docutils literal notranslate"><span class="pre">/azp</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/AzurePipelines</span></code>.</p>
