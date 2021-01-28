@@ -505,18 +505,38 @@ email adress). In both cases update <code class="docutils literal notranslate"><
 <h3>Release pipeline<a class="headerlink" href="#release-pipeline" title="Permalink to this headline">¶</a></h3>
 <p>Publishes a new release of TARDIS every sunday at 00:00 UTC.</p>
 </div>
-<div class="section" id="reference-data-pipeline">
-<h3>Reference data pipeline<a class="headerlink" href="#reference-data-pipeline" title="Permalink to this headline">¶</a></h3>
-<p>Generates new reference data according to the changes present in the
-current pull request. Then, compares against reference data present in the
-head of <code class="docutils literal notranslate"><span class="pre">tardis-refdata</span></code> repository by running a notebook. Finally, uploads
-the rendered notebook to the pipeline results.</p>
-<p>To trigger this pipeline is necessary to leave a comment in the GitHub pull
-request.</p>
+<div class="section" id="compare-reference-data-pipeline">
+<h3>Compare reference data pipeline<a class="headerlink" href="#compare-reference-data-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>This pipeline compares two versions of the reference data. It’s triggered manually via
+the Azure Pipelines web UI, or when a TARDIS contributor leaves the following comment
+on a pull request:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">AzurePipelines</span> <span class="n">run</span> <span class="n">compare</span><span class="o">-</span><span class="n">refdata</span>
 </pre></div>
 </div>
 <p>For brevity, you can comment using <code class="docutils literal notranslate"><span class="pre">/azp</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/AzurePipelines</span></code>.</p>
+<p>By default, generates new reference data for the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> of the pull request. Then,
+compares against latest reference data stored in <code class="docutils literal notranslate"><span class="pre">tardis-refdata</span></code> repository. If
+you want to compare two different labels (SHAs, branches, tags, etc.) uncomment and
+set the <code class="docutils literal notranslate"><span class="pre">ref1.hash</span></code> and <code class="docutils literal notranslate"><span class="pre">ref2.hash</span></code> variables in
+<code class="docutils literal notranslate"><span class="pre">.github/workflows/compare-refdata.yml</span></code> on your pull request. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ref1</span><span class="o">.</span><span class="n">hash</span><span class="p">:</span> <span class="s1">&#39;upstream/pr/11&#39;</span>
+<span class="n">ref2</span><span class="o">.</span><span class="n">hash</span><span class="p">:</span> <span class="s1">&#39;upstream/master&#39;</span>
+</pre></div>
+</div>
+<p>The web UI also allows to compare any version of the reference data by providing those
+variables at runtime, but the access to the dashboard is restricted to a small group
+of developers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If using the Azure dashboard, do not define <code class="docutils literal notranslate"><span class="pre">ref1.hash</span></code> and <code class="docutils literal notranslate"><span class="pre">ref2.hash</span></code>
+between quotation marks or <strong>the pipeline will fail</strong>. This does not apply for
+the YAML file.</p>
+</div>
+<p>Finally, the report is uploaded to the
+<a class="reference external" href="http://opensupernova.org/~azuredevops/files/refdata-results/">OpenSupernova.org server</a>
+following the <code class="docutils literal notranslate"><span class="pre">&lt;pr&gt;/&lt;commit&gt;</span></code> folder structure. If the pipeline fails, also a report is
+generated, but not necessarily gives useful debug information (depends on which step the
+pipeline has failed).</p>
 </div>
 </div>
 </div>
