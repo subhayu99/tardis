@@ -9,7 +9,7 @@ Submodules
 
    tardis.widgets.line_info
    tardis.widgets.plot_util
-   tardis.widgets.sedec_plot
+   tardis.widgets.sdec_plot
    tardis.widgets.shell_info
    tardis.widgets.util
 

@@ -1,7 +1,0 @@
-tardis.widgets.sedec\_plot module
-=================================
-
-.. automodule:: tardis.widgets.sedec_plot
-   :members:
-   :undoc-members:
-   :show-inheritance:
