@@ -208,7 +208,7 @@
 <span class="kn">from</span> <span class="nn">numba.experimental</span> <span class="kn">import</span> <span class="n">jitclass</span>
 
 <span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">from</span> <span class="nn">tardis.montecarlo.montecarlo_numba</span> <span class="kn">import</span> <span class="n">njit_dict</span><span class="p">,</span> <span class="n">numba_config</span>
+<span class="kn">from</span> <span class="nn">tardis.montecarlo.montecarlo_numba</span> <span class="kn">import</span> <span class="n">njit_dict</span><span class="p">,</span> <span class="n">numba_config</span> <span class="p">,</span> <span class="n">njit_dict_no_parallel</span>
 <span class="kn">from</span> <span class="nn">tardis.montecarlo</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">montecarlo_configuration</span> <span class="k">as</span> <span class="n">montecarlo_configuration</span><span class="p">,</span>
 <span class="p">)</span>
@@ -285,7 +285,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">next_line_id</span> <span class="o">=</span> <span class="n">next_line_id</span>
 
 
-<div class="viewcode-block" id="calculate_distance_boundary"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_boundary">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="calculate_distance_boundary"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_boundary">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calculate_distance_boundary</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">r_inner</span><span class="p">,</span> <span class="n">r_outer</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate distance to shell boundary in cm.</span>
@@ -329,7 +329,7 @@
 
 <span class="c1"># @log_decorator</span>
 <span class="c1">#&#39;float64(RPacket, float64, int64, float64, float64)&#39;</span>
-<div class="viewcode-block" id="calculate_distance_line"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_line">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="calculate_distance_line"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_line">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calculate_distance_line</span><span class="p">(</span>
     <span class="n">r_packet</span><span class="p">,</span> <span class="n">comov_nu</span><span class="p">,</span> <span class="n">is_last_line</span><span class="p">,</span> <span class="n">nu_line</span><span class="p">,</span> <span class="n">time_explosion</span>
 <span class="p">):</span>
@@ -380,7 +380,7 @@
     <span class="k">return</span> <span class="n">distance</span></div>
 
 
-<div class="viewcode-block" id="calculate_distance_line_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_line_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="calculate_distance_line_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_line_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calculate_distance_line_full_relativity</span><span class="p">(</span>
     <span class="n">nu_line</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">time_explosion</span><span class="p">,</span> <span class="n">r_packet</span>
 <span class="p">):</span>
@@ -405,7 +405,7 @@
     <span class="k">return</span> <span class="n">distance</span></div>
 
 
-<div class="viewcode-block" id="calculate_distance_electron"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_electron">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="calculate_distance_electron"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_distance_electron">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calculate_distance_electron</span><span class="p">(</span><span class="n">electron_density</span><span class="p">,</span> <span class="n">tau_event</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate distance to Thomson Scattering</span>
@@ -419,7 +419,7 @@
     <span class="k">return</span> <span class="n">tau_event</span> <span class="o">/</span> <span class="p">(</span><span class="n">electron_density</span> <span class="o">*</span> <span class="n">numba_config</span><span class="o">.</span><span class="n">SIGMA_THOMSON</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="calculate_tau_electron"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_tau_electron">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="calculate_tau_electron"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calculate_tau_electron">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calculate_tau_electron</span><span class="p">(</span><span class="n">electron_density</span><span class="p">,</span> <span class="n">distance</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate tau for Thomson scattering</span>
@@ -432,7 +432,7 @@
     <span class="k">return</span> <span class="n">electron_density</span> <span class="o">*</span> <span class="n">numba_config</span><span class="o">.</span><span class="n">SIGMA_THOMSON</span> <span class="o">*</span> <span class="n">distance</span></div>
 
 
-<div class="viewcode-block" id="get_doppler_factor"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_doppler_factor">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="get_doppler_factor"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_doppler_factor">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_doppler_factor</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">time_explosion</span><span class="p">):</span>
     <span class="n">inv_c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">C_SPEED_OF_LIGHT</span>
     <span class="n">inv_t</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">time_explosion</span>
@@ -443,17 +443,17 @@
         <span class="k">return</span> <span class="n">get_doppler_factor_full_relativity</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_doppler_factor_partial_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_doppler_factor_partial_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="get_doppler_factor_partial_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_doppler_factor_partial_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_doppler_factor_partial_relativity</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">beta</span></div>
 
 
-<div class="viewcode-block" id="get_doppler_factor_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_doppler_factor_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="get_doppler_factor_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_doppler_factor_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_doppler_factor_full_relativity</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_inverse_doppler_factor"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_inverse_doppler_factor">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="get_inverse_doppler_factor"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_inverse_doppler_factor">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_inverse_doppler_factor</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">time_explosion</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate doppler factor for frame transformation</span>
@@ -473,22 +473,22 @@
         <span class="k">return</span> <span class="n">get_inverse_doppler_factor_full_relativity</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_inverse_doppler_factor_partial_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_inverse_doppler_factor_partial_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="get_inverse_doppler_factor_partial_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_inverse_doppler_factor_partial_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_inverse_doppler_factor_partial_relativity</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_inverse_doppler_factor_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_inverse_doppler_factor_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="get_inverse_doppler_factor_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_inverse_doppler_factor_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_inverse_doppler_factor_full_relativity</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_random_mu"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_random_mu">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="get_random_mu"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.get_random_mu">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">get_random_mu</span><span class="p">():</span>
     <span class="k">return</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.0</span></div>
 
 
-<div class="viewcode-block" id="update_line_estimators"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.update_line_estimators">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="update_line_estimators"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.update_line_estimators">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">update_line_estimators</span><span class="p">(</span>
     <span class="n">estimators</span><span class="p">,</span> <span class="n">r_packet</span><span class="p">,</span> <span class="n">cur_line_id</span><span class="p">,</span> <span class="n">distance_trace</span><span class="p">,</span> <span class="n">time_explosion</span>
 <span class="p">):</span>
@@ -525,13 +525,13 @@
     <span class="p">]</span> <span class="o">+=</span> <span class="n">energy</span></div>
 
 
-<div class="viewcode-block" id="calc_packet_energy_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calc_packet_energy_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="calc_packet_energy_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calc_packet_energy_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calc_packet_energy_full_relativity</span><span class="p">(</span><span class="n">r_packet</span><span class="p">):</span>
     <span class="c1"># accurate to 1 / gamma - according to C. Vogl</span>
     <span class="k">return</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">energy</span></div>
 
 
-<div class="viewcode-block" id="calc_packet_energy"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calc_packet_energy">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="calc_packet_energy"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.calc_packet_energy">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calc_packet_energy</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">distance_trace</span><span class="p">,</span> <span class="n">time_explosion</span><span class="p">):</span>
     <span class="n">doppler_factor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span>
         <span class="p">(</span><span class="n">distance_trace</span> <span class="o">+</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">mu</span> <span class="o">*</span> <span class="n">r_packet</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>
@@ -541,7 +541,7 @@
     <span class="k">return</span> <span class="n">energy</span></div>
 
 
-<div class="viewcode-block" id="trace_packet"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.trace_packet">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="trace_packet"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.trace_packet">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">trace_packet</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">numba_model</span><span class="p">,</span> <span class="n">numba_plasma</span><span class="p">,</span> <span class="n">estimators</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Traces the RPacket through the ejecta and stops when an interaction happens (heart of the calculation)</span>
@@ -696,7 +696,7 @@
     <span class="k">return</span> <span class="n">distance</span><span class="p">,</span> <span class="n">interaction_type</span><span class="p">,</span> <span class="n">delta_shell</span></div>
 
 
-<div class="viewcode-block" id="move_r_packet"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.move_r_packet">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="move_r_packet"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.move_r_packet">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">move_r_packet</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">time_explosion</span><span class="p">,</span> <span class="n">numba_estimator</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Move packet a distance and recalculate the new angle mu</span>
@@ -743,7 +743,7 @@
             <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="set_estimators"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.set_estimators">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="set_estimators"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.set_estimators">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">set_estimators</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">numba_estimator</span><span class="p">,</span> <span class="n">comov_nu</span><span class="p">,</span> <span class="n">comov_energy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Updating the estimators</span>
@@ -756,7 +756,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="set_estimators_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.set_estimators_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="set_estimators_full_relativity"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.set_estimators_full_relativity">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">set_estimators_full_relativity</span><span class="p">(</span>
     <span class="n">r_packet</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">numba_estimator</span><span class="p">,</span> <span class="n">comov_nu</span><span class="p">,</span> <span class="n">comov_energy</span><span class="p">,</span> <span class="n">doppler_factor</span>
 <span class="p">):</span>
@@ -768,7 +768,7 @@
     <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="move_packet_across_shell_boundary"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.move_packet_across_shell_boundary">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="move_packet_across_shell_boundary"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.move_packet_across_shell_boundary">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">move_packet_across_shell_boundary</span><span class="p">(</span><span class="n">packet</span><span class="p">,</span> <span class="n">delta_shell</span><span class="p">,</span> <span class="n">no_of_shells</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Move packet across shell boundary - realizing if we are still in the simulation or have</span>
@@ -796,7 +796,7 @@
         <span class="n">packet</span><span class="o">.</span><span class="n">current_shell_id</span> <span class="o">=</span> <span class="n">next_shell_id</span></div>
 
 
-<div class="viewcode-block" id="angle_aberration_CMF_to_LF"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.angle_aberration_CMF_to_LF">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="angle_aberration_CMF_to_LF"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.angle_aberration_CMF_to_LF">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">angle_aberration_CMF_to_LF</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">time_explosion</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converts angle aberration from comoving frame to</span>
@@ -807,7 +807,7 @@
     <span class="k">return</span> <span class="p">(</span><span class="n">r_packet</span><span class="o">.</span><span class="n">mu</span> <span class="o">+</span> <span class="n">beta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="angle_aberration_LF_to_CMF"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.angle_aberration_LF_to_CMF">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="angle_aberration_LF_to_CMF"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.angle_aberration_LF_to_CMF">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">angle_aberration_LF_to_CMF</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">time_explosion</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 
@@ -820,7 +820,7 @@
     <span class="k">return</span> <span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="n">beta</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">mu</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="test_for_close_line"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.test_for_close_line">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="test_for_close_line"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.r_packet.html#tardis.montecarlo.montecarlo_numba.r_packet.test_for_close_line">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">test_for_close_line</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">line_id</span><span class="p">,</span> <span class="n">nu_line</span><span class="p">,</span> <span class="n">numba_plasma</span><span class="p">):</span>
     <span class="n">r_packet</span><span class="o">.</span><span class="n">is_close_line</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span>
         <span class="n">numba_plasma</span><span class="o">.</span><span class="n">line_list_nu</span><span class="p">[</span><span class="n">line_id</span><span class="p">]</span> <span class="o">-</span> <span class="n">nu_line</span>

@@ -205,7 +205,7 @@
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
 
 <span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
-<span class="kn">from</span> <span class="nn">tardis.montecarlo.montecarlo_numba</span> <span class="kn">import</span> <span class="n">njit_dict</span>
+<span class="kn">from</span> <span class="nn">tardis.montecarlo.montecarlo_numba</span> <span class="kn">import</span> <span class="n">njit_dict</span> <span class="p">,</span><span class="n">njit_dict_no_parallel</span>
 
 
 <div class="viewcode-block" id="MacroAtomError"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.macro_atom.html#tardis.montecarlo.montecarlo_numba.macro_atom.MacroAtomError">[docs]</a><span class="k">class</span> <span class="nc">MacroAtomError</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
@@ -221,7 +221,7 @@
     <span class="n">ADIABATIC_COOLING</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span></div>
 
 
-<div class="viewcode-block" id="macro_atom"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.macro_atom.html#tardis.montecarlo.montecarlo_numba.macro_atom.macro_atom">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="macro_atom"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.macro_atom.html#tardis.montecarlo.montecarlo_numba.macro_atom.macro_atom">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">macro_atom</span><span class="p">(</span><span class="n">r_packet</span><span class="p">,</span> <span class="n">numba_plasma</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parameters</span>

@@ -205,7 +205,7 @@
 <span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span><span class="p">,</span> <span class="n">gdb</span>
 <span class="kn">from</span> <span class="nn">numba.experimental</span> <span class="kn">import</span> <span class="n">jitclass</span>
 
-<span class="kn">from</span> <span class="nn">tardis.montecarlo.montecarlo_numba</span> <span class="kn">import</span> <span class="n">njit_dict</span>
+<span class="kn">from</span> <span class="nn">tardis.montecarlo.montecarlo_numba</span> <span class="kn">import</span> <span class="n">njit_dict</span> <span class="p">,</span> <span class="n">njit_dict_no_parallel</span>
 <span class="kn">from</span> <span class="nn">tardis.montecarlo</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">montecarlo_configuration</span> <span class="k">as</span> <span class="n">montecarlo_configuration</span><span class="p">,</span>
 <span class="p">)</span>
@@ -261,7 +261,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">is_close_line</span> <span class="o">=</span> <span class="n">is_close_line</span>
 
 
-<div class="viewcode-block" id="trace_vpacket_within_shell"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.vpacket.html#tardis.montecarlo.montecarlo_numba.vpacket.trace_vpacket_within_shell">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="trace_vpacket_within_shell"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.vpacket.html#tardis.montecarlo.montecarlo_numba.vpacket.trace_vpacket_within_shell">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">trace_vpacket_within_shell</span><span class="p">(</span><span class="n">v_packet</span><span class="p">,</span> <span class="n">numba_model</span><span class="p">,</span> <span class="n">numba_plasma</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Trace VPacket within one shell (relatively simple operation)</span>
@@ -337,7 +337,7 @@
     <span class="k">return</span> <span class="n">tau_trace_combined</span><span class="p">,</span> <span class="n">distance_boundary</span><span class="p">,</span> <span class="n">delta_shell</span></div>
 
 
-<div class="viewcode-block" id="trace_vpacket"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.vpacket.html#tardis.montecarlo.montecarlo_numba.vpacket.trace_vpacket">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="trace_vpacket"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.vpacket.html#tardis.montecarlo.montecarlo_numba.vpacket.trace_vpacket">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">trace_vpacket</span><span class="p">(</span><span class="n">v_packet</span><span class="p">,</span> <span class="n">numba_model</span><span class="p">,</span> <span class="n">numba_plasma</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Trace single vpacket.</span>
@@ -392,7 +392,7 @@
     <span class="k">return</span> <span class="n">tau_trace_combined</span></div>
 
 
-<div class="viewcode-block" id="trace_vpacket_volley"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.vpacket.html#tardis.montecarlo.montecarlo_numba.vpacket.trace_vpacket_volley">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict</span><span class="p">)</span>
+<div class="viewcode-block" id="trace_vpacket_volley"><a class="viewcode-back" href="../../../../api/tardis.montecarlo.montecarlo_numba.vpacket.html#tardis.montecarlo.montecarlo_numba.vpacket.trace_vpacket_volley">[docs]</a><span class="nd">@njit</span><span class="p">(</span><span class="o">**</span><span class="n">njit_dict_no_parallel</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">trace_vpacket_volley</span><span class="p">(</span>
     <span class="n">r_packet</span><span class="p">,</span> <span class="n">vpacket_collection</span><span class="p">,</span> <span class="n">numba_model</span><span class="p">,</span> <span class="n">numba_plasma</span>
 <span class="p">):</span>
