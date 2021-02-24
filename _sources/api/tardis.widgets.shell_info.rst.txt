@@ -1,7 +1,0 @@
-tardis.widgets.shell\_info module
-=================================
-
-.. automodule:: tardis.widgets.shell_info
-   :members:
-   :undoc-members:
-   :show-inheritance:
